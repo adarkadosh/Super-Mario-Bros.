@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 10f4e28876e984d60904bc5d8dc8550b
+guid: f84a7fead11a14572bbc1f990017bdea
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6689877814112333515
-    second: NES - Super Mario Bros - World 1-3_0
+      213: 634314344326597310
+    second: NES - Super Mario Bros - Background 1 Mountains_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -48,7 +48,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 16
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: NES - Super Mario Bros - World 1-3_0
+      name: NES - Super Mario Bros - Background 1 Mountains_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 2624
-        height: 240
+        x: 516
+        y: 132
+        width: 30
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 53151139297c823a0800000000000000
-      internalID: -6689877814112333515
+      spriteID: eba858119898dc800800000000000000
+      internalID: 634314344326597310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NES - Super Mario Bros - Background 1 Mountains_1
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 132
+        width: 30
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f0a6219e069b4426a4d0ea1b1428363
+      internalID: -1411840829
       vertices: []
       indices: 
       edges: []
@@ -125,7 +147,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: cc9dafb265086467eb033b6ee4734395
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +157,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      NES - Super Mario Bros - World 1-3_0: -6689877814112333515
+      NES - Super Mario Bros - Background 1 Mountains_0: 634314344326597310
+      NES - Super Mario Bros - Background 1 Mountains_1: -1411840829
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
