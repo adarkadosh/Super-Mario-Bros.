@@ -8,20 +8,21 @@ TagManager:
   - BreakingBrick
   - BonusBox
   - Pipe
+  - CameraBoundaries
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Mario
   - Water
   - UI
   - Ground
   - Bricks
   - Pipes
   - Obstacles
-  - 
-  - 
-  - 
+  - PowerUp
+  - Enemies
+  - CameraBoundaries
   - 
   - 
   - 
