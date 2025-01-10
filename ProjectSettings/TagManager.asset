@@ -9,6 +9,7 @@ TagManager:
   - BonusBox
   - Pipe
   - CameraBoundaries
+  - Goomba
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Pipes
   - Obstacles
   - PowerUp
-  - Enemies
+  - Enemy
   - CameraBoundaries
   - 
   - 
