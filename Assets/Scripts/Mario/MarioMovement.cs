@@ -71,7 +71,8 @@ public class MarioMovement : MonoBehaviour
         else if (isJumping && jumpHoldTime < maxJumpHoldTime)
         {
             // Add additional force for a big jump
-            _rigidbody.AddForce(Vector2.up * (bigJumpForce * Time.fixedDeltaTime));
+            // _rigidbody.AddForce(Vector2.up * (bigJumpForce * Time.fixedDeltaTime));
+            _rigidbody.linearVelocity = new Vector2(_rigidbody.linearVelocity.x, bigJumpForce);
             jumpHoldTime += Time.fixedDeltaTime;
         }
     }

@@ -6,7 +6,7 @@ PhysicsMaterial2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: New Physics Material 2D
+  m_Name: NoFriction
   serializedVersion: 2
   friction: 0
   bounciness: 0

@@ -10,7 +10,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed = 8f; // Horizontal movement speed
     [SerializeField] private float maxJumpHeight = 5f; // Maximum jump height
     [SerializeField] private float maxJumpTime = 1f; // Maximum time the jump can be sustained
-    [SerializeField] private float JumpForce => (2f * maxJumpHeight) / (maxJumpTime / 2f);
+    // [SerializeField] private float JumpForce => (2f * maxJumpHeight) / (maxJumpTime / 2f);
+    [SerializeField] private float JumpForce = 10f;
     [SerializeField] private float fallMultiplier = 2f;
     [SerializeField] private float jumpMultiplier = 1f;
 
@@ -28,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     private Camera _mainCamera; // Reference to the main camera
 
 
-    private InputSystem_Actions _inputActions; // Reference to the input actions
+    private PlayerInputActions _inputActions; // Reference to the input actions
     [SerializeField] private Vector2 velocity;
     private Vector3 jumpStartPosition;
 
@@ -36,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _mainCamera = Camera.main;
-        _inputActions = new InputSystem_Actions();
+        _inputActions = new PlayerInputActions();
     }
 
     private void Update()
@@ -45,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
         // _isGrounded = Physics2D.Raycast(transform.position + Vector3.left * 0.51f, Vector2.down, 0.05f, groundLayer) ||
                       // Physics2D.Raycast(transform.position + Vector3.right * 0.51f, Vector2.down, 0.05f, groundLayer);
         _isGrounded = Physics2D.BoxCast(transform.position, new Vector2(1f, 0.1f), 0f, Vector2.down, 0.1f, groundLayer);
-        Debug.DrawRay(transform.position, Vector2.down * 0.1f, Color.green); // Visualize BoxCast
+        Debug.DrawLine(transform.position, Vector2.down * 0.1f, Color.green); // Visualize BoxCast
         // Debug.DrawRay(transform.position + Vector3.left * 0.4f, Vector2.down * 0.375f, Color.green);
         // Debug.DrawRay(transform.position + Vector3.right * 0.4f, Vector2.down * 0.375f, Color.green);
         
@@ -130,7 +131,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.layer != LayerMask.NameToLayer("PowerUp"))
         {
-            Vector2 direction = other.transform.position - transform.position;
+            Vector2 direction =  transform.position - other.transform.position;
             if (Vector2.Dot(direction.normalized, Vector2.up) > 0.25f)
             {
                 velocity.y = 0f;
