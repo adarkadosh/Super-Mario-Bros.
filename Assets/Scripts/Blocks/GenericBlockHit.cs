@@ -18,7 +18,7 @@ public class GenericBlockHit : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (isAnyBlockHit || _isHit || maxHitsToBlock == 0)
-        // if (_isHit || maxHitsToBlock == 0)
+            // if (_isHit || maxHitsToBlock == 0)
             return;
 
         if (other.gameObject.CompareTag("Player"))
@@ -43,14 +43,12 @@ public class GenericBlockHit : MonoBehaviour
         // GetComponent<SpriteRenderer>().enabled = true;
         maxHitsToBlock--;
 
-        if (maxHitsToBlock == 0)
+        if (maxHitsToBlock == 0 && _animator != null)
         {
-            _animator?.SetBool(GotHit, true);
+            _animator.SetBool(GotHit, true);
         }
-
-        TriggerEffect();
-
-        AnimatedBlockGotHit();
+        
+        StartCoroutine(AnimatedBlockGotHitCoroutine());
     }
 
     protected virtual void TriggerEffect()
@@ -59,12 +57,20 @@ public class GenericBlockHit : MonoBehaviour
         Debug.Log("Block hit with no special effect.");
     }
 
-    private void AnimatedBlockGotHit()
+
+    private IEnumerator AnimatedBlockGotHitCoroutine()
     {
-        // Replace with your animation logic
-        // yield return new WaitForSeconds(0.5f);
-        StartCoroutine(Extensions.AnimatedBlockGotHit(gameObject));
+        // Start the animation coroutine
+        yield return Extensions.AnimatedBlockGotHit(gameObject);
+
+        // Reset hit states
         _isHit = false;
         isAnyBlockHit = false;
+
+        // Trigger the effect (e.g., spawn mushroom)
+        if (maxHitsToBlock >= 0)
+        {
+            TriggerEffect();
+        }
     }
 }

@@ -27,13 +27,31 @@ public static class Extensions
         Debug.DrawRay(origin, direction.normalized * distance, Color.green);
     }
 
+    // public static IEnumerator AnimatedBlockGotHit(GameObject gameObject, float offsetY = 0.5f,
+    //     float duration = 0.125f)
+    // {
+    //     Vector3 originalPosition = gameObject.transform.position;
+    //     yield return gameObject.transform.DOMoveY(gameObject.transform.position.y + offsetY, duration)
+    //         .SetEase(Ease.Linear);
+    //     yield return new WaitForSeconds(duration);
+    //     yield return gameObject.transform.DOMoveY(originalPosition.y, duration / 2).SetEase(Ease.Linear);
+    // }
     public static IEnumerator AnimatedBlockGotHit(GameObject gameObject, float offsetY = 0.5f,
-        float duration = 0.125f)
+        float duration = 0.125f, float offsetOnReturn = 0f, float delay = 0.05f)
     {
         Vector3 originalPosition = gameObject.transform.position;
-        yield return gameObject.transform.DOMoveY(gameObject.transform.position.y + offsetY, duration)
+
+        // Move the block up
+        Tweener moveUp = gameObject.transform.DOMoveY(originalPosition.y + offsetY, duration)
             .SetEase(Ease.Linear);
-        yield return new WaitForSeconds(duration);
-        yield return gameObject.transform.DOMoveY(originalPosition.y, duration / 2).SetEase(Ease.Linear);
+        yield return moveUp.WaitForCompletion();
+
+        // Optional: Wait for a short duration if needed
+        yield return new WaitForSeconds(delay); // Adjust as necessary
+
+        // Move the block back down
+        Tweener moveDown = gameObject.transform.DOMoveY(originalPosition.y + offsetOnReturn, duration / 2)
+            .SetEase(Ease.Linear);
+        yield return moveDown.WaitForCompletion();
     }
 }

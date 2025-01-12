@@ -14,7 +14,7 @@ public class BlockCoin : MonoBehaviour, IPoolable
 
     private IEnumerator Animate()
     {
-        yield return Extensions.AnimatedBlockGotHit(gameObject, 2f, 0.5f);
+        yield return Extensions.AnimatedBlockGotHit(gameObject, 2f, 0.25f, 1f);
         MonoPool<BlockCoin>.Instance.Return(this);
     }
 

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &179967459183939017
+--- !u!1 &8626929918991628849
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,26 +8,26 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4335289285491964951}
-  - component: {fileID: 4337642821893767904}
-  - component: {fileID: 4977359845126049881}
-  - component: {fileID: 6893922813440224274}
-  - component: {fileID: 2903854853412804370}
-  - component: {fileID: 2807554852219353331}
+  - component: {fileID: 5468873510267990510}
+  - component: {fileID: 5336753646254252200}
+  - component: {fileID: 2017258611383493332}
+  - component: {fileID: 5949111793878733681}
+  - component: {fileID: 6926273023100696311}
+  - component: {fileID: 5734715214523308750}
   m_Layer: 10
-  m_Name: PowerUp Mashroom
+  m_Name: Star
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4335289285491964951
+--- !u!4 &5468873510267990510
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 179967459183939017}
+  m_GameObject: {fileID: 8626929918991628849}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -36,13 +36,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &4337642821893767904
+--- !u!212 &5336753646254252200
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 179967459183939017}
+  m_GameObject: {fileID: 8626929918991628849}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 6699418911261814111, guid: f7fe5554a8587d54e977b251ff22e08b, type: 3}
+  m_Sprite: {fileID: -236527033, guid: f7fe5554a8587d54e977b251ff22e08b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -91,14 +91,14 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &4977359845126049881
+--- !u!50 &2017258611383493332
 Rigidbody2D:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 179967459183939017}
+  m_GameObject: {fileID: 8626929918991628849}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -118,13 +118,13 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &6893922813440224274
+--- !u!58 &5949111793878733681
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 179967459183939017}
+  m_GameObject: {fileID: 8626929918991628849}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -154,25 +154,13 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
---- !u!114 &2903854853412804370
+--- !u!114 &6926273023100696311
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 179967459183939017}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1d8a3b0e2dc44fe9e28e64367085f13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2807554852219353331
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 179967459183939017}
+  m_GameObject: {fileID: 8626929918991628849}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 02a4538e6d71349b7b5beec5b43d1875, type: 3}
@@ -186,3 +174,15 @@ MonoBehaviour:
   sameLayerMask:
     serializedVersion: 2
     m_Bits: 0
+--- !u!114 &5734715214523308750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8626929918991628849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07474cf28530442591331ac3b648eb47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

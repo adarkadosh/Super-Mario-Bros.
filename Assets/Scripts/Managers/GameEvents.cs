@@ -6,4 +6,5 @@ public class GameEvents : MonoSingleton<GameEvents>
     public static Action OnPlayerDeath;
     public static Action OnPlayerRespawn;
     public static Action<int> OnCoinCollected;
+    public static Action OnGotExtraLife;
 }

@@ -21,11 +21,15 @@ public class GameManager : MonoSingleton<GameManager>
     private void OnEnable()
     {
         GameEvents.OnResetLevel += ResetLevel;
+        GameEvents.OnCoinCollected += AddCoin;
+        GameEvents.OnGotExtraLife += AddLife;
     }
     
     private void OnDisable()
     {
         GameEvents.OnResetLevel -= ResetLevel;
+        GameEvents.OnCoinCollected -= AddCoin;
+        GameEvents.OnGotExtraLife -= AddLife;
     }
     
     public void ResetLevel(float delay)
@@ -51,7 +55,7 @@ public class GameManager : MonoSingleton<GameManager>
         SceneManager.LoadScene("GameOver");
     }
     
-    public void AddCoin()
+    public void AddCoin(int coins)
     {
         Coins++;
         if (Coins >= maxCoinsToGetLife)
