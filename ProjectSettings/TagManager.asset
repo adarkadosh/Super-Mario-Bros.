@@ -11,6 +11,7 @@ TagManager:
   - CameraBoundaries
   - Goomba
   - Koopa
+  - BlockCoin
   layers:
   - Default
   - TransparentFX

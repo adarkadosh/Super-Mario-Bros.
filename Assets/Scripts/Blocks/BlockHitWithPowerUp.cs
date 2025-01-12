@@ -1,0 +1,25 @@
+using PowerUps;
+using UnityEngine;
+
+namespace Blocks
+{
+    public class BlockHitWithPowerUp : GenericBlockHit
+    {
+        [SerializeField] private PowerupMashrromPool powerUpPool;
+
+        protected override void TriggerEffect()
+        {
+            if (powerUpPool != null)
+            {
+                var powerUp = powerUpPool.Get();
+                powerUp.transform.position = transform.position;
+                powerUp.Trigger();
+                Debug.Log("Power-up spawned from block hit.");
+            }
+            else
+            {
+                Debug.LogWarning("Power-up pool is not assigned.");
+            }
+        }
+    }
+}

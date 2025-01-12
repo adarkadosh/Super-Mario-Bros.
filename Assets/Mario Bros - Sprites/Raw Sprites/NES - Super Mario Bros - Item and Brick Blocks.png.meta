@@ -1,0 +1,1173 @@
+fileFormatVersion: 2
+guid: ce6c8a2e6c2b648f9b05e01d5139d52c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -94466297003139003
+    second: NES - Super Mario Bros - Item and Brick Blocks_0
+  - first:
+      213: 7330100277581190001
+    second: NES - Super Mario Bros - Item and Brick Blocks_1
+  - first:
+      213: 1030924830166177766
+    second: NES - Super Mario Bros - Item and Brick Blocks_2
+  - first:
+      213: -7001207782052044158
+    second: NES - Super Mario Bros - Item and Brick Blocks_3
+  - first:
+      213: 5850756092708364211
+    second: NES - Super Mario Bros - Item and Brick Blocks_4
+  - first:
+      213: 1528821007687985126
+    second: NES - Super Mario Bros - Item and Brick Blocks_5
+  - first:
+      213: 8051896782358044601
+    second: NES - Super Mario Bros - Item and Brick Blocks_6
+  - first:
+      213: -6508102078453684903
+    second: NES - Super Mario Bros - Item and Brick Blocks_7
+  - first:
+      213: 2852824076911173193
+    second: NES - Super Mario Bros - Item and Brick Blocks_8
+  - first:
+      213: -8109420233280340780
+    second: NES - Super Mario Bros - Item and Brick Blocks_9
+  - first:
+      213: 7420503577897087274
+    second: NES - Super Mario Bros - Item and Brick Blocks_10
+  - first:
+      213: 6934972553569875315
+    second: NES - Super Mario Bros - Item and Brick Blocks_11
+  - first:
+      213: -6590582152122229707
+    second: NES - Super Mario Bros - Item and Brick Blocks_12
+  - first:
+      213: -8935612524690747859
+    second: NES - Super Mario Bros - Item and Brick Blocks_13
+  - first:
+      213: 1178812545895945536
+    second: NES - Super Mario Bros - Item and Brick Blocks_14
+  - first:
+      213: 2513564315855687434
+    second: NES - Super Mario Bros - Item and Brick Blocks_15
+  - first:
+      213: 6312978426884773893
+    second: NES - Super Mario Bros - Item and Brick Blocks_16
+  - first:
+      213: -1417211341058992345
+    second: NES - Super Mario Bros - Item and Brick Blocks_17
+  - first:
+      213: -209052963437200894
+    second: NES - Super Mario Bros - Item and Brick Blocks_18
+  - first:
+      213: -4550423240556534106
+    second: NES - Super Mario Bros - Item and Brick Blocks_19
+  - first:
+      213: 2813813067963879015
+    second: NES - Super Mario Bros - Item and Brick Blocks_20
+  - first:
+      213: 8447356830732362761
+    second: NES - Super Mario Bros - Item and Brick Blocks_21
+  - first:
+      213: -4965616384463152380
+    second: NES - Super Mario Bros - Item and Brick Blocks_22
+  - first:
+      213: -1196111064729777977
+    second: NES - Super Mario Bros - Item and Brick Blocks_23
+  - first:
+      213: 3537067237948302795
+    second: NES - Super Mario Bros - Item and Brick Blocks_24
+  - first:
+      213: 193582249652379125
+    second: NES - Super Mario Bros - Item and Brick Blocks_25
+  - first:
+      213: -129716620782168258
+    second: NES - Super Mario Bros - Item and Brick Blocks_26
+  - first:
+      213: 15863483807700577
+    second: NES - Super Mario Bros - Item and Brick Blocks_27
+  - first:
+      213: -2558491058354208308
+    second: NES - Super Mario Bros - Item and Brick Blocks_28
+  - first:
+      213: 5149773405865177772
+    second: NES - Super Mario Bros - Item and Brick Blocks_29
+  - first:
+      213: 8955481101278088767
+    second: NES - Super Mario Bros - Item and Brick Blocks_30
+  - first:
+      213: 5326241861688080798
+    second: NES - Super Mario Bros - Item and Brick Blocks_31
+  - first:
+      213: -410448575767348303
+    second: NES - Super Mario Bros - Item and Brick Blocks_32
+  - first:
+      213: 1941805872586971056
+    second: NES - Super Mario Bros - Item and Brick Blocks_33
+  - first:
+      213: -5777120202306515872
+    second: NES - Super Mario Bros - Item and Brick Blocks_34
+  - first:
+      213: -4412108714785353590
+    second: NES - Super Mario Bros - Item and Brick Blocks_35
+  - first:
+      213: 4986351763396270702
+    second: NES - Super Mario Bros - Item and Brick Blocks_36
+  - first:
+      213: -2560942755959100666
+    second: NES - Super Mario Bros - Item and Brick Blocks_37
+  - first:
+      213: 5933796307736161315
+    second: NES - Super Mario Bros - Item and Brick Blocks_38
+  - first:
+      213: -7990971621334142865
+    second: NES - Super Mario Bros - Item and Brick Blocks_39
+  - first:
+      213: -3716121586166285018
+    second: NES - Super Mario Bros - Item and Brick Blocks_40
+  - first:
+      213: 6057341154326466620
+    second: NES - Super Mario Bros - Item and Brick Blocks_41
+  - first:
+      213: -2333374128855697821
+    second: NES - Super Mario Bros - Item and Brick Blocks_42
+  - first:
+      213: -767020114526708746
+    second: NES - Super Mario Bros - Item and Brick Blocks_43
+  - first:
+      213: -6372271190633677881
+    second: NES - Super Mario Bros - Item and Brick Blocks_44
+  - first:
+      213: 495114193669899015
+    second: NES - Super Mario Bros - Item and Brick Blocks_45
+  - first:
+      213: -490500163169410675
+    second: NES - Super Mario Bros - Item and Brick Blocks_46
+  - first:
+      213: -9056232500753049227
+    second: NES - Super Mario Bros - Item and Brick Blocks_47
+  - first:
+      213: 8545821628614839609
+    second: NES - Super Mario Bros - Item and Brick Blocks_48
+  - first:
+      213: -5589416961472142400
+    second: NES - Super Mario Bros - Item and Brick Blocks_49
+  - first:
+      213: 2391935126188455076
+    second: NES - Super Mario Bros - Item and Brick Blocks_50
+  - first:
+      213: 644127027706281213
+    second: NES - Super Mario Bros - Item and Brick Blocks_51
+  - first:
+      213: 5086347511040176885
+    second: NES - Super Mario Bros - Item and Brick Blocks_52
+  - first:
+      213: -3072258661599106646
+    second: NES - Super Mario Bros - Item and Brick Blocks_53
+  - first:
+      213: -7817860801251589439
+    second: NES - Super Mario Bros - Item and Brick Blocks_54
+  - first:
+      213: 419830382144356339
+    second: NES - Super Mario Bros - Item and Brick Blocks_55
+  - first:
+      213: -4856156185308292833
+    second: NES - Super Mario Bros - Item and Brick Blocks_56
+  - first:
+      213: -9131359251953846502
+    second: NES - Super Mario Bros - Item and Brick Blocks_57
+  - first:
+      213: -8640766050413278094
+    second: NES - Super Mario Bros - Item and Brick Blocks_58
+  - first:
+      213: -8996495105959053740
+    second: NES - Super Mario Bros - Item and Brick Blocks_59
+  - first:
+      213: 4368459413109023876
+    second: NES - Super Mario Bros - Item and Brick Blocks_60
+  - first:
+      213: -3508013984478154343
+    second: NES - Super Mario Bros - Item and Brick Blocks_61
+  - first:
+      213: 3959272808861094590
+    second: NES - Super Mario Bros - Item and Brick Blocks_62
+  - first:
+      213: 7782288310008841268
+    second: NES - Super Mario Bros - Item and Brick Blocks_63
+  - first:
+      213: -8942310083716543671
+    second: NES - Super Mario Bros - Item and Brick Blocks_64
+  - first:
+      213: -2406738612965572897
+    second: NES - Super Mario Bros - Item and Brick Blocks_65
+  - first:
+      213: 2070913493073300084
+    second: NES - Super Mario Bros - Item and Brick Blocks_66
+  - first:
+      213: -2718052267869056898
+    second: NES - Super Mario Bros - Item and Brick Blocks_67
+  - first:
+      213: -4176532774246542189
+    second: NES - Super Mario Bros - Item and Brick Blocks_68
+  - first:
+      213: -3390383141984787921
+    second: NES - Super Mario Bros - Item and Brick Blocks_69
+  - first:
+      213: -8272341902970635290
+    second: NES - Super Mario Bros - Item and Brick Blocks_70
+  - first:
+      213: -214224170230599140
+    second: NES - Super Mario Bros - Item and Brick Blocks_71
+  - first:
+      213: 6348286696549404283
+    second: NES - Super Mario Bros - Item and Brick Blocks_72
+  - first:
+      213: -8976137696336171787
+    second: NES - Super Mario Bros - Item and Brick Blocks_73
+  - first:
+      213: -1439569131483247877
+    second: NES - Super Mario Bros - Item and Brick Blocks_74
+  - first:
+      213: 5304742797520109242
+    second: NES - Super Mario Bros - Item and Brick Blocks_75
+  - first:
+      213: -2616676772610473793
+    second: NES - Super Mario Bros - Item and Brick Blocks_76
+  - first:
+      213: -4612631536010949073
+    second: NES - Super Mario Bros - Item and Brick Blocks_77
+  - first:
+      213: 6763304280843316816
+    second: NES - Super Mario Bros - Item and Brick Blocks_78
+  - first:
+      213: 3724351422542127032
+    second: NES - Super Mario Bros - Item and Brick Blocks_79
+  - first:
+      213: 7239002970213300870
+    second: NES - Super Mario Bros - Item and Brick Blocks_80
+  - first:
+      213: 7275887150961961264
+    second: NES - Super Mario Bros - Item and Brick Blocks_81
+  - first:
+      213: 3825432452896616136
+    second: NES - Super Mario Bros - Item and Brick Blocks_82
+  - first:
+      213: 8180120394241826311
+    second: NES - Super Mario Bros - Item and Brick Blocks_83
+  - first:
+      213: 8082460651643473833
+    second: NES - Super Mario Bros - Item and Brick Blocks_84
+  - first:
+      213: 7472020839481246564
+    second: NES - Super Mario Bros - Item and Brick Blocks_85
+  - first:
+      213: -3809128270540392168
+    second: NES - Super Mario Bros - Item and Brick Blocks_86
+  - first:
+      213: 5917249898009289334
+    second: NES - Super Mario Bros - Item and Brick Blocks_87
+  - first:
+      213: 5368469939368721222
+    second: NES - Super Mario Bros - Item and Brick Blocks_88
+  - first:
+      213: 8592421140623845190
+    second: NES - Super Mario Bros - Item and Brick Blocks_89
+  - first:
+      213: -8318338049471817032
+    second: NES - Super Mario Bros - Item and Brick Blocks_90
+  - first:
+      213: 7928134880763022362
+    second: NES - Super Mario Bros - Item and Brick Blocks_91
+  - first:
+      213: 4189935136802669304
+    second: NES - Super Mario Bros - Item and Brick Blocks_92
+  - first:
+      213: -453078986941938569
+    second: NES - Super Mario Bros - Item and Brick Blocks_93
+  - first:
+      213: -2951156158893556335
+    second: NES - Super Mario Bros - Item and Brick Blocks_94
+  - first:
+      213: -7054184492831810662
+    second: NES - Super Mario Bros - Item and Brick Blocks_95
+  - first:
+      213: 9066988893421427529
+    second: NES - Super Mario Bros - Item and Brick Blocks_96
+  - first:
+      213: -491621129514978287
+    second: NES - Super Mario Bros - Item and Brick Blocks_97
+  - first:
+      213: -4176848436260311763
+    second: NES - Super Mario Bros - Item and Brick Blocks_98
+  - first:
+      213: -1334680353548507471
+    second: NES - Super Mario Bros - Item and Brick Blocks_99
+  - first:
+      213: -5674077310009415265
+    second: NES - Super Mario Bros - Item and Brick Blocks_100
+  - first:
+      213: 6289230090043913240
+    second: NES - Super Mario Bros - Item and Brick Blocks_101
+  - first:
+      213: 5034880937684785907
+    second: NES - Super Mario Bros - Item and Brick Blocks_102
+  - first:
+      213: 4352178037007202817
+    second: NES - Super Mario Bros - Item and Brick Blocks_103
+  - first:
+      213: -852641792412822230
+    second: NES - Super Mario Bros - Item and Brick Blocks_104
+  - first:
+      213: -2474126378413774778
+    second: NES - Super Mario Bros - Item and Brick Blocks_105
+  - first:
+      213: -3114297445445735909
+    second: NES - Super Mario Bros - Item and Brick Blocks_106
+  - first:
+      213: -6546040326733589104
+    second: NES - Super Mario Bros - Item and Brick Blocks_107
+  - first:
+      213: 7292499384039955703
+    second: NES - Super Mario Bros - Item and Brick Blocks_108
+  - first:
+      213: -5325653851499399999
+    second: NES - Super Mario Bros - Item and Brick Blocks_109
+  - first:
+      213: -7861825310611249487
+    second: NES - Super Mario Bros - Item and Brick Blocks_110
+  - first:
+      213: 8866136206340372489
+    second: NES - Super Mario Bros - Item and Brick Blocks_111
+  - first:
+      213: -5143036123583653294
+    second: NES - Super Mario Bros - Item and Brick Blocks_112
+  - first:
+      213: -3211374866330787354
+    second: NES - Super Mario Bros - Item and Brick Blocks_113
+  - first:
+      213: 23556073675896004
+    second: NES - Super Mario Bros - Item and Brick Blocks_114
+  - first:
+      213: 5136823274098967574
+    second: NES - Super Mario Bros - Item and Brick Blocks_115
+  - first:
+      213: 7849797879194521562
+    second: NES - Super Mario Bros - Item and Brick Blocks_116
+  - first:
+      213: -1831067555356174631
+    second: NES - Super Mario Bros - Item and Brick Blocks_117
+  - first:
+      213: -8188868983530380114
+    second: NES - Super Mario Bros - Item and Brick Blocks_118
+  - first:
+      213: -3301663705990302848
+    second: NES - Super Mario Bros - Item and Brick Blocks_119
+  - first:
+      213: -4516673693044806302
+    second: NES - Super Mario Bros - Item and Brick Blocks_120
+  - first:
+      213: 2272932397025611064
+    second: NES - Super Mario Bros - Item and Brick Blocks_121
+  - first:
+      213: -9013072782661398953
+    second: NES - Super Mario Bros - Item and Brick Blocks_122
+  - first:
+      213: -871839598511909343
+    second: NES - Super Mario Bros - Item and Brick Blocks_123
+  - first:
+      213: 5269101874787598721
+    second: NES - Super Mario Bros - Item and Brick Blocks_124
+  - first:
+      213: -2814989291123950437
+    second: NES - Super Mario Bros - Item and Brick Blocks_125
+  - first:
+      213: 7590460312325322413
+    second: NES - Super Mario Bros - Item and Brick Blocks_126
+  - first:
+      213: 8035269120237534242
+    second: NES - Super Mario Bros - Item and Brick Blocks_127
+  - first:
+      213: 2500861670043286467
+    second: NES - Super Mario Bros - Item and Brick Blocks_128
+  - first:
+      213: 269380092706498186
+    second: NES - Super Mario Bros - Item and Brick Blocks_129
+  - first:
+      213: -6522047534415018772
+    second: NES - Super Mario Bros - Item and Brick Blocks_130
+  - first:
+      213: 3179095557499586519
+    second: NES - Super Mario Bros - Item and Brick Blocks_131
+  - first:
+      213: 3603306214368748824
+    second: NES - Super Mario Bros - Item and Brick Blocks_132
+  - first:
+      213: -1033967559924618225
+    second: NES - Super Mario Bros - Item and Brick Blocks_133
+  - first:
+      213: -1331382162012686175
+    second: NES - Super Mario Bros - Item and Brick Blocks_134
+  - first:
+      213: -1691550886298731669
+    second: NES - Super Mario Bros - Item and Brick Blocks_135
+  - first:
+      213: 2918444276076706878
+    second: NES - Super Mario Bros - Item and Brick Blocks_136
+  - first:
+      213: 749865292981642483
+    second: NES - Super Mario Bros - Item and Brick Blocks_137
+  - first:
+      213: 4399811779281549159
+    second: NES - Super Mario Bros - Item and Brick Blocks_138
+  - first:
+      213: -6907337328312865295
+    second: NES - Super Mario Bros - Item and Brick Blocks_139
+  - first:
+      213: 3779338094527025116
+    second: NES - Super Mario Bros - Item and Brick Blocks_140
+  - first:
+      213: -4401659058910503944
+    second: NES - Super Mario Bros - Item and Brick Blocks_141
+  - first:
+      213: -6631365190142594584
+    second: NES - Super Mario Bros - Item and Brick Blocks_142
+  - first:
+      213: 1501533505535627253
+    second: NES - Super Mario Bros - Item and Brick Blocks_143
+  - first:
+      213: 4881027266107567482
+    second: NES - Super Mario Bros - Item and Brick Blocks_144
+  - first:
+      213: -121149123801323122
+    second: NES - Super Mario Bros - Item and Brick Blocks_145
+  - first:
+      213: 5571822247888147070
+    second: NES - Super Mario Bros - Item and Brick Blocks_146
+  - first:
+      213: -6308272699771406977
+    second: NES - Super Mario Bros - Item and Brick Blocks_147
+  - first:
+      213: -517605863422347558
+    second: NES - Super Mario Bros - Item and Brick Blocks_148
+  - first:
+      213: 156689484833575950
+    second: NES - Super Mario Bros - Item and Brick Blocks_149
+  - first:
+      213: 5994055600961256245
+    second: NES - Super Mario Bros - Item and Brick Blocks_150
+  - first:
+      213: 4136687703809564999
+    second: NES - Super Mario Bros - Item and Brick Blocks_151
+  - first:
+      213: 5081783082570624657
+    second: NES - Super Mario Bros - Item and Brick Blocks_152
+  - first:
+      213: -1729585561833901034
+    second: NES - Super Mario Bros - Item and Brick Blocks_153
+  - first:
+      213: -212111843838230609
+    second: NES - Super Mario Bros - Item and Brick Blocks_154
+  - first:
+      213: 171389038864608688
+    second: NES - Super Mario Bros - Item and Brick Blocks_155
+  - first:
+      213: -6472758042584709511
+    second: NES - Super Mario Bros - Item and Brick Blocks_156
+  - first:
+      213: -6119992533791253244
+    second: NES - Super Mario Bros - Item and Brick Blocks_157
+  - first:
+      213: 5435810936088149748
+    second: NES - Super Mario Bros - Item and Brick Blocks_158
+  - first:
+      213: 2292114368195144300
+    second: NES - Super Mario Bros - Item and Brick Blocks_159
+  - first:
+      213: 2178638321764361035
+    second: NES - Super Mario Bros - Item and Brick Blocks_160
+  - first:
+      213: -2971545254481218316
+    second: NES - Super Mario Bros - Item and Brick Blocks_161
+  - first:
+      213: 1105593450517974725
+    second: NES - Super Mario Bros - Item and Brick Blocks_162
+  - first:
+      213: 1439824106451601738
+    second: NES - Super Mario Bros - Item and Brick Blocks_163
+  - first:
+      213: 3439652383588135338
+    second: NES - Super Mario Bros - Item and Brick Blocks_164
+  - first:
+      213: -2259587182149430695
+    second: NES - Super Mario Bros - Item and Brick Blocks_165
+  - first:
+      213: -5532603796178832324
+    second: NES - Super Mario Bros - Item and Brick Blocks_166
+  - first:
+      213: -4850258497000599242
+    second: NES - Super Mario Bros - Item and Brick Blocks_167
+  - first:
+      213: -7841789371442704596
+    second: NES - Super Mario Bros - Item and Brick Blocks_168
+  - first:
+      213: -5818959360864621968
+    second: NES - Super Mario Bros - Item and Brick Blocks_169
+  - first:
+      213: -8729497682922381519
+    second: NES - Super Mario Bros - Item and Brick Blocks_170
+  - first:
+      213: 1185010960997869096
+    second: NES - Super Mario Bros - Item and Brick Blocks_171
+  - first:
+      213: 2392118868521898327
+    second: NES - Super Mario Bros - Item and Brick Blocks_172
+  - first:
+      213: 8259714982810959337
+    second: NES - Super Mario Bros - Item and Brick Blocks_173
+  - first:
+      213: 5905378328320556148
+    second: NES - Super Mario Bros - Item and Brick Blocks_174
+  - first:
+      213: 6686659793020643580
+    second: NES - Super Mario Bros - Item and Brick Blocks_175
+  - first:
+      213: 6618634597184718281
+    second: NES - Super Mario Bros - Item and Brick Blocks_176
+  - first:
+      213: 5158427828545711936
+    second: NES - Super Mario Bros - Item and Brick Blocks_177
+  - first:
+      213: 4383552378843726963
+    second: NES - Super Mario Bros - Item and Brick Blocks_178
+  - first:
+      213: -9144154222753685800
+    second: NES - Super Mario Bros - Item and Brick Blocks_179
+  - first:
+      213: 8657757570249893331
+    second: NES - Super Mario Bros - Item and Brick Blocks_180
+  - first:
+      213: -4242097426667541082
+    second: NES - Super Mario Bros - Item and Brick Blocks_181
+  - first:
+      213: -2773834142034417323
+    second: NES - Super Mario Bros - Item and Brick Blocks_182
+  - first:
+      213: 6027892244573042320
+    second: NES - Super Mario Bros - Item and Brick Blocks_183
+  - first:
+      213: -5809004096365844046
+    second: NES - Super Mario Bros - Item and Brick Blocks_184
+  - first:
+      213: -5301522429715379182
+    second: NES - Super Mario Bros - Item and Brick Blocks_185
+  - first:
+      213: 5505843903148053614
+    second: NES - Super Mario Bros - Item and Brick Blocks_186
+  - first:
+      213: -125025973297016356
+    second: NES - Super Mario Bros - Item and Brick Blocks_187
+  - first:
+      213: -2004330059660227098
+    second: NES - Super Mario Bros - Item and Brick Blocks_188
+  - first:
+      213: 4863082898306819944
+    second: NES - Super Mario Bros - Item and Brick Blocks_189
+  - first:
+      213: -1884966386416900038
+    second: NES - Super Mario Bros - Item and Brick Blocks_190
+  - first:
+      213: 745709704317903012
+    second: NES - Super Mario Bros - Item and Brick Blocks_191
+  - first:
+      213: -6044863131007825757
+    second: NES - Super Mario Bros - Item and Brick Blocks_192
+  - first:
+      213: -6886287807898352392
+    second: NES - Super Mario Bros - Item and Brick Blocks_193
+  - first:
+      213: -2199764402057025025
+    second: NES - Super Mario Bros - Item and Brick Blocks_194
+  - first:
+      213: 4813054695771592105
+    second: NES - Super Mario Bros - Item and Brick Blocks_195
+  - first:
+      213: 1569728500201872800
+    second: NES - Super Mario Bros - Item and Brick Blocks_196
+  - first:
+      213: -7325909496789772088
+    second: NES - Super Mario Bros - Item and Brick Blocks_197
+  - first:
+      213: -6920661086723796138
+    second: NES - Super Mario Bros - Item and Brick Blocks_198
+  - first:
+      213: -7699471303204470325
+    second: NES - Super Mario Bros - Item and Brick Blocks_199
+  - first:
+      213: 1848915959390932259
+    second: NES - Super Mario Bros - Item and Brick Blocks_200
+  - first:
+      213: -7492731831578371838
+    second: NES - Super Mario Bros - Item and Brick Blocks_201
+  - first:
+      213: -5426175197665048596
+    second: NES - Super Mario Bros - Item and Brick Blocks_202
+  - first:
+      213: -3865843355405123155
+    second: NES - Super Mario Bros - Item and Brick Blocks_203
+  - first:
+      213: -8723250564763679164
+    second: NES - Super Mario Bros - Item and Brick Blocks_204
+  - first:
+      213: -8751261561292313204
+    second: NES - Super Mario Bros - Item and Brick Blocks_205
+  - first:
+      213: 8714948933348798869
+    second: NES - Super Mario Bros - Item and Brick Blocks_206
+  - first:
+      213: -4991782664507250815
+    second: NES - Super Mario Bros - Item and Brick Blocks_207
+  - first:
+      213: -4564514779153240086
+    second: NES - Super Mario Bros - Item and Brick Blocks_208
+  - first:
+      213: 3991955810469999692
+    second: NES - Super Mario Bros - Item and Brick Blocks_209
+  - first:
+      213: -7479670738013730189
+    second: NES - Super Mario Bros - Item and Brick Blocks_210
+  - first:
+      213: -7405814871147002646
+    second: NES - Super Mario Bros - Item and Brick Blocks_211
+  - first:
+      213: -1915078174605009989
+    second: NES - Super Mario Bros - Item and Brick Blocks_212
+  - first:
+      213: 9178423689341765924
+    second: NES - Super Mario Bros - Item and Brick Blocks_213
+  - first:
+      213: -6490389952894525443
+    second: NES - Super Mario Bros - Item and Brick Blocks_214
+  - first:
+      213: -7550656416744275897
+    second: NES - Super Mario Bros - Item and Brick Blocks_215
+  - first:
+      213: 3097305794274296663
+    second: NES - Super Mario Bros - Item and Brick Blocks_216
+  - first:
+      213: -4083148647434801502
+    second: NES - Super Mario Bros - Item and Brick Blocks_217
+  - first:
+      213: 1553947637727151570
+    second: NES - Super Mario Bros - Item and Brick Blocks_218
+  - first:
+      213: -5032631884354455324
+    second: NES - Super Mario Bros - Item and Brick Blocks_219
+  - first:
+      213: -3415463406906927402
+    second: NES - Super Mario Bros - Item and Brick Blocks_220
+  - first:
+      213: -7349533239103771793
+    second: NES - Super Mario Bros - Item and Brick Blocks_221
+  - first:
+      213: -3041236337668750329
+    second: NES - Super Mario Bros - Item and Brick Blocks_222
+  - first:
+      213: -1106201755913840138
+    second: NES - Super Mario Bros - Item and Brick Blocks_223
+  - first:
+      213: 5754274814243009250
+    second: NES - Super Mario Bros - Item and Brick Blocks_224
+  - first:
+      213: -6398332435537080178
+    second: NES - Super Mario Bros - Item and Brick Blocks_225
+  - first:
+      213: 2542879990145105417
+    second: NES - Super Mario Bros - Item and Brick Blocks_226
+  - first:
+      213: -7434977375071178176
+    second: NES - Super Mario Bros - Item and Brick Blocks_227
+  - first:
+      213: 1538106454377774500
+    second: NES - Super Mario Bros - Item and Brick Blocks_228
+  - first:
+      213: 4234501659289964552
+    second: NES - Super Mario Bros - Item and Brick Blocks_229
+  - first:
+      213: -7478296994507106726
+    second: NES - Super Mario Bros - Item and Brick Blocks_230
+  - first:
+      213: -3347549957698456828
+    second: NES - Super Mario Bros - Item and Brick Blocks_231
+  - first:
+      213: -6496646064055083717
+    second: NES - Super Mario Bros - Item and Brick Blocks_232
+  - first:
+      213: -5056917097584167959
+    second: NES - Super Mario Bros - Item and Brick Blocks_233
+  - first:
+      213: 1506833623901934858
+    second: NES - Super Mario Bros - Item and Brick Blocks_234
+  - first:
+      213: -4193712951715695557
+    second: NES - Super Mario Bros - Item and Brick Blocks_235
+  - first:
+      213: 774256830569706400
+    second: NES - Super Mario Bros - Item and Brick Blocks_236
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: NES - Super Mario Bros - Item and Brick Blocks_0
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 112
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 540a1e3476360bef0800000000000000
+      internalID: -94466297003139003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NES - Super Mario Bros - Item and Brick Blocks_1
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 112
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85eb302da8f41402485172eb8fd1c4c8
+      internalID: 7330100277581190001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NES - Super Mario Bros - Item and Brick Blocks_2
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d048565574b84d02b2d26b4987cae38
+      internalID: 1030924830166177766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NES - Super Mario Bros - Item and Brick Blocks_3
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c47583c0eea4f4ca4aebfbe3819534ad
+      internalID: -7001207782052044158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NES - Super Mario Bros - Item and Brick Blocks_4
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcaf87e6472b24e938f314a25f817f08
+      internalID: 5850756092708364211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NES - Super Mario Bros - Item and Brick Blocks_5
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b56d4194622e54351a5b1dfda7ecdd1c
+      internalID: 1528821007687985126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NES - Super Mario Bros - Item and Brick Blocks_6
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbcfa8113cb2f473890a3b2d48ec1a3e
+      internalID: 8051896782358044601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NES - Super Mario Bros - Item and Brick Blocks_7
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfdee2f0d65d64b119a9b5507d52d558
+      internalID: -6508102078453684903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NES - Super Mario Bros - Item and Brick Blocks_8
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73eeca370159241499b06e1385f6ec69
+      internalID: 2852824076911173193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NES - Super Mario Bros - Item and Brick Blocks_9
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c99f2b14b27904ac3990164e83ec0482
+      internalID: -8109420233280340780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NES - Super Mario Bros - Item and Brick Blocks_10
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0bf61267577d4181958747e7a2ab13a
+      internalID: 7420503577897087274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NES - Super Mario Bros - Item and Brick Blocks_11
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 136
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08702aee975764d5d834741d85c53738
+      internalID: 6934972553569875315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NES - Super Mario Bros - Item and Brick Blocks_12
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 136
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49f9bab2b16a345d29ae09692bc62110
+      internalID: -6590582152122229707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NES - Super Mario Bros - Item and Brick Blocks_13
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 128
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38a4c60ded0c443b89b9067882b6420f
+      internalID: -8935612524690747859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NES - Super Mario Bros - Item and Brick Blocks_14
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 128
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa6c44317e61a4540a35aa1b729fbb68
+      internalID: 1178812545895945536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: e85dfac2f08e34885abcebfc0b71a60e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      NES - Super Mario Bros - Item and Brick Blocks_0: -94466297003139003
+      NES - Super Mario Bros - Item and Brick Blocks_1: 7330100277581190001
+      NES - Super Mario Bros - Item and Brick Blocks_10: 7420503577897087274
+      NES - Super Mario Bros - Item and Brick Blocks_11: 6934972553569875315
+      NES - Super Mario Bros - Item and Brick Blocks_12: -6590582152122229707
+      NES - Super Mario Bros - Item and Brick Blocks_13: -8935612524690747859
+      NES - Super Mario Bros - Item and Brick Blocks_14: 1178812545895945536
+      NES - Super Mario Bros - Item and Brick Blocks_2: 1030924830166177766
+      NES - Super Mario Bros - Item and Brick Blocks_3: -7001207782052044158
+      NES - Super Mario Bros - Item and Brick Blocks_4: 5850756092708364211
+      NES - Super Mario Bros - Item and Brick Blocks_5: 1528821007687985126
+      NES - Super Mario Bros - Item and Brick Blocks_6: 8051896782358044601
+      NES - Super Mario Bros - Item and Brick Blocks_7: -6508102078453684903
+      NES - Super Mario Bros - Item and Brick Blocks_8: 2852824076911173193
+      NES - Super Mario Bros - Item and Brick Blocks_9: -8109420233280340780
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

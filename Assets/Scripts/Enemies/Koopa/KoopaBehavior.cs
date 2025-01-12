@@ -5,6 +5,9 @@ using UnityEngine.Serialization;
 
 public class KoopaBehavior : EnemyBehavior
 {
+    //TODO: make goomba by states
+    //TODO: make goomba return to normal state after some time
+    //TODO: make goomba not moving when collided with other enemies
     [SerializeField] private float shellSpeed = 12f;
     private static readonly int EnterShell = Animator.StringToHash("EnterShell");
 

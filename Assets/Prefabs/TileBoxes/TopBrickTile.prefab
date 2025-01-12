@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4590680874963659211}
   - component: {fileID: 9196438192589072124}
   - component: {fileID: -5725729971065194324}
+  - component: {fileID: 3075009304365586672}
   m_Layer: 7
   m_Name: TopBrickTile
   m_TagString: BreakingBrick
@@ -134,3 +135,16 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &3075009304365586672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2992495455038135953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb6b7af8bac4c404c8fe4f732d58b103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHitsToBlock: -1

@@ -8,11 +8,11 @@ public class DeathAnimation : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private Animator _animator;
 
-    // private void Awake()
-    // {
-    //     _animator = GetComponent<Animator>();
-    //     _spriteRenderer = GetComponent<SpriteRenderer>();
-    // }
+    private void Awake()
+    {
+        _animator = GetComponent<Animator>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
     private void Reset()
     {

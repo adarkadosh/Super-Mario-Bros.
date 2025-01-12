@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class MonoPool<T> : MonoSingleton<MonoPool<T>> where T : MonoBehaviour, IPoolable
+public class MonoPool<T> : MonoSingleton<MonoPool<T>>where T : MonoBehaviour, IPoolable
 {
     [SerializeField] private T prefab;
     [SerializeField] private int initialSize;
@@ -46,4 +46,5 @@ public class MonoPool<T> : MonoSingleton<MonoPool<T>> where T : MonoBehaviour, I
     }
 
     public int CountActive => _activeCount;
+    
 }

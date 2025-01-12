@@ -1,23 +1,10 @@
+using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 
 public static class Extensions
 {
     private static LayerMask _layerMask = LayerMask.GetMask("Default");
-
-    public static bool Raycast(this Rigidbody2D rigidbody, Vector2 direction)
-    {
-        if (rigidbody.bodyType == RigidbodyType2D.Kinematic)
-        {
-            return false;
-        }
-
-        float radius = 0.25f;
-        float distance = 0.375f;
-
-        RaycastHit2D hit = Physics2D.CircleCast(rigidbody.position, radius, direction.normalized, distance,
-            _layerMask);
-        return hit.collider != null && hit.rigidbody != rigidbody;
-    }
 
     public static void DrawCircleCast(Vector2 origin, float radius, Vector2 direction, float distance)
     {
@@ -38,5 +25,15 @@ public static class Extensions
 
         // Draw the cast direction
         Debug.DrawRay(origin, direction.normalized * distance, Color.green);
+    }
+
+    public static IEnumerator AnimatedBlockGotHit(GameObject gameObject, float offsetY = 0.5f,
+        float duration = 0.125f)
+    {
+        Vector3 originalPosition = gameObject.transform.position;
+        yield return gameObject.transform.DOMoveY(gameObject.transform.position.y + offsetY, duration)
+            .SetEase(Ease.Linear);
+        yield return new WaitForSeconds(duration);
+        yield return gameObject.transform.DOMoveY(originalPosition.y, duration / 2).SetEase(Ease.Linear);
     }
 }

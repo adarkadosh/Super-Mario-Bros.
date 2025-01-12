@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class EntityMovement : MonoBehaviour
 {
+    // TODO: Make them flip when they hit a (if nessesary) -> GetComponent<SpriteRenderer>().flipX = true;
+
     [SerializeField] private float movementSpeed = 2f;
     [SerializeField] private Vector2 movementDirection = Vector2.left;
     [SerializeField] private LayerMask layerMask;
@@ -90,16 +92,31 @@ public class EntityMovement : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(origin, movementDirection, 0.55f, layerMask);
 
         // Check for entities on the same layer
-        RaycastHit2D sameLayerHit = Physics2D.Raycast(origin, movementDirection, 0.55f);
-        if (sameLayerHit.collider != null && sameLayerHit.collider.gameObject != gameObject 
-                                          && sameLayerHit.collider.CompareTag("Goomba"))
-        {
-            Debug.Log("Same Layer Hit: " + sameLayerHit.collider.name);
-            return true;
-        }
+        // RaycastHit2D sameLayerHit = Physics2D.Raycast(origin, movementDirection, 0.55f);
+        // if (sameLayerHit.collider != null && sameLayerHit.collider.gameObject != gameObject 
+        //                                   && sameLayerHit.collider.CompareTag("Goomba"))
+        // {
+        //     Debug.Log("Same Layer Hit: " + sameLayerHit.collider.name);
+        //     return true;
+        // }
 
         // Return true if any obstacle is detected
         return hit.collider != null;
+    }
+    
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // If we collided with another enemy on the same layer (or by tag)
+        if (collision.gameObject.CompareTag("Goomba") && collision.gameObject != gameObject)
+        {
+            // Reverse direction
+            movementDirection = -movementDirection.normalized;
+        } else if (collision.gameObject.CompareTag("Koopa"))
+        {
+            // Kill the player
+            // GameEvents.OnPlayerDeath?.Invoke();
+            movementDirection = -movementDirection.normalized;
+        }
     }
 
     private bool IsGrounded()

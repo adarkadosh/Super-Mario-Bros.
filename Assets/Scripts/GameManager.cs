@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoSingleton<GameManager>
 {
+    [SerializeField] private int maxCoinsToGetLife = 100;
     public int World { get; private set; }
     public int Level { get; private set; }
     public int Coins { get; private set; }
@@ -48,5 +49,20 @@ public class GameManager : MonoSingleton<GameManager>
     public void GameOver()
     {
         SceneManager.LoadScene("GameOver");
+    }
+    
+    public void AddCoin()
+    {
+        Coins++;
+        if (Coins >= maxCoinsToGetLife)
+        {
+            AddLife();
+            Coins = 0;
+        }
+    }
+    
+    public void AddLife()
+    {
+        Lives++;
     }
 }
