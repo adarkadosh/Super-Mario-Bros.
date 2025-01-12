@@ -20,9 +20,7 @@ public class BlockCoin : MonoBehaviour, IPoolable
 
     public void Reset()
     {
-        // Reset any additional state if necessary
-        // For example, reset position, animations, etc.
-        // Currently disabling the component as in your original code
-        enabled = false;
+        transform.position = Vector3.zero; 
+        gameObject.SetActive(false);
     }
 }

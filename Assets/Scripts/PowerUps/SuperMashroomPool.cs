@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace PowerUps
 {
-    public class PowerupMashroomPool :PowerUpPool
+    public class SuperMashroomPool :MonoPool<SuperMashroom>
     {
         // public PowerUp Get()
         // {

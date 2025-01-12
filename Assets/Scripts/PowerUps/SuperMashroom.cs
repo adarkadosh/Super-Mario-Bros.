@@ -4,7 +4,7 @@ using PowerUps;
 using UnityEngine;
 
 
-public class PowerupMashroom : PowerUp
+public class SuperMashroom : PowerUp
 {
     void OnCollisionEnter2D(Collision2D other)
     {
@@ -12,7 +12,7 @@ public class PowerupMashroom : PowerUp
         {
             Debug.Log("Player collected a powerup");
             MarioEvents.OnMarioGotPowerUp?.Invoke();
-            PowerupMashroomPool.Instance.Return(this);
+            SuperMashroomPool.Instance.Return(this);
         }
     }
     

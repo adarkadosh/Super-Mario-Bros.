@@ -1,15 +1,34 @@
 using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
 public abstract class PowerUp : MonoBehaviour, IPoolable
 {
+    protected EntityMovement EntityMovement;
+    protected Collider2D Collider2D;
+    protected Rigidbody2D Rigidbody2D;
+    
+    private void Awake()
+    {
+        EntityMovement = GetComponent<EntityMovement>();
+        Collider2D = GetComponent<Collider2D>();
+        Rigidbody2D = GetComponent<Rigidbody2D>();
+    }
+    
     public void Reset()
     {
-        GetComponent<EntityMovement>().enabled = false;
-        GetComponent<Collider2D>().enabled = false;
-        GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
+        if (EntityMovement != null)
+        {
+            EntityMovement.enabled = false;
+        }
+        if (Collider2D != null)
+        {
+            Collider2D.enabled = false;
+        }
+        if (Rigidbody2D != null)
+        {
+            Rigidbody2D.linearVelocity = Vector2.zero;
+        }
         enabled = false;
     }
 
@@ -23,8 +42,15 @@ public abstract class PowerUp : MonoBehaviour, IPoolable
         Tweener moveUp = gameObject.transform.DOMoveY(gameObject.transform.position.y + 1f, 0.25f)
             .SetEase(Ease.Linear);
         yield return moveUp.WaitForCompletion();
-        GetComponent<EntityMovement>().enabled = true;
-        GetComponent<Collider2D>().enabled = true;
-        GetComponent<EntityMovement>().MovementDirection = Vector2.right;
+        if (EntityMovement != null)
+        {
+            EntityMovement.enabled = true;
+            EntityMovement.MovementDirection = Vector2.right;
+        }
+        if (Collider2D != null)
+        {
+            Collider2D.enabled = true;
+        }
+        enabled = true;
     }
 }
