@@ -9,7 +9,7 @@ public class GenericBlockHitWithCoin : GenericBlockHit
         if (coinPool != null)
         {
             var coin = coinPool.Get();
-            coin.transform.position = transform.position;
+            coin.transform.position = transform.position + new Vector3(0, 0.5f, 0);
             coin.Trigger();
             Debug.Log("Coin spawned from block hit.");
         }

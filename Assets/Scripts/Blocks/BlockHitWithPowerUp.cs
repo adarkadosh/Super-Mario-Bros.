@@ -12,7 +12,7 @@ namespace Blocks
             if (powerUpPool != null)
             {
                 var powerUp = powerUpPool.Get();
-                powerUp.transform.position = transform.position;
+                powerUp.transform.position = transform.position + new Vector3(0, 0.5f, 0);
                 powerUp.Trigger();
                 Debug.Log("Power-up spawned from block hit.");
             }

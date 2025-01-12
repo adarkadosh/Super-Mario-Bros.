@@ -6,18 +6,19 @@ public class GenericBlockHit : MonoBehaviour
     private static readonly int GotHit = Animator.StringToHash("GotHit");
     [SerializeField] private int maxHitsToBlock = 1;
 
-    private Animator animator;
-    private bool isHit;
+    private Animator _animator;
+    private bool _isHit;
     private static bool isAnyBlockHit;
 
     protected virtual void Awake()
     {
-        animator = GetComponent<Animator>();
+        _animator = GetComponent<Animator>();
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (isAnyBlockHit || isHit || maxHitsToBlock <= 0)
+        if (isAnyBlockHit || _isHit || maxHitsToBlock == 0)
+        // if (_isHit || maxHitsToBlock == 0)
             return;
 
         if (other.gameObject.CompareTag("Player"))
@@ -38,13 +39,13 @@ public class GenericBlockHit : MonoBehaviour
     private void Hit()
     {
         isAnyBlockHit = true;
-        isHit = true;
-        GetComponent<SpriteRenderer>().enabled = true;
+        _isHit = true;
+        // GetComponent<SpriteRenderer>().enabled = true;
         maxHitsToBlock--;
 
         if (maxHitsToBlock == 0)
         {
-            animator.SetBool(GotHit, true);
+            _animator?.SetBool(GotHit, true);
         }
 
         TriggerEffect();
@@ -63,7 +64,7 @@ public class GenericBlockHit : MonoBehaviour
         // Replace with your animation logic
         // yield return new WaitForSeconds(0.5f);
         StartCoroutine(Extensions.AnimatedBlockGotHit(gameObject));
-        isHit = false;
+        _isHit = false;
         isAnyBlockHit = false;
     }
 }
