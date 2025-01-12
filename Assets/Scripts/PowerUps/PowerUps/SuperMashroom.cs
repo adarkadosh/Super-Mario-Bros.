@@ -4,7 +4,7 @@ using PowerUps;
 using UnityEngine;
 
 
-public class SuperMashroom : PowerUp
+public class SuperMashroom : GenericPowerUp
 {
     void OnCollisionEnter2D(Collision2D other)
     {

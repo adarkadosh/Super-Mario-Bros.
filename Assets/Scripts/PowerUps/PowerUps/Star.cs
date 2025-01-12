@@ -1,7 +1,7 @@
 using PowerUps;
 using UnityEngine;
 
-public class Star : PowerUp
+public class Star : GenericPowerUp
 {
     void OnCollisionEnter2D(Collision2D other)
     {

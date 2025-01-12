@@ -1,10 +1,13 @@
 // BlockCoin.cs
+
 using System.Collections;
 using UnityEngine;
 
 public class BlockCoin : MonoBehaviour, IPoolable
 {
     [SerializeField] private int coinsToGive = 1;
+    [SerializeField] private float animationHeight = 4f;
+    [SerializeField] private float animationDuration = 0.25f;
 
     public void Trigger()
     {
@@ -14,13 +17,14 @@ public class BlockCoin : MonoBehaviour, IPoolable
 
     private IEnumerator Animate()
     {
-        yield return Extensions.AnimatedBlockGotHit(gameObject, 2f, 0.25f, 1f);
+        yield return Extensions.AnimatedBlockGotHit(gameObject, animationHeight, animationDuration,
+            animationHeight / 2);
         MonoPool<BlockCoin>.Instance.Return(this);
     }
 
     public void Reset()
     {
-        transform.position = Vector3.zero; 
+        transform.position = Vector3.zero;
         gameObject.SetActive(false);
     }
 }

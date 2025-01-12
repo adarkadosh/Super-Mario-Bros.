@@ -9,7 +9,7 @@ public class PowerUpFactory : MonoSingleton<PowerUpFactory>
     [SerializeField] private StarPool starPool;
     [SerializeField] private SuperMashroomPool superMashroomPool;
     
-    public PowerUp GetInstance(GenericBlockHit.PowerUpType powerUpType, Vector3 position)
+    public GenericPowerUp GetInstance(GenericBlockHit.PowerUpType powerUpType, Vector3 position)
     {
         switch (powerUpType)
         {
@@ -26,9 +26,9 @@ public class PowerUpFactory : MonoSingleton<PowerUpFactory>
         }
     }
     
-    public void ReturnPowerUp(PowerUp powerUp)
+    public void ReturnPowerUp(GenericPowerUp genericPowerUp)
     {
-        switch (powerUp)
+        switch (genericPowerUp)
         {
             case OneUpMashroom oneUpMashroom:
                 oneUpMashroomPool.Return(oneUpMashroom);
@@ -43,7 +43,7 @@ public class PowerUpFactory : MonoSingleton<PowerUpFactory>
                 superMashroomPool.Return(superMashroom);
                 break;
             default:
-                Debug.LogWarning($"Attempted to return unsupported PowerUp type: {powerUp.GetType()}");
+                Debug.LogWarning($"Attempted to return unsupported PowerUp type: {genericPowerUp.GetType()}");
                 break;
         }
     }
@@ -59,7 +59,7 @@ public class PowerUpFactory : MonoSingleton<PowerUpFactory>
     }
     
 
-    private PowerUp CreateOneUpMashroom(Vector3 position)
+    private GenericPowerUp CreateOneUpMashroom(Vector3 position)
     {
         var oneUpMashroom = oneUpMashroomPool.Get();
         if (oneUpMashroom != null)

@@ -1,7 +1,7 @@
 using PowerUps;
 using UnityEngine;
 
-public class OneUpMashroom : PowerUp
+public class OneUpMashroom : GenericPowerUp
 {
     void OnCollisionEnter2D(Collision2D other)
     {

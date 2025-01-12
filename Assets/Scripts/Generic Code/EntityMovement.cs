@@ -31,28 +31,28 @@ public class EntityMovement : MonoBehaviour
         enabled = false;
     }
 
-    private void OnBecameVisible()
-    {
-        enabled = true;
-        // show me the 
-    }
-
-    private void OnBecameInvisible()
-    {
-        enabled = false;
-    }
-
-    private void OnEnable()
-    {
-    _rigidbody2D.WakeUp();
-    // GetOrthographicCameraBounds();
-    }
-
-    private void OnDisable()
-    {
-    _rigidbody2D.linearVelocity = Vector2.zero;
-    _rigidbody2D.Sleep();
-    }
+    // private void OnBecameVisible()
+    // {
+    //     enabled = true;
+    //     // show me the 
+    // }
+    //
+    // private void OnBecameInvisible()
+    // {
+    //     enabled = false;
+    // }
+    //
+    // private void OnEnable()
+    // {
+    // _rigidbody2D.WakeUp();
+    // // GetOrthographicCameraBounds();
+    // }
+    //
+    // private void OnDisable()
+    // {
+    // _rigidbody2D.linearVelocity = Vector2.zero;
+    // _rigidbody2D.Sleep();
+    // }
     
     private void FixedUpdate()
     {

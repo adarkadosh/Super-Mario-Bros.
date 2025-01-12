@@ -2,7 +2,7 @@ using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 
-public abstract class PowerUp : MonoBehaviour, IPoolable
+public abstract class GenericPowerUp : MonoBehaviour, IPoolable
 {
     protected EntityMovement EntityMovement;
     protected Collider2D Collider2D;

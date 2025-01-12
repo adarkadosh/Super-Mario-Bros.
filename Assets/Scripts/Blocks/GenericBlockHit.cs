@@ -4,35 +4,36 @@ using UnityEngine;
 public class GenericBlockHit : MonoBehaviour
 {
     private static readonly int GotHit = Animator.StringToHash("GotHit");
+    // Change SpriteRenderer to Renderer
+    [SerializeField] private Sprite emptyBlockSprite;
+    [Header("Block Settings")]
     [SerializeField] private int maxHitsToBlock = 1;
-
-
+    
     [Header("Power-Up Settings")]
     [Tooltip("Type of power-up to spawn.")]
     [SerializeField] private PowerUpType powerUpType;
     [SerializeField] private bool isBlockCoin;
 
+    private SpriteRenderer spriteRenderer;
     private Animator _animator;
     private bool _isHit;
     private static bool _isAnyBlockHit;
     
-
-    
+    // Power-up Types for blocks (e.g. Super Mashroom, 1-Up Mashroom, Star, etc.)
     public enum PowerUpType
     {
         SuperMashroom,
         OneUpMashroom,
         Star,
         Nothing
-        // Add other power-up types here, e.g., Star, FireFlower
     }
     private PowerUpFactory _powerUpFactory;
     
-
     protected virtual void Awake()
     {
         _animator = GetComponent<Animator>();
         _powerUpFactory = PowerUpFactory.Instance;
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
     }
 
@@ -67,9 +68,16 @@ public class GenericBlockHit : MonoBehaviour
             TriggerEffect();
         }
         maxHitsToBlock--;
-        if (maxHitsToBlock == 0 && _animator != null)
+        if (maxHitsToBlock == 0)
         {
-            _animator.SetBool(GotHit, true);
+            if (_animator == null && emptyBlockSprite != null)
+            {
+                spriteRenderer.sprite = emptyBlockSprite;
+            }
+            else
+            {
+                _animator.SetBool(GotHit, true);
+            }
         }
         
         StartCoroutine(AnimatedBlockGotHitCoroutine());
@@ -80,21 +88,20 @@ public class GenericBlockHit : MonoBehaviour
         // Default behavior: No special effect
         if (_powerUpFactory != null && powerUpType != PowerUpType.Nothing)
         {
-            if (isBlockCoin)
-            {
-                // Spawn a coin
-                var coin = _powerUpFactory.GetBlockCoin(transform.position);
-                coin.Trigger();
-                Debug.Log("Coin spawned from block hit.");
-            }
             var powerUp = _powerUpFactory.GetInstance(powerUpType, transform.position);
             powerUp.Trigger();
             Debug.Log($"{powerUpType} spawned from block hit.");
         }
-        else
-        {
-            Debug.LogWarning("Power-up factory is not assigned.");
-        }
+        BlockCoin();
+    }
+
+    private void BlockCoin()
+    {
+        if (!isBlockCoin) return;
+        // Spawn a coin
+        var coin = _powerUpFactory.GetBlockCoin(transform.position);
+        coin.Trigger();
+        Debug.Log("Coin spawned from block hit.");
     }
 
 
@@ -103,6 +110,11 @@ public class GenericBlockHit : MonoBehaviour
         // Start the animation coroutine
         yield return Extensions.AnimatedBlockGotHit(gameObject);
 
+        if (maxHitsToBlock > 0)
+        {
+            TriggerEffect();
+        }
+        
         // Reset hit states
         _isHit = false;
         _isAnyBlockHit = false;
