@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 3089210005207201568}
   - component: {fileID: 3796365699248993155}
   - component: {fileID: 823834930707145730}
-  - component: {fileID: 7822756179527504415}
   - component: {fileID: 6553632725885319420}
   - component: {fileID: 20145294776130161}
+  - component: {fileID: 7228785299985006528}
   m_Layer: 11
   m_Name: Koopa
   m_TagString: Koopa
@@ -199,19 +199,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &7822756179527504415
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5878824327351108095}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ec10656302b7c741a17636d96a095f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shellSpeed: 12
 --- !u!61 &6553632725885319420
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -273,3 +260,15 @@ MonoBehaviour:
   shellDuration: 3
   backToLifeTime: 2
   shellSpeed: 12
+--- !u!114 &7228785299985006528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5878824327351108095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e7c4d9b5b969de44a17f6fe417dea84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

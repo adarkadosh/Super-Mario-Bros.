@@ -7,10 +7,10 @@ public class GoombaBehavior : EnemyBehavior
 
     protected override void GotHit()
     {
+        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         Animator.SetBool(Squished, true);
         GetComponent<Collider2D>().enabled = false;
         GetComponent<EntityMovement>().enabled = false;
-        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
         // GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
     }
 }
