@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class SuperMashroom : GenericPowerUp
 {
-    void OnCollisionEnter2D(Collision2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {

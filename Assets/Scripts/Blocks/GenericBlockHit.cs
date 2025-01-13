@@ -65,7 +65,7 @@ public class GenericBlockHit : MonoBehaviour
         GetComponent<SpriteRenderer>().enabled = true;
         if (maxHitsToBlock > 0)
         {
-            TriggerEffect();
+            BlockCoin();
         }
         maxHitsToBlock--;
         if (maxHitsToBlock == 0)
@@ -92,14 +92,14 @@ public class GenericBlockHit : MonoBehaviour
             powerUp.Trigger();
             Debug.Log($"{powerUpType} spawned from block hit.");
         }
-        BlockCoin();
+        // BlockCoin();
     }
 
     private void BlockCoin()
     {
         if (!isBlockCoin) return;
         // Spawn a coin
-        var coin = _powerUpFactory.GetBlockCoin(transform.position);
+        var coin = _powerUpFactory.GetBlockCoin(transform.position + Vector3.up);
         coin.Trigger();
         Debug.Log("Coin spawned from block hit.");
     }
@@ -110,7 +110,7 @@ public class GenericBlockHit : MonoBehaviour
         // Start the animation coroutine
         yield return Extensions.AnimatedBlockGotHit(gameObject);
 
-        if (maxHitsToBlock > 0)
+        if (maxHitsToBlock >= 0)
         {
             TriggerEffect();
         }

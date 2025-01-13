@@ -12,6 +12,7 @@ TagManager:
   - Goomba
   - Koopa
   - BlockCoin
+  - OneUp
   layers:
   - Default
   - TransparentFX
@@ -48,6 +49,27 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 219399433
+    locked: 0
+  - name: Powerups
+    uniqueID: 1283042283
+    locked: 0
+  - name: Enemies
+    uniqueID: 3782643683
+    locked: 0
+  - name: Mario
+    uniqueID: 2254352821
+    locked: 0
+  - name: Pipes
+    uniqueID: 2393323415
+    locked: 0
+  - name: Blocks
+    uniqueID: 2611938271
+    locked: 0
+  - name: BlockCoin
+    uniqueID: 3101957889
     locked: 0
   m_RenderingLayers:
   - Default

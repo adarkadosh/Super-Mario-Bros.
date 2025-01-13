@@ -6,7 +6,7 @@ using UnityEngine;
 public class BlockCoin : MonoBehaviour, IPoolable
 {
     [SerializeField] private int coinsToGive = 1;
-    [SerializeField] private float animationHeight = 4f;
+    [SerializeField] private float animationHeight = 3.5f;
     [SerializeField] private float animationDuration = 0.25f;
 
     public void Trigger()
