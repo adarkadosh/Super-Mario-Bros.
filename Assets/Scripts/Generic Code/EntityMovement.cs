@@ -28,7 +28,7 @@ public class EntityMovement : MonoBehaviour
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
-        enabled = false;
+        // enabled = false;
     }
 
     // private void OnBecameVisible()

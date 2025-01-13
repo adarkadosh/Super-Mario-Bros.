@@ -7,6 +7,8 @@ public class DeathTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             MarioEvents.OnMarioGotHit?.Invoke();
+            other.gameObject.SetActive(false);
+            // other.GetComponent(PlayerInputActions).enabled = false;
             GameManager.Instance.ResetLevel(3f);
         }
         else

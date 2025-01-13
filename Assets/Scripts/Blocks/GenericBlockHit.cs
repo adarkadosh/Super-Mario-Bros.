@@ -14,7 +14,7 @@ public class GenericBlockHit : MonoBehaviour
     [SerializeField] private PowerUpType powerUpType;
     [SerializeField] private bool isBlockCoin;
 
-    private SpriteRenderer spriteRenderer;
+    private SpriteRenderer _spriteRenderer;
     private Animator _animator;
     private bool _isHit;
     private static bool _isAnyBlockHit;
@@ -33,7 +33,7 @@ public class GenericBlockHit : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _powerUpFactory = PowerUpFactory.Instance;
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
 
     }
 
@@ -62,7 +62,7 @@ public class GenericBlockHit : MonoBehaviour
     {
         _isAnyBlockHit = true;
         _isHit = true;
-        // GetComponent<SpriteRenderer>().enabled = true;
+        GetComponent<SpriteRenderer>().enabled = true;
         if (maxHitsToBlock > 0)
         {
             TriggerEffect();
@@ -72,7 +72,7 @@ public class GenericBlockHit : MonoBehaviour
         {
             if (_animator == null && emptyBlockSprite != null)
             {
-                spriteRenderer.sprite = emptyBlockSprite;
+                _spriteRenderer.sprite = emptyBlockSprite;
             }
             else
             {

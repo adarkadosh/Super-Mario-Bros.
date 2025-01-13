@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4590680874963659211}
   - component: {fileID: 9196438192589072124}
   - component: {fileID: -5725729971065194324}
-  - component: {fileID: 3075009304365586672}
+  - component: {fileID: -4733630365307544281}
   m_Layer: 7
   m_Name: TopBrickTile
   m_TagString: BreakingBrick
@@ -135,7 +135,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &3075009304365586672
+--- !u!114 &-4733630365307544281
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb6b7af8bac4c404c8fe4f732d58b103, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emptyBlockSprite: {fileID: -573706143, guid: f7fe5554a8587d54e977b251ff22e08b, type: 3}
+  emptyBlockSprite: {fileID: 403171989, guid: 52ad7c85c1985be4ca0e4c97a8d76c50, type: 3}
   maxHitsToBlock: -1
   powerUpType: 3
-  isBlockCoin: 1
+  isBlockCoin: 0

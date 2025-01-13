@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1960633701265091374}
   - component: {fileID: 3933668833810567457}
   - component: {fileID: 7139299042780816628}
+  - component: {fileID: -6751952697495767007}
   m_Layer: 7
   m_Name: BonusBox
   m_TagString: BonusBox
@@ -157,3 +158,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-6751952697495767007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8093160529363795355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb6b7af8bac4c404c8fe4f732d58b103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emptyBlockSprite: {fileID: 0}
+  maxHitsToBlock: 1
+  powerUpType: 0
+  isBlockCoin: 0
