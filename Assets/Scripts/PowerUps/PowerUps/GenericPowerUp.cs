@@ -27,6 +27,7 @@ public abstract class GenericPowerUp : MonoBehaviour, IPoolable
         }
         if (Rigidbody2D != null)
         {
+            Rigidbody2D.bodyType = RigidbodyType2D.Kinematic;
             Rigidbody2D.linearVelocity = Vector2.zero;
         }
         enabled = false;
@@ -50,6 +51,10 @@ public abstract class GenericPowerUp : MonoBehaviour, IPoolable
         if (Collider2D != null)
         {
             Collider2D.enabled = true;
+        }
+        if (Rigidbody2D != null)
+        {
+            Rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
         }
         enabled = true;
     }

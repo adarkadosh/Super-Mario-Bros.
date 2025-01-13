@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 823834930707145730}
   - component: {fileID: 7822756179527504415}
   - component: {fileID: 6553632725885319420}
+  - component: {fileID: 20145294776130161}
   m_Layer: 11
   m_Name: Koopa
   m_TagString: Koopa
@@ -108,7 +109,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0
-  m_GravityScale: 1
+  m_GravityScale: 6
   m_Material: {fileID: 6200000, guid: c0c48bf395c5b400aac478f25cb49298, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -172,10 +173,10 @@ MonoBehaviour:
   movementDirection: {x: -1, y: 0}
   layerMask:
     serializedVersion: 2
-    m_Bits: 904
-  sameLayerMask:
-    serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 17288
+  flipBehavior: 0
+  obstacleDetectionDistance: 0.55
+  groundDetectionDistance: 0.55
 --- !u!95 &823834930707145730
 Animator:
   serializedVersion: 7
@@ -205,7 +206,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5878824327351108095}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ec10656302b7c741a17636d96a095f6, type: 3}
   m_Name: 
@@ -257,3 +258,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.25, y: 1.25}
   m_EdgeRadius: 0
+--- !u!114 &20145294776130161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5878824327351108095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b7fbc3cbc9b4dd89f81606c9f1cc7b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shellDuration: 3
+  backToLifeTime: 2
+  shellSpeed: 12

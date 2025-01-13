@@ -53,7 +53,6 @@ public class MarioMovementControl : MonoBehaviour
         _capsuleCollider = GetComponent<Collider2D>();
 
         _playerInputActions = new PlayerInputActions();
-        _playerInputActions.Player.Enable();
     }
 
     private void OnEnable()
@@ -63,6 +62,7 @@ public class MarioMovementControl : MonoBehaviour
         velocity = Vector2.zero;
         Jumping = false;
 
+        _playerInputActions.Player.Enable();
         _playerInputActions.Player.Jump.performed += OnJump;
     }
 
@@ -75,6 +75,7 @@ public class MarioMovementControl : MonoBehaviour
         Jumping = false;
 
         _playerInputActions.Player.Jump.performed -= OnJump;
+        _playerInputActions.Disable();
     }
 
     private void Update()

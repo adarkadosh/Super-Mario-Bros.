@@ -13,6 +13,7 @@ TagManager:
   - Koopa
   - BlockCoin
   - OneUp
+  - DeathTriggerZone
   layers:
   - Default
   - TransparentFX
@@ -28,7 +29,7 @@ TagManager:
   - Enemy
   - CameraBoundaries
   - LethalEnemies
-  - 
+  - DeathTrigger
   - 
   - 
   - 
