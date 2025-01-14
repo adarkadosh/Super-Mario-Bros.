@@ -48,12 +48,17 @@ public class KoopaStateMachine : EnemyBehavior, IPoolable
 
     public void Reset()
     {
-        // _currentState.ExitState(this);
+        if (_currentState == ShellState)
+        {
+            _currentState.ExitState(this);
+        }
         _currentState = WalkingState;
         _currentState.EnterState(this);
+        
+        
         var rb = GetComponent<Rigidbody2D>();
         var entityMovement = GetComponent<EntityMovement>();
-        GetComponent<DeathAnimation>().enabled = false;
+        // GetComponent<DeathAnimation>().enabled = false;
         GetComponent<Collider2D>().enabled = true;
         Animator.enabled = true;
 
@@ -71,7 +76,7 @@ public class KoopaStateMachine : EnemyBehavior, IPoolable
         throw new NotImplementedException();
     }
 
-    protected override void Kill()
+    public override void Kill()
     {
         KoopaPool.Instance.Return(this);
     }

@@ -58,16 +58,17 @@ public class WalkingState : IKoopaState
 {
     private static readonly int EnterShell = Animator.StringToHash("EnterShell");
     private static readonly int BackToLife = Animator.StringToHash("BackToLife");
-
     public void EnterState(KoopaStateMachine koopaState)
     {
-        Animator animator = koopaState.GetComponent<Animator>();
-        EntityMovement movement = koopaState.GetComponent<EntityMovement>();
-        Rigidbody2D rb = koopaState.GetComponent<Rigidbody2D>();
+        var animator = koopaState.GetComponent<Animator>();
+        var movement = koopaState.GetComponent<EntityMovement>();
+        var rb = koopaState.GetComponent<Rigidbody2D>();
 
         animator.SetBool(EnterShell, false);
         animator.SetBool(BackToLife, false);
         movement.enabled = true;
+        movement.MovementDirection = Vector2.left;
+        movement.MovementSpeed = EntityMovement.InitialMovementSpeed;
         rb.linearVelocity = Vector2.zero;
 
         // Freeze Y position to prevent falling 
@@ -76,8 +77,8 @@ public class WalkingState : IKoopaState
 
     public void ExitState(KoopaStateMachine koopaState)
     {
-        EntityMovement movement = koopaState.GetComponent<EntityMovement>();
-        Rigidbody2D rb = koopaState.GetComponent<Rigidbody2D>();
+        var movement = koopaState.GetComponent<EntityMovement>();
+        var rb = koopaState.GetComponent<Rigidbody2D>();
 
         movement.enabled = false;
         rb.linearVelocity = Vector2.zero;

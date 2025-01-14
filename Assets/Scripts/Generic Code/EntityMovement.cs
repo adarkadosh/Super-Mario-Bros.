@@ -11,8 +11,10 @@ public enum FlipBehavior
 
 public class EntityMovement : MonoBehaviour
 {
+    public const float InitialMovementSpeed = 2f;
+
     [Header("Movement Settings")]
-    [SerializeField] private float movementSpeed = 2f;
+    [SerializeField] private float movementSpeed = InitialMovementSpeed;
     [SerializeField] private Vector2 movementDirection = Vector2.left;
     [SerializeField] private LayerMask layerMask;
 

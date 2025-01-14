@@ -23,6 +23,7 @@ public class ShellState : IKoopaState
         // koopaState.Animator.SetBool(EnterShell, true);
         koopaState.GetComponent<EntityMovement>().enabled = false;
         koopaState.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
+        koopaState.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
         // koopaState.gameObject.layer = LayerMask.NameToLayer("LethalEnemies");
         _isPushed = false;
         _shellCoroutine = koopaState.StartCoroutine(HandleShellDuration(koopaState));
@@ -35,6 +36,15 @@ public class ShellState : IKoopaState
             koopaState.StopCoroutine(_shellCoroutine);
             _shellCoroutine = null;
         }
+        var movement = koopaState.GetComponent<EntityMovement>();
+        movement.MovementDirection = Vector2.zero;
+        movement.MovementSpeed = 0;
+        koopaState.gameObject.layer = LayerMask.NameToLayer("Enemy");
+        var rb = koopaState.GetComponent<Rigidbody2D>();
+        rb.bodyType = RigidbodyType2D.Dynamic;
+        var collider = koopaState.GetComponent<Collider2D>();
+        collider.enabled = true;
+        _isPushed = false;
     }
 
     public void UpdateState(KoopaStateMachine koopaState)
@@ -73,7 +83,7 @@ public class ShellState : IKoopaState
             koopaState.transform.position.x - collider2D.transform.position.x, 0);
         _isPushed = true;
         koopaState.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-        EntityMovement movement = koopaState.GetComponent<EntityMovement>();
+        var movement = koopaState.GetComponent<EntityMovement>();
         movement.MovementDirection = direction.normalized;
         movement.MovementSpeed = koopaState.ShellSpeed;
         movement.enabled = true;

@@ -1,12 +1,20 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public abstract class EnemyBehavior : MonoBehaviour
 {
     protected Animator Animator;
+    private DeathAnimation _deathAnimation;
+
 
     private void Awake()
     {
         Animator = GetComponent<Animator>();
+        _deathAnimation = GetComponent<DeathAnimation>();
+        if (_deathAnimation == null)
+        {
+            Debug.LogError("DeathAnimation component not found on " + gameObject.name);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -32,18 +40,24 @@ public abstract class EnemyBehavior : MonoBehaviour
         {
             if (gameObject.layer != LayerMask.NameToLayer("LethalEnemies"))
             {
-                GotHitByLethalEnemy();
+                StartCoroutine(DeathSequence());
             }
         }
     }
 
-    private void GotHitByLethalEnemy()
+
+    private IEnumerator DeathSequence()
     {
-        GetComponent<DeathAnimation>().enabled = true;
-        StartCoroutine(Extensions.WaitForSeconds(2f));
+        // Trigger the death animation
+        _deathAnimation.TriggerDeathAnimation();
+        
+        // Wait for the duration of the death animation
+        yield return new WaitForSeconds(3f); // Match this to your animation's duration
+        
+        // Execute the Kill method
         Kill();
     }
 
     protected abstract void GotHit();
-    protected abstract void Kill();
+    public abstract void Kill();
 }

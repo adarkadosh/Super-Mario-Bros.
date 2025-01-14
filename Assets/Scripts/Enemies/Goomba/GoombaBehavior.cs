@@ -29,7 +29,7 @@ public class GoombaBehavior : EnemyBehavior, IPoolable
     {
         var rb = GetComponent<Rigidbody2D>();
         var entityMovement = GetComponent<EntityMovement>();
-        GetComponent<DeathAnimation>().enabled = false;
+        // GetComponent<DeathAnimation>().enabled = false;
         GetComponent<Collider2D>().enabled = true;
         Animator.enabled = true;
         Animator.SetBool(Squished, false);
@@ -48,7 +48,7 @@ public class GoombaBehavior : EnemyBehavior, IPoolable
         throw new NotImplementedException();
     }
 
-    protected override void Kill()
+    public override void Kill()
     {
         GoombaPool.Instance.Return(this);
     }
