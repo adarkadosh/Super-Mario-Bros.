@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 2402368534120373760}
   - component: {fileID: 7102869038037130513}
   - component: {fileID: -3462966828435580256}
+  - component: {fileID: -2377600181439257127}
   m_Layer: 11
   m_Name: Goomba
   m_TagString: Goomba
@@ -235,4 +236,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e7c4d9b5b969de44a17f6fe417dea84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activationRadius: 10
+--- !u!114 &-2377600181439257127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5543011594207221800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 640fc07b38084ce6b56a601789f7ec99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

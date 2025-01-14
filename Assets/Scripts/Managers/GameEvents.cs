@@ -7,4 +7,5 @@ public class GameEvents : MonoSingleton<GameEvents>
     public static Action OnPlayerRespawn;
     public static Action<int> OnCoinCollected;
     public static Action OnGotExtraLife;
+    public static Action<float> FreezeAllCharacters;
 }

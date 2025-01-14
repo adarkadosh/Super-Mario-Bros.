@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 6553632725885319420}
   - component: {fileID: 20145294776130161}
   - component: {fileID: 7228785299985006528}
+  - component: {fileID: 1941761648667482153}
+  - component: {fileID: 1598202733328673894}
   m_Layer: 11
   m_Name: Koopa
   m_TagString: Koopa
@@ -272,3 +274,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e7c4d9b5b969de44a17f6fe417dea84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1941761648667482153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5878824327351108095}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac49ab2d57456c34a9191eb8ae9c2bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1598202733328673894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5878824327351108095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 640fc07b38084ce6b56a601789f7ec99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  freezeDuration: 2

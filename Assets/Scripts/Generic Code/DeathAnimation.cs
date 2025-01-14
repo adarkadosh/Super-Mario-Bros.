@@ -37,8 +37,8 @@ public class DeathAnimation : MonoBehaviour
     {
         _spriteRenderer.enabled = true;
         _spriteRenderer.sortingOrder = 10;
-        if (_animator == null) return;
-        _animator.SetBool(Dead, true);
+        // if (_animator == null) return;
+        // _animator.SetBool(Dead, true);
     }
 
     private void DisableEntityPhysics()
@@ -50,15 +50,18 @@ public class DeathAnimation : MonoBehaviour
             colliderObj.enabled = false;
         }
 
-        if (TryGetComponent(out Rigidbody2D component)) {
+        if (TryGetComponent(out Rigidbody2D component))
+        {
             component.bodyType = RigidbodyType2D.Kinematic;
         }
 
-        if (TryGetComponent(out PlayerMovement playerMovement)) {
+        if (TryGetComponent(out PlayerMovement playerMovement))
+        {
             playerMovement.enabled = false;
         }
 
-        if (TryGetComponent(out EntityMovement entityMovement)) {
+        if (TryGetComponent(out EntityMovement entityMovement))
+        {
             entityMovement.enabled = false;
         }
     }

@@ -13,9 +13,9 @@ public class ShellState : IKoopaState
         yield return new WaitForSeconds(koopa.ShellDuration);
         koopa.GetComponent<Animator>().SetBool(BackToLife, true);
         yield return new WaitForSeconds(koopa.BackToLifeTime);
-        koopa.ChangeState(koopa.walkingState);
+        koopa.ChangeState(koopa.WalkingState);
     }
-    
+
 
     public void EnterState(KoopaStateMachine koopaState)
     {
@@ -52,13 +52,16 @@ public class ShellState : IKoopaState
 
     public void OnTriggerEnter2D(KoopaStateMachine koopaState, Collider2D collider2D)
     {
-        if (!_isPushed && collider2D.CompareTag("Player"))
+        if (collider2D.CompareTag("Player"))
         {
-            GotPush(koopaState, collider2D);
-        }
-        else
-        {
-            MarioEvents.OnMarioGotHit?.Invoke();
+            if (!_isPushed)
+            {
+                GotPush(koopaState, collider2D);
+            }
+            else
+            {
+                MarioEvents.OnMarioGotHit?.Invoke();
+            }
         }
     }
 
@@ -79,6 +82,5 @@ public class ShellState : IKoopaState
 
     public void GotHit(KoopaStateMachine koopaState)
     {
-        
     }
 }

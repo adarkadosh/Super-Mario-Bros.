@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class KoopaStateMachine : EnemyBehavior
+public class KoopaStateMachine : EnemyBehavior, IPoolable
 {
     [SerializeField] private float shellDuration = 3f;
     [SerializeField] private float backToLifeTime = 2f;
@@ -12,35 +12,48 @@ public class KoopaStateMachine : EnemyBehavior
     public float ShellSpeed => shellSpeed;
     
     
-    private IKoopaState currentState;
-    internal WalkingState walkingState = new WalkingState();
-    internal ShellState shellState = new ShellState();
+    private IKoopaState _currentState;
+    internal readonly WalkingState WalkingState = new WalkingState();
+    internal readonly ShellState ShellState = new ShellState();
 
     void Start()
     {
-        currentState = walkingState;
-        currentState.EnterState(this);
+        _currentState = WalkingState;
+        _currentState.EnterState(this);
     }
 
     void Update()
     {
-        currentState.UpdateState(this);
+        _currentState.UpdateState(this);
     }
 
     internal void ChangeState(IKoopaState newState)
     {
-        currentState.ExitState(this);
-        currentState = newState;
-        currentState.EnterState(this);
+        _currentState.ExitState(this);
+        _currentState = newState;
+        _currentState.EnterState(this);
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    private new void OnTriggerEnter2D(Collider2D collision)
     {
-        currentState.OnTriggerEnter2D(this, collision);
+        base.OnTriggerEnter2D(collision);
+        _currentState.OnTriggerEnter2D(this, collision);
     }
 
     protected override void GotHit()
     {
-        currentState.GotHit(this);
+        _currentState.GotHit(this);
+    }
+
+    public void Reset()
+    {
+        // _currentState.ExitState(this);
+        _currentState = WalkingState;
+        _currentState.EnterState(this);
+    }
+
+    public void Trigger()
+    {
+        throw new NotImplementedException();
     }
 }

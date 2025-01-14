@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4109543549194591932}
   - component: {fileID: 2903854853412804370}
   - component: {fileID: 2807554852219353331}
+  - component: {fileID: -2421212697615374790}
   m_Layer: 10
   m_Name: PowerUp Mashroom
   m_TagString: Untagged
@@ -231,3 +232,17 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 17344
   flipBehavior: 1
+  obstacleDetectionDistance: 0.55
+  groundDetectionDistance: 0.55
+--- !u!114 &-2421212697615374790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179967459183939017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 640fc07b38084ce6b56a601789f7ec99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

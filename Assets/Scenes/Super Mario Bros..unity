@@ -340,6 +340,54 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a07c4878ace04193affdc90f0401b77, type: 3}
+--- !u!1 &39646558
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 39646560}
+  - component: {fileID: 39646559}
+  m_Layer: 0
+  m_Name: GoombaSpawner (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &39646559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 39646558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74d9ec40debd427c8654babe38262dd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfGoombas: 2
+  spacingDistance: 1.5
+  goombaPool: {fileID: 1744124147}
+  spawnOnlyOnce: 1
+--- !u!4 &39646560
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 39646558}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 99.5, y: 2.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 643015334}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &40606864
 GameObject:
   m_ObjectHideFlags: 0
@@ -702,11 +750,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 986305865509078295, guid: 3030520e6ebdb6a4ebf99969c71af2bc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.36
+      value: 25.37
       objectReference: {fileID: 0}
     - target: {fileID: 986305865509078295, guid: 3030520e6ebdb6a4ebf99969c71af2bc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.75
+      value: 6.76
       objectReference: {fileID: 0}
     - target: {fileID: 986305865509078295, guid: 3030520e6ebdb6a4ebf99969c71af2bc, type: 3}
       propertyPath: m_LocalPosition.z
@@ -743,6 +791,10 @@ PrefabInstance:
     - target: {fileID: 5878824327351108095, guid: 3030520e6ebdb6a4ebf99969c71af2bc, type: 3}
       propertyPath: m_Name
       value: Koopa
+      objectReference: {fileID: 0}
+    - target: {fileID: 5878824327351108095, guid: 3030520e6ebdb6a4ebf99969c71af2bc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1191,6 +1243,54 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &193827285
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 193827287}
+  - component: {fileID: 193827286}
+  m_Layer: 0
+  m_Name: GoombaSpawner (0)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &193827286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193827285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74d9ec40debd427c8654babe38262dd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfGoombas: 1
+  spacingDistance: 1
+  goombaPool: {fileID: 1744124147}
+  spawnOnlyOnce: 1
+--- !u!4 &193827287
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193827285}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 24, y: 2.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 643015334}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &196733747
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1397,6 +1497,53 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8989533501918102691, guid: 3a1107ccbb4f4a04488a68490d9514fb, type: 3}
   m_PrefabInstance: {fileID: 242328365}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &247243166
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 247243168}
+  - component: {fileID: 247243167}
+  m_Layer: 0
+  m_Name: KoopaPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &247243167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 247243166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5662bd1586f2428e8196e85dca446053, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 20145294776130161, guid: 3030520e6ebdb6a4ebf99969c71af2bc, type: 3}
+  initialSize: 1
+  parent: {fileID: 247243168}
+--- !u!4 &247243168
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 247243166}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &249193584 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1000711801834634979, guid: e523b50a44c1146a4b2fbee1d9c76840, type: 3}
@@ -1464,6 +1611,54 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1582036715424827738, guid: 1c838de0ee49f0a4c92be23b28328b20, type: 3}
   m_PrefabInstance: {fileID: 249874306}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &254702496
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 254702498}
+  - component: {fileID: 254702497}
+  m_Layer: 0
+  m_Name: GoombaSpawner (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &254702497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254702496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74d9ec40debd427c8654babe38262dd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfGoombas: 2
+  spacingDistance: 2.5
+  goombaPool: {fileID: 1744124147}
+  spawnOnlyOnce: 1
+--- !u!4 &254702498
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254702496}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 82.5, y: 10.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 643015334}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &255527961 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3898049695248854800, guid: 1827c29c071562c43b4c587e85cc4655, type: 3}
@@ -2224,7 +2419,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &420611867
 Transform:
   m_ObjectHideFlags: 0
@@ -2400,6 +2595,54 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5772542829966051323, guid: 85612ab6828cd65418dd7d4413cde0ec, type: 3}
   m_PrefabInstance: {fileID: 425641946}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &425855393
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 425855395}
+  - component: {fileID: 425855394}
+  m_Layer: 0
+  m_Name: GoombaSpawner (6)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &425855394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425855393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74d9ec40debd427c8654babe38262dd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfGoombas: 2
+  spacingDistance: 1.5
+  goombaPool: {fileID: 1744124147}
+  spawnOnlyOnce: 1
+--- !u!4 &425855395
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425855393}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 126, y: 2.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 643015334}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &426780306 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6617503361337279976, guid: 407a32857015cf54c8b36c546d965aa9, type: 3}
@@ -3486,6 +3729,46 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e523b50a44c1146a4b2fbee1d9c76840, type: 3}
+--- !u!1 &643015333
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 643015334}
+  m_Layer: 0
+  m_Name: Enemy Spanwers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &643015334
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 643015333}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 193827287}
+  - {fileID: 1188923133}
+  - {fileID: 956366735}
+  - {fileID: 254702498}
+  - {fileID: 39646560}
+  - {fileID: 1807916060}
+  - {fileID: 425855395}
+  - {fileID: 1090709806}
+  - {fileID: 1531033526}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &644743266
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5468,6 +5751,54 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1600390626}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &956366733
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 956366735}
+  - component: {fileID: 956366734}
+  m_Layer: 0
+  m_Name: GoombaSpawner (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &956366734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 956366733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74d9ec40debd427c8654babe38262dd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfGoombas: 2
+  spacingDistance: 1.5
+  goombaPool: {fileID: 1744124147}
+  spawnOnlyOnce: 1
+--- !u!4 &956366735
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 956366733}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 52, y: 2.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 643015334}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &971594273
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5565,6 +5896,54 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4311663395747306437, guid: 786b6641c153041f9844d442729a01bd, type: 3}
   m_PrefabInstance: {fileID: 1333652042}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1020740635
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1020740637}
+  - component: {fileID: 1020740636}
+  m_Layer: 0
+  m_Name: KoopaSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1020740636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1020740635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1975542bcc6044c690aa935d4e716798, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfKoopas: 1
+  spacingDistance: 1
+  koopaPool: {fileID: 247243167}
+  spawnOnlyOnce: 1
+--- !u!4 &1020740637
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1020740635}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 25.5, y: 6.934, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1028910854
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6069,6 +6448,54 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e523b50a44c1146a4b2fbee1d9c76840, type: 3}
+--- !u!1 &1090709804
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1090709806}
+  - component: {fileID: 1090709805}
+  m_Layer: 0
+  m_Name: GoombaSpawner (7)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1090709805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090709804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74d9ec40debd427c8654babe38262dd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfGoombas: 2
+  spacingDistance: 1.5
+  goombaPool: {fileID: 1744124147}
+  spawnOnlyOnce: 1
+--- !u!4 &1090709806
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090709804}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 130, y: 2.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 643015334}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1104373913
 GameObject:
   m_ObjectHideFlags: 0
@@ -6405,6 +6832,54 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a07c4878ace04193affdc90f0401b77, type: 3}
+--- !u!1 &1188923131
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1188923133}
+  - component: {fileID: 1188923132}
+  m_Layer: 0
+  m_Name: GoombaSpawner (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1188923132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188923131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74d9ec40debd427c8654babe38262dd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfGoombas: 1
+  spacingDistance: 1
+  goombaPool: {fileID: 1744124147}
+  spawnOnlyOnce: 1
+--- !u!4 &1188923133
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188923131}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 42.5, y: 2.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 643015334}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1193815036
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6869,6 +7344,54 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5772542829966051323, guid: 85612ab6828cd65418dd7d4413cde0ec, type: 3}
   m_PrefabInstance: {fileID: 1287712782}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1296428359
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1296428361}
+  - component: {fileID: 1296428360}
+  m_Layer: 0
+  m_Name: KoopaSpawner (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1296428360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296428359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1975542bcc6044c690aa935d4e716798, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfKoopas: 1
+  spacingDistance: 1
+  koopaPool: {fileID: 247243167}
+  spawnOnlyOnce: 1
+--- !u!4 &1296428361
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296428359}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 109, y: 2.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1298887199
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7372,6 +7895,10 @@ PrefabInstance:
     - target: {fileID: 5543011594207221800, guid: 6a07c4878ace04193affdc90f0401b77, type: 3}
       propertyPath: m_Name
       value: Goomba
+      objectReference: {fileID: 0}
+    - target: {fileID: 5543011594207221800, guid: 6a07c4878ace04193affdc90f0401b77, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7991,6 +8518,54 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4590680874963659211, guid: b83bb9cf2659a45c6a6fa8204eae38e1, type: 3}
   m_PrefabInstance: {fileID: 1477570892}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1479417145
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1479417147}
+  - component: {fileID: 1479417146}
+  m_Layer: 0
+  m_Name: KoopaSpawner (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1479417146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479417145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1975542bcc6044c690aa935d4e716798, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfKoopas: 3
+  spacingDistance: 1.5
+  koopaPool: {fileID: 247243167}
+  spawnOnlyOnce: 1
+--- !u!4 &1479417147
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479417145}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 64.5, y: 2.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1489784299
 GameObject:
   m_ObjectHideFlags: 0
@@ -8268,6 +8843,54 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4590680874963659211, guid: b83bb9cf2659a45c6a6fa8204eae38e1, type: 3}
   m_PrefabInstance: {fileID: 1517384454}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1531033524
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1531033526}
+  - component: {fileID: 1531033525}
+  m_Layer: 0
+  m_Name: GoombaSpawner (8)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1531033525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531033524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74d9ec40debd427c8654babe38262dd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfGoombas: 2
+  spacingDistance: 1.5
+  goombaPool: {fileID: 1744124147}
+  spawnOnlyOnce: 1
+--- !u!4 &1531033526
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531033524}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 175, y: 2.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 643015334}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1535956740 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5772542829966051323, guid: 85612ab6828cd65418dd7d4413cde0ec, type: 3}
@@ -9067,7 +9690,7 @@ Transform:
   m_GameObject: {fileID: 1675543749}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.265881, y: 7.66, z: -10}
+  m_LocalPosition: {x: 13.24653, y: 7.66, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9291,7 +9914,7 @@ Transform:
   m_GameObject: {fileID: 1679960232}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.07294, y: 7.9819984, z: -10}
+  m_LocalPosition: {x: 9.063265, y: 7.9819984, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9760,6 +10383,53 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4829087381428387945, guid: dbe2ffa4bf0b04bc283426710cafac47, type: 3}
   m_PrefabInstance: {fileID: 1724925134}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1744124146
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1744124148}
+  - component: {fileID: 1744124147}
+  m_Layer: 0
+  m_Name: GoombaPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1744124147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744124146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed44af6d0f744f0f878402e76b006b76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 2402368534120373760, guid: 6a07c4878ace04193affdc90f0401b77, type: 3}
+  initialSize: 2
+  parent: {fileID: 1744124148}
+--- !u!4 &1744124148
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744124146}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1780161090
 GameObject:
   m_ObjectHideFlags: 0
@@ -9853,6 +10523,54 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 192426073}
   m_SourcePrefab: {fileID: 100100000, guid: 95a4ed136b7e6420ebfe4988992e6dcf, type: 3}
+--- !u!1 &1807916058
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1807916060}
+  - component: {fileID: 1807916059}
+  m_Layer: 0
+  m_Name: GoombaSpawner (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1807916059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807916058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74d9ec40debd427c8654babe38262dd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfGoombas: 2
+  spacingDistance: 1.5
+  goombaPool: {fileID: 1744124147}
+  spawnOnlyOnce: 1
+--- !u!4 &1807916060
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807916058}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 116, y: 2.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 643015334}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1819832394
 GameObject:
   m_ObjectHideFlags: 0
@@ -11855,6 +12573,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Koopa
       objectReference: {fileID: 0}
+    - target: {fileID: 5878824327351108095, guid: 3030520e6ebdb6a4ebf99969c71af2bc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12144,6 +12866,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 214351057325159724, guid: 85114338411af416b9b47f92bc6018bb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2141721591898388202, guid: 85114338411af416b9b47f92bc6018bb, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3213283332257613284, guid: 85114338411af416b9b47f92bc6018bb, type: 3}
@@ -12486,3 +13212,9 @@ SceneRoots:
   - {fileID: 4691115839953960902}
   - {fileID: 1298887199}
   - {fileID: 1802244881}
+  - {fileID: 1744124148}
+  - {fileID: 643015334}
+  - {fileID: 247243168}
+  - {fileID: 1020740637}
+  - {fileID: 1296428361}
+  - {fileID: 1479417147}

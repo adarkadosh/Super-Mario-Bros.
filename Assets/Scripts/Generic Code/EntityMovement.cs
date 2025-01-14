@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 public enum FlipBehavior
@@ -24,7 +26,18 @@ public class EntityMovement : MonoBehaviour
 
     private Rigidbody2D _rigidbody2D;
     private SpriteRenderer _spriteRenderer;
+    private FreezeMachine _freezeMachine;
     // private Animator _animator; // Uncomment if using animations
+
+    private void OnEnable()
+    {
+        GameEvents.FreezeAllCharacters += FreezeMovement;
+    }
+    
+    private void OnDisable()
+    {
+        GameEvents.FreezeAllCharacters -= FreezeMovement;
+    }
 
     public Vector2 MovementDirection
     {
@@ -49,6 +62,7 @@ public class EntityMovement : MonoBehaviour
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _freezeMachine = GetComponent<FreezeMachine>();
         // _animator = GetComponent<Animator>(); // Uncomment if using animations
 
         if (_spriteRenderer == null)
@@ -149,6 +163,14 @@ public class EntityMovement : MonoBehaviour
                 // Example: Flip only when moving right
                 _spriteRenderer.flipX = movementDirection.x > 0;
                 break;
+        }
+    }
+    
+    public void FreezeMovement(float duration)
+    {
+        if (_freezeMachine != null)
+        {
+            _freezeMachine.Freeze(duration);
         }
     }
 }

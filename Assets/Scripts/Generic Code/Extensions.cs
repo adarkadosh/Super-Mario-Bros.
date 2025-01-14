@@ -54,4 +54,13 @@ public static class Extensions
             .SetEase(Ease.Linear);
         yield return moveDown.WaitForCompletion();
     }
+
+    public static bool IsVisibleToCamera(this Camera mainCamera, Transform transform)
+    {
+        if (mainCamera == null)
+            return false;
+
+        Vector3 viewportPos = mainCamera.WorldToViewportPoint(transform.position);
+        return viewportPos.x is >= 0 and <= 1 && viewportPos.y is >= 0 and <= 1 && viewportPos.z > 0;
+    }
 }
