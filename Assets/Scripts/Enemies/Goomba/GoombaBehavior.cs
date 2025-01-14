@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using Enemies;
 using UnityEngine;
 
 public class GoombaBehavior : EnemyBehavior, IPoolable
@@ -15,7 +17,7 @@ public class GoombaBehavior : EnemyBehavior, IPoolable
         var rb = GetComponent<Rigidbody2D>();
         rb.bodyType = RigidbodyType2D.Kinematic;
         rb.linearVelocity = Vector2.zero; // Reset velocity to stop movement
-        rb.angularVelocity = 0f;    // Reset angular velocity if necessary
+        // rb.angularVelocity = 0f;    // Reset angular velocity if necessary
         // rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation; // Prevent vertical movement and rotation
 
         Animator.SetBool(Squished, true);
@@ -25,21 +27,29 @@ public class GoombaBehavior : EnemyBehavior, IPoolable
 
     public void Reset()
     {
-        Animator.SetBool(Squished, false);
+        var rb = GetComponent<Rigidbody2D>();
+        var entityMovement = GetComponent<EntityMovement>();
         GetComponent<DeathAnimation>().enabled = false;
+        GetComponent<Collider2D>().enabled = true;
+        Animator.enabled = true;
+        Animator.SetBool(Squished, false);
 
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.bodyType = RigidbodyType2D.Dynamic;
         rb.linearVelocity = Vector2.zero; // Reset velocity
         rb.angularVelocity = 0f;    // Reset angular velocity
         // rb.constraints = RigidbodyConstraints2D.FreezeRotation; // Allow vertical movement, but prevent rotation
 
-        GetComponent<Collider2D>().enabled = true;
-        GetComponent<EntityMovement>().enabled = true;
+        entityMovement.enabled = true;
+        entityMovement.MovementDirection = Vector2.left; // Reset movement direction
     }
 
     public void Trigger()
     {
         throw new NotImplementedException();
+    }
+
+    protected override void Kill()
+    {
+        GoombaPool.Instance.Return(this);
     }
 }

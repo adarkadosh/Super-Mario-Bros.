@@ -1,4 +1,5 @@
 using System;
+using Enemies.Koopa;
 using UnityEngine;
 
 public class KoopaStateMachine : EnemyBehavior, IPoolable
@@ -50,10 +51,28 @@ public class KoopaStateMachine : EnemyBehavior, IPoolable
         // _currentState.ExitState(this);
         _currentState = WalkingState;
         _currentState.EnterState(this);
+        var rb = GetComponent<Rigidbody2D>();
+        var entityMovement = GetComponent<EntityMovement>();
+        GetComponent<DeathAnimation>().enabled = false;
+        GetComponent<Collider2D>().enabled = true;
+        Animator.enabled = true;
+
+        rb.bodyType = RigidbodyType2D.Dynamic;
+        rb.linearVelocity = Vector2.zero; // Reset velocity
+        rb.angularVelocity = 0f;    // Reset angular velocity
+        // rb.constraints = RigidbodyConstraints2D.FreezeRotation; // Allow vertical movement, but prevent rotation
+
+        entityMovement.enabled = true;
+        entityMovement.MovementDirection = Vector2.left; // Reset movement direction
     }
 
     public void Trigger()
     {
         throw new NotImplementedException();
+    }
+
+    protected override void Kill()
+    {
+        KoopaPool.Instance.Return(this);
     }
 }

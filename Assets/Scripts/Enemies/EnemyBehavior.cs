@@ -30,20 +30,20 @@ public abstract class EnemyBehavior : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("LethalEnemies"))
         {
-            GotHitByLethalEnemy();
+            if (gameObject.layer != LayerMask.NameToLayer("LethalEnemies"))
+            {
+                GotHitByLethalEnemy();
+            }
         }
     }
 
     private void GotHitByLethalEnemy()
     {
         GetComponent<DeathAnimation>().enabled = true;
-        Destroy(gameObject, 3f);
+        StartCoroutine(Extensions.WaitForSeconds(2f));
+        Kill();
     }
 
     protected abstract void GotHit();
-
-    protected void Kill()
-    {
-        Destroy(gameObject);
-    }
+    protected abstract void Kill();
 }

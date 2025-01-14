@@ -6,12 +6,14 @@ public class DeathAnimation : MonoBehaviour
 {
     private static readonly int Dead = Animator.StringToHash("Die");
     private SpriteRenderer _spriteRenderer;
+    private int _originalSortingOrder;
     private Animator _animator;
 
     private void Awake()
     {
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _originalSortingOrder = _spriteRenderer.sortingOrder;
     }
 
     private void Reset()
@@ -30,7 +32,10 @@ public class DeathAnimation : MonoBehaviour
 
     private void OnDisable()
     {
+        _spriteRenderer.sortingOrder = _originalSortingOrder;
         StopAllCoroutines();
+        ActivateEntityPhysics();
+        // _spriteRenderer.enabled = true;
     }
 
     private void UpdateAnimation()
@@ -63,6 +68,31 @@ public class DeathAnimation : MonoBehaviour
         if (TryGetComponent(out EntityMovement entityMovement))
         {
             entityMovement.enabled = false;
+        }
+    }
+    
+    private void ActivateEntityPhysics()
+    {
+        var colliders = GetComponents<Collider2D>();
+
+        foreach (var colliderObj in colliders)
+        {
+            colliderObj.enabled = true;
+        }
+
+        if (TryGetComponent(out Rigidbody2D component))
+        {
+            component.bodyType = RigidbodyType2D.Dynamic;
+        }
+
+        if (TryGetComponent(out PlayerMovement playerMovement))
+        {
+            playerMovement.enabled = true;
+        }
+
+        if (TryGetComponent(out EntityMovement entityMovement))
+        {
+            entityMovement.enabled = true;
         }
     }
 

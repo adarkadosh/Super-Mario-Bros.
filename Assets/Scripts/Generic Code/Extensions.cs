@@ -63,4 +63,9 @@ public static class Extensions
         Vector3 viewportPos = mainCamera.WorldToViewportPoint(transform.position);
         return viewportPos.x is >= 0 and <= 1 && viewportPos.y is >= 0 and <= 1 && viewportPos.z > 0;
     }
+    
+    public static IEnumerator WaitForSeconds(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+    }
 }

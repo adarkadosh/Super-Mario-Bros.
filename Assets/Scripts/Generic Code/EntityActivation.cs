@@ -368,7 +368,7 @@ public class EntityActivation : MonoBehaviour
         // OnDrawGizmosSelected();
     }
 
-    private void ActivateEntity()
+    public void ActivateEntity()
     {
         SetComponentsActive(true);
         _isActive = true;
