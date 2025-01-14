@@ -19,14 +19,6 @@ public class GenericBlockHit : MonoBehaviour
     private bool _isHit;
     private static bool _isAnyBlockHit;
     
-    // Power-up Types for blocks (e.g. Super Mashroom, 1-Up Mashroom, Star, etc.)
-    public enum PowerUpType
-    {
-        SuperMashroom,
-        OneUpMashroom,
-        Star,
-        Nothing
-    }
     private PowerUpFactory _powerUpFactory;
     
     protected virtual void Awake()

@@ -11,7 +11,7 @@ public class SuperMashroom : GenericPowerUp
         if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("Player collected a powerup");
-            MarioEvents.OnMarioGotPowerUp?.Invoke();
+            MarioEvents.OnMarioGotPowerUp?.Invoke(PowerUpType.SuperMashroom);
             SuperMashroomPool.Instance.Return(this);
         }
     }

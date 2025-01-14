@@ -59,7 +59,11 @@ public class KoopaStateMachine : EnemyBehavior, IPoolable
         var rb = GetComponent<Rigidbody2D>();
         var entityMovement = GetComponent<EntityMovement>();
         // GetComponent<DeathAnimation>().enabled = false;
-        GetComponent<Collider2D>().enabled = true;
+        var colliders = GetComponents<Collider2D>();
+        foreach (var colliderObj in colliders)
+        {
+            colliderObj.enabled = true;
+        }
         Animator.enabled = true;
 
         rb.bodyType = RigidbodyType2D.Dynamic;

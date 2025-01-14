@@ -9,7 +9,7 @@ public class GameManager : MonoSingleton<GameManager>
     public int Level { get; private set; }
     public int Coins { get; private set; }
     public int Lives { get; private set; }
-    
+
     private void Start()
     {
         World = 1;
@@ -23,15 +23,26 @@ public class GameManager : MonoSingleton<GameManager>
         GameEvents.OnResetLevel += ResetLevel;
         GameEvents.OnCoinCollected += AddCoin;
         GameEvents.OnGotExtraLife += AddLife;
+        MarioEvents.OnMarioDeath += OnMarioDeath;
     }
-    
+
     private void OnDisable()
     {
         GameEvents.OnResetLevel -= ResetLevel;
         GameEvents.OnCoinCollected -= AddCoin;
         GameEvents.OnGotExtraLife -= AddLife;
+        MarioEvents.OnMarioDeath -= OnMarioDeath;
     }
-    
+
+    private void OnMarioDeath()
+    {
+        // Freeze all characters for 3 seconds
+        GameEvents.FreezeAllCharacters?.Invoke(3f);
+        
+        // Reset the level after 3 seconds
+        ResetLevel(3f);
+    }
+
     public void ResetLevel(float delay)
     {
         Invoke(nameof(ResetLevel), delay);
@@ -49,12 +60,12 @@ public class GameManager : MonoSingleton<GameManager>
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
-    
+
     public void GameOver()
     {
         SceneManager.LoadScene("GameOver");
     }
-    
+
     public void AddCoin(int coins)
     {
         Coins++;
@@ -64,7 +75,7 @@ public class GameManager : MonoSingleton<GameManager>
             Coins = 0;
         }
     }
-    
+
     public void AddLife()
     {
         Lives++;

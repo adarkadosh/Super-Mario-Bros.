@@ -1,31 +1,52 @@
 using PowerUps;
+using PowerUps.PowerUps;
 using UnityEngine;
+using UnityEngine.Serialization;
+
+// Power-up Types for blocks (e.g. Super Mashroom, 1-Up Mashroom, Star, etc.)
+public enum PowerUpType
+{
+    SuperMashroom,
+    OneUpMashroom,
+    Star,
+    FireFlower,
+    Nothing
+}
 
 public class PowerUpFactory : MonoSingleton<PowerUpFactory>
 {
-    [Header("Power-Up Pools")]
-    [SerializeField] private OneUpMashroomPool oneUpMashroomPool;
+    [Header("Power-Up Pools")] [SerializeField]
+    private OneUpMashroomPool oneUpMashroomPool;
+
     [SerializeField] private BlockCoinPool blockCoinPool;
     [SerializeField] private StarPool starPool;
     [SerializeField] private SuperMashroomPool superMashroomPool;
-    
-    public GenericPowerUp GetInstance(GenericBlockHit.PowerUpType powerUpType, Vector3 position)
+    [SerializeField] private FireFlowerPool fireFlowerPool;
+    private bool _marioIsBig;
+
+    public GenericPowerUp GetInstance(PowerUpType powerUpType, Vector3 position)
     {
         switch (powerUpType)
         {
-            case GenericBlockHit.PowerUpType.OneUpMashroom:
+            case PowerUpType.OneUpMashroom:
                 return CreateOneUpMashroom(position);
             // case GenericBlockHit.PowerUpType.BlockCoin:
-                // return CreateBlockCoin(position);
-            case GenericBlockHit.PowerUpType.Star:
+            // return CreateBlockCoin(position);
+            case PowerUpType.Star:
                 return CreateStar(position);
-            case GenericBlockHit.PowerUpType.SuperMashroom:
-                return CreateSuperMashroom(position);
+            case PowerUpType.SuperMashroom:
+                return _marioIsBig switch
+                {
+                    true => CreateFireFlower(position),
+                    false => CreateSuperMashroom(position)
+                };
+            case PowerUpType.FireFlower:
+                return CreateFireFlower(position);
             default:
                 return null;
         }
     }
-    
+
     public void ReturnPowerUp(GenericPowerUp genericPowerUp)
     {
         switch (genericPowerUp)
@@ -34,30 +55,56 @@ public class PowerUpFactory : MonoSingleton<PowerUpFactory>
                 oneUpMashroomPool.Return(oneUpMashroom);
                 break;
             // case BlockCoin blockCoin:
-                // blockCoinPool.Return(blockCoin);
-                // break;
+            // blockCoinPool.Return(blockCoin);
+            // break;
             case Star star:
                 starPool.Return(star);
                 break;
             case SuperMashroom superMashroom:
                 superMashroomPool.Return(superMashroom);
                 break;
+            case FireFlower fireFlower:
+                fireFlowerPool.Return(fireFlower);
+                break;
             default:
                 Debug.LogWarning($"Attempted to return unsupported PowerUp type: {genericPowerUp.GetType()}");
                 break;
         }
     }
-    
+
     public BlockCoin GetBlockCoin(Vector3 position)
     {
         return CreateBlockCoin(position);
     }
-    
+
     public void ReturnBlockCoin(BlockCoin blockCoin)
     {
         blockCoinPool.Return(blockCoin);
     }
     
+    void OnEnable()
+    {
+        MarioEvents.OnEnterBigMario += SetMarioIsBig;
+        MarioEvents.OnEnterSmallMario += SetMarioIsSmall;
+    }
+    
+    void OnDisable()
+    {
+        MarioEvents.OnEnterBigMario -= SetMarioIsBig;
+        MarioEvents.OnEnterSmallMario -= SetMarioIsSmall;
+    }
+    
+    
+    private void SetMarioIsBig()
+    {
+        _marioIsBig = true;
+    }
+    
+    private void SetMarioIsSmall()
+    {
+        _marioIsBig = false;
+    }
+
 
     private GenericPowerUp CreateOneUpMashroom(Vector3 position)
     {
@@ -72,6 +119,7 @@ public class PowerUpFactory : MonoSingleton<PowerUpFactory>
         {
             Debug.LogError("Failed to spawn OneUpMashroom: Pool instance is null.");
         }
+
         return oneUpMashroom;
     }
 
@@ -96,6 +144,7 @@ public class PowerUpFactory : MonoSingleton<PowerUpFactory>
         {
             Debug.LogError("Failed to spawn Star: Pool instance is null.");
         }
+
         return star;
     }
 
@@ -113,6 +162,25 @@ public class PowerUpFactory : MonoSingleton<PowerUpFactory>
         {
             Debug.LogError("Failed to spawn SuperMashroom: Pool instance is null.");
         }
+
         return superMashroom;
+    }
+
+    private FireFlower CreateFireFlower(Vector3 position)
+    {
+        var fireFlower = fireFlowerPool.Get();
+        if (fireFlower != null)
+        {
+            fireFlower.transform.position = position;
+            fireFlower.gameObject.SetActive(true);
+            fireFlower.Trigger();
+            Debug.Log("FireFlower power-up spawned.");
+        }
+        else
+        {
+            Debug.LogError("Failed to spawn FireFlower: Pool instance is null.");
+        }
+
+        return fireFlower;
     }
 }

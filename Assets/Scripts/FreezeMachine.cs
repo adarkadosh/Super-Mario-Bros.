@@ -20,14 +20,14 @@ public class FreezeMachine : MonoBehaviour
         _entityMovement = GetComponent<EntityMovement>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
 
-        if (_animator == null)
-            Debug.LogWarning($"{gameObject.name} is missing an Animator component.");
-
-        if (_entityMovement == null)
-            Debug.LogWarning($"{gameObject.name} is missing an EntityMovement component.");
-
-        if (_rigidbody2D == null)
-            Debug.LogWarning($"{gameObject.name} is missing a Rigidbody2D component.");
+        // if (_animator == null)
+        //     Debug.LogWarning($"{gameObject.name} is missing an Animator component.");
+        //
+        // if (_entityMovement == null)
+        //     Debug.LogWarning($"{gameObject.name} is missing an EntityMovement component.");
+        //
+        // if (_rigidbody2D == null)
+        //     Debug.LogWarning($"{gameObject.name} is missing a Rigidbody2D component.");
     }
 
     /// <summary>
@@ -39,7 +39,7 @@ public class FreezeMachine : MonoBehaviour
         if (_isFrozen)
             return; // Prevent multiple freeze coroutines
 
-        StartCoroutine(FreezeRoutine(duration));
+        StartCoroutine(FreezeRoutine(duration));                
     }
 
     /// <summary>

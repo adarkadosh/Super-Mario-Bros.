@@ -8,7 +8,7 @@ public class DeathTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             // Invoke the event signaling that Mario got hit
-            MarioEvents.OnMarioGotHit?.Invoke();
+            MarioEvents.OnMarioDeath?.Invoke();
 
             // Freeze all characters for 3 seconds
             GameEvents.FreezeAllCharacters?.Invoke(3f);
