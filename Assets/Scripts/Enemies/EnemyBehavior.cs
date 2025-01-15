@@ -32,6 +32,10 @@ public abstract class EnemyBehavior : MonoBehaviour
                 MarioEvents.OnMarioGotHit?.Invoke();
             }
         }
+        else if (other.gameObject.layer == LayerMask.NameToLayer($"StarMario"))
+        {
+            StartCoroutine(DeathSequence());
+        }
     }
 
     protected void OnTriggerEnter2D(Collider2D other)
@@ -50,10 +54,10 @@ public abstract class EnemyBehavior : MonoBehaviour
     {
         // Trigger the death animation
         _deathAnimation.TriggerDeathAnimation();
-        
+
         // Wait for the duration of the death animation
         yield return new WaitForSeconds(3f); // Match this to your animation's duration
-        
+
         // Execute the Kill method
         Kill();
     }

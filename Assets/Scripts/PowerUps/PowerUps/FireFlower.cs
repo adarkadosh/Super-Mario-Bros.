@@ -10,7 +10,7 @@ namespace PowerUps.PowerUps
             {
                 Debug.Log("Player collected a powerup");
                 MarioEvents.OnMarioGotPowerUp?.Invoke(PowerUpType.FireFlower);
-                FireFlowerPool.Instance.Return(this);
+                PowerUpFactory.Instance.ReturnPowerUp(this);
             }
         }
         

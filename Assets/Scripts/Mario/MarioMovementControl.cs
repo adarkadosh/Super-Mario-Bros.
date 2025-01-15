@@ -571,7 +571,7 @@ public class MarioMovementControl : MonoBehaviour
         _playerInputActions.Disable();
 
         // Reset animation parameters
-        ResetAnimations();
+        // ResetAnimations();
     }
 
     private void Update()
@@ -807,16 +807,16 @@ public class MarioMovementControl : MonoBehaviour
         // _animator.SetBool(IsSliding, Sliding);
     }
 
-    private void ResetAnimations()
-    {
-        if (_animator == null) return;
-
-        _animator.SetFloat(Speed, 0f);
-        _animator.SetBool(IsJumping, false);
-        _animator.SetBool("Walking", false);
-        // _animator.SetBool(IsFalling, false);
-        _animator.SetBool(IsSliding, false);
-    }
+    // private void ResetAnimations()
+    // {
+    //     if (_animator == null) return;
+    //
+    //     _animator.SetFloat(Speed, 0f);
+    //     _animator.SetBool(IsJumping, false);
+    //     _animator.SetBool("Walking", false);
+    //     // _animator.SetBool(IsFalling, false);
+    //     _animator.SetBool(IsSliding, false);
+    // }
 
     private void GetBigger()
     {

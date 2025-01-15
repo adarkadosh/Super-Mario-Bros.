@@ -10,7 +10,8 @@ public class OneUpMashroom : GenericPowerUp
             Debug.Log("Player collected a OneUp");
             // GameEvents.OnGotExtraLife?.Invoke();
             MarioEvents.OnMarioGotPowerUp?.Invoke(PowerUpType.OneUpMashroom);
-            OneUpMashroomPool.Instance.Return(this);
+            PowerUpFactory.Instance.ReturnPowerUp(this);
+
         }
     }
 }

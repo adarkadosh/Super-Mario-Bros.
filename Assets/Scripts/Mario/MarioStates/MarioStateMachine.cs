@@ -2,14 +2,16 @@ using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System;
+using System.Collections;
 using UnityEngine.Serialization;
 
-[RequireComponent(typeof(Rigidbody2D), typeof(MarioAnimationController), typeof(MovementController))]
+[RequireComponent(typeof(Rigidbody2D), typeof(MarioMovementControl), typeof(Animator))]
 public class MarioStateMachine : MonoBehaviour
 {
-    [SerializeField] public float starDuration = 10f;
+    [SerializeField] public float starDuration = 10f; 
+    [SerializeField] public float untouchableDuration = 2.1f;
     private Rigidbody2D _rigidbody;
-    private Collider2D _capsuleCollider;
+    private CapsuleCollider2D _capsuleCollider;
 
 
     // private MarioMovementControl _movementController;
@@ -26,13 +28,14 @@ public class MarioStateMachine : MonoBehaviour
     internal SmallMarioState SmallMarioState = new SmallMarioState();
     internal readonly FireMarioState FireMarioState = new FireMarioState();
     internal readonly StarMarioState StarMarioState = new StarMarioState();
+    public bool IsUntouchable;
 
 
     private void Awake()
     {
         
         _rigidbody = GetComponent<Rigidbody2D>();
-        _capsuleCollider = GetComponent<Collider2D>();
+        _capsuleCollider = GetComponent<CapsuleCollider2D>();
         // MarioAnimationController = GetComponent<MarioAnimationController>();
         Animator = GetComponent<Animator>();
         MovementController = GetComponent<MarioMovementControl>();
@@ -51,7 +54,8 @@ public class MarioStateMachine : MonoBehaviour
         _rigidbody.bodyType = RigidbodyType2D.Dynamic;
         _capsuleCollider.enabled = true;
 
-        PlayerInputActions.Player.Enable();
+        // PlayerInputActions.Player.Enable();
+        PlayerInputActions = new PlayerInputActions();
         MarioEvents.OnMarioGotPowerUp += OnPickUpPowerUp; // Assuming you have this input
     }
 
@@ -62,6 +66,9 @@ public class MarioStateMachine : MonoBehaviour
 
         MarioEvents.OnMarioGotPowerUp -= OnPickUpPowerUp;
         PlayerInputActions.Player.Disable();
+        
+        StopAllCoroutines();
+        gameObject.layer = LayerMask.NameToLayer("Mario");
 
         // Reset animation parameters
         // if (MarioAnimationController != null)
@@ -86,20 +93,7 @@ public class MarioStateMachine : MonoBehaviour
     {
         // get power-up type from context and change state accordingly
         // e.g., if MarioEvent.PowerUpType == PowerUpType.FireFlower, ChangeState(new FireMarioState());
-        if (powerUpType == PowerUpType.FireFlower)
-        {
-            ChangeState(FireMarioState);
-        } else if (powerUpType == PowerUpType.SuperMashroom)
-        {
-            ChangeState(BigMarioState);
-        } else if (powerUpType == PowerUpType.Star)
-        {
-            ChangeState(StarMarioState);
-        } else
-        {
-            Debug.LogWarning("Invalid power-up type.");
-        }
-        
+        _currentState.OnPickUpPowerUp(this, powerUpType);
     }
 
     public void ChangeState(IMarioState newState)
@@ -122,7 +116,7 @@ public class MarioStateMachine : MonoBehaviour
         }
     }
 
-    public void OnCollisionEnter2D(Collision2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
         _currentState.OnCollisionEnter2D(this, other);
         Vector2 direction = other.transform.position - transform.position;
@@ -140,12 +134,15 @@ public class MarioStateMachine : MonoBehaviour
     private void GotHit()
     {
         _currentState.GotHit(this);
+        StartCoroutine(UntouchableDuration(untouchableDuration));
     }
 
     public void SetColliderSize(Vector2 size, Vector2 offset)
     {
-        _capsuleCollider.transform.localScale = size;
+        // _capsuleCollider.enabled = false;
+        _capsuleCollider.size = size;
         _capsuleCollider.offset = offset;
+        // _capsuleCollider.enabled = true;
     }
 
     public void ShootFireball()
@@ -154,5 +151,14 @@ public class MarioStateMachine : MonoBehaviour
         // Set fireball position to Mario's position
         // Set fireball velocity to Mario's velocity
         // Set fireball direction to Mario's direction
+    }
+    
+    internal IEnumerator UntouchableDuration(float duration)
+    {
+        IsUntouchable = true;
+        gameObject.layer = LayerMask.NameToLayer("PowerUp");
+        yield return new WaitForSeconds(duration);
+        gameObject.layer = LayerMask.NameToLayer("Mario");
+        IsUntouchable = false;
     }
 }

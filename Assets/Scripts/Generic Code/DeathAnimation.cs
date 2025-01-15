@@ -31,8 +31,9 @@ public class DeathAnimation : MonoBehaviour
     }
 
     
-    public void TriggerDeathAnimation()
+    public void TriggerDeathAnimation(float waitTime = 0f)
     {
+        StartCoroutine(Extensions.WaitForSeconds(waitTime));
         if (_deathAnimationCoroutine != null)
         {
             StopCoroutine(_deathAnimationCoroutine);

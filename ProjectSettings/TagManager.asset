@@ -14,6 +14,7 @@ TagManager:
   - BlockCoin
   - OneUp
   - DeathTriggerZone
+  - FireFlower
   layers:
   - Default
   - TransparentFX
@@ -30,7 +31,7 @@ TagManager:
   - CameraBoundaries
   - LethalEnemies
   - DeathTrigger
-  - 
+  - StarMario
   - 
   - 
   - 

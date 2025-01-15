@@ -9,7 +9,7 @@ public class Star : GenericPowerUp
         {
             Debug.Log("Player collected a powerup");
             MarioEvents.OnMarioGotPowerUp?.Invoke(PowerUpType.Star);
-            StarPool.Instance.Return(this);
+            PowerUpFactory.Instance.ReturnPowerUp(this);
         }
     }
 }
