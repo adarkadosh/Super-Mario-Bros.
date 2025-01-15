@@ -39,9 +39,10 @@ public class TranspertyBehaviour : StateMachineBehaviour
     private const float flashInterval = 0.033f; // Approximately 2 frames at 60 FPS
 
     // Called when the state machine starts to evaluate this state
-    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         // Get the SpriteRenderer component from the GameObject
+        // this.
         spriteRenderer = animator.GetComponent<SpriteRenderer>();
 
         if (spriteRenderer == null)
@@ -57,7 +58,7 @@ public class TranspertyBehaviour : StateMachineBehaviour
     }
 
     // Called on each Update frame between OnStateEnter and OnStateExit callbacks
-    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if (spriteRenderer == null)
             return;
@@ -78,7 +79,7 @@ public class TranspertyBehaviour : StateMachineBehaviour
     }
 
     // Called when the state machine finishes evaluating this state
-    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if (spriteRenderer == null)
             return;

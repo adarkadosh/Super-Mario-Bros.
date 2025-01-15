@@ -50,7 +50,7 @@ public abstract class EnemyBehavior : MonoBehaviour
     }
 
 
-    private IEnumerator DeathSequence()
+    public IEnumerator DeathSequence()
     {
         // Trigger the death animation
         _deathAnimation.TriggerDeathAnimation();

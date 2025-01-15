@@ -42,8 +42,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""id"": ""6c2ab1b8-8984-453a-af3d-a3c78ae1679a"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Crouch"",

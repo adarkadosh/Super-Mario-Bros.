@@ -165,10 +165,12 @@ public class EntityMovement : MonoBehaviour
                 // Example: Flip only when moving right
                 _spriteRenderer.flipX = movementDirection.x > 0;
                 break;
+            default:
+                throw new ArgumentOutOfRangeException();
         }
     }
-    
-    public void FreezeMovement(float duration)
+
+    private void FreezeMovement(float duration)
     {
         if (_freezeMachine != null)
         {

@@ -5,10 +5,12 @@ using System;
 using System.Collections;
 using UnityEngine.Serialization;
 
-[RequireComponent(typeof(Rigidbody2D), typeof(MarioMovementControl), typeof(Animator))]
+[RequireComponent(typeof(Rigidbody2D), typeof(MarioMoveController), typeof(Animator))]
 public class MarioStateMachine : MonoBehaviour
 {
-    [SerializeField] public float starDuration = 10f; 
+    private static readonly int OnCrouch = Animator.StringToHash("OnCrouch");
+    private static readonly int Attack = Animator.StringToHash("Fire");
+    [SerializeField] public float starDuration = 10f;
     [SerializeField] public float untouchableDuration = 2.1f;
     private Rigidbody2D _rigidbody;
     private CapsuleCollider2D _capsuleCollider;
@@ -16,7 +18,7 @@ public class MarioStateMachine : MonoBehaviour
 
     // private MarioMovementControl _movementController;
 
-    internal MarioMovementControl MovementController { get; private set; }
+    internal MarioMoveController MovementController { get; private set; }
     internal PlayerInputActions PlayerInputActions { get; private set; }
     internal Animator Animator { get; private set; }
 
@@ -28,17 +30,30 @@ public class MarioStateMachine : MonoBehaviour
     internal SmallMarioState SmallMarioState = new SmallMarioState();
     internal readonly FireMarioState FireMarioState = new FireMarioState();
     internal readonly StarMarioState StarMarioState = new StarMarioState();
-    public bool IsUntouchable;
+    public FlashTransparency flashTransparency;
+
+    [FormerlySerializedAs("StarPowerEffect")]
+    public StarPowerEffect starPowerEffect;
+
+    private FreezeMachine _freezeMachine;
+
+    [FormerlySerializedAs("IsUntouchable")]
+    public bool isUntouchable;
 
 
     private void Awake()
     {
-        
         _rigidbody = GetComponent<Rigidbody2D>();
         _capsuleCollider = GetComponent<CapsuleCollider2D>();
         // MarioAnimationController = GetComponent<MarioAnimationController>();
         Animator = GetComponent<Animator>();
-        MovementController = GetComponent<MarioMovementControl>();
+        MovementController = GetComponent<MarioMoveController>();
+        // get the son of Mario
+        flashTransparency = GetComponentInChildren<FlashTransparency>();
+        starPowerEffect = GetComponentInChildren<StarPowerEffect>();
+        _freezeMachine = GetComponent<FreezeMachine>();
+
+        // flashTransparency = GetComponent<FlashTransparency>();
 
         PlayerInputActions = new PlayerInputActions();
     }
@@ -54,9 +69,12 @@ public class MarioStateMachine : MonoBehaviour
         _rigidbody.bodyType = RigidbodyType2D.Dynamic;
         _capsuleCollider.enabled = true;
 
-        // PlayerInputActions.Player.Enable();
-        PlayerInputActions = new PlayerInputActions();
+        PlayerInputActions.Enable();
+        PlayerInputActions.Player.Crouch.started += Crouch;
+        PlayerInputActions.Player.Crouch.canceled += StandUp;
+        PlayerInputActions.Player.Attack.performed += ShootFireball;
         MarioEvents.OnMarioGotPowerUp += OnPickUpPowerUp; // Assuming you have this input
+        GameEvents.FreezeAllCharacters += FreezeMario;
     }
 
     private void OnDisable()
@@ -65,16 +83,15 @@ public class MarioStateMachine : MonoBehaviour
         _capsuleCollider.enabled = false;
 
         MarioEvents.OnMarioGotPowerUp -= OnPickUpPowerUp;
+        PlayerInputActions.Player.Crouch.started -= Crouch;
+        PlayerInputActions.Player.Crouch.canceled -= StandUp;
+        PlayerInputActions.Player.Attack.performed -= ShootFireball;
         PlayerInputActions.Player.Disable();
-        
+
+
         StopAllCoroutines();
         gameObject.layer = LayerMask.NameToLayer("Mario");
-
-        // Reset animation parameters
-        // if (MarioAnimationController != null)
-        // {
-            // MarioAnimationController.ResetAnimations();
-        // }
+        GameEvents.FreezeAllCharacters -= FreezeMario;
     }
 
     private void Update()
@@ -82,6 +99,33 @@ public class MarioStateMachine : MonoBehaviour
         // Update current state
         _currentState?.DoAction(this);
     }
+
+    private void Crouch(InputAction.CallbackContext context)
+    {
+        if (_currentState is SmallMarioState)
+        {
+            return;
+        }
+
+        Debug.Log("Crouching");
+        SetColliderSize(new Vector2(0.75f, 1f), Vector2.zero);
+        MovementController.enabled = false;
+        Animator.SetBool(OnCrouch, true);
+    }
+
+    private void StandUp(InputAction.CallbackContext context)
+    {
+        if (_currentState is SmallMarioState)
+        {
+            return;
+        }
+
+        Debug.Log("Standing up");
+        MovementController.enabled = true;
+        SetColliderSize(new Vector2(0.75f, 2f), new Vector2(0f, 0.5f));
+        Animator.SetBool(OnCrouch, false);
+    }
+
 
     private void FixedUpdate()
     {
@@ -94,6 +138,19 @@ public class MarioStateMachine : MonoBehaviour
         // get power-up type from context and change state accordingly
         // e.g., if MarioEvent.PowerUpType == PowerUpType.FireFlower, ChangeState(new FireMarioState());
         _currentState.OnPickUpPowerUp(this, powerUpType);
+        if (powerUpType == PowerUpType.Star)
+        {
+            starPowerEffect.StartStarPower();
+            ChangeState(StarMarioState);
+            StartCoroutine(OnStarPower());
+        }
+    }
+
+    private IEnumerator OnStarPower()
+    {
+        yield return new WaitForSeconds(starDuration);
+        starPowerEffect.StopStarPower();
+        ChangeState(SmallMarioState);
     }
 
     public void ChangeState(IMarioState newState)
@@ -134,7 +191,7 @@ public class MarioStateMachine : MonoBehaviour
     private void GotHit()
     {
         _currentState.GotHit(this);
-        StartCoroutine(UntouchableDuration(untouchableDuration));
+        // StartCoroutine(UntouchableDuration(untouchableDuration));
     }
 
     public void SetColliderSize(Vector2 size, Vector2 offset)
@@ -145,20 +202,36 @@ public class MarioStateMachine : MonoBehaviour
         // _capsuleCollider.enabled = true;
     }
 
-    public void ShootFireball()
+    public void StopFlashing()
     {
-        // Instantiate fireball prefab
-        // Set fireball position to Mario's position
-        // Set fireball velocity to Mario's velocity
-        // Set fireball direction to Mario's direction
+        flashTransparency?.StopFlashing();
     }
-    
+
+    public void ShootFireball(InputAction.CallbackContext context)
+    {
+        if (_currentState is FireMarioState)
+        {
+            Debug.Log("Shooting fireball");
+            Animator.SetTrigger(Attack);
+            // Shoot fireball
+            // Instantiate fireball prefab
+            // Set fireball position to Mario's position
+            // Set fireball velocity to Mario's velocity
+            // Set fireball direction to Mario's direction
+        }
+    }
+
     internal IEnumerator UntouchableDuration(float duration)
     {
-        IsUntouchable = true;
+        isUntouchable = true;
         gameObject.layer = LayerMask.NameToLayer("PowerUp");
         yield return new WaitForSeconds(duration);
         gameObject.layer = LayerMask.NameToLayer("Mario");
-        IsUntouchable = false;
+        isUntouchable = false;
+    }
+
+    public void FreezeMario(float duration)
+    {
+        _freezeMachine.Freeze(duration);
     }
 }

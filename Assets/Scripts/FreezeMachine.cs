@@ -10,6 +10,7 @@ public class FreezeMachine : MonoBehaviour
     private Animator _animator;
     private EntityMovement _entityMovement;
     private Rigidbody2D _rigidbody2D;
+    private MarioMoveController _marioMoveController;
 
     private bool _isFrozen;
 
@@ -19,6 +20,7 @@ public class FreezeMachine : MonoBehaviour
         _animator = GetComponent<Animator>();
         _entityMovement = GetComponent<EntityMovement>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        _marioMoveController = GetComponent<MarioMoveController>();
 
         // if (_animator == null)
         //     Debug.LogWarning($"{gameObject.name} is missing an Animator component.");
@@ -56,19 +58,24 @@ public class FreezeMachine : MonoBehaviour
             _entityMovement.enabled = false;
         }
 
-        // Stop animations
-        if (_animator != null)
+        // Stop animations only for the Enemy
+        if (_animator != null && _marioMoveController == null)
         {
             _animator.speed = 0f; // Pause animations
             // Alternatively, you can disable the Animator
             // _animator.enabled = false;
+        }
+        
+        if (_marioMoveController != null)
+        {
+            _marioMoveController.enabled = false;
         }
 
         // Optionally, stop physics movement
         if (_rigidbody2D != null)
         {
             _rigidbody2D.linearVelocity = Vector2.zero;
-            _rigidbody2D.bodyType = RigidbodyType2D.Kinematic; // Prevent physics from affecting the enemy
+            // _rigidbody2D.bodyType = RigidbodyType2D.Kinematic; // Prevent physics from affecting the enemy
         }
 
         // Visual Feedback (Optional)
@@ -83,11 +90,16 @@ public class FreezeMachine : MonoBehaviour
         }
 
         // Resume animations
-        if (_animator != null)
+        if (_animator != null && _marioMoveController == null)
         {
             _animator.speed = 1f; // Resume animations
             // If you disabled the Animator, re-enable it here
             // _animator.enabled = true;
+        }
+        
+        if (_marioMoveController != null)
+        {
+            _marioMoveController.enabled = true;
         }
 
         // Resume physics movement

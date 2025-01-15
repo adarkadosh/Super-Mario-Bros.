@@ -45,6 +45,33 @@ AnimationClip:
     classID: 212
     script: {fileID: 0}
     flags: 2
+  - serializedVersion: 2
+    curve:
+    - time: 0
+      value: {fileID: 8026728320813808590, guid: 1e938e1319f6e004f98d9da52ee4ef92, type: 3}
+    - time: 0.14285715
+      value: {fileID: -1862011149, guid: 1e938e1319f6e004f98d9da52ee4ef92, type: 3}
+    - time: 0.2857143
+      value: {fileID: 8026728320813808590, guid: 1e938e1319f6e004f98d9da52ee4ef92, type: 3}
+    - time: 0.42857143
+      value: {fileID: -1862011149, guid: 1e938e1319f6e004f98d9da52ee4ef92, type: 3}
+    - time: 0.5714286
+      value: {fileID: 8026728320813808590, guid: 1e938e1319f6e004f98d9da52ee4ef92, type: 3}
+    - time: 0.71428573
+      value: {fileID: -1862011149, guid: 1e938e1319f6e004f98d9da52ee4ef92, type: 3}
+    - time: 0.85714287
+      value: {fileID: -53950671, guid: 1e938e1319f6e004f98d9da52ee4ef92, type: 3}
+    - time: 1
+      value: {fileID: 8026728320813808590, guid: 1e938e1319f6e004f98d9da52ee4ef92, type: 3}
+    - time: 1.1428572
+      value: {fileID: -1862011149, guid: 1e938e1319f6e004f98d9da52ee4ef92, type: 3}
+    - time: 1.2857143
+      value: {fileID: -53950671, guid: 1e938e1319f6e004f98d9da52ee4ef92, type: 3}
+    attribute: m_Sprite
+    path: MarioAnimations
+    classID: 212
+    script: {fileID: 0}
+    flags: 2
   m_SampleRate: 7
   m_WrapMode: 0
   m_Bounds:
@@ -61,7 +88,26 @@ AnimationClip:
       isPPtrCurve: 1
       isIntCurve: 0
       isSerializeReferenceCurve: 0
+    - serializedVersion: 2
+      path: 1689973175
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
     pptrCurveMapping:
+    - {fileID: 8026728320813808590, guid: 1e938e1319f6e004f98d9da52ee4ef92, type: 3}
+    - {fileID: -1862011149, guid: 1e938e1319f6e004f98d9da52ee4ef92, type: 3}
+    - {fileID: 8026728320813808590, guid: 1e938e1319f6e004f98d9da52ee4ef92, type: 3}
+    - {fileID: -1862011149, guid: 1e938e1319f6e004f98d9da52ee4ef92, type: 3}
+    - {fileID: 8026728320813808590, guid: 1e938e1319f6e004f98d9da52ee4ef92, type: 3}
+    - {fileID: -1862011149, guid: 1e938e1319f6e004f98d9da52ee4ef92, type: 3}
+    - {fileID: -53950671, guid: 1e938e1319f6e004f98d9da52ee4ef92, type: 3}
+    - {fileID: 8026728320813808590, guid: 1e938e1319f6e004f98d9da52ee4ef92, type: 3}
+    - {fileID: -1862011149, guid: 1e938e1319f6e004f98d9da52ee4ef92, type: 3}
+    - {fileID: -53950671, guid: 1e938e1319f6e004f98d9da52ee4ef92, type: 3}
     - {fileID: 8026728320813808590, guid: 1e938e1319f6e004f98d9da52ee4ef92, type: 3}
     - {fileID: -1862011149, guid: 1e938e1319f6e004f98d9da52ee4ef92, type: 3}
     - {fileID: 8026728320813808590, guid: 1e938e1319f6e004f98d9da52ee4ef92, type: 3}
@@ -96,11 +142,4 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events:
-  - time: 1.2857143
-    functionName: GetBigger
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
+  m_Events: []

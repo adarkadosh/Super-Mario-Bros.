@@ -10,7 +10,7 @@ public class StarMarioState : IMarioState
     public void EnterState(MarioStateMachine context)
     {
         context.gameObject.layer = LayerMask.NameToLayer("StarMario");
-        context.Animator.SetBool(OnStarMode, true);
+        // context.Animator.SetBool(OnStarMode, true);
         _coroutine = context.StartCoroutine(WaitAndExit(context));
     }
 

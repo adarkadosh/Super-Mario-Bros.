@@ -7,6 +7,7 @@ public class BigMarioState : IMarioState
     private static readonly int GetSmaller = Animator.StringToHash("GetSmaller");
     private static readonly int IsBig = Animator.StringToHash("IsBig");
     private static readonly int GetOnFire = Animator.StringToHash("GetOnFire");
+    private static readonly int OnFireMode = Animator.StringToHash("OnFireMode");
 
     public void EnterState(MarioStateMachine context)
     {
@@ -17,12 +18,19 @@ public class BigMarioState : IMarioState
     
     public void GotHit(MarioStateMachine context)
     {
-        context.StartCoroutine(GotHitCoroutine(context));
+        context.flashTransparency?.StartFlashing();
+        // context.StartCoroutine(GotHitCoroutine(context));
+        context.Animator.SetTrigger(GetSmaller);
+        context.Invoke(nameof(MarioStateMachine.StopFlashing), 3f);
+        context.Animator.SetBool(IsBig, false);
+        context.ChangeState(context.SmallMarioState);
+        context.StartCoroutine(context.UntouchableDuration(context.untouchableDuration));
     }
     
     private IEnumerator GotHitCoroutine(MarioStateMachine context)
     {
         context.Animator.SetTrigger(GetSmaller);
+        context.Invoke(nameof(MarioStateMachine.StopFlashing), 3f);
         yield return new WaitForSeconds(2.1f);
         context.Animator.SetBool(IsBig, false);
         context.ChangeState(context.SmallMarioState);
@@ -31,23 +39,19 @@ public class BigMarioState : IMarioState
 
     public void DoAction(MarioStateMachine marioContext)
     {
-        if (marioContext.PlayerInputActions.Player.Crouch.IsPressed())
-        {
-            marioContext.SetColliderSize(new Vector2(0.75f, 1f), Vector2.zero);
-            marioContext.Animator.SetBool("OnCrouch", true);
-        }
-        else
-        {
-            marioContext.SetColliderSize(new Vector2(0.75f, 2f), new Vector2(0f, 0.5f));
-            marioContext.Animator.SetBool("OnCrouch", false);
-        }
+        
     }
     
     public void OnPickUpPowerUp(MarioStateMachine context, PowerUpType powerUpType)
     {
         if (powerUpType == PowerUpType.FireFlower)
         {
-            context.StartCoroutine(DoPickUpPowerUp(context, powerUpType));
+            context.Animator.SetTrigger(GetOnFire);
+            GameEvents.FreezeAllCharacters?.Invoke(1.2f);
+            // yield return new WaitForSeconds(0);
+            context.Animator.SetBool(OnFireMode, true);
+            context.ChangeState(context.FireMarioState);
+            // context.StartCoroutine(DoPickUpPowerUp(context, powerUpType));
         }
     }
     
@@ -55,7 +59,8 @@ public class BigMarioState : IMarioState
     {
         context.Animator.SetTrigger(GetOnFire);
         GameEvents.FreezeAllCharacters?.Invoke(1.2f);
-        yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSeconds(0);
+        context.Animator.SetBool(OnFireMode, true);
         context.ChangeState(context.FireMarioState);
     }
 
