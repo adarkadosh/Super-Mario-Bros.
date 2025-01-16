@@ -6,8 +6,6 @@ public class BigMarioState : IMarioState
 {
     private static readonly int GetSmaller = Animator.StringToHash("GetSmaller");
     private static readonly int IsBig = Animator.StringToHash("IsBig");
-    private static readonly int GetOnFire = Animator.StringToHash("GetOnFire");
-    private static readonly int OnFireMode = Animator.StringToHash("OnFireMode");
 
     public void EnterState(MarioStateMachine context)
     {
@@ -46,21 +44,26 @@ public class BigMarioState : IMarioState
     {
         if (powerUpType == PowerUpType.FireFlower)
         {
-            context.Animator.SetTrigger(GetOnFire);
-            GameEvents.FreezeAllCharacters?.Invoke(1.2f);
+            // context.Animator.SetTrigger(GetOnFire);
+            // GameEvents.FreezeAllCharacters?.Invoke(1.2f);
             // yield return new WaitForSeconds(0);
-            context.Animator.SetBool(OnFireMode, true);
-            context.ChangeState(context.FireMarioState);
+            // context.Animator.SetBool(OnFireMode, true);
+            // context.ChangeState(context.FireMarioState);
+            
             // context.StartCoroutine(DoPickUpPowerUp(context, powerUpType));
+            context.paletteSwapper.StartFlashing();
+            context.Invoke(nameof(PaletteSwapper.StopFlashing), 1.2f);
+            GameEvents.FreezeAllCharacters?.Invoke(1.2f);
+            context.ChangeState(context.FireMarioState);
         }
     }
     
     private IEnumerator DoPickUpPowerUp(MarioStateMachine context, PowerUpType powerUpType)
     {
-        context.Animator.SetTrigger(GetOnFire);
+        context.paletteSwapper.StartFlashing();
+        context.Invoke(nameof(context.paletteSwapper.StopFlashing), 1.2f);
         GameEvents.FreezeAllCharacters?.Invoke(1.2f);
         yield return new WaitForSeconds(0);
-        context.Animator.SetBool(OnFireMode, true);
         context.ChangeState(context.FireMarioState);
     }
 

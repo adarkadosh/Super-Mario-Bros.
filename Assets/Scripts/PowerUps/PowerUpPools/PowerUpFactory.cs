@@ -84,26 +84,22 @@ public class PowerUpFactory : MonoSingleton<PowerUpFactory>
     
     void OnEnable()
     {
-        MarioEvents.OnEnterBigMario += SetMarioIsBig;
-        MarioEvents.OnEnterSmallMario += SetMarioIsSmall;
+        MarioEvents.OnMarioStateChange += SetMarioIsBig;
+        // MarioEvents.OnEnterSmallMario += SetMarioIsSmall;
     }
     
     void OnDisable()
     {
-        MarioEvents.OnEnterBigMario -= SetMarioIsBig;
-        MarioEvents.OnEnterSmallMario -= SetMarioIsSmall;
+        MarioEvents.OnMarioStateChange -= SetMarioIsBig;
+        // MarioEvents.OnEnterSmallMario -= SetMarioIsSmall;
     }
     
     
-    private void SetMarioIsBig()
+    private void SetMarioIsBig(MarioState marioState)
     {
-        _marioIsBig = true;
+        _marioIsBig = marioState != MarioState.Small;
     }
     
-    private void SetMarioIsSmall()
-    {
-        _marioIsBig = false;
-    }
 
 
     private GenericPowerUp CreateOneUpMashroom(Vector3 position)

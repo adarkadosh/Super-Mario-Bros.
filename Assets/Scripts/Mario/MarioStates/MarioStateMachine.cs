@@ -1,9 +1,17 @@
-using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using System;
 using System.Collections;
 using UnityEngine.Serialization;
+
+public enum MarioState
+{
+    Small,
+    Big,
+    Fire,
+    GrowShrink,
+    Attack,
+    Star
+}
 
 [RequireComponent(typeof(Rigidbody2D), typeof(MarioMoveController), typeof(Animator))]
 public class MarioStateMachine : MonoBehaviour
@@ -12,14 +20,15 @@ public class MarioStateMachine : MonoBehaviour
     private static readonly int Attack = Animator.StringToHash("Fire");
     [SerializeField] public float starDuration = 10f;
     [SerializeField] public float untouchableDuration = 2.1f;
+    [SerializeField] internal PaletteSwapper paletteSwapper;
     private Rigidbody2D _rigidbody;
     private CapsuleCollider2D _capsuleCollider;
 
 
     // private MarioMovementControl _movementController;
 
-    internal MarioMoveController MovementController { get; private set; }
-    internal PlayerInputActions PlayerInputActions { get; private set; }
+    private MarioMoveController MovementController { get; set; }
+    private PlayerInputActions PlayerInputActions { get; set; }
     internal Animator Animator { get; private set; }
 
 
@@ -27,17 +36,15 @@ public class MarioStateMachine : MonoBehaviour
 
     private IMarioState _currentState;
     internal readonly BigMarioState BigMarioState = new BigMarioState();
-    internal SmallMarioState SmallMarioState = new SmallMarioState();
+    internal readonly SmallMarioState SmallMarioState = new SmallMarioState();
     internal readonly FireMarioState FireMarioState = new FireMarioState();
     internal readonly StarMarioState StarMarioState = new StarMarioState();
     public FlashTransparency flashTransparency;
-
-    [FormerlySerializedAs("StarPowerEffect")]
+    
     public StarPowerEffect starPowerEffect;
 
     private FreezeMachine _freezeMachine;
 
-    [FormerlySerializedAs("IsUntouchable")]
     public bool isUntouchable;
 
 
@@ -140,9 +147,16 @@ public class MarioStateMachine : MonoBehaviour
         _currentState.OnPickUpPowerUp(this, powerUpType);
         if (powerUpType == PowerUpType.Star)
         {
-            starPowerEffect.StartStarPower();
+            paletteSwapper.StartFlashing();
+            Invoke(nameof(paletteSwapper.StopFlashing), 10f);
+            // starPowerEffect.StartStarPower();
             ChangeState(StarMarioState);
             StartCoroutine(OnStarPower());
+        // } else if (powerUpType == PowerUpType.FireFlower)
+        // {
+            // paletteSwapper.StartFlashing();
+            // Invoke(nameof(paletteSwapper.StopFlashing), 1.2f);
+            // ChangeState(FireMarioState);
         }
     }
 
@@ -162,13 +176,13 @@ public class MarioStateMachine : MonoBehaviour
         switch (newState)
         {
             case SmallMarioState _:
-                MarioEvents.OnEnterSmallMario?.Invoke();
+                MarioEvents.OnMarioStateChange?.Invoke(MarioState.Small);
                 break;
             case BigMarioState _:
-                MarioEvents.OnEnterBigMario?.Invoke();
+                MarioEvents.OnMarioStateChange?.Invoke(MarioState.Big);
                 break;
             case FireMarioState _:
-                MarioEvents.OnEnterFireMario?.Invoke();
+                MarioEvents.OnMarioStateChange?.Invoke(MarioState.Fire);
                 break;
         }
     }
@@ -211,6 +225,7 @@ public class MarioStateMachine : MonoBehaviour
     {
         if (_currentState is FireMarioState)
         {
+            MarioEvents.OnMarioStateChange?.Invoke(MarioState.Attack);
             Debug.Log("Shooting fireball");
             Animator.SetTrigger(Attack);
             // Shoot fireball

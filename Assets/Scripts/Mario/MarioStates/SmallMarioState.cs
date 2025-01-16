@@ -10,6 +10,7 @@ public class SmallMarioState : IMarioState
 
     public void EnterState(MarioStateMachine context)
     {
+        MarioEvents.OnMarioStateChange?.Invoke(MarioState.Small);
         context.gameObject.layer = LayerMask.NameToLayer("Mario");
         context.SetColliderSize(new Vector2(0.75f, 1f), Vector2.zero);
         Debug.Log("Entered Small Mario State.");
@@ -32,6 +33,7 @@ public class SmallMarioState : IMarioState
     {
         if (powerUpType == PowerUpType.SuperMashroom)
         {
+            MarioEvents.OnMarioStateChange?.Invoke(MarioState.GrowShrink);
             context.StartCoroutine(DoPickUpPowerUp(context, powerUpType));
         }
     }

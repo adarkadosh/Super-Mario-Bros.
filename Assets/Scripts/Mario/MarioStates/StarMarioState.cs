@@ -11,6 +11,7 @@ public class StarMarioState : IMarioState
     {
         context.gameObject.layer = LayerMask.NameToLayer("StarMario");
         // context.Animator.SetBool(OnStarMode, true);
+        
         _coroutine = context.StartCoroutine(WaitAndExit(context));
     }
 

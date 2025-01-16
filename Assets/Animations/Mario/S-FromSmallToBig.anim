@@ -66,7 +66,7 @@ AnimationClip:
     - time: 1.1428572
       value: {fileID: -1862011149, guid: 1e938e1319f6e004f98d9da52ee4ef92, type: 3}
     - time: 1.2857143
-      value: {fileID: -53950671, guid: 1e938e1319f6e004f98d9da52ee4ef92, type: 3}
+      value: {fileID: 7485923874434252260, guid: 5b12869584c10c34ea6babaae6262f63, type: 3}
     attribute: m_Sprite
     path: MarioAnimations
     classID: 212
@@ -117,7 +117,7 @@ AnimationClip:
     - {fileID: -53950671, guid: 1e938e1319f6e004f98d9da52ee4ef92, type: 3}
     - {fileID: 8026728320813808590, guid: 1e938e1319f6e004f98d9da52ee4ef92, type: 3}
     - {fileID: -1862011149, guid: 1e938e1319f6e004f98d9da52ee4ef92, type: 3}
-    - {fileID: -53950671, guid: 1e938e1319f6e004f98d9da52ee4ef92, type: 3}
+    - {fileID: 7485923874434252260, guid: 5b12869584c10c34ea6babaae6262f63, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

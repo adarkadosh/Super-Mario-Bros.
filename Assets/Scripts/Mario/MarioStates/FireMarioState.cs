@@ -3,9 +3,8 @@ using UnityEngine.InputSystem;
 
 public class FireMarioState : IMarioState
 {
-    private static readonly int Hit = Animator.StringToHash("GotHit");
     private static readonly int IsBig = Animator.StringToHash("IsBig");
-    private static readonly int OnStarMode = Animator.StringToHash("OnStarMode");
+    private static readonly int Hit = Animator.StringToHash("GetSmaller");
 
     public void EnterState(MarioStateMachine context)
     {
