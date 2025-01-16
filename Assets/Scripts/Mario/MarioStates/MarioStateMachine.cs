@@ -23,17 +23,12 @@ public class MarioStateMachine : MonoBehaviour
     [SerializeField] internal PaletteSwapper paletteSwapper;
     private Rigidbody2D _rigidbody;
     private CapsuleCollider2D _capsuleCollider;
-
-
-    // private MarioMovementControl _movementController;
+    
 
     private MarioMoveController MovementController { get; set; }
     private PlayerInputActions PlayerInputActions { get; set; }
     internal Animator Animator { get; private set; }
-
-
-    // internal MarioAnimationController MarioAnimationController { get; private set; }
-
+    
     private IMarioState _currentState;
     internal readonly BigMarioState BigMarioState = new BigMarioState();
     internal readonly SmallMarioState SmallMarioState = new SmallMarioState();
@@ -131,12 +126,6 @@ public class MarioStateMachine : MonoBehaviour
         MovementController.enabled = true;
         SetColliderSize(new Vector2(0.75f, 2f), new Vector2(0f, 0.5f));
         Animator.SetBool(OnCrouch, false);
-    }
-
-
-    private void FixedUpdate()
-    {
-        // Movement is handled by MovementController
     }
 
 

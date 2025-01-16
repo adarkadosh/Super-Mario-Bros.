@@ -75,11 +75,6 @@ public class KoopaStateMachine : EnemyBehavior, IPoolable
         entityMovement.MovementDirection = Vector2.left; // Reset movement direction
     }
 
-    public void Trigger()
-    {
-        throw new NotImplementedException();
-    }
-
     public override void Kill()
     {
         KoopaPool.Instance.Return(this);

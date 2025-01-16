@@ -1,125 +1,4 @@
-﻿// using System.Collections;
-// using UnityEngine;
-//
-//
-// public class PaletteSwapper : MonoBehaviour
-// {
-//     private static readonly int MainTexture = Shader.PropertyToID("_MainTexture");
-//     private static readonly int HatColour = Shader.PropertyToID("_HatColour");
-//     private static readonly int BodyColour = Shader.PropertyToID("_BodyColour");
-//     private static readonly int ClothColour = Shader.PropertyToID("_ClothColour");
-//     private const float StarFlashInterval = 0.333f; 
-//
-//     [SerializeField] private Material general;
-//     [SerializeField] private Color[] blackMarioColor;
-//     [SerializeField] private Color[] greenMarioColor;
-//     [SerializeField] private Color[] redMarioColor;
-//     [SerializeField] private Color[] regularMarioColor;
-//     [SerializeField] private Color[] fireMarioColor;
-//
-//     private Color[][] _starMarioColors;
-//     private SpriteRenderer _spriteRenderer;
-//     private Texture2D _texture;
-//     private bool _isStar;
-//
-//     private void Start()
-//     {
-//         _spriteRenderer = GetComponent<SpriteRenderer>();
-//         _starMarioColors = new[] {fireMarioColor, blackMarioColor, greenMarioColor, redMarioColor};
-//         
-//     }
-//
-//     private void Update()
-//     {
-//         if (_texture != _spriteRenderer.sprite.texture)
-//         {
-//             _texture = _spriteRenderer.sprite.texture;
-//             general.SetTexture(MainTexture, _spriteRenderer.sprite.texture);
-//             Debug.Log(general.GetTexture(MainTexture));
-//         }
-//     }
-//
-//     private void OnEnable()
-//     {
-//         // Subscribe to Mario state change events
-//         MarioEvents.OnMarioStateChange += SwapPalette;
-//     }
-//
-//     private void OnDisable()
-//     {
-//         // Unsubscribe from Mario state change events
-//         MarioEvents.OnMarioStateChange -= SwapPalette;
-//     }
-//
-//     // Swap palette based on Mario's state
-//     private void SwapPalette(MarioState state)
-//     {
-//         if (general == null) return;
-//
-//         // Set colors based on the current state
-//         switch (state)
-//         {
-//             case MarioState.Small:
-//             case MarioState.Big:
-//                 ApplyColors(regularMarioColor);
-//                 _starMarioColors[0] = regularMarioColor;
-//                 break;
-//             case MarioState.Fire:
-//                 ApplyColors(fireMarioColor);
-//                 _starMarioColors[0] = fireMarioColor;
-//                 break;
-//         }
-//     }
-//     
-//     // Apply colors to the shader
-//     private void ApplyColors(Color[] colors)
-//     {
-//         if (colors == null || colors.Length < 3) return;
-//
-//         // Assuming the shader uses _Color1, _Color2, _Color3 for palette swaps
-//         general.SetColor(HatColour, colors[0]);
-//         general.SetColor(BodyColour, colors[1]);
-//         general.SetColor(ClothColour, colors[2]);
-//     }
-//
-//     // Method to start the flashing effect
-//     public void StartFlashing()
-//     {
-//         if (!_isStar && _spriteRenderer != null)
-//         {
-//             _isStar = true;
-//             StartCoroutine(SwapStarPalette());
-//         }
-//     }
-//
-//     // Method to stop the flashing effect
-//     public void StopFlashing()
-//     {
-//         if (_isStar && _spriteRenderer != null)
-//         {
-//             _isStar = false;
-//             StopCoroutine(SwapStarPalette());
-//             // SetSpriteAlpha(1f); // Ensure sprite is fully opaque when stopping
-//         }
-//     }
-//
-//     // Coroutine to handle the flashing effect
-//     private IEnumerator SwapStarPalette()
-//     {
-//         while (_isStar)
-//         {
-//             for (int i = 0; i < _starMarioColors.Length; i++)
-//             {
-//                 ApplyColors(_starMarioColors[i]);
-//                 yield return new WaitForSeconds(StarFlashInterval);
-//             }
-//             // Wait for the specified interval
-//             // yield return new WaitForSeconds(StarFlashInterval);
-//         }
-//     }
-// }
-
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 public class PaletteSwapper : MonoBehaviour
@@ -155,7 +34,18 @@ public class PaletteSwapper : MonoBehaviour
         _starMarioColors = new[] {fireMarioColor, blackMarioColor, greenMarioColor, redMarioColor};
     }
 
-    private void Update()
+    // private void Update()
+    // {
+        // // Update the texture on the material if the sprite changes
+        // if (_spriteRenderer != null && general != null && _texture != _spriteRenderer.sprite.texture)
+        // {
+        //     _texture = _spriteRenderer.sprite.texture;
+        //     general.SetTexture(MainTexture, _spriteRenderer.sprite.texture);
+        //     Debug.Log($"Updated texture: {general.GetTexture(MainTexture)}");
+        // }
+    // }
+
+    private void FixedUpdate()
     {
         // Update the texture on the material if the sprite changes
         if (_spriteRenderer != null && general != null && _texture != _spriteRenderer.sprite.texture)
@@ -223,6 +113,7 @@ public class PaletteSwapper : MonoBehaviour
         {
             _isStar = true;
             StartCoroutine(SwapStarPalette());
+            ApplyColors(_starMarioColors[0]); // Apply the current palette
         }
     }
 
