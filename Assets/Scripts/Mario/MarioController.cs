@@ -1,218 +1,116 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(Rigidbody2D))]
+/// <summary>
+/// Simple 2D Platformer controller with basic "1980s-style" horizontal movement and jump.
+/// Attach this to a 2D character with a Rigidbody2D and Collider2D.
+/// </summary>
+[RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
 public class MarioController : MonoBehaviour
 {
-    // Input
-    private PlayerInputActions inputActions;
-    private InputAction moveAction;
-    private InputAction jumpAction;
-
-    // Components
-    private Rigidbody2D rb;
-    private Animator animator;
-
-    // Movement parameters
     [Header("Movement Settings")]
-    public float moveSpeed = 5f;             // Maximum horizontal speed
-    public float acceleration = 50f;         // How quickly Mario accelerates
-    public float deceleration = 50f;         // How quickly Mario decelerates
-    public float jumpForce = 12f;            // Initial jump impulse
-    public float sustainedJumpForce = 20f;   // Additional force while holding jump
-    public float gravityScale = 3f;          // Gravity scale for Mario
+    [Tooltip("Horizontal movement speed.")]
+    public float moveSpeed = 5f;
 
-    [Header("Sliding Settings")]
-    public float slideFriction = 10f;        // Sliding friction when no input is detected
+    [Tooltip("Initial jump velocity (upward force).")]
+    public float jumpForce = 7.5f;
 
-    // Ground check
+    [Tooltip("If true, the player can vary the jump height by releasing the button early.")]
+    public bool variableJump = true;
+
+    [Tooltip("Gravity multiplier applied while the player is not pressing jump.")]
+    public float fallMultiplier = 2f;
+
     [Header("Ground Check")]
-    public Transform groundCheck;
-    public float groundCheckRadius = 0.1f;
-    public LayerMask groundLayer;
-    private bool isGrounded;
+    [Tooltip("How far below the character to check for ground.")]
+    public float groundCheckDistance = 0.05f;
 
-    // Coyote Time
-    [Header("Coyote Time")]
-    public float coyoteTimeDuration = 0.2f;
-    private float coyoteTimeCounter;
+    [Tooltip("The layers considered ground.")]
+    [SerializeField] private LayerMask groundLayer;
 
-    // Input variables
-    private float moveInput;
-    private bool isJumping;
-    private float jumpTimer;
-    public float maxJumpDuration = 1f;       // Maximum duration to hold jump
+    private Rigidbody2D _rb;
+    private Collider2D _collider;
 
-    private void Awake()
+    // Flags
+    private bool _isGrounded;
+    private bool _isJumping;
+    private bool _jumpButtonPressed;
+
+    void Awake()
     {
-        // Initialize input actions
-        inputActions = new PlayerInputActions();
-
-        moveAction = inputActions.Player.Move;
-        jumpAction = inputActions.Player.Jump;
-
-        // Initialize components
-        rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        // Cache components
+        _rb = GetComponent<Rigidbody2D>();
+        _collider = GetComponent<Collider2D>();
     }
 
-    private void OnEnable()
+    void Update()
     {
-        // Enable input actions
-        inputActions.Player.Enable();
+        // Read horizontal input (A/D, Left/Right arrows)
+        float moveInput = Input.GetAxisRaw("Horizontal");
 
-        // Subscribe to jump events
-        jumpAction.performed += OnJumpPerformed;
-        jumpAction.canceled += OnJumpCanceled;
-    }
+        // Move horizontally
+        Vector2 vel = _rb.linearVelocity;
+        vel.x = moveInput * moveSpeed;
+        _rb.linearVelocity = vel;
 
-    private void OnDisable()
-    {
-        // Disable input actions
-        inputActions.Player.Disable();
+        // Flip sprite if needed (optional, if you have a sprite to flip)
+        if (moveInput < 0)
+            transform.localScale = new Vector3(-1, 1, 1);
+        else if (moveInput > 0)
+            transform.localScale = new Vector3(1, 1, 1);
 
-        // Unsubscribe from jump events
-        jumpAction.performed -= OnJumpPerformed;
-        jumpAction.canceled -= OnJumpCanceled;
-    }
-
-    private void Start()
-    {
-        rb.gravityScale = gravityScale;
-    }
-
-    private void Update()
-    {
-        // Read movement input
-        Vector2 inputVector = moveAction.ReadValue<Vector2>();
-        moveInput = inputVector.x;
-
-        // Ground check
-        if (isGrounded)
+        // Check if jump is pressed
+        if (Input.GetKeyDown(KeyCode.Space) && _isGrounded)
         {
-            coyoteTimeCounter = coyoteTimeDuration;
+            // Start a jump
+            _isJumping = true;
+            _jumpButtonPressed = true;
+            _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, jumpForce);
         }
-        else
+        else if (Input.GetKeyUp(KeyCode.Space))
         {
-            coyoteTimeCounter -= Time.deltaTime;
-        }
-
-        // Update Animator parameters
-        if (animator != null)
-        {
-            animator.SetFloat("Speed", Mathf.Abs(rb.linearVelocity.x));
-            animator.SetBool("IsGrounded", isGrounded);
-            animator.SetFloat("VerticalVelocity", rb.linearVelocity.y);
-        }
-    }
-
-    private void FixedUpdate()
-    {
-        HandleMovement();
-        HandleJump();
-        AdjustGravity();
-    }
-
-    private void HandleMovement()
-    {
-        if (Mathf.Abs(moveInput) > 0.01f)
-        {
-            // Movement with input
-            float targetSpeed = moveInput * moveSpeed;
-            float speedDifference = targetSpeed - rb.linearVelocity.x;
-            float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : deceleration;
-
-            float movement = Mathf.Pow(Mathf.Abs(speedDifference) * accelRate, 0.9f) * Mathf.Sign(speedDifference);
-            rb.AddForce(movement * Vector2.right, ForceMode2D.Force);
-
-            // Limit speed
-            if (Mathf.Abs(rb.linearVelocity.x) > moveSpeed)
+            // If jump is released early and variable jumps are enabled, reduce upward velocity
+            _jumpButtonPressed = false;
+            if (variableJump && _rb.linearVelocity.y > 0)
             {
-                rb.linearVelocity = new Vector2(Mathf.Sign(rb.linearVelocity.x) * moveSpeed, rb.linearVelocity.y);
+                _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, _rb.linearVelocity.y * 0.5f);
             }
         }
-        else
+
+        // Simple ground check by casting down a small distance
+        _isGrounded = CheckGrounded();
+    }
+
+    void FixedUpdate()
+    {
+        // Apply higher gravity when falling (for a snappier jump feel)
+        if (!_isGrounded && variableJump)
         {
-            // Sliding when no input
-            float friction = slideFriction * Time.fixedDeltaTime;
-            if (Mathf.Abs(rb.linearVelocity.x) > friction)
+            if (!_jumpButtonPressed && _rb.linearVelocity.y < 0)
             {
-                rb.linearVelocity = new Vector2(rb.linearVelocity.x - Mathf.Sign(rb.linearVelocity.x) * friction, rb.linearVelocity.y);
-            }
-            else
-            {
-                rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+                // Increase gravity multiplier
+                _rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.fixedDeltaTime;
             }
         }
     }
 
-    private void HandleJump()
+    /// <summary>
+    /// Raycast or circle-cast below the player’s feet to see if we’re on the ground.
+    /// </summary>
+    private bool CheckGrounded()
     {
-        if (isJumping && !isGrounded)
-        {
-            if (jumpTimer < maxJumpDuration)
-            {
-                // Apply sustained jump force
-                rb.AddForce(Vector2.up * sustainedJumpForce * Time.fixedDeltaTime);
-                jumpTimer += Time.fixedDeltaTime;
-            }
-            else
-            {
-                // Reached max jump duration
-                isJumping = false;
-            }
-        }
-    }
+        Vector2 start = _collider.bounds.center;
+        float radius = _collider.bounds.extents.x * 0.5f;
+        // Or use the smaller side of the collider as your “foot radius”
 
-    private void OnJumpPerformed(InputAction.CallbackContext context)
-    {
-        if (coyoteTimeCounter > 0f)
-        {
-            // Initial jump
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f); // Reset Y velocity
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        RaycastHit2D hit = Physics2D.Raycast(start, Vector2.down, 
+                                             _collider.bounds.extents.y + groundCheckDistance, 
+                                             groundLayer);
 
-            // Start sustained jump
-            isJumping = true;
-            jumpTimer = 0f;
+        // Optionally, draw a debug line (visible in the Scene view)
+        Debug.DrawLine(start, start + Vector2.down * (_collider.bounds.extents.y + groundCheckDistance),
+                       hit ? Color.green : Color.red);
 
-            // Reset coyote time
-            coyoteTimeCounter = 0f;
-        }
-    }
-
-    private void OnJumpCanceled(InputAction.CallbackContext context)
-    {
-        // Stop applying sustained jump force
-        isJumping = false;
-    }
-
-    private void AdjustGravity()
-    {
-        if (rb.linearVelocity.y > 0 && !isJumping)
-        {
-            rb.gravityScale = gravityScale * 2; // Increase gravity when falling
-        }
-        else
-        {
-            rb.gravityScale = gravityScale;
-        }
-    }
-    
-    
-    // Ground Check
-    private void LateUpdate()
-    {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-    }
-
-    // Optional: Visualize ground check in the editor
-    private void OnDrawGizmosSelected()
-    {
-        if (groundCheck != null)
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
-        }
+        return (hit.collider != null);
     }
 }

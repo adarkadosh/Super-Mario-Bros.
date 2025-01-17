@@ -1,269 +1,345 @@
-using System;
+using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-/// <summary>
-/// A Mario-like controller that uses manual gravity, coyote time, 
-/// and variable jump (hold for higher jump).
-/// Rigidbody2D should have Gravity Scale = 0 in Inspector.
-/// </summary>
-[RequireComponent(typeof(Rigidbody2D))]
 public class Mario : MonoBehaviour
 {
-    [Header("Input")]
-    private PlayerInputActions _inputActions;
+    private SpriteRenderer spriteRenderer;
+    private Animator animator;
 
-    [Header("Movement")]
-    [SerializeField] private float moveSpeed = 8f;
-    [SerializeField] private float acceleration = 15f;
-    [SerializeField] private float deceleration = 15f;
+    // Dimensions for collision checks (width & height).
+    // If you have a custom collision system, adjust as necessary.
+    public Vector2 dimensions = new Vector2(1f, 1f);
 
-    [Header("Jump Settings")]
-    [Tooltip("Maximum jump height in world units (when holding jump full duration).")]
-    [SerializeField] private float maxJumpHeight = 4f;
-    [Tooltip("Maximum time (in seconds) the jump can be held to reach maxJumpHeight.")]
-    [SerializeField] private float maxJumpTime = 0.5f;
+    // Current velocities
+    private float xvel, yvel;
 
-    [Tooltip("Gravity multiplier while falling.")]
-    [SerializeField] private float fallMultiplier = 2f;
-    [Tooltip("Gravity multiplier while still holding jump.")]
-    [SerializeField] private float jumpMultiplier = 1f;
+    // Jumping logic
+    private JumpState jump;
+    private bool jumping;
+    private bool grounded;
 
-    [Tooltip("Manually set a jump force if desired. If 0, it will be auto-calculated.")]
-    [SerializeField] private float customJumpForce = 0f;
+    // Movement constants
+    private const float conversion      = 65536;  // just used to convert fixed-point style constants
+    private const float maxRunX         = 10496 / conversion;
+    private const float maxWalkX        = 6400  / conversion;
+    private const float walkAcc         = 152   / conversion;
+    private const float runAcc          = 228   / conversion;
+    private const float skidPower       = 416   / conversion;
+    private const float releaseDeAcc    = 208   / conversion;
 
-    [Header("Coyote Time")]
-    [SerializeField] private float coyoteTimeDuration = 0.1f; 
-    private float _coyoteTimeCounter;
+    private const float fastJumpPower   = 20480 / conversion;
+    private const float jumpPower       = 16384 / conversion;
+    private const float fastJumpReq     = 9472  / conversion;
+    private const float modJumpReq      = 4096  / conversion;
 
-    [Header("Ground Check")]
-    [SerializeField] private LayerMask groundLayer;
-    [Tooltip("The size of the BoxCast for ground checking.")]
-    [SerializeField] private Vector2 groundCheckSize = new Vector2(0.9f, 0.1f);
+    // Jump decays
+    private const float fastJumpDecay   = 2304 / conversion;
+    private const float fastJumpDecayUp = 640  / conversion;
+    private const float modJumpDecay    = 1536 / conversion;
+    private const float modJumpDecayUp  = 460  / conversion;
+    private const float slowJumpDecay   = 1792 / conversion;
+    private const float slowJumpDecayUp = 490  / conversion;
 
-    // Internal variables
-    private Rigidbody2D _rigidbody;
-    private Vector2 _velocity;
-    private bool _isGrounded;
-    private bool _isJumping;
-    private float _jumpTimeCounter;
-    private float _gravity;        // Will be calculated based on maxJumpHeight / maxJumpTime if custom not used
-    private float _jumpForce;      // Will be calculated if not custom
-    private Vector3 _jumpStartPos; // For debug distance
+    // Air-strafe
+    private const float airStrafeBorder = 6400  / conversion;
+    private const float airStrafeFast   = 7424  / conversion;
 
-    private void Awake()
+    // Track whether we can fast air-strafe
+    private bool fastAirStraff;
+
+    // Cached inputs
+    private bool keySpace, keyD, keyA, keyShift, keySpaceDown;
+
+    private void Start()
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
-        
-        // Setup input
-        _inputActions = new PlayerInputActions();
-        _inputActions.Enable();
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
-        // If customJumpForce is not set, compute jump force from maxJumpHeight & maxJumpTime
-        if (Mathf.Approximately(customJumpForce, 0f))
-        {
-            // Explanation:
-            // Gravity = (-2f * maxJumpHeight) / (maxJumpTime/2f)^2
-            // JumpForce = (2f * maxJumpHeight) / (maxJumpTime/2f)
-            _gravity = (-2f * maxJumpHeight) / Mathf.Pow((maxJumpTime / 2f), 2);
-            _jumpForce = (2f * maxJumpHeight) / (maxJumpTime / 2f);
-        }
-        else
-        {
-            // If the user wants to override jumpForce, we still compute gravity
-            // so that it’s somewhat consistent with the chosen maxJumpHeight and maxJumpTime.
-            _jumpForce = customJumpForce;
-            _gravity = (-2f * maxJumpHeight) / Mathf.Pow((maxJumpTime / 2f), 2);
-        }
-
-        // By default, we assume the RigidBody2D has Gravity Scale 0
-        // so we can apply manual gravity.
-        _rigidbody.gravityScale = 0f;
-    }
-
-    private void OnEnable()
-    {
-        _inputActions.Player.Jump.performed += OnJumpPerformed;
-        _inputActions.Player.Jump.canceled += OnJumpCanceled;
-    }
-
-    private void OnDisable()
-    {
-        _inputActions.Player.Jump.performed -= OnJumpPerformed;
-        _inputActions.Player.Jump.canceled -= OnJumpCanceled;
-        _inputActions.Disable();
+        // Initialize movement
+        xvel = 0f;
+        yvel = 0f;
+        jump = JumpState.SlowJump;
+        jumping = false;
+        grounded = true;
     }
 
     private void Update()
     {
-        // 1) Check if grounded
-        CheckGrounded();
-
-        // 2) Horizontal movement input
-        float horizontalInput = _inputActions.Player.Move.ReadValue<Vector2>().x;
-        HandleHorizontalMovement(horizontalInput);
-
-        // 3) Handle coyote time
-        UpdateCoyoteTime();
-
-        // 4) If on ground and not currently jumping, measure jump distance
-        if (_isGrounded && !_isJumping)
-        {
-            float jumpDistance = Vector3.Distance(_jumpStartPos, transform.position);
-            // For debugging or analytics:
-            // Debug.Log("Mario jumped " + jumpDistance + " units.");
-        }
-
-        // 5) Apply manual gravity
-        ApplyGravity();
-
-        // 6) Move the Rigidbody in FixedUpdate (so store velocity now)
-        // _velocity is updated both in horizontal logic & vertical logic.
+        // Cache inputs here
+        keySpaceDown = Input.GetKeyDown(KeyCode.Space);
+        keySpace     = Input.GetKey(KeyCode.Space);
+        keyD         = Input.GetKey(KeyCode.D);
+        keyA         = Input.GetKey(KeyCode.A);
+        keyShift     = Input.GetKey(KeyCode.LeftShift);
     }
 
     private void FixedUpdate()
     {
-        // Actually move the body
-        Vector2 newPos = _rigidbody.position + _velocity * Time.fixedDeltaTime;
-        _rigidbody.MovePosition(newPos);
-
-        // If we’re still jumping, reduce jump time counter
-        if (_isJumping && _jumpTimeCounter > 0f)
+        // Vertical (jump) input
+        if (keySpaceDown && grounded)
         {
-            _jumpTimeCounter -= Time.fixedDeltaTime;
-        }
-    }
-
-    #region Movement Logic
-
-    private void HandleHorizontalMovement(float horizontalInput)
-    {
-        float targetSpeed = horizontalInput * moveSpeed;
-
-        // Decide if accelerating or decelerating
-        if (Mathf.Abs(horizontalInput) > 0.01f)
-        {
-            // Accelerate towards the target speed
-            _velocity.x = Mathf.MoveTowards(
-                _velocity.x,
-                targetSpeed,
-                acceleration * Time.deltaTime
-            );
-        }
-        else
-        {
-            // Decelerate to 0
-            _velocity.x = Mathf.MoveTowards(
-                _velocity.x,
-                0f,
-                deceleration * Time.deltaTime
-            );
-        }
-    }
-
-    private void ApplyGravity()
-    {
-        // Are we falling or did the player release jump?
-        bool isFallingOrReleased = _velocity.y < 0f || !_inputActions.Player.Jump.inProgress;
-        float multiplier = isFallingOrReleased ? fallMultiplier : jumpMultiplier;
-
-        // Add gravity
-        _velocity.y += _gravity * multiplier * Time.deltaTime;
-
-        // (Optional) If you want to clamp the downward velocity
-        // so Mario doesn't fall infinitely fast, uncomment below:
-        // float maxFallSpeed = -2f * moveSpeed; // or another chosen value
-        // _velocity.y = Mathf.Max(_velocity.y, maxFallSpeed);
-    }
-
-    private void CheckGrounded()
-    {
-        // BoxCast for ground check
-        // We cast a tiny box downward from Mario’s position:
-        // The box center is transform.position, size is groundCheckSize, 
-        // 0 rotation, direction is Vector2.down, distance 0.05f, groundLayer
-        RaycastHit2D hit = Physics2D.BoxCast(transform.position, groundCheckSize, 0f, Vector2.down, 0.05f, groundLayer);
-
-        bool wasGrounded = _isGrounded;
-        _isGrounded = hit.collider != null;
-
-        // If we just landed, reset vertical velocity if needed
-        if (!wasGrounded && _isGrounded && _velocity.y < 0f)
-        {
-            _velocity.y = 0f;
-        }
-    }
-
-    private void UpdateCoyoteTime()
-    {
-        if (_isGrounded)
-        {
-            _coyoteTimeCounter = coyoteTimeDuration;
-        }
-        else
-        {
-            _coyoteTimeCounter -= Time.deltaTime;
-        }
-    }
-
-    #endregion
-
-    #region Jump Logic
-
-    private void OnJumpPerformed(InputAction.CallbackContext ctx)
-    {
-        // We can only jump if we are grounded or still within coyote time
-        if (_coyoteTimeCounter > 0f)
-        {
-            _isJumping = true;
-            _jumpTimeCounter = maxJumpTime; 
-            _velocity.y = _jumpForce;
-
-            // Save jump start position for distance measurement
-            _jumpStartPos = transform.position;
-
-            // Reset coyote time so we can’t double jump in midair
-            _coyoteTimeCounter = 0f;
-        }
-    }
-
-    private void OnJumpCanceled(InputAction.CallbackContext ctx)
-    {
-        // Stop the jump from sustaining further
-        _isJumping = false;
-        _jumpTimeCounter = 0f;
-    }
-
-    #endregion
-
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        // Example:
-        // If we hit a power-up block from below, you might handle that differently, etc.
-        // For normal collisions, if we’re hitting from above, zero out Y velocity.
-        if (other.gameObject.layer != LayerMask.NameToLayer("PowerUp"))
-        {
-            Vector2 direction = other.transform.position - transform.position;
-            // If we collided from below (the collision object is "above" Mario),
-            // clamp velocity.y to avoid weird bouncing
-            if (Vector2.Dot(direction.normalized, Vector2.up) > 0.25f)
+            jumping = true;
+            // Decide which jump state based on horizontal speed
+            if (Mathf.Abs(xvel) > fastJumpReq)
             {
-                _velocity.y = 0f;
+                jump = JumpState.FastJump;
+                yvel = fastJumpPower;
+            }
+            else if (Mathf.Abs(xvel) > modJumpReq)
+            {
+                jump = JumpState.ModerateJump;
+                yvel = jumpPower;
+            }
+            else
+            {
+                jump = JumpState.SlowJump;
+                yvel = jumpPower;
+            }
+            // If we’re moving quickly enough in air, we can fast strafe
+            fastAirStraff = Mathf.Abs(xvel) > airStrafeFast;
+        }
+
+        // Horizontal input
+        bool moving   = false;
+        bool skidding = false;
+
+        // Move right
+        if (keyD)
+        {
+            if (!grounded)
+            {
+                // In-air horizontal control
+                if (xvel >= 0)
+                {
+                    xvel += (xvel >= airStrafeBorder ? runAcc : walkAcc);
+                }
+                else
+                {
+                    // Slowing mid-air
+                    if (-xvel >= airStrafeBorder)
+                    {
+                        xvel += runAcc;
+                    }
+                    else
+                    {
+                        if (fastAirStraff) xvel += releaseDeAcc; 
+                        xvel += walkAcc;
+                    }
+                }
+            }
+            else
+            {
+                // On ground
+                moving = true;
+                if (xvel >= 0)
+                {
+                    xvel += (keyShift ? runAcc : walkAcc);
+                }
+                else
+                {
+                    // Skidding
+                    xvel += skidPower;
+                    skidding = true;
+                }
             }
         }
-    }
 
-    private void OnDrawGizmos()
-    {
-        // Draw the box used for ground check
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireCube(transform.position, groundCheckSize);
-
-        // If we are jumping, also draw the line from jump start
-        if (_isJumping)
+        // Move left
+        if (keyA)
         {
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawLine(_jumpStartPos, transform.position);
+            if (!grounded)
+            {
+                // In-air horizontal control
+                if (xvel <= 0)
+                {
+                    xvel -= ( -xvel >= airStrafeBorder ? runAcc : walkAcc );
+                }
+                else
+                {
+                    // Slowing mid-air
+                    if (xvel >= airStrafeBorder)
+                    {
+                        xvel -= runAcc;
+                    }
+                    else
+                    {
+                        if (fastAirStraff) xvel -= releaseDeAcc;
+                        xvel -= walkAcc;
+                    }
+                }
+            }
+            else
+            {
+                // On ground
+                moving = true;
+                if (xvel <= 0)
+                {
+                    xvel -= (keyShift ? runAcc : walkAcc);
+                }
+                else
+                {
+                    // Skidding
+                    xvel -= skidPower;
+                    skidding = true;
+                }
+            }
         }
+
+        // If not moving horizontally and on ground, apply friction
+        if (!moving && grounded)
+        {
+            if (xvel > 0)
+            {
+                xvel -= releaseDeAcc;
+                if (xvel < 0) xvel = 0;
+            }
+            else
+            {
+                xvel += releaseDeAcc;
+                if (xvel > 0) xvel = 0;
+            }
+        }
+
+        // X velocity cap (walk vs run)
+        float maxSpeed = keyShift ? maxRunX : maxWalkX;
+        if (xvel >  maxSpeed)  xvel =  maxSpeed;
+        if (xvel < -maxSpeed)  xvel = -maxSpeed;
+
+        // Y velocity decay (gravity-like effect)
+        if (keySpace)
+        {
+            switch (jump)
+            {
+                case JumpState.FastJump:     yvel -= fastJumpDecayUp; break;
+                case JumpState.ModerateJump: yvel -= modJumpDecayUp;  break;
+                default:                     yvel -= slowJumpDecayUp; break;
+            }
+        }
+        else
+        {
+            switch (jump)
+            {
+                case JumpState.FastJump:     yvel -= fastJumpDecay;   break;
+                case JumpState.ModerateJump: yvel -= modJumpDecay;    break;
+                default:                     yvel -= slowJumpDecay;   break;
+            }
+        }
+
+        // Flip sprite depending on direction & skidding
+        if (xvel > 0)
+        {
+            spriteRenderer.flipX = skidding;
+        }
+        else if (xvel < 0)
+        {
+            spriteRenderer.flipX = !skidding;
+        }
+
+        // We're no longer grounded until proven otherwise by collisions
+        grounded = false;
+
+        // Move according to velocity
+        Vector2 moveAmount = new Vector2(xvel, yvel);
+        Move(moveAmount);
+
+        // If we jumped and are back on the ground, set jumping to false
+        if (jumping) jumping = !grounded;
+
+        // Simple example: If you fall below a certain Y, reset or handle differently
+        // if (transform.position.y < -8) { /* handle fall off screen */ }
+
+        // Update animator parameters
+        animator.SetFloat("xvel", Mathf.Abs(xvel));
+        animator.SetBool("skidding", skidding);
+        animator.SetBool("jumping", jumping);
     }
+
+    /// <summary>
+    /// Moves Mario by 'move', then handles collisions to adjust xvel/yvel/grounded if needed.
+    /// Actor.Collide is a custom collision check that you presumably have implemented.
+    /// If you have a different collision system, replace with your own logic.
+    /// </summary>
+    private void Move(Vector2 move)
+    {
+        Vector2 curPos     = transform.position;
+        Vector2 attemptPos = curPos + move;
+
+        // Actor.Collide is presumably your custom function; keep or replace as needed
+        CollisionInfo[] collisions = Actor.Collide(curPos, attemptPos, dimensions, 0);
+
+        if (collisions.Length > 0)
+        {
+            move = HandleCollisions(move, collisions);
+        }
+
+        transform.position += new Vector3(move.x, move.y, 0);
+    }
+
+    /// <summary>
+    /// Basic collision handler that stops horizontal or vertical movement
+    /// depending on which side we collided on. Sets 'grounded' when hitting floor.
+    /// </summary>
+    private Vector2 HandleCollisions(Vector2 move, CollisionInfo[] collisions)
+    {
+        foreach (CollisionInfo collision in collisions)
+        {
+            if (collision.hitTop)
+            {
+                move.y = 0;
+                yvel   = 0;
+                grounded = true;
+            }
+            if (collision.hitBottom)
+            {
+                move.y = 0;
+                yvel   = 0;
+            }
+            if (collision.hitRight)
+            {
+                move.x = 0;
+                xvel   = 0;
+            }
+            if (collision.hitLeft)
+            {
+                move.x = 0;
+                xvel   = 0;
+            }
+        }
+        return move;
+    }
+}
+
+internal enum JumpState
+{
+    SlowJump,
+    ModerateJump,
+    FastJump
+}
+
+
+
+/// <summary>
+/// Stub for your custom collision function. Replace with your real implementation.
+/// </summary>
+public static class Actor
+{
+    public static CollisionInfo[] Collide(Vector2 startPos, Vector2 endPos, Vector2 dimensions, int someLayerMask)
+    {
+        // Return an empty array if no collisions.
+        // Real implementation would check for collision in your tilemap or environment.
+        return new CollisionInfo[0];
+    }
+}
+
+/// <summary>
+/// Example collision info struct from your codebase.
+/// Adjust or remove if your collision system works differently.
+/// </summary>
+public struct CollisionInfo
+{
+    public bool hitTop;
+    public bool hitBottom;
+    public bool hitLeft;
+    public bool hitRight;
+    // public Actor obj; // If you have a custom 'Actor' or 'Block' class, etc.
 }
