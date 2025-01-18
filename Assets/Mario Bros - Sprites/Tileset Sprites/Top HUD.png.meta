@@ -1,10 +1,37 @@
 fileFormatVersion: 2
-guid: 91fb815314d58c243a653b31ab146be6
+guid: ec5a9c405b3a9884fb7ac72ee24b2630
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7919192175581516132
-    second: Fireball Fire Texture_0
+      213: 1012512403887681190
+    second: Top HUD_0
+  - first:
+      213: -1234747366415605882
+    second: Top HUD_1
+  - first:
+      213: 8985540482923618481
+    second: Top HUD_2
+  - first:
+      213: 8236290219653547388
+    second: Top HUD_3
+  - first:
+      213: -7075893140149994848
+    second: Top HUD_4
+  - first:
+      213: -7218569190832475502
+    second: Top HUD_5
+  - first:
+      213: 4704608466786926710
+    second: Top HUD_6
+  - first:
+      213: 3135842096991941127
+    second: Top HUD_7
+  - first:
+      213: -7802812659560554232
+    second: Top HUD_8
+  - first:
+      213: -1800392918230346799
+    second: Top HUD_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +127,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Fireball Fire Texture_0
+      name: Top HUD_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 31
+        width: 256
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +142,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 461d695735f96ed60800000000000000
-      internalID: 7919192175581516132
+      spriteID: 6aee664baaa2d0e00800000000000000
+      internalID: 1012512403887681190
       vertices: []
       indices: 
       edges: []
@@ -125,7 +152,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 1041a7d75fcd412478f39a6b85b36028
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +162,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Fireball Fire Texture_0: 7919192175581516132
+      Top HUD_0: 1012512403887681190
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

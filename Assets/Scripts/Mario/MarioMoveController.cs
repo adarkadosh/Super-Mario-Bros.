@@ -116,7 +116,7 @@ public class MarioMoveController : MonoBehaviour
         HandleGroundDetection();
         ApplyGravity();
         // HandleCameraOffset();
-        // UpdateAnimations();
+        UpdateAnimations();
     }
 
     private void FixedUpdate()
@@ -167,16 +167,10 @@ public class MarioMoveController : MonoBehaviour
         if (Walking)
         {
             _animator.SetBool(WalkingAnimation, true);
-            // _animator.speed = 0.5f;
-            // if (Running)
-            // {
-            // _animator.speed = 1f;
-            // }
         }
         else
         {
             _animator.SetBool(WalkingAnimation, false);
-            // _animator.speed = 1f;
         }
     }
 
@@ -191,7 +185,8 @@ public class MarioMoveController : MonoBehaviour
 
             // Prevent gravity from building up infinitely
             _velocity.y = Mathf.Max(_velocity.y, 0f);
-            Jumping = Mathf.Abs(_velocity.y) > 0f;
+            // Jumping = Mathf.Abs(_velocity.y) > 0f;
+            Jumping = _velocity.y > 0f;
         }
     }
 
@@ -220,7 +215,7 @@ public class MarioMoveController : MonoBehaviour
         float multiplier = falling ? 2f : 1f;
 
         // Apply gravity and terminal velocity
-        _velocity.y += Gravity * multiplier * Time.fixedDeltaTime;
+        _velocity.y += Gravity * multiplier * Time.deltaTime;
         _velocity.y = Mathf.Max(_velocity.y, Gravity / 2f);
     }
 

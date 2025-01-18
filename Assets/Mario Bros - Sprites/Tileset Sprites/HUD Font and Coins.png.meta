@@ -1,0 +1,2402 @@
+fileFormatVersion: 2
+guid: 15c604ca75a4e574daf0a58eae3ff962
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1838696925882319080
+    second: HUD Font and Coins_0
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: HUD Font and Coins_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 85
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e081dcbc1d548910800000000000000
+      internalID: 1838696925882319080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_1
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 85
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cd842934f1dc684babcf45e7281c2f1
+      internalID: 1003545039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_2
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 85
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4f2c6311db5db24d8f86354683544d5
+      internalID: -717753902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_3
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 85
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ff637760ac76e64180b1a67ade7efa7
+      internalID: 1666060203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_4
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 85
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 421daa59fb98a7941b44fd33670a5f5a
+      internalID: -941538384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_5
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 85
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 916567026c34dc140b9d46dd58bebbef
+      internalID: -2066130386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_6
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 85
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f19c58ec662b300408b985a0ee14f9d4
+      internalID: 2105390419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_7
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 85
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1906a89248ac04141a7936ccf1f6dea2
+      internalID: -943443381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_8
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 85
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98a8be8cd73f94c42af5ab9de3376680
+      internalID: -1441288068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_9
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 85
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cc41334f79c5804ab3a8d0b64ecbc5a
+      internalID: 945456862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_10
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 85
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 889513f4494dee246ad723b8f4a268a0
+      internalID: 762812077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_11
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 85
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09579502b7f568747b5d881a50454e9c
+      internalID: -1397726915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_12
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 85
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 351d7e1529be883459361174f0e41b8e
+      internalID: -401870741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_13
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 85
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd879b0bfe3b9b14a8e441e940f14cba
+      internalID: 715708406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_14
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 85
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf8d66b2ad22a7f45a61a94fdb743b63
+      internalID: 227650313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_15
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 85
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c1aaed63c75a1b47833dd93635a960a
+      internalID: 1817480190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 76
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c292f6e73bef2748b830d195ff8e18e
+      internalID: -1773124529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_18
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 76
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9105494083f746429b32fa14eade6d2
+      internalID: 1339767749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_19
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 76
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: defe65a3c8b0b384896ccc2efe036728
+      internalID: 414006506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_20
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 76
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02e69546205c6e44fa63ad86534e8c1a
+      internalID: 1861667364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_21
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 76
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab150aa3de615bc41be100b8df5da867
+      internalID: 1741317703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_22
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 76
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f82527074c0eb64894135f6a4c86348
+      internalID: 1450489150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_23
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 76
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b663d5c6dcc4e1c4ca5dbf9a896bf736
+      internalID: -1353430394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_24
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 76
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a153db3d5f3fb784aa225fd5ae3504e4
+      internalID: -925296521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_25
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 76
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 138a6047936786e44bb5de6c3d8a8cdf
+      internalID: 1194465939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_26
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 76
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d041734c660bd474f8c641dedf490863
+      internalID: 1521368161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_27
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 76
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d0bebf41214dea409442a8a812f9bf5
+      internalID: 2096461599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_28
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 76
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7504d0a2a6e58294cba28090c0dee930
+      internalID: -1406248591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_29
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 76
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7a98e312c892214db672f930c8da06e
+      internalID: -310442161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_30
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 76
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d323a5eedff71645bc9bd938edf1d36
+      internalID: -728181671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_31
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 76
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5378e2ac6492a024d88d2ebf32f97d29
+      internalID: 1462547053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_32
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 76
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6068690dd9894c4fb7de84907f23e07
+      internalID: -470024384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_34
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 67
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b3eebaa3454f3344b8d77f57512fa37
+      internalID: 1613194260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_35
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 67
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfef499b5d6620b4cbca84701fcd920d
+      internalID: 631190356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_36
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 67
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 041f63772781c324f8c06dbd96d6c593
+      internalID: 625537448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_37
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 67
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 909744fa9dc25a9459086e4066b0ab77
+      internalID: 640500595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_38
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 67
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fc06b9b1287cc142b48d5246897a773
+      internalID: -908038950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_39
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 67
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6ad2e2029527d24489675263f5eecd4
+      internalID: -13249321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_40
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 67
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5fd1e8546affd7419d0519ebad9b88d
+      internalID: 1142620936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_41
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 67
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf8696144077abf49b20584c0baff064
+      internalID: -565064514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_42
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 67
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8097300ccb7ec26469f5419729588ccb
+      internalID: -1694359112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_51
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 58
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2486449789cf52a4f8dd549611ee4da2
+      internalID: -111280960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_52
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 58
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a93bbbcd3648b84a882fabb1e155e4c
+      internalID: 1577723221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_53
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 58
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aceb01e108e83be479a12539d07e81ba
+      internalID: 561989988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_54
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 58
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8732d17aea5b4be4cb66e69e0f42c93f
+      internalID: 375350634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_55
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 58
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ae79a01f24659b4e90b214e9820d4b5
+      internalID: 1368837403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_56
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 58
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06867bc778b909b4799d75437c09b293
+      internalID: 1653169147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_57
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 58
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bf565ec9bd856d4599da29b99c68a61
+      internalID: 1392925313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_58
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 58
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83b4d887a950ca545a48f48443e4143a
+      internalID: -1112020153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_59
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 58
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6368887d13e29d14da6f59218d2d3754
+      internalID: 1013930574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_60
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 58
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebf78e39dd2ee824aa9edda357cb133a
+      internalID: -341403420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_61
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 58
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b0cbbe4d3bf1f8409aad0fc85695fa6
+      internalID: -1035013104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_62
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 58
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 052a323abf570e8409b0177c3f4e2f4d
+      internalID: -1418041472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_63
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 58
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ee1c6282806f7a45813fde7415a79b0
+      internalID: 1713420391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_64
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 58
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 249ff472b4bd5ad49abdecbca81c92fd
+      internalID: -225904914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_65
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 58
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 605a575bd57831d40906e353804c2d1a
+      internalID: 720449587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_66
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 58
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f497df3620747984cb83175c0b9f47a3
+      internalID: -527313971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_68
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 49
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce1d32f464482cc4390a45af68377f8b
+      internalID: 180824427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_69
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 49
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 766d5c368dd0d1e4dbddb5de00b909d2
+      internalID: 1226196722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_70
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 49
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1e06e424cb1a8f458b3dd0d3afe83a1
+      internalID: 2034435509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_71
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 49
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 730e05abd8d17f1479d1ae0895e57465
+      internalID: -2069494500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_72
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 49
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5a9bd2db0f08844ca28081852f247aa
+      internalID: -1883544915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_73
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 49
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b1d7f831b45db74baaf04ce1cc44ba2
+      internalID: -206468766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_74
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 49
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a87d03101d43056478dd13e1b42b253b
+      internalID: -291241029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_75
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 49
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25e5b8ceae05b7949afb2a1f97e8f67c
+      internalID: -871699028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_76
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 49
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcac6b7c2f99a5b4ba6364ce6a016801
+      internalID: 5484610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_77
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 49
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89b616f358a09d84291c2497563fd1b1
+      internalID: -414513302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_78
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 49
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 830e477b4116b9f428d148172e36fcb7
+      internalID: -390026844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_79
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 49
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f43368f29e23f954faab1dedcd556d04
+      internalID: 1258622773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_80
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 49
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2f211e3b1dca404c83289055a80fd5c
+      internalID: -216448863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_81
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 49
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff84983921416684f89386fb1e90062c
+      internalID: -1225756773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_82
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 49
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92959685d9efb3c4aa36bddeb1e770ac
+      internalID: 517364673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_83
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 49
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de9f6abfcfc9b414abc70f8d9bb0c77c
+      internalID: -1322865546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_85
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 40
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdf0bcd0a67a84c40b2319c756e97648
+      internalID: 1022211907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_86
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 40
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7791289d2dbce4245baea564096d8299
+      internalID: 1152916576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_87
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 40
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dcd04c85722dd240a3e25809a73b3e7
+      internalID: 360654663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_88
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 40
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43632b56fff972a4cb3a276e38720346
+      internalID: 1420596804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_89
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 40
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e0da2edd8dfdaa41b05ffa7ce95f962
+      internalID: -2092350759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_90
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 40
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a60324c015fa2b4180d47cf10f688d5
+      internalID: 727771194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_91
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 40
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 486ac1b4bbaf6164c9b8c6d14b04ac6b
+      internalID: -845986457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_92
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 40
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30a273d8f04e6f4458d8f230b98d49af
+      internalID: 1067717554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_93
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 40
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ee186154f63c7d42b44b1726ee92cdf
+      internalID: 1275798427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_136
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 17
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04c582a05c5ec414bb1c7bbefa1b93ab
+      internalID: 552628509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_137
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 17
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d14bdcbf0acd5e04784b8ca26e8b9700
+      internalID: 350161788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_138
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 17
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edc73497c03bc7b49923d48d97f95254
+      internalID: -217059482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_139
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 17
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e63cc3b898a3d6549ac7c74300c1e226
+      internalID: -653788302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_140
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 17
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: defb763349cbf0844b44585bfaed80d7
+      internalID: -172151866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_142
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 17
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d74c6f09f7a8125439c7076376834d3c
+      internalID: 1742506046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_143
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 17
+        width: 8
+        height: 8
+      alignment: 9
+      pivot: {x: 0.706666, y: 1.0683329}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca8d372f8613ab343bd6ac955dbc5024
+      internalID: -1888450210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_153
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34a3c6aef3df4db4d8513589492c77a2
+      internalID: 732512997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_154
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 1
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbabf437e768c8e409721fbe0deff301
+      internalID: -1952712254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_155
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 1
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a2e5bbd8b49b8e4bbe0e4e755c5e17d
+      internalID: -1255848973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_156
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 1
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 324a80ece19de2a49b2dee2fccf5261f
+      internalID: 1373783360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_157
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 1
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7476a9cb09cdee647819cafeb20d5203
+      internalID: -2024029885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_158
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 1
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a36aee528756044db5adff23db790c4
+      internalID: 722945160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Font and Coins_160
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b9bfeacd02456b47acd4a29fd143aa1
+      internalID: 650644793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: aec2ab74855f03840bfff0218cc7f936
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      HUD Font and Coins_0: 1838696925882319080
+      HUD Font and Coins_1: 1003545039
+      HUD Font and Coins_10: 762812077
+      HUD Font and Coins_100: -1037346334
+      HUD Font and Coins_101: 875743368
+      HUD Font and Coins_102: -703947807
+      HUD Font and Coins_103: 1893196353
+      HUD Font and Coins_104: 1575379804
+      HUD Font and Coins_105: -153515339
+      HUD Font and Coins_106: -258077322
+      HUD Font and Coins_107: 682025959
+      HUD Font and Coins_108: -52851522
+      HUD Font and Coins_109: -1349766201
+      HUD Font and Coins_11: -1397726915
+      HUD Font and Coins_110: 974629864
+      HUD Font and Coins_111: 479132647
+      HUD Font and Coins_112: -1650012502
+      HUD Font and Coins_113: 1267306640
+      HUD Font and Coins_114: 1221945574
+      HUD Font and Coins_115: -1177069787
+      HUD Font and Coins_116: 1839807831
+      HUD Font and Coins_117: 1074429999
+      HUD Font and Coins_118: 1003890003
+      HUD Font and Coins_119: -1452039294
+      HUD Font and Coins_12: -401870741
+      HUD Font and Coins_120: 903467427
+      HUD Font and Coins_121: 1577308882
+      HUD Font and Coins_122: 49125108
+      HUD Font and Coins_123: 303345425
+      HUD Font and Coins_124: 2037979819
+      HUD Font and Coins_125: 2135498923
+      HUD Font and Coins_126: 1289144628
+      HUD Font and Coins_127: -1671647678
+      HUD Font and Coins_128: -406100592
+      HUD Font and Coins_129: -1070172064
+      HUD Font and Coins_13: 715708406
+      HUD Font and Coins_130: -509651014
+      HUD Font and Coins_131: 2116501734
+      HUD Font and Coins_132: 1015826430
+      HUD Font and Coins_133: 189631007
+      HUD Font and Coins_134: -958369645
+      HUD Font and Coins_135: -1290448242
+      HUD Font and Coins_136: 552628509
+      HUD Font and Coins_137: 350161788
+      HUD Font and Coins_138: -217059482
+      HUD Font and Coins_139: -653788302
+      HUD Font and Coins_14: 227650313
+      HUD Font and Coins_140: -172151866
+      HUD Font and Coins_141: -1188846515
+      HUD Font and Coins_142: 1742506046
+      HUD Font and Coins_143: -1888450210
+      HUD Font and Coins_144: -312798203
+      HUD Font and Coins_145: -84836662
+      HUD Font and Coins_146: -849145430
+      HUD Font and Coins_147: 1194589974
+      HUD Font and Coins_148: -1989490215
+      HUD Font and Coins_149: -100550296
+      HUD Font and Coins_15: 1817480190
+      HUD Font and Coins_150: -1268000856
+      HUD Font and Coins_151: 243713657
+      HUD Font and Coins_152: 968127620
+      HUD Font and Coins_153: 732512997
+      HUD Font and Coins_154: -1952712254
+      HUD Font and Coins_155: -1255848973
+      HUD Font and Coins_156: 1373783360
+      HUD Font and Coins_157: -2024029885
+      HUD Font and Coins_158: 722945160
+      HUD Font and Coins_159: 1254684554
+      HUD Font and Coins_16: -1770889611
+      HUD Font and Coins_160: 650644793
+      HUD Font and Coins_161: 613512649
+      HUD Font and Coins_162: -1886175674
+      HUD Font and Coins_163: 1911174003
+      HUD Font and Coins_164: 1743560615
+      HUD Font and Coins_165: -1947034477
+      HUD Font and Coins_166: -1165093065
+      HUD Font and Coins_167: 1853567818
+      HUD Font and Coins_168: 856105662
+      HUD Font and Coins_169: -832540862
+      HUD Font and Coins_17: -1773124529
+      HUD Font and Coins_18: 1339767749
+      HUD Font and Coins_19: 414006506
+      HUD Font and Coins_2: -717753902
+      HUD Font and Coins_20: 1861667364
+      HUD Font and Coins_21: 1741317703
+      HUD Font and Coins_22: 1450489150
+      HUD Font and Coins_23: -1353430394
+      HUD Font and Coins_24: -925296521
+      HUD Font and Coins_25: 1194465939
+      HUD Font and Coins_26: 1521368161
+      HUD Font and Coins_27: 2096461599
+      HUD Font and Coins_28: -1406248591
+      HUD Font and Coins_29: -310442161
+      HUD Font and Coins_3: 1666060203
+      HUD Font and Coins_30: -728181671
+      HUD Font and Coins_31: 1462547053
+      HUD Font and Coins_32: -470024384
+      HUD Font and Coins_33: -950062197
+      HUD Font and Coins_34: 1613194260
+      HUD Font and Coins_35: 631190356
+      HUD Font and Coins_36: 625537448
+      HUD Font and Coins_37: 640500595
+      HUD Font and Coins_38: -908038950
+      HUD Font and Coins_39: -13249321
+      HUD Font and Coins_4: -941538384
+      HUD Font and Coins_40: 1142620936
+      HUD Font and Coins_41: -565064514
+      HUD Font and Coins_42: -1694359112
+      HUD Font and Coins_43: 201863872
+      HUD Font and Coins_44: 1027203011
+      HUD Font and Coins_45: 1523656562
+      HUD Font and Coins_46: 44856001
+      HUD Font and Coins_47: -164273338
+      HUD Font and Coins_48: -650404992
+      HUD Font and Coins_49: -705383911
+      HUD Font and Coins_5: -2066130386
+      HUD Font and Coins_50: -31370205
+      HUD Font and Coins_51: -111280960
+      HUD Font and Coins_52: 1577723221
+      HUD Font and Coins_53: 561989988
+      HUD Font and Coins_54: 375350634
+      HUD Font and Coins_55: 1368837403
+      HUD Font and Coins_56: 1653169147
+      HUD Font and Coins_57: 1392925313
+      HUD Font and Coins_58: -1112020153
+      HUD Font and Coins_59: 1013930574
+      HUD Font and Coins_6: 2105390419
+      HUD Font and Coins_60: -341403420
+      HUD Font and Coins_61: -1035013104
+      HUD Font and Coins_62: -1418041472
+      HUD Font and Coins_63: 1713420391
+      HUD Font and Coins_64: -225904914
+      HUD Font and Coins_65: 720449587
+      HUD Font and Coins_66: -527313971
+      HUD Font and Coins_67: -167099999
+      HUD Font and Coins_68: 180824427
+      HUD Font and Coins_69: 1226196722
+      HUD Font and Coins_7: -943443381
+      HUD Font and Coins_70: 2034435509
+      HUD Font and Coins_71: -2069494500
+      HUD Font and Coins_72: -1883544915
+      HUD Font and Coins_73: -206468766
+      HUD Font and Coins_74: -291241029
+      HUD Font and Coins_75: -871699028
+      HUD Font and Coins_76: 5484610
+      HUD Font and Coins_77: -414513302
+      HUD Font and Coins_78: -390026844
+      HUD Font and Coins_79: 1258622773
+      HUD Font and Coins_8: -1441288068
+      HUD Font and Coins_80: -216448863
+      HUD Font and Coins_81: -1225756773
+      HUD Font and Coins_82: 517364673
+      HUD Font and Coins_83: -1322865546
+      HUD Font and Coins_84: -421693465
+      HUD Font and Coins_85: 1022211907
+      HUD Font and Coins_86: 1152916576
+      HUD Font and Coins_87: 360654663
+      HUD Font and Coins_88: 1420596804
+      HUD Font and Coins_89: -2092350759
+      HUD Font and Coins_9: 945456862
+      HUD Font and Coins_90: 727771194
+      HUD Font and Coins_91: -845986457
+      HUD Font and Coins_92: 1067717554
+      HUD Font and Coins_93: 1275798427
+      HUD Font and Coins_94: 1236759468
+      HUD Font and Coins_95: -963278578
+      HUD Font and Coins_96: -2122382726
+      HUD Font and Coins_97: 2124290849
+      HUD Font and Coins_98: -428580808
+      HUD Font and Coins_99: 77790352
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2ef9503af833c5a4ab2f1b7f6331cdcf
+guid: 62b65736830c40048b97dde1bb8b4174
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8591141901481381195
-    second: Cloud2_0
+      213: -6869325624984279803
+    second: HUD_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -72,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cloud2_0
+      name: HUD_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 48
-        height: 25
+        y: 828
+        width: 256
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b4d85c4aa0ed93770800000000000000
-      internalID: 8591141901481381195
+      spriteID: 505e2544db04ba0a0800000000000000
+      internalID: -6869325624984279803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 517
+        width: 255
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25e7dc3df81fd3a46b8461764f761c62
+      internalID: -165498337
       vertices: []
       indices: 
       edges: []
@@ -125,7 +147,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 17b21f6bce9de37469abfe02a4188231
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +157,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Cloud2_0: 8591141901481381195
+      HUD_0: -6869325624984279803
+      HUD_1: -165498337
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

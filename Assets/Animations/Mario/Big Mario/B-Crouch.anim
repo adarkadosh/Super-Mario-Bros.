@@ -30,7 +30,7 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 1978931091, guid: 5b12869584c10c34ea6babaae6262f63, type: 3}
+      value: {fileID: 1608713467, guid: 038713812500d9c4396eda80eb49b7cb, type: 3}
     attribute: m_Sprite
     path: MarioAnimations
     classID: 212
@@ -63,7 +63,7 @@ AnimationClip:
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
     - {fileID: 1978931091, guid: 5b12869584c10c34ea6babaae6262f63, type: 3}
-    - {fileID: 1978931091, guid: 5b12869584c10c34ea6babaae6262f63, type: 3}
+    - {fileID: 1608713467, guid: 038713812500d9c4396eda80eb49b7cb, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

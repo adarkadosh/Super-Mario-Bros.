@@ -1,116 +1,163 @@
+using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-/// <summary>
-/// Simple 2D Platformer controller with basic "1980s-style" horizontal movement and jump.
-/// Attach this to a 2D character with a Rigidbody2D and Collider2D.
-/// </summary>
-[RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
 public class MarioController : MonoBehaviour
 {
-    [Header("Movement Settings")]
-    [Tooltip("Horizontal movement speed.")]
-    public float moveSpeed = 5f;
+    [Header("Horizontal Movement")] [SerializeField]
+    private float moveSpeed = 10f;
 
-    [Tooltip("Initial jump velocity (upward force).")]
-    public float jumpForce = 7.5f;
+    [SerializeField] private Vector2 direction;
+    private bool _facingRight = true;
 
-    [Tooltip("If true, the player can vary the jump height by releasing the button early.")]
-    public bool variableJump = true;
+    [Header("Vertical Movement")] [SerializeField]
+    private float jumpSpeed = 15f;
 
-    [Tooltip("Gravity multiplier applied while the player is not pressing jump.")]
-    public float fallMultiplier = 2f;
+    [SerializeField] private float jumpDelay = 0.25f;
+    private float jumpTimer;
 
-    [Header("Ground Check")]
-    [Tooltip("How far below the character to check for ground.")]
-    public float groundCheckDistance = 0.05f;
+    [Header("Components")] [SerializeField]
+    private Rigidbody2D rb;
 
-    [Tooltip("The layers considered ground.")]
+    [SerializeField] private Animator animator;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private GameObject characterHolder;
 
-    private Rigidbody2D _rb;
-    private Collider2D _collider;
+    [Header("Physics")] [SerializeField] private float maxSpeed = 7f;
+    [SerializeField] private float linearDrag = 4f;
+    [SerializeField] private float gravity = 1f;
+    [SerializeField] private float fallMultiplier = 5f;
 
-    // Flags
-    private bool _isGrounded;
-    private bool _isJumping;
-    private bool _jumpButtonPressed;
+    [Header("Collision")] [SerializeField] private bool onGround = false;
+    [SerializeField] private float groundLength = 0.6f;
+    [SerializeField] private Vector3 colliderOffset;
 
-    void Awake()
-    {
-        // Cache components
-        _rb = GetComponent<Rigidbody2D>();
-        _collider = GetComponent<Collider2D>();
-    }
+    [SerializeField] private float rbVelocity;
 
+    // Update is called once per frame
     void Update()
     {
-        // Read horizontal input (A/D, Left/Right arrows)
-        float moveInput = Input.GetAxisRaw("Horizontal");
+        bool wasOnGround = onGround;
+        onGround =
+            Physics2D.Raycast(transform.position + colliderOffset, Vector2.down, groundLength, groundLayer) ||
+            Physics2D.Raycast(transform.position - colliderOffset, Vector2.down, groundLength, groundLayer);
 
-        // Move horizontally
-        Vector2 vel = _rb.linearVelocity;
-        vel.x = moveInput * moveSpeed;
-        _rb.linearVelocity = vel;
+        // if(!wasOnGround && onGround){
+        // StartCoroutine(JumpSqueeze(1.25f, 0.8f, 0.05f));
+        // }
 
-        // Flip sprite if needed (optional, if you have a sprite to flip)
-        if (moveInput < 0)
-            transform.localScale = new Vector3(-1, 1, 1);
-        else if (moveInput > 0)
-            transform.localScale = new Vector3(1, 1, 1);
-
-        // Check if jump is pressed
-        if (Input.GetKeyDown(KeyCode.Space) && _isGrounded)
+        if (Input.GetButtonDown("Jump"))
         {
-            // Start a jump
-            _isJumping = true;
-            _jumpButtonPressed = true;
-            _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, jumpForce);
-        }
-        else if (Input.GetKeyUp(KeyCode.Space))
-        {
-            // If jump is released early and variable jumps are enabled, reduce upward velocity
-            _jumpButtonPressed = false;
-            if (variableJump && _rb.linearVelocity.y > 0)
-            {
-                _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, _rb.linearVelocity.y * 0.5f);
-            }
+            jumpTimer = Time.time + jumpDelay;
         }
 
-        // Simple ground check by casting down a small distance
-        _isGrounded = CheckGrounded();
+        animator.SetBool("onGround", onGround);
+        direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
     }
 
     void FixedUpdate()
     {
-        // Apply higher gravity when falling (for a snappier jump feel)
-        if (!_isGrounded && variableJump)
+        rbVelocity = rb.linearVelocity.y;
+        DOMoveCharacter(direction.x);
+        if (jumpTimer > Time.time && onGround)
         {
-            if (!_jumpButtonPressed && _rb.linearVelocity.y < 0)
+            Jump();
+        }
+
+        DOModifyPhysics();
+    }
+
+    private void DOMoveCharacter(float horizontal)
+    {
+        rb.AddForce(Vector2.right * (horizontal * moveSpeed));
+
+        if ((horizontal > 0 && !_facingRight) || (horizontal < 0 && _facingRight))
+        {
+            Flip();
+        }
+
+        if (Mathf.Abs(rb.linearVelocity.x) > maxSpeed)
+        {
+            rb.linearVelocity = new Vector2(Mathf.Sign(rb.linearVelocity.x) * maxSpeed, rb.linearVelocity.y);
+        }
+
+        animator.SetFloat("horizontal", Mathf.Abs(rb.linearVelocity.x));
+        animator.SetFloat("vertical", rb.linearVelocity.y);
+    }
+
+    private void Jump()
+    {
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0);
+        rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
+        jumpTimer = 0;
+        // StartCoroutine(JumpSqueeze(0.5f, 1.2f, 0.1f));
+    }
+
+    private void DOModifyPhysics()
+    {
+        var changingDirections = (direction.x > 0 && rb.linearVelocity.x < 0) ||
+                                 (direction.x < 0 && rb.linearVelocity.x > 0);
+
+        if (onGround)
+        {
+            if (Mathf.Abs(direction.x) < 0.4f || changingDirections)
             {
-                // Increase gravity multiplier
-                _rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.fixedDeltaTime;
+                rb.linearDamping = linearDrag;
+            }
+            else
+            {
+                rb.linearDamping = 0f;
+            }
+
+            rb.gravityScale = 0;
+        }
+        else
+        {
+            rb.gravityScale = gravity;
+            rb.linearDamping = linearDrag * 0.15f;
+            if (rb.linearVelocity.y < 0)
+            {
+                rb.gravityScale = gravity * fallMultiplier;
+            }
+            else if (rb.linearVelocity.y > 0 && !Input.GetButton("Jump"))
+            {
+                rb.gravityScale = gravity * (fallMultiplier / 2);
             }
         }
     }
 
-    /// <summary>
-    /// Raycast or circle-cast below the player’s feet to see if we’re on the ground.
-    /// </summary>
-    private bool CheckGrounded()
+    private void Flip()
     {
-        Vector2 start = _collider.bounds.center;
-        float radius = _collider.bounds.extents.x * 0.5f;
-        // Or use the smaller side of the collider as your “foot radius”
+        _facingRight = !_facingRight;
+        transform.rotation = Quaternion.Euler(0, _facingRight ? 0 : 180, 0);
+    }
 
-        RaycastHit2D hit = Physics2D.Raycast(start, Vector2.down, 
-                                             _collider.bounds.extents.y + groundCheckDistance, 
-                                             groundLayer);
+    private IEnumerator JumpSqueeze(float xSqueeze, float ySqueeze, float seconds)
+    {
+        var originalSize = Vector3.one;
+        var newSize = new Vector3(xSqueeze, ySqueeze, originalSize.z);
+        var t = 0f;
+        while (t <= 1.0)
+        {
+            t += Time.deltaTime / seconds;
+            characterHolder.transform.localScale = Vector3.Lerp(originalSize, newSize, t);
+            yield return null;
+        }
 
-        // Optionally, draw a debug line (visible in the Scene view)
-        Debug.DrawLine(start, start + Vector2.down * (_collider.bounds.extents.y + groundCheckDistance),
-                       hit ? Color.green : Color.red);
+        t = 0f;
+        while (t <= 1.0)
+        {
+            t += Time.deltaTime / seconds;
+            characterHolder.transform.localScale = Vector3.Lerp(newSize, originalSize, t);
+            yield return null;
+        }
+    }
 
-        return (hit.collider != null);
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position + colliderOffset,
+            transform.position + colliderOffset + Vector3.down * groundLength);
+        Gizmos.DrawLine(transform.position - colliderOffset,
+            transform.position - colliderOffset + Vector3.down * groundLength);
     }
 }

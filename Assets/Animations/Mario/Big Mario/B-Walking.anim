@@ -34,11 +34,11 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -13944409, guid: 5b12869584c10c34ea6babaae6262f63, type: 3}
+      value: {fileID: 1287892923, guid: 038713812500d9c4396eda80eb49b7cb, type: 3}
     - time: 0.083333336
-      value: {fileID: 601495161, guid: 5b12869584c10c34ea6babaae6262f63, type: 3}
+      value: {fileID: -1485539350, guid: 038713812500d9c4396eda80eb49b7cb, type: 3}
     - time: 0.16666667
-      value: {fileID: -575602799, guid: 5b12869584c10c34ea6babaae6262f63, type: 3}
+      value: {fileID: 1150472751, guid: 038713812500d9c4396eda80eb49b7cb, type: 3}
     attribute: m_Sprite
     path: MarioAnimations
     classID: 212
@@ -73,9 +73,9 @@ AnimationClip:
     - {fileID: -13944409, guid: 5b12869584c10c34ea6babaae6262f63, type: 3}
     - {fileID: 601495161, guid: 5b12869584c10c34ea6babaae6262f63, type: 3}
     - {fileID: -575602799, guid: 5b12869584c10c34ea6babaae6262f63, type: 3}
-    - {fileID: -13944409, guid: 5b12869584c10c34ea6babaae6262f63, type: 3}
-    - {fileID: 601495161, guid: 5b12869584c10c34ea6babaae6262f63, type: 3}
-    - {fileID: -575602799, guid: 5b12869584c10c34ea6babaae6262f63, type: 3}
+    - {fileID: 1287892923, guid: 038713812500d9c4396eda80eb49b7cb, type: 3}
+    - {fileID: -1485539350, guid: 038713812500d9c4396eda80eb49b7cb, type: 3}
+    - {fileID: 1150472751, guid: 038713812500d9c4396eda80eb49b7cb, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

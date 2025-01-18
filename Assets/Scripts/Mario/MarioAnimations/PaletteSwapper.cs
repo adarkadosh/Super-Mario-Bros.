@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class PaletteSwapper : MonoBehaviour
 {
-    private static readonly int MainTexture = Shader.PropertyToID("_MainTexture");
     private static readonly int HatColour = Shader.PropertyToID("_HatColour");
     private static readonly int BodyColour = Shader.PropertyToID("_BodyColour");
     private static readonly int ClothColour = Shader.PropertyToID("_ClothColour");
@@ -18,7 +17,6 @@ public class PaletteSwapper : MonoBehaviour
 
     private Color[][] _starMarioColors; // Array of star effect colors
     private SpriteRenderer _spriteRenderer;
-    private Texture2D _texture;
     private bool _isStar;
 
     private void Start()
@@ -32,28 +30,6 @@ public class PaletteSwapper : MonoBehaviour
         }
 
         _starMarioColors = new[] {fireMarioColor, blackMarioColor, greenMarioColor, redMarioColor};
-    }
-
-    // private void Update()
-    // {
-        // // Update the texture on the material if the sprite changes
-        // if (_spriteRenderer != null && general != null && _texture != _spriteRenderer.sprite.texture)
-        // {
-        //     _texture = _spriteRenderer.sprite.texture;
-        //     general.SetTexture(MainTexture, _spriteRenderer.sprite.texture);
-        //     Debug.Log($"Updated texture: {general.GetTexture(MainTexture)}");
-        // }
-    // }
-
-    private void FixedUpdate()
-    {
-        // Update the texture on the material if the sprite changes
-        if (_spriteRenderer != null && general != null && _texture != _spriteRenderer.sprite.texture)
-        {
-            _texture = _spriteRenderer.sprite.texture;
-            general.SetTexture(MainTexture, _spriteRenderer.sprite.texture);
-            Debug.Log($"Updated texture: {general.GetTexture(MainTexture)}");
-        }
     }
 
     private void OnEnable()
