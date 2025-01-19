@@ -1,74 +1,53 @@
-using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public class BigMarioState : IMarioState
+public class BigMarioState : MarioBaseState
 {
-    private static readonly int GetSmaller = Animator.StringToHash("GetSmaller");
-    private static readonly int IsBig = Animator.StringToHash("IsBig");
+    private static readonly int GetSmallerHash = Animator.StringToHash("GetSmaller");
+    private static readonly int IsBigHash = Animator.StringToHash("IsBig");
 
-    public void EnterState(MarioStateMachine context)
+    public override void EnterState(MarioStateMachine context)
     {
-        // Adjust collider for Big Mario
+        MarioEvents.OnMarioStateChange?.Invoke(MarioState.Big);
         context.SetColliderSize(new Vector2(0.75f, 2f), new Vector2(0f, 0.5f));
-        Debug.Log("Entered Big Mario State.");
-    }
-    
-    public void GotHit(MarioStateMachine context)
-    {
-        context.flashTransparency?.StartFlashing();
-        // context.StartCoroutine(GotHitCoroutine(context));
-        context.Animator.SetTrigger(GetSmaller);
-        context.Invoke(nameof(MarioStateMachine.StopFlashing), 3f);
-        context.Animator.SetBool(IsBig, false);
-        context.ChangeState(context.SmallMarioState);
-        context.StartCoroutine(context.UntouchableDuration(context.untouchableDuration));
-    }
-    
-    private IEnumerator GotHitCoroutine(MarioStateMachine context)
-    {
-        context.Animator.SetTrigger(GetSmaller);
-        context.Invoke(nameof(MarioStateMachine.StopFlashing), 3f);
-        yield return new WaitForSeconds(2.1f);
-        context.Animator.SetBool(IsBig, false);
-        context.ChangeState(context.SmallMarioState);
-        context.StartCoroutine(context.UntouchableDuration(context.untouchableDuration));
+        context.Animator.SetBool(IsBigHash, true);
+
+        Debug.Log("Entered Big Mario State");
     }
 
-    public void DoAction(MarioStateMachine marioContext)
+    public override void GotHit(MarioStateMachine context)
     {
-        
+        // Become small
+        context.FlashTransparency?.StartFlashing();
+        context.Animator.SetTrigger(GetSmallerHash);
+        context.Invoke(nameof(context.StopFlashing), context.UntouchableDurationValue);
+        context.StartCoroutine(context.UntouchableDurationCoroutine(context.UntouchableDurationValue));
+        GameEvents.FreezeAllCharacters?.Invoke(1.1f);
+
+        context.ChangeState(MarioState.Small);
     }
-    
-    public void OnPickUpPowerUp(MarioStateMachine context, PowerUpType powerUpType)
+
+    public override void OnPickUpPowerUp(MarioStateMachine context, PowerUpType powerUpType)
     {
         if (powerUpType == PowerUpType.FireFlower)
         {
-            // context.Animator.SetTrigger(GetOnFire);
-            // GameEvents.FreezeAllCharacters?.Invoke(1.2f);
-            // yield return new WaitForSeconds(0);
-            // context.Animator.SetBool(OnFireMode, true);
-            // context.ChangeState(context.FireMarioState);
-            
-            // context.StartCoroutine(DoPickUpPowerUp(context, powerUpType));
-            context.paletteSwapper.StartFlashing();
-            context.Invoke(nameof(PaletteSwapper.StopFlashing), 1.2f);
+            context.PaletteSwapper.StartFlashing();
+            context.Invoke(nameof(context.PaletteSwapper.StopFlashing), 1.2f);
             GameEvents.FreezeAllCharacters?.Invoke(1.2f);
-            context.ChangeState(context.FireMarioState);
+            
+            context.ChangeState(MarioState.Fire);
+            
         }
     }
     
-    private IEnumerator DoPickUpPowerUp(MarioStateMachine context, PowerUpType powerUpType)
-    {
-        context.paletteSwapper.StartFlashing();
-        context.Invoke(nameof(context.paletteSwapper.StopFlashing), 1.2f);
-        GameEvents.FreezeAllCharacters?.Invoke(1.2f);
-        yield return new WaitForSeconds(0);
-        context.ChangeState(context.FireMarioState);
-    }
-
-    public void OnCollisionEnter2D(MarioStateMachine context, Collision2D collision)
-    {
-        // throw new System.NotImplementedException();
-    }
+    // public override void OnCollisionEnter2D(MarioStateMachine context, Collision2D collision)
+    // {
+    //     if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+    //     {
+    //         Vector2 direction = collision.transform.position - context.transform.position;
+    //         if (Vector2.Dot(direction.normalized, Vector2.down) < 0.25f)
+    //         {
+    //             MarioEvents.OnMarioGotHit?.Invoke();
+    //         }
+    //     }
+    // }
 }

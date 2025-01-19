@@ -343,9 +343,9 @@ public class EntityActivation : MonoBehaviour
             return;
 
         // Calculate squared distances for performance
-        float distanceSquared = (_marioTransform.position - transform.position).sqrMagnitude;
-        float activationRadiusSquared = _activationRadius * _activationRadius;
-        float deactivationRadiusSquared = _deactivationRadius * _deactivationRadius;
+        var distanceSquared = (_marioTransform.position - transform.position).sqrMagnitude;
+        var activationRadiusSquared = _activationRadius * _activationRadius;
+        var deactivationRadiusSquared = _deactivationRadius * _deactivationRadius;
 
         // Check if Mario is within the activation radius
         if (distanceSquared <= activationRadiusSquared && !_isActive)
@@ -368,7 +368,7 @@ public class EntityActivation : MonoBehaviour
         // OnDrawGizmosSelected();
     }
 
-    public void ActivateEntity()
+    private void ActivateEntity()
     {
         SetComponentsActive(true);
         _isActive = true;

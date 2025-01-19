@@ -1,41 +1,57 @@
 using System.Collections;
 using UnityEngine;
 
-public class StarMarioState : IMarioState
+public class StarMarioState : MarioBaseState
 {
-    private static readonly int OnStarMode = Animator.StringToHash("OnStarMode");
-    private IMarioState _previousState;
-    private Coroutine _coroutine;
-
-    public void EnterState(MarioStateMachine context)
+    private static readonly int IsStarHash = Animator.StringToHash("IsStar");
+    private Coroutine _fadeCoroutine;
+    
+    public override void EnterState(MarioStateMachine context)
     {
-        context.gameObject.layer = LayerMask.NameToLayer("StarMario");
-        // context.Animator.SetBool(OnStarMode, true);
+        MarioEvents.OnMarioStateChange?.Invoke(MarioState.Star);
+        context.PaletteSwapper.StartFlashing();
         
-        _coroutine = context.StartCoroutine(WaitAndExit(context));
+        Debug.Log("Entered Star Mario State - Flashing Started");
     }
 
-    private IEnumerator WaitAndExit(MarioStateMachine context)
+    public override void ExitState(MarioStateMachine context)
     {
-        yield return new WaitForSeconds(context.starDuration);
-        context.gameObject.layer = LayerMask.NameToLayer("Mario");
-        context.ChangeState(_previousState);
+        // Stop flashing effect
+        context.StopFlashing();
+
+        if (_fadeCoroutine != null)
+        {
+            context.StopCoroutine(_fadeCoroutine);
+            _fadeCoroutine = null;
+        }
+
+        // Start the fade effect
+        _fadeCoroutine = context.StartCoroutine(SwapStarWithDelay(context, context.StarDurationDelay));
+
+        Debug.Log("Exited Star Mario State");
+    }
+    
+    private IEnumerator SwapStarWithDelay(MarioStateMachine context, float delay)
+    {
+        context.StartCoroutine(context.PaletteSwapper.SwapStarWithDelay(delay));
+        yield return new WaitForSeconds(delay);
+        context.StopCoroutine(_fadeCoroutine);
     }
 
-    public void GotHit(MarioStateMachine context)
-    {
-    }
+    // If you do a timed star inside this state instead of the state machine:
+    // you'd run a coroutine that eventually calls `ChangeState(MarioState.Small)`
 
-    public void DoAction(MarioStateMachine marioContext)
+    public override void OnCollisionEnter2D(MarioStateMachine context, Collision2D collision)
     {
-    }
-
-    public void OnPickUpPowerUp(MarioStateMachine context, PowerUpType powerUpType)
-    {
-    }
-
-    public void OnCollisionEnter2D(MarioStateMachine context, Collision2D collision)
-    {
-        
+        // Example: kill enemies on collision
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        {
+            // Kill enemy
+            EnemyBehavior enemy = collision.gameObject.GetComponent<EnemyBehavior>();
+            if (enemy != null)
+            {
+                enemy.StartCoroutine(enemy.DeathSequence());
+            }
+        }
     }
 }

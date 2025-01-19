@@ -1,54 +1,62 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public class SmallMarioState : IMarioState
+public class SmallMarioState : MarioBaseState
 {
-    private static readonly int Die = Animator.StringToHash("Die");
-    private static readonly int GetBigger = Animator.StringToHash("GetBigger");
-    private static readonly int IsBig = Animator.StringToHash("IsBig");
+    private static readonly int DieHash = Animator.StringToHash("Die");
+    private static readonly int GetBiggerHash = Animator.StringToHash("GetBigger");
+    private static readonly int IsBigHash = Animator.StringToHash("IsBig");
 
-    public void EnterState(MarioStateMachine context)
+    public override void EnterState(MarioStateMachine context)
     {
         MarioEvents.OnMarioStateChange?.Invoke(MarioState.Small);
-        context.gameObject.layer = LayerMask.NameToLayer("Mario");
+        // context.gameObject.layer = LayerMask.NameToLayer("Mario");
         context.SetColliderSize(new Vector2(0.75f, 1f), Vector2.zero);
-        Debug.Log("Entered Small Mario State.");
+        context.Animator.SetBool(IsBigHash, false);
+
+        Debug.Log("Entered Small Mario State");
     }
 
-    public void GotHit(MarioStateMachine context)
+    public override void GotHit(MarioStateMachine context)
     {
-        context.Animator.SetTrigger(Die);
-        // context.StartCoroutine(Extensions.WaitForSeconds(1));
+        // If small Mario is hit, typically Mario dies
+        context.Animator.SetTrigger(DieHash);
         MarioEvents.OnMarioDeath?.Invoke();
-        context.GetComponent<DeathAnimation>().TriggerDeathAnimation(1);
+
+        // Example: call a death animation
+        DeathAnimation deathAnim = context.GetComponent<DeathAnimation>();
+        if (deathAnim != null)
+            deathAnim.TriggerDeathAnimation(1);
     }
 
-    public void DoAction(MarioStateMachine marioContext)
-    {
-    }
-    
-
-    public void OnPickUpPowerUp(MarioStateMachine context, PowerUpType powerUpType)
+    public override void OnPickUpPowerUp(MarioStateMachine context, PowerUpType powerUpType)
     {
         if (powerUpType == PowerUpType.SuperMashroom)
         {
             MarioEvents.OnMarioStateChange?.Invoke(MarioState.GrowShrink);
-            context.StartCoroutine(DoPickUpPowerUp(context, powerUpType));
+            context.StartCoroutine(DoPickUpSuperMushroom(context));
         }
     }
-    
-    private IEnumerator DoPickUpPowerUp(MarioStateMachine context, PowerUpType powerUpType)
+
+    private IEnumerator DoPickUpSuperMushroom(MarioStateMachine context)
     {
-        context.Animator.SetTrigger(GetBigger);
+        context.Animator.SetTrigger(GetBiggerHash);
         GameEvents.FreezeAllCharacters?.Invoke(1.2f);
         yield return new WaitForSeconds(1.2f);
-        context.Animator.SetBool(IsBig, true);
-        context.ChangeState(context.BigMarioState);
-    }
 
-    public void OnCollisionEnter2D(MarioStateMachine context, Collision2D collision)
-    {
-        
+        context.Animator.SetBool(IsBigHash, true);
+        context.ChangeState(MarioState.Big);
     }
+    
+    // public override void OnCollisionEnter2D(MarioStateMachine context, Collision2D collision)
+    // {
+    //     if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+    //     {
+    //         Vector2 direction = collision.transform.position - context.transform.position;
+    //         if (Vector2.Dot(direction.normalized, Vector2.down) < 0.25f)
+    //         {
+    //             MarioEvents.OnMarioGotHit?.Invoke();
+    //         }
+    //     }
+    // }
 }

@@ -29,6 +29,7 @@ public class GoombaBehavior : EnemyBehavior, IPoolable
     {
         var rb = GetComponent<Rigidbody2D>();
         var entityMovement = GetComponent<EntityMovement>();
+        var SpriteRenderer = GetComponent<SpriteRenderer>();
         // GetComponent<DeathAnimation>().enabled = false;
         GetComponent<Collider2D>().enabled = true;
         Animator.enabled = true;
@@ -41,10 +42,19 @@ public class GoombaBehavior : EnemyBehavior, IPoolable
 
         entityMovement.enabled = true;
         entityMovement.MovementDirection = Vector2.left; // Reset movement direction
+        SpriteRenderer.flipY = false; // Reset sprite flip
+        SpriteRenderer.sortingLayerName = "Enemies"; // Reset sorting layer
     }
 
     public override void Kill()
     {
         GoombaPool.Instance.Return(this);
+    }
+    
+    protected override void DeathSequenceAnimation()
+    {
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.sortingLayerName = "Death";
+        spriteRenderer.flipY = true;
     }
 }

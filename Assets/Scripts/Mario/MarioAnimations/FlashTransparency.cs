@@ -45,7 +45,7 @@ public class FlashTransparency : MonoBehaviour
         {
             // Toggle the alpha value between 1 and 0.5
             float newAlpha = Mathf.Approximately(_spriteRenderer.color.a, 1f) ? 0f : 1f;
-            Debug.Log("newAlpha: " + newAlpha);
+            // Debug.Log("newAlpha: " + newAlpha);
             SetSpriteAlpha(newAlpha);
 
             // Wait for the specified interval

@@ -32,10 +32,10 @@ public abstract class EnemyBehavior : MonoBehaviour
                 MarioEvents.OnMarioGotHit?.Invoke();
             }
         }
-        else if (other.gameObject.layer == LayerMask.NameToLayer($"StarMario"))
-        {
-            StartCoroutine(DeathSequence());
-        }
+        // else if (other.gameObject.layer == LayerMask.NameToLayer($"StarMario"))
+        // {
+        //     StartCoroutine(DeathSequence());
+        // }
     }
 
     protected void OnTriggerEnter2D(Collider2D other)
@@ -52,6 +52,7 @@ public abstract class EnemyBehavior : MonoBehaviour
 
     public IEnumerator DeathSequence()
     {
+        DeathSequenceAnimation();
         // Trigger the death animation
         _deathAnimation.TriggerDeathAnimation();
 
@@ -61,6 +62,8 @@ public abstract class EnemyBehavior : MonoBehaviour
         // Execute the Kill method
         Kill();
     }
+    
+    protected abstract void DeathSequenceAnimation();
 
     protected abstract void GotHit();
     public abstract void Kill();

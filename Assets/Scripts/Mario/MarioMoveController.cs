@@ -47,7 +47,7 @@ public class MarioMoveController : MonoBehaviour
 
     // public float VelocityX => _velocity.x;
 
-    private bool Grounded { get; set; }
+    public bool Grounded { get; private set; }
     private bool Jumping { get; set; }
     private bool Walking => Mathf.Abs(_velocity.x) > 0.1f || Mathf.Abs(_inputActionsAxis) > 0.1f;
     private bool Running => Mathf.Abs(_velocity.x) > 4f;
@@ -178,6 +178,7 @@ public class MarioMoveController : MonoBehaviour
     {
         Grounded = Physics2D.CircleCast(
             _rigidbody.position, groundRadius, Vector2.down, groundDistance, layerMask);
+        
 
         if (Grounded)
         {

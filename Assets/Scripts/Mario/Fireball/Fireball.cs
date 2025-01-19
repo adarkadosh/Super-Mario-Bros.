@@ -5,13 +5,13 @@ public class Fireball : MonoBehaviour
     public float speed = 10f;
     public float lifetime = 5f;
     public int damage = 1;
-    private Rigidbody2D rb;
+    private Rigidbody2D _rigidbody;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        _rigidbody = GetComponent<Rigidbody2D>();
         // Move the fireball in the direction it's facing
-        rb.linearVelocity = transform.right * speed;
+        _rigidbody.linearVelocity = transform.right * speed;
         // Destroy the fireball after 'lifetime' seconds
         Destroy(gameObject, lifetime);
     }
@@ -30,10 +30,10 @@ public class Fireball : MonoBehaviour
             // Destroy the fireball upon collision
             Destroy(gameObject);
         }
-        else if (collision.CompareTag("Ground"))
-        {
+        // else if (collision.CompareTag("Ground"))
+        // {
             // Destroy the fireball if it hits the ground
-            Destroy(gameObject);
-        }
+            // Destroy(gameObject);
+        // }
     }
 }

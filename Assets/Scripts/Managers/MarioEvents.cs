@@ -10,4 +10,5 @@ public class MarioEvents : MonoSingleton<MarioEvents>
     public static Action OnMarioDeath;
     public static Action<int> OnGotCoin;
     public static Action OnMarioWin;
+    public static Action OnMarioEnteredPipe;
 }

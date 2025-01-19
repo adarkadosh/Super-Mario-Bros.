@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4919146576649629220}
   - component: {fileID: 6820511946862367056}
   - component: {fileID: 4982499784482215209}
-  - component: {fileID: 6515171704083704404}
   - component: {fileID: 331723572837062282}
   m_Layer: 3
   m_Name: MarioAnimations
@@ -77,9 +76,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2040614475
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7793985171993807285, guid: 5f9b96076425bff4abf0f2c4cdecaa42, type: 3}
+  m_Sprite: {fileID: -282857493, guid: 038713812500d9c4396eda80eb49b7cb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,18 +99,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 696fc539cb3e44339251d1f1017efccb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6515171704083704404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 918493855817085303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 022b5e2a7796428bb5e592da2bb8d47f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &331723572837062282
@@ -164,6 +151,8 @@ GameObject:
   - component: {fileID: 3030586120030896943}
   - component: {fileID: 7998918402058475874}
   - component: {fileID: 5342759309534055320}
+  - component: {fileID: 2918697625651166661}
+  - component: {fileID: 7442568047519764083}
   m_Layer: 3
   m_Name: Mario
   m_TagString: Player
@@ -229,7 +218,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2040614475
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 8026728320813808590, guid: 1e938e1319f6e004f98d9da52ee4ef92, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -258,7 +247,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0
   m_GravityScale: 0
-  m_Material: {fileID: 6200000, guid: c0c48bf395c5b400aac478f25cb49298, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -279,7 +268,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: c0c48bf395c5b400aac478f25cb49298, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -323,10 +312,10 @@ MonoBehaviour:
   offsetTransitionSpeed: 2
   movementThreshold: 0.1
   moveSpeed: 7
-  maxJumpHeight: 5
+  maxJumpHeight: 7
   maxJumpTime: 1
-  acceleration: 8
-  deceleration: 16
+  acceleration: 10
+  deceleration: 12
   layerMask:
     serializedVersion: 2
     m_Bits: 960
@@ -381,12 +370,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 988ae3fba37b419b89d65f8d4d1075a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starDuration: 10
-  untouchableDuration: 3
+  starDuration: 3
+  untouchableDuration: 2
   paletteSwapper: {fileID: 331723572837062282}
-  flashTransparency: {fileID: 0}
-  starPowerEffect: {fileID: 0}
-  isUntouchable: 0
+  flashTransparency: {fileID: 4982499784482215209}
 --- !u!114 &5342759309534055320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -399,3 +386,65 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 640fc07b38084ce6b56a601789f7ec99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2918697625651166661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3213283332257613284}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d18d56788cab1f4bb8a6fb57d36aab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSpeed: 5
+  runSpeed: 8
+  acceleration: 20
+  deceleration: 30
+  runThreshold: 6
+  maxJumpHeight: 4
+  maxJumpTime: 1
+  coyoteTime: 0.2
+  jumpBufferTime: 0.1
+  fallMultiplier: 2.5
+  lowJumpMultiplier: 2
+  maxFallSpeed: -20
+  groundCheckRadius: 0.2
+  groundCheckOffset: {x: 0, y: -0.5}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 448
+  cinemachineCamera: {fileID: 0}
+  cameraOffset: {x: 2.5, y: 0, z: 0}
+  cameraTransitionSpeed: 2
+--- !u!114 &7442568047519764083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3213283332257613284}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0bf9c873502344bdb34a014fcc0e18e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 10
+  direction: {x: 0, y: 0}
+  jumpSpeed: 17
+  jumpDelay: 0.25
+  rb: {fileID: 3935379809124334855}
+  animator: {fileID: 3030586120030896943}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 448
+  characterHolder: {fileID: 3213283332257613284}
+  maxSpeed: 7
+  linearDrag: 4
+  gravity: 3
+  fallMultiplier: 5
+  onGround: 1
+  groundLength: 0.6
+  colliderOffset: {x: 0, y: 0, z: 0}
+  rbVelocity: 0

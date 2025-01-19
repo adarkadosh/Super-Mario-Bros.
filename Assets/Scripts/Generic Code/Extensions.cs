@@ -4,8 +4,6 @@ using UnityEngine;
 
 public static class Extensions
 {
-    private static LayerMask _layerMask = LayerMask.GetMask("Default");
-
     public static void DrawCircleCast(Vector2 origin, float radius, Vector2 direction, float distance)
     {
         // Draw the circle at the origin
@@ -45,6 +43,9 @@ public static class Extensions
         Tweener moveUp = gameObject.transform.DOMoveY(originalPosition.y + offsetY, duration)
             .SetEase(Ease.Linear);
         yield return moveUp.WaitForCompletion();
+        
+        if (gameObject.layer == LayerMask.NameToLayer("Bricks"))
+            KillEnemiesOnBlock(gameObject);
 
         // Optional: Wait for a short duration if needed
         yield return new WaitForSeconds(delay); // Adjust as necessary
@@ -53,6 +54,33 @@ public static class Extensions
         Tweener moveDown = gameObject.transform.DOMoveY(originalPosition.y + offsetOnReturn, duration / 2)
             .SetEase(Ease.Linear);
         yield return moveDown.WaitForCompletion();
+    }
+    
+    private static void KillEnemiesOnBlock(GameObject block)
+    {
+        // Get the BoxCollider2D component from the block
+        BoxCollider2D blockCollider = block.GetComponent<BoxCollider2D>();
+        if (blockCollider == null)
+        {
+            Debug.LogWarning("Block does not have a BoxCollider2D component.");
+            return;
+        }
+
+        Vector2 blockCenter = blockCollider.bounds.center;
+        Vector2 blockSize = blockCollider.bounds.size;
+
+        int enemyLayerMask = LayerMask.GetMask("Enemy");
+        Collider2D[] enemyColliders = Physics2D.OverlapBoxAll(blockCenter, blockSize, 0f, enemyLayerMask);
+
+        foreach (Collider2D collider in enemyColliders)
+        {
+            // Assuming each enemy has a script/component named "Enemy"
+            EnemyBehavior enemy = collider.GetComponent<EnemyBehavior>();
+            if (enemy != null)
+            {
+                enemy.StartCoroutine(enemy.DeathSequence());
+            }
+        }
     }
 
     public static bool IsVisibleToCamera(this Camera mainCamera, Transform transform)

@@ -1,49 +1,42 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public class FireMarioState : IMarioState
+public class FireMarioState : MarioBaseState
 {
-    private static readonly int IsBig = Animator.StringToHash("IsBig");
-    private static readonly int Hit = Animator.StringToHash("GetSmaller");
+    // private static readonly int IsFireHash = Animator.StringToHash("IsFire");
+    private static readonly int HitHash = Animator.StringToHash("GetSmaller");
 
-    public void EnterState(MarioStateMachine context)
+    public override void EnterState(MarioStateMachine context)
     {
-        Debug.Log("Entered Fire Mario State.");
+         MarioEvents.OnMarioStateChange?.Invoke(MarioState.Fire);
+        Debug.Log("Entered Fire Mario State");
     }
 
-    public void GotHit(MarioStateMachine context)
+    public override void GotHit(MarioStateMachine context)
     {
-        context.Animator.SetTrigger(Hit);
-        context.Animator.SetBool(IsBig, false);
-        context.ChangeState(context.SmallMarioState);
-        context.StartCoroutine(context.UntouchableDuration(context.untouchableDuration));
+        // Revert to Big Mario
+        context.FlashTransparency?.StartFlashing();
+        context.Animator.SetTrigger(HitHash);
+        context.Invoke(nameof(context.StopFlashing), context.UntouchableDurationValue);
+        context.StartCoroutine(context.UntouchableDurationCoroutine(context.UntouchableDurationValue));
+        GameEvents.FreezeAllCharacters?.Invoke(1.1f);
+        context.ChangeState(MarioState.Small);
+    }
+
+    public override void Update(MarioStateMachine context)
+    {
+        // Example: shooting fireball logic could go here, or be triggered by an input event
+        // context.ShootFireball();
     }
     
-    
-    public void DoAction(MarioStateMachine marioContext)
-    {
-        // if (marioContext.PlayerInputActions.Player.Crouch.IsPressed())
-        // {
-        //     marioContext.SetColliderSize(new Vector2(0.5f, 1f), new Vector2(0f, 0.5f));
-        //     marioContext.Animator.SetBool("OnCrouch", true);
-        // }
-        // else
-        // {
-        //     marioContext.SetColliderSize(new Vector2(0.75f, 2f), new Vector2(0f, 0.5f));
-        //     marioContext.Animator.SetBool("OnCrouch", false);
-        // }
-        //
-        // if (marioContext.PlayerInputActions.Player.Attack.WasPerformedThisFrame())
-        // {
-        //     marioContext.ShootFireball();
-        // }
-    }
-
-    public void OnPickUpPowerUp(MarioStateMachine context, PowerUpType powerUpType)
-    {
-    }
-
-    public void OnCollisionEnter2D(MarioStateMachine context, Collision2D collision)
-    {
-    }
+    // public override void OnCollisionEnter2D(MarioStateMachine context, Collision2D collision)
+    // {
+    //     if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+    //     {
+    //         Vector2 direction = collision.transform.position - context.transform.position;
+    //         if (Vector2.Dot(direction.normalized, Vector2.down) < 0.25f)
+    //         {
+    //             MarioEvents.OnMarioGotHit?.Invoke();
+    //         }
+    //     }
+    // }
 }

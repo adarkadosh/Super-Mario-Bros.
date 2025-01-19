@@ -41,6 +41,14 @@ public class KoopaStateMachine : EnemyBehavior, IPoolable
         _currentState.OnTriggerEnter2D(this, collision);
     }
 
+    protected override void DeathSequenceAnimation()
+    {
+        ChangeState(ShellState);
+        var spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.sortingLayerName = "Death";
+        spriteRenderer.flipY = true;
+    }
+
     protected override void GotHit()
     {
         _currentState.GotHit(this);
@@ -58,6 +66,7 @@ public class KoopaStateMachine : EnemyBehavior, IPoolable
         
         var rb = GetComponent<Rigidbody2D>();
         var entityMovement = GetComponent<EntityMovement>();
+        var spriteRenderer = GetComponent<SpriteRenderer>();
         // GetComponent<DeathAnimation>().enabled = false;
         var colliders = GetComponents<Collider2D>();
         foreach (var colliderObj in colliders)
@@ -73,6 +82,8 @@ public class KoopaStateMachine : EnemyBehavior, IPoolable
 
         entityMovement.enabled = true;
         entityMovement.MovementDirection = Vector2.left; // Reset movement direction
+        spriteRenderer.flipY = false; // Reset sprite flip
+        spriteRenderer.sortingLayerName = "Enemies"; // Reset sorting layer
     }
 
     public override void Kill()

@@ -12,6 +12,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void Start()
     {
+        Application.targetFrameRate = 60;
         World = 1;
         Level = 1;
         Coins = 0;

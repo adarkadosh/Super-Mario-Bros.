@@ -18,6 +18,7 @@ public class PaletteSwapper : MonoBehaviour
     private Color[][] _starMarioColors; // Array of star effect colors
     private SpriteRenderer _spriteRenderer;
     private bool _isStar;
+    private Coroutine _starCoroutine;
 
     private void Start()
     {
@@ -88,24 +89,46 @@ public class PaletteSwapper : MonoBehaviour
         if (!_isStar && _spriteRenderer != null)
         {
             _isStar = true;
-            StartCoroutine(SwapStarPalette());
+            _starCoroutine = StartCoroutine(SwapStarPalette());
+            // StartCoroutine(SwapStarPalette());
             ApplyColors(_starMarioColors[0]); // Apply the current palette
         }
     }
-
-    // Stop the star effect
+    
     public void StopFlashing()
     {
         if (_isStar && _spriteRenderer != null)
         {
             _isStar = false;
-            StopCoroutine(SwapStarPalette());
-            ApplyColors(regularMarioColor); // Revert to regular palette
+
+            if (_starCoroutine != null)
+                StopCoroutine(_starCoroutine);
+
+            // Start fading out the star effect over 2 seconds
+            // StartCoroutine(SwapStarWithDelay(2f));
+            ApplyColors(_starMarioColors[0]); // Apply the current palette
         }
+    }
+    
+    public IEnumerator SwapStarWithDelay(float duration)
+    {
+        float elapsed = 0f;
+        int index = 0;
+
+        while (elapsed < duration)
+        {
+            ApplyColors(_starMarioColors[index]);
+            index = (index + 1) % _starMarioColors.Length;
+            elapsed += StarFlashInterval;
+            yield return new WaitForSeconds(StarFlashInterval);
+        }
+
+        // After delay, switch back to regular color
+        ApplyColors(_starMarioColors[0]); // Apply the current palette
     }
 
     // Coroutine for the star flashing effect
-    private IEnumerator SwapStarPalette()
+    private IEnumerator SwapStarPalette(float duration = 0.05f)
     {
         int index = 0; // Current index for star colors
 
@@ -113,7 +136,7 @@ public class PaletteSwapper : MonoBehaviour
         {
             ApplyColors(_starMarioColors[index]); // Apply the current palette
             index = (index + 1) % _starMarioColors.Length; // Cycle through palettes
-            yield return new WaitForSeconds(StarFlashInterval); // Wait for the interval
+            yield return new WaitForSeconds(duration); // Wait for the interval
         }
     }
 }
