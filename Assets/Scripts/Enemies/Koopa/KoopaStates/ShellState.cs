@@ -22,6 +22,7 @@ public class ShellState : IKoopaState
         koopaState.GetComponent<Animator>().SetBool(EnterShell, true);
         // koopaState.Animator.SetBool(EnterShell, true);
         koopaState.GetComponent<EntityMovement>().enabled = false;
+        koopaState.GetComponent<CircleCollider2D>().enabled = false;
         koopaState.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
         koopaState.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
         // koopaState.gameObject.layer = LayerMask.NameToLayer("LethalEnemies");
@@ -42,8 +43,9 @@ public class ShellState : IKoopaState
         koopaState.gameObject.layer = LayerMask.NameToLayer("Enemy");
         var rb = koopaState.GetComponent<Rigidbody2D>();
         rb.bodyType = RigidbodyType2D.Dynamic;
-        var collider = koopaState.GetComponent<Collider2D>();
-        collider.enabled = true;
+        koopaState.GetComponent<CircleCollider2D>().enabled = true;
+        // var collider = koopaState.GetComponent<Collider2D>();
+        // collider.enabled = true;
         _isPushed = false;
     }
 
@@ -59,7 +61,8 @@ public class ShellState : IKoopaState
             }
         }
     }
-
+    
+    //TODO: Make Mario hit the shell when pushed and trigger Death Animation
     public void OnTriggerEnter2D(KoopaStateMachine koopaState, Collider2D collider2D)
     {
         if (collider2D.CompareTag("Player"))
@@ -67,10 +70,11 @@ public class ShellState : IKoopaState
             if (!_isPushed)
             {
                 GotPush(koopaState, collider2D);
+                koopaState.GetComponent<CircleCollider2D>().enabled = true;
             }
             else
             {
-                MarioEvents.OnMarioGotHit?.Invoke();
+                // MarioEvents.OnMarioGotHit?.Invoke();
             }
         }
     }

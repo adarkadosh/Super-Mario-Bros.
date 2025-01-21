@@ -43,7 +43,7 @@ public class DeathTrigger : MonoBehaviour
             if (powerUp != null)
             {
                 // Return the power-up to the factory
-                PowerUpFactory.Instance.ReturnPowerUp(powerUp);
+                PowerUpFactory.Instance.Return(powerUp);
             }
             else
             {

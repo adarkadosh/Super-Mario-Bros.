@@ -82,7 +82,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -512323613
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 4912470274566064600, guid: b97fd74022b88eb4c8f213c8266186e8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -196,7 +196,7 @@ MonoBehaviour:
   movementDirection: {x: -1, y: 0}
   layerMask:
     serializedVersion: 2
-    m_Bits: 17288
+    m_Bits: 17280
   flipBehavior: 0
   obstacleDetectionDistance: 0.55
   groundDetectionDistance: 0.55
@@ -227,9 +227,6 @@ MonoBehaviour:
   duration: 3
   jumpVelocity: 10
   gravity: -36
-  destroyAfterAnimation: 1
-  resetPositionAfterAnimation: 0
-  rb: {fileID: 0}
 --- !u!114 &-3462966828435580256
 MonoBehaviour:
   m_ObjectHideFlags: 0

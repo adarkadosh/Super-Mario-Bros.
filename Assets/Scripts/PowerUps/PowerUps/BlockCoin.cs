@@ -27,4 +27,9 @@ public class BlockCoin : MonoBehaviour, IPoolable
         transform.position = Vector3.zero;
         gameObject.SetActive(false);
     }
+    
+    public void Kill()
+    {
+        PowerUpFactory.Instance.ReturnBlockCoin(this);
+    }
 }

@@ -320,7 +320,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1020740637}
+  - {fileID: 75777974}
   - {fileID: 1296428361}
   - {fileID: 1479417147}
   m_Father: {fileID: 643015334}
@@ -437,7 +437,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 39646560}
-  - component: {fileID: 39646559}
+  - component: {fileID: 39646561}
   m_Layer: 0
   m_Name: GoombaSpawner (4)
   m_TagString: Untagged
@@ -445,22 +445,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &39646559
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 39646558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74d9ec40debd427c8654babe38262dd9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numberOfGoombas: 2
-  spacingDistance: 1.5
-  goombaPool: {fileID: 1744124147}
-  spawnOnlyOnce: 1
 --- !u!4 &39646560
 Transform:
   m_ObjectHideFlags: 0
@@ -476,6 +460,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1993990975}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &39646561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 39646558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e751bfc460d54fd3bdc181df8c742401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyType: 0
+  numberOfEnemies: 2
+  spacingDistance: 1.5
+  spawnOnlyOnce: 1
 --- !u!1 &40606864
 GameObject:
   m_ObjectHideFlags: 0
@@ -511,6 +511,54 @@ Transform:
   - {fileID: 1073384800}
   m_Father: {fileID: 1997955383}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &75777973
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 75777974}
+  - component: {fileID: 75777975}
+  m_Layer: 0
+  m_Name: KoopaSpawner (0)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &75777974
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75777973}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 25.5, y: 7, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 13609393}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &75777975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75777973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e751bfc460d54fd3bdc181df8c742401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyType: 1
+  numberOfEnemies: 1
+  spacingDistance: 1
+  spawnOnlyOnce: 1
 --- !u!1001 &79697653
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -909,7 +957,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 193827287}
-  - component: {fileID: 193827286}
+  - component: {fileID: 193827288}
   m_Layer: 0
   m_Name: GoombaSpawner (0)
   m_TagString: Untagged
@@ -917,22 +965,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &193827286
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 193827285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74d9ec40debd427c8654babe38262dd9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numberOfGoombas: 1
-  spacingDistance: 1
-  goombaPool: {fileID: 1744124147}
-  spawnOnlyOnce: 1
 --- !u!4 &193827287
 Transform:
   m_ObjectHideFlags: 0
@@ -948,6 +980,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1993990975}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &193827288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193827285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e751bfc460d54fd3bdc181df8c742401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyType: 0
+  numberOfEnemies: 1
+  spacingDistance: 1
+  spawnOnlyOnce: 1
 --- !u!1001 &196733747
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1267,7 +1315,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 254702498}
-  - component: {fileID: 254702497}
+  - component: {fileID: 254702499}
   m_Layer: 0
   m_Name: GoombaSpawner (3)
   m_TagString: Untagged
@@ -1275,22 +1323,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &254702497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 254702496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74d9ec40debd427c8654babe38262dd9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numberOfGoombas: 2
-  spacingDistance: 2.5
-  goombaPool: {fileID: 1744124147}
-  spawnOnlyOnce: 1
 --- !u!4 &254702498
 Transform:
   m_ObjectHideFlags: 0
@@ -1306,6 +1338,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1993990975}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &254702499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254702496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e751bfc460d54fd3bdc181df8c742401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyType: 0
+  numberOfEnemies: 2
+  spacingDistance: 2.5
+  spawnOnlyOnce: 1
 --- !u!1001 &281962275
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1561,7 +1609,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 425855395}
-  - component: {fileID: 425855394}
+  - component: {fileID: 425855396}
   m_Layer: 0
   m_Name: GoombaSpawner (6)
   m_TagString: Untagged
@@ -1569,22 +1617,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &425855394
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 425855393}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74d9ec40debd427c8654babe38262dd9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numberOfGoombas: 2
-  spacingDistance: 1.5
-  goombaPool: {fileID: 1744124147}
-  spawnOnlyOnce: 1
 --- !u!4 &425855395
 Transform:
   m_ObjectHideFlags: 0
@@ -1600,6 +1632,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1993990975}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &425855396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425855393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e751bfc460d54fd3bdc181df8c742401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyType: 0
+  numberOfEnemies: 2
+  spacingDistance: 1.5
+  spawnOnlyOnce: 1
 --- !u!1 &452507964
 GameObject:
   m_ObjectHideFlags: 0
@@ -2542,6 +2590,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 643015334}
+  - component: {fileID: 643015335}
   m_Layer: 0
   m_Name: Enemy Spanwers
   m_TagString: Untagged
@@ -2566,6 +2615,20 @@ Transform:
   - {fileID: 1993990975}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &643015335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 643015333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fceb5eeaed44013b85b1c6087cdf2f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goombaPool: {fileID: 1744124147}
+  koopaPool: {fileID: 247243167}
 --- !u!1001 &644743266
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11877,7 +11940,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 868437154}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a8a05de0ac134f4f9d01bef6b9da077, type: 3}
   m_Name: 
@@ -11919,7 +11982,7 @@ MonoBehaviour:
       data:
         PositionOffset: 4.35
         SearchResolution: 4
-        SearchIteration: 10
+        SearchIteration: 60
 --- !u!114 &868437157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12276,10 +12339,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   oneUpMashroomPool: {fileID: 1604578156}
-  blockCoinPool: {fileID: 183274441}
   starPool: {fileID: 937132783}
   superMashroomPool: {fileID: 761280682}
   fireFlowerPool: {fileID: 169304561}
+  blockCoinPool: {fileID: 183274441}
 --- !u!1001 &951786250
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12403,7 +12466,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 956366735}
-  - component: {fileID: 956366734}
+  - component: {fileID: 956366736}
   m_Layer: 0
   m_Name: GoombaSpawner (2)
   m_TagString: Untagged
@@ -12411,22 +12474,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &956366734
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 956366733}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74d9ec40debd427c8654babe38262dd9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numberOfGoombas: 2
-  spacingDistance: 1.5
-  goombaPool: {fileID: 1744124147}
-  spawnOnlyOnce: 1
 --- !u!4 &956366735
 Transform:
   m_ObjectHideFlags: 0
@@ -12442,6 +12489,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1993990975}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &956366736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 956366733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e751bfc460d54fd3bdc181df8c742401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyType: 0
+  numberOfEnemies: 2
+  spacingDistance: 1.5
+  spawnOnlyOnce: 1
 --- !u!1 &1000764095
 GameObject:
   m_ObjectHideFlags: 0
@@ -12472,7 +12535,7 @@ Transform:
   m_GameObject: {fileID: 1000764095}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.73186, y: 0.35386944, z: -9.847133}
+  m_LocalPosition: {x: -3.9821281, y: 0.35386944, z: -9.847133}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12723,54 +12786,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2fa4f7b5b53c43fa830ec0015d5781e, type: 3}
---- !u!1 &1020740635
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1020740637}
-  - component: {fileID: 1020740636}
-  m_Layer: 0
-  m_Name: KoopaSpawner (0)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1020740636
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1020740635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1975542bcc6044c690aa935d4e716798, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numberOfKoopas: 1
-  spacingDistance: 1
-  koopaPool: {fileID: 247243167}
-  spawnOnlyOnce: 1
---- !u!4 &1020740637
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1020740635}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 25.5, y: 6.934, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 13609393}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1028910854
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13037,7 +13052,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1090709806}
-  - component: {fileID: 1090709805}
+  - component: {fileID: 1090709807}
   m_Layer: 0
   m_Name: GoombaSpawner (7)
   m_TagString: Untagged
@@ -13045,22 +13060,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1090709805
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1090709804}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74d9ec40debd427c8654babe38262dd9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numberOfGoombas: 2
-  spacingDistance: 1.5
-  goombaPool: {fileID: 1744124147}
-  spawnOnlyOnce: 1
 --- !u!4 &1090709806
 Transform:
   m_ObjectHideFlags: 0
@@ -13076,6 +13075,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1993990975}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1090709807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090709804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e751bfc460d54fd3bdc181df8c742401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyType: 0
+  numberOfEnemies: 2
+  spacingDistance: 1.5
+  spawnOnlyOnce: 1
 --- !u!1 &1104373913
 GameObject:
   m_ObjectHideFlags: 0
@@ -13137,7 +13152,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1188923133}
-  - component: {fileID: 1188923132}
+  - component: {fileID: 1188923134}
   m_Layer: 0
   m_Name: GoombaSpawner (1)
   m_TagString: Untagged
@@ -13145,22 +13160,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1188923132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1188923131}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74d9ec40debd427c8654babe38262dd9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numberOfGoombas: 1
-  spacingDistance: 1
-  goombaPool: {fileID: 1744124147}
-  spawnOnlyOnce: 1
 --- !u!4 &1188923133
 Transform:
   m_ObjectHideFlags: 0
@@ -13176,6 +13175,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1993990975}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1188923134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188923131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e751bfc460d54fd3bdc181df8c742401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyType: 0
+  numberOfEnemies: 1
+  spacingDistance: 1
+  spawnOnlyOnce: 1
 --- !u!1001 &1213928967
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13408,7 +13423,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1296428361}
-  - component: {fileID: 1296428360}
+  - component: {fileID: 1296428362}
   m_Layer: 0
   m_Name: KoopaSpawner (1)
   m_TagString: Untagged
@@ -13416,22 +13431,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1296428360
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1296428359}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1975542bcc6044c690aa935d4e716798, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numberOfKoopas: 1
-  spacingDistance: 1
-  koopaPool: {fileID: 247243167}
-  spawnOnlyOnce: 1
 --- !u!4 &1296428361
 Transform:
   m_ObjectHideFlags: 0
@@ -13447,6 +13446,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 13609393}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1296428362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296428359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e751bfc460d54fd3bdc181df8c742401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyType: 1
+  numberOfEnemies: 1
+  spacingDistance: 1
+  spawnOnlyOnce: 1
 --- !u!1001 &1298887199
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14173,7 +14188,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1479417147}
-  - component: {fileID: 1479417146}
+  - component: {fileID: 1479417148}
   m_Layer: 0
   m_Name: KoopaSpawner (2)
   m_TagString: Untagged
@@ -14181,22 +14196,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1479417146
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1479417145}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1975542bcc6044c690aa935d4e716798, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numberOfKoopas: 3
-  spacingDistance: 1.5
-  koopaPool: {fileID: 247243167}
-  spawnOnlyOnce: 1
 --- !u!4 &1479417147
 Transform:
   m_ObjectHideFlags: 0
@@ -14212,6 +14211,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 13609393}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1479417148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479417145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e751bfc460d54fd3bdc181df8c742401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyType: 1
+  numberOfEnemies: 3
+  spacingDistance: 1.5
+  spawnOnlyOnce: 1
 --- !u!4 &1489666206 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5127433619577032025, guid: b2fa4f7b5b53c43fa830ec0015d5781e, type: 3}
@@ -14488,7 +14503,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1531033526}
-  - component: {fileID: 1531033525}
+  - component: {fileID: 1531033527}
   m_Layer: 0
   m_Name: GoombaSpawner (8)
   m_TagString: Untagged
@@ -14496,22 +14511,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1531033525
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1531033524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74d9ec40debd427c8654babe38262dd9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numberOfGoombas: 2
-  spacingDistance: 1.5
-  goombaPool: {fileID: 1744124147}
-  spawnOnlyOnce: 1
 --- !u!4 &1531033526
 Transform:
   m_ObjectHideFlags: 0
@@ -14527,6 +14526,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1993990975}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1531033527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531033524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e751bfc460d54fd3bdc181df8c742401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyType: 0
+  numberOfEnemies: 2
+  spacingDistance: 1.5
+  spawnOnlyOnce: 1
 --- !u!1 &1544790588
 GameObject:
   m_ObjectHideFlags: 0
@@ -15208,6 +15223,7 @@ GameObject:
   - component: {fileID: 1653184645}
   - component: {fileID: 1653184644}
   - component: {fileID: 1653184643}
+  - component: {fileID: 1653184647}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -15248,7 +15264,7 @@ MonoBehaviour:
   m_ReferencePixelsPerUnit: 16
   m_ScaleFactor: 0.49
   m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 2
+  m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 0
   m_FallbackScreenDPI: 19.6
@@ -15265,8 +15281,8 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 16
+  m_Camera: {fileID: 1675543751}
+  m_PlaneDistance: 100
   m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -15275,8 +15291,8 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 219399433
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!224 &1653184646
 RectTransform:
@@ -15298,6 +15314,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1653184647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653184642}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50b3f49d8e3aa43f7bdd6f45310f43f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  referenceWidth: 800
+  referenceHeight: 600
 --- !u!1 &1655012513
 GameObject:
   m_ObjectHideFlags: 0
@@ -15538,10 +15568,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0.020512821
-    width: 1
-    height: 0.9599359
+    x: 0.0088626295
+    y: 0
+    width: 0.98316103
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 40
@@ -15638,8 +15668,8 @@ MonoBehaviour:
   IgnoreTimeScale: 0
   WorldUpOverride: {fileID: 0}
   ChannelMask: -1
-  UpdateMethod: 0
-  BlendUpdateMethod: 0
+  UpdateMethod: 2
+  BlendUpdateMethod: 1
   LensModeOverride:
     Enabled: 0
     DefaultMode: 2
@@ -15670,7 +15700,7 @@ MonoBehaviour:
   m_RefResolutionX: 256
   m_RefResolutionY: 240
   m_CropFrame: 4
-  m_GridSnapping: 1
+  m_GridSnapping: 0
   m_FilterMode: 1
   m_UpscaleRT: 0
   m_PixelSnapping: 0
@@ -15819,7 +15849,7 @@ Transform:
   m_GameObject: {fileID: 1679960232}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.731863, y: 0.35386944, z: -9.847133}
+  m_LocalPosition: {x: -3.982132, y: 0.35386944, z: -9.847133}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16516,7 +16546,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1807916060}
-  - component: {fileID: 1807916059}
+  - component: {fileID: 1807916061}
   m_Layer: 0
   m_Name: GoombaSpawner (5)
   m_TagString: Untagged
@@ -16524,22 +16554,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1807916059
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1807916058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74d9ec40debd427c8654babe38262dd9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numberOfGoombas: 2
-  spacingDistance: 1.5
-  goombaPool: {fileID: 1744124147}
-  spawnOnlyOnce: 1
 --- !u!4 &1807916060
 Transform:
   m_ObjectHideFlags: 0
@@ -16555,6 +16569,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1993990975}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1807916061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807916058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e751bfc460d54fd3bdc181df8c742401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyType: 0
+  numberOfEnemies: 2
+  spacingDistance: 1.5
+  spawnOnlyOnce: 1
 --- !u!1001 &1808656806
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17303,8 +17333,8 @@ Tilemap:
   - first: {x: 18, y: 2, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 2
-      m_TileSpriteIndex: 2
+      m_TileIndex: 1
+      m_TileSpriteIndex: 1
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -19654,9 +19684,9 @@ Tilemap:
   m_TileAssetArray:
   - m_RefCount: 15
     m_Data: {fileID: 11400000, guid: 594e7d038e169394da10e0a5d25df922, type: 2}
-  - m_RefCount: 14
+  - m_RefCount: 15
     m_Data: {fileID: 11400000, guid: 45902907d9019bd4ca368373d6716f58, type: 2}
-  - m_RefCount: 6
+  - m_RefCount: 5
     m_Data: {fileID: 11400000, guid: ab922a15b5f7578469e6964773767606, type: 2}
   - m_RefCount: 5
     m_Data: {fileID: 11400000, guid: ecd5825c35528b649b87664adb0cbcf8, type: 2}
@@ -19689,9 +19719,9 @@ Tilemap:
   m_TileSpriteArray:
   - m_RefCount: 15
     m_Data: {fileID: -97983142, guid: 73aa78bbd1db9cd4c8a747afe68b3fe5, type: 3}
-  - m_RefCount: 14
+  - m_RefCount: 15
     m_Data: {fileID: 1583114212, guid: 73aa78bbd1db9cd4c8a747afe68b3fe5, type: 3}
-  - m_RefCount: 6
+  - m_RefCount: 5
     m_Data: {fileID: -910840120, guid: 73aa78bbd1db9cd4c8a747afe68b3fe5, type: 3}
   - m_RefCount: 5
     m_Data: {fileID: 284654810, guid: 73aa78bbd1db9cd4c8a747afe68b3fe5, type: 3}
@@ -20452,11 +20482,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1629311706}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -525, y: -24}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -1200, y: -99}
   m_SizeDelta: {x: 250, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 1, y: 1}
 --- !u!114 &2088311294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20941,6 +20971,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BrokeBrick
       objectReference: {fileID: 0}
+    - target: {fileID: 5690111998014723612, guid: 3721e80fc9588be40826719a20195587, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20994,6 +21028,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3030586120030896943, guid: 85114338411af416b9b47f92bc6018bb, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: bdfcdf4c6fdd94bbaad2949d9b2b657f, type: 2}
     - target: {fileID: 3213283332257613284, guid: 85114338411af416b9b47f92bc6018bb, type: 3}
       propertyPath: m_Name
       value: Mario

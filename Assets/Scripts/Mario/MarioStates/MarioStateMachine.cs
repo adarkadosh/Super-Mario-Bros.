@@ -177,7 +177,7 @@ public class MarioStateMachine : MonoBehaviour
 
     private void SubscribeInputActions()
     {
-        _playerInputActions.Player.Enable();
+        // _playerInputActions.Player.Enable();
         _playerInputActions.Player.Crouch.started += OnCrouchStarted;
         _playerInputActions.Player.Crouch.canceled += OnCrouchCanceled;
         _playerInputActions.Player.Attack.performed += OnAttackPerformed;

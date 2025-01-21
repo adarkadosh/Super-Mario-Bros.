@@ -56,7 +56,7 @@ public static class Extensions
         yield return moveDown.WaitForCompletion();
     }
     
-    private static void KillEnemiesOnBlock(GameObject block)
+    public static void KillEnemiesOnBlock(GameObject block)
     {
         // Get the BoxCollider2D component from the block
         BoxCollider2D blockCollider = block.GetComponent<BoxCollider2D>();
@@ -95,5 +95,12 @@ public static class Extensions
     public static IEnumerator WaitForSeconds(float duration)
     {
         yield return new WaitForSeconds(duration);
+    }
+    
+    public static void Log(string message)
+    {
+#if UNITY_EDITOR
+        Debug.Log(message);
+#endif
     }
 }

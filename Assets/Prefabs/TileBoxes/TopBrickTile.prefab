@@ -151,3 +151,4 @@ MonoBehaviour:
   maxHitsToBlock: -1
   powerUpType: 4
   isBlockCoin: 0
+  brokenBlock: {fileID: 5690111998014723612, guid: 3721e80fc9588be40826719a20195587, type: 3}

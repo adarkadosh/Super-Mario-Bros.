@@ -20,6 +20,7 @@ public class DeathAnimation : MonoBehaviour
 
     private Coroutine _deathAnimationCoroutine;
     private Vector3 _velocity;
+    private SpriteRenderer _spriteRenderer;
 
     private void Awake()
     {
@@ -28,11 +29,19 @@ public class DeathAnimation : MonoBehaviour
         {
             _rigidbody = GetComponent<Rigidbody>();
         }
+        if (_spriteRenderer == null)
+        {
+            _spriteRenderer = GetComponent<SpriteRenderer>();
+        }
     }
 
     
     public void TriggerDeathAnimation(float waitTime = 0f)
     {
+        if (_spriteRenderer != null)
+        {
+            _spriteRenderer.sortingLayerName = "Death";
+        }
         StartCoroutine(Extensions.WaitForSeconds(waitTime));
         if (_deathAnimationCoroutine != null)
         {

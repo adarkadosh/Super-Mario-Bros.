@@ -85,9 +85,4 @@ public class KoopaStateMachine : EnemyBehavior, IPoolable
         spriteRenderer.flipY = false; // Reset sprite flip
         spriteRenderer.sortingLayerName = "Enemies"; // Reset sorting layer
     }
-
-    public override void Kill()
-    {
-        KoopaPool.Instance.Return(this);
-    }
 }

@@ -45,11 +45,6 @@ public class GoombaBehavior : EnemyBehavior, IPoolable
         SpriteRenderer.flipY = false; // Reset sprite flip
         SpriteRenderer.sortingLayerName = "Enemies"; // Reset sorting layer
     }
-
-    public override void Kill()
-    {
-        GoombaPool.Instance.Return(this);
-    }
     
     protected override void DeathSequenceAnimation()
     {

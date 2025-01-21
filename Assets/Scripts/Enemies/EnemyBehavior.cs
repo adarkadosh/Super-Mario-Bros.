@@ -22,8 +22,9 @@ public abstract class EnemyBehavior : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             // Check if the player is above the Goomba
-            Vector2 direction = transform.position - other.transform.position;
-            if (Vector2.Dot(direction.normalized, Vector2.down) > 0.25f)
+            // Vector2 direction = transform.position - other.transform.position;
+            // if (Vector2.Dot(direction.normalized, Vector2.down) > 0.25f)
+            if (other.collider.GetComponent<Collider2D>() && other.contacts[0].normal.y < 0)
             {
                 GotHit();
             }
@@ -66,5 +67,9 @@ public abstract class EnemyBehavior : MonoBehaviour
     protected abstract void DeathSequenceAnimation();
 
     protected abstract void GotHit();
-    public abstract void Kill();
+    public void Kill()
+    {
+        // Return the enemy to the factory
+        EnemyFactory.Instance.Return(this);
+    }
 }
