@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
+// TODO: Check if collision is good (sometimes its weird)
 public class GenericBlockHit : MonoBehaviour
 {
     private static readonly int GotHit = Animator.StringToHash("GotHit");

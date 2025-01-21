@@ -1,6 +1,8 @@
 using System.Collections;
 using UnityEngine;
 
+// TODO: Crouch and Slide
+// TODO: Attack
 public class SmallMarioState : MarioBaseState
 {
     private static readonly int DieHash = Animator.StringToHash("Die");

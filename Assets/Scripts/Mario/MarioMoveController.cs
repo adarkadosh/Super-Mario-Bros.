@@ -1,6 +1,7 @@
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Animator))]
 public class MarioMoveController : MonoBehaviour
@@ -21,6 +22,8 @@ public class MarioMoveController : MonoBehaviour
 
     [SerializeField] private float maxJumpHeight = 4f; // Reduced for lower jump
     [SerializeField] private float maxJumpTime = 1f;
+    [SerializeField] private float gravityMultiplier = 2f;
+    [SerializeField] private float onAirMultiplier = 1f;
     [SerializeField] private float acceleration = 8f; // Acceleration rate
     [SerializeField] private float deceleration = 16f; // Deceleration rate
 
@@ -44,6 +47,7 @@ public class MarioMoveController : MonoBehaviour
     private float _inputActionsAxis;
     private bool isJumping;
     private float jumpTimeCounter;
+    // private float _multiplier;
 
     // public float VelocityX => _velocity.x;
 
@@ -56,9 +60,10 @@ public class MarioMoveController : MonoBehaviour
                             (_inputActionsAxis < 0f && _velocity.x > 0f);
 
     private float JumpForce => (2f * maxJumpHeight) / (maxJumpTime / 2f);
+
     // private float Gravity => (-2f * maxJumpHeight) / Mathf.Pow(maxJumpTime / 2f, 2f);
     private float Gravity => (-2f * maxJumpHeight) / Mathf.Pow(maxJumpTime / 2f, 2f);
-    
+
 
     private void Awake()
     {
@@ -178,7 +183,7 @@ public class MarioMoveController : MonoBehaviour
     {
         Grounded = Physics2D.CircleCast(
             _rigidbody.position, groundRadius, Vector2.down, groundDistance, layerMask);
-        
+
 
         if (Grounded)
         {
@@ -198,7 +203,7 @@ public class MarioMoveController : MonoBehaviour
             isJumping = true;
             jumpTimeCounter = maxJumpTime;
             _velocity.y = JumpForce;
-            _animator.SetBool("IsJumping", true);
+            _animator.SetBool(IsJumping, true);
         }
     }
 
@@ -206,14 +211,13 @@ public class MarioMoveController : MonoBehaviour
     {
         // _velocity.y -= JumpForce;
         isJumping = false;
-
     }
 
     private void ApplyGravity()
     {
         // Check if falling
         bool falling = _velocity.y < 0f | !isJumping;
-        float multiplier = falling ? 2f : 1f;
+        float multiplier = falling ? gravityMultiplier : onAirMultiplier;
 
         // Apply gravity and terminal velocity
         _velocity.y += Gravity * multiplier * Time.deltaTime;
