@@ -64,10 +64,10 @@ public class DeathAnimation : MonoBehaviour
             component.bodyType = RigidbodyType2D.Kinematic;
         }
 
-        if (TryGetComponent(out PlayerMovement playerMovement))
-        {
-            playerMovement.enabled = false;
-        }
+        // if (TryGetComponent(out PlayerMovement playerMovement))
+        // {
+            // playerMovement.enabled = false;
+        // }
 
         if (TryGetComponent(out EntityMovement entityMovement))
         {

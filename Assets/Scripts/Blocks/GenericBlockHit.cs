@@ -42,7 +42,9 @@ public class GenericBlockHit : MonoBehaviour
         {
             // Vector2 direction = transform.position - other.transform.position;
             // if (Vector2.Dot(direction.normalized, Vector2.up) > 0.35f)
-            if (other.collider.GetComponent<Collider2D>() && other.contacts[0].normal.y > 0)
+            // if (other.collider.GetComponent<Collider2D>() && other.contacts[0].normal.y > 0)
+            Vector2 direction = transform.position - other.transform.position;
+            if (Vector2.Dot(direction.normalized, Vector2.up) > 0.35f)
             {
                 Hit();
                 Extensions.Log("Player hit the block");

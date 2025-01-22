@@ -15568,10 +15568,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.0088626295
-    y: 0
-    width: 0.98316103
-    height: 1
+    x: 0
+    y: 0.020512821
+    width: 1
+    height: 0.9599359
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 40
@@ -20967,17 +20967,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3030586120030896943, guid: 85114338411af416b9b47f92bc6018bb, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: bdfcdf4c6fdd94bbaad2949d9b2b657f, type: 2}
     - target: {fileID: 3213283332257613284, guid: 85114338411af416b9b47f92bc6018bb, type: 3}
       propertyPath: m_Name
       value: Mario
       objectReference: {fileID: 0}
-    - target: {fileID: 7998918402058475874, guid: 85114338411af416b9b47f92bc6018bb, type: 3}
-      propertyPath: starDuration
-      value: 8
+    - target: {fileID: 8493080812844433070, guid: 85114338411af416b9b47f92bc6018bb, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8493080812844433070, guid: 85114338411af416b9b47f92bc6018bb, type: 3}
+      propertyPath: maxJumpHeight
+      value: 4.8
       objectReference: {fileID: 0}
     - target: {fileID: 8493080812844433070, guid: 85114338411af416b9b47f92bc6018bb, type: 3}
       propertyPath: cinemachineCamera

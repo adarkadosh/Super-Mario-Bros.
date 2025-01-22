@@ -146,13 +146,11 @@ GameObject:
   - component: {fileID: 293373681190540828}
   - component: {fileID: 3935379809124334855}
   - component: {fileID: 3861790457281406846}
-  - component: {fileID: 8493080812844433070}
   - component: {fileID: 2141721591898388202}
   - component: {fileID: 3030586120030896943}
   - component: {fileID: 7998918402058475874}
+  - component: {fileID: 8493080812844433070}
   - component: {fileID: 5342759309534055320}
-  - component: {fileID: 2918697625651166661}
-  - component: {fileID: 7442568047519764083}
   m_Layer: 3
   m_Name: Mario
   m_TagString: Player
@@ -246,7 +244,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0
-  m_GravityScale: 0
+  m_GravityScale: 6
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -295,32 +293,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.75, y: 1}
   m_Direction: 0
---- !u!114 &8493080812844433070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3213283332257613284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 298914b166cf5f54bb300b7bc0cfe4ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cinemachineCamera: {fileID: 0}
-  cameraOffset: {x: 2.5, y: 0, z: 0}
-  offsetTransitionSpeed: 2
-  movementThreshold: 0.1
-  moveSpeed: 7
-  maxJumpHeight: 7
-  maxJumpTime: 1
-  acceleration: 10
-  deceleration: 12
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 960
-  groundRadius: 0.25
-  groundDistance: 0.375
 --- !u!114 &2141721591898388202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -346,7 +318,7 @@ Animator:
   m_GameObject: {fileID: 3213283332257613284}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3891324838e1d8d4fb81eade99b3f3e0, type: 2}
+  m_Controller: {fileID: 9100000, guid: bdfcdf4c6fdd94bbaad2949d9b2b657f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -370,10 +342,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 988ae3fba37b419b89d65f8d4d1075a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starDuration: 3
+  starDuration: 8
+  starDurationDelay: 5
   untouchableDuration: 2
   paletteSwapper: {fileID: 331723572837062282}
   flashTransparency: {fileID: 4982499784482215209}
+--- !u!114 &8493080812844433070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3213283332257613284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 298914b166cf5f54bb300b7bc0cfe4ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cinemachineCamera: {fileID: 0}
+  cameraOffset: {x: 2.5, y: 0, z: 0}
+  offsetTransitionSpeed: 2
+  movementThreshold: 0.1
+  moveSpeed: 7
+  maxJumpHeight: 5.5
+  maxJumpTime: 1.15
+  gravityMultiplier: 5
+  onAirMultiplier: 1
+  acceleration: 10
+  deceleration: 12
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 960
+  groundRadius: 0.25
+  groundDistance: 0.375
 --- !u!114 &5342759309534055320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -386,65 +387,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 640fc07b38084ce6b56a601789f7ec99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2918697625651166661
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3213283332257613284}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d18d56788cab1f4bb8a6fb57d36aab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walkSpeed: 5
-  runSpeed: 8
-  acceleration: 20
-  deceleration: 30
-  runThreshold: 6
-  maxJumpHeight: 4
-  maxJumpTime: 1
-  coyoteTime: 0.2
-  jumpBufferTime: 0.1
-  fallMultiplier: 2.5
-  lowJumpMultiplier: 2
-  maxFallSpeed: -20
-  groundCheckRadius: 0.2
-  groundCheckOffset: {x: 0, y: -0.5}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 448
-  cinemachineCamera: {fileID: 0}
-  cameraOffset: {x: 2.5, y: 0, z: 0}
-  cameraTransitionSpeed: 2
---- !u!114 &7442568047519764083
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3213283332257613284}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0bf9c873502344bdb34a014fcc0e18e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 10
-  direction: {x: 0, y: 0}
-  jumpSpeed: 17
-  jumpDelay: 0.25
-  rb: {fileID: 3935379809124334855}
-  animator: {fileID: 3030586120030896943}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 448
-  characterHolder: {fileID: 3213283332257613284}
-  maxSpeed: 7
-  linearDrag: 4
-  gravity: 3
-  fallMultiplier: 5
-  onGround: 1
-  groundLength: 0.6
-  colliderOffset: {x: 0, y: 0, z: 0}
-  rbVelocity: 0
