@@ -18,16 +18,15 @@ public class MarioStateMachine : MonoBehaviour
     private static readonly int OnCrouch = Animator.StringToHash("OnCrouch");
     private static readonly int Fire = Animator.StringToHash("Fire");
 
-    [Header("Pools")]
-    [SerializeField] private FiraballPool fireballPool;
+    [Header("Pools")] [SerializeField] private FiraballPool fireballPool;
 
-    [Header("Durations")]
-    [SerializeField] private float starDuration = 10f;
+    [Header("Durations")] [SerializeField] private float starDuration = 10f;
     [SerializeField] private float starDurationDelay = 5f;
     [SerializeField] private float untouchableDuration = 2.1f;
 
-    [Header("References")]
-    [SerializeField] private PaletteSwapper paletteSwapper;
+    [Header("References")] [SerializeField]
+    private PaletteSwapper paletteSwapper;
+
     [SerializeField] private FlashTransparency flashTransparency;
 
     private Rigidbody2D _rigidbody;
@@ -38,7 +37,7 @@ public class MarioStateMachine : MonoBehaviour
 
     private IMarioState _currentState;
     private Coroutine _starPowerCoroutine;
-    private MarioState _currentMarioState; 
+    private MarioState _currentMarioState;
 
     // ----- Public Properties for State Access -----
     public Animator Animator { get; private set; }
@@ -51,7 +50,7 @@ public class MarioStateMachine : MonoBehaviour
 
     private const string MarioLayer = "Mario";
     private const string PowerUpLayer = "PowerUp";
-    
+
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -92,7 +91,7 @@ public class MarioStateMachine : MonoBehaviour
         // Let the current state handle any per-frame logic.
         _currentState?.Update(this);
     }
-    
+
 
     public void ChangeState(MarioState newState)
     {
@@ -106,14 +105,13 @@ public class MarioStateMachine : MonoBehaviour
         // Enter the new state
         _currentState.EnterState(this);
     }
-    
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         _currentState?.OnCollisionEnter2D(this, collision);
 
         // Example: enemy collision from above triggers a hit
-
     }
 
 
@@ -157,7 +155,8 @@ public class MarioStateMachine : MonoBehaviour
         Debug.Log("Shooting fireball!");
 
         // Determine the direction Mario is facing
-        Vector2 shootDirection = transform.right * (_movementController.Flipped ? -1 : 1);
+        Vector2 shootDirection = transform.right;
+        Debug.Log("Shoot direction: " + shootDirection);
 
         // Define the offset distance
         const float offsetDistance = 0.5f; // Adjust this value as needed
@@ -167,14 +166,24 @@ public class MarioStateMachine : MonoBehaviour
 
         // Get a fireball from the pool
         var fireball = fireballPool.Get();
+        if (fireball == null)
+        {
+            Debug.LogWarning("No fireball available in the pool.");
+            return;
+        }
+
         fireball.transform.position = spawnPosition;
 
         // Set the fireball's velocity
-        var fireballRb = fireball.GetComponent<Rigidbody2D>();
-        fireballRb.linearVelocity = shootDirection * 10f; // Adjust the speed as needed
-
-        // Optional: Set the fireball's rotation to match the shooting direction
-        // fireball.transform.right = shootDirection;
+        // var fireballRb = fireball.GetComponent<EntityMovement>();
+        // if (fireballRb != null)
+        // {
+        fireball.SetDirection(new Vector2(shootDirection.x, -0.5f));
+        // }
+        // else
+        // {
+            // Debug.LogWarning("Fireball does not have a Rigidbody2D component.");
+        // }
     }
 
     // Example: star power from FireMarioState or BigMarioState
@@ -192,7 +201,7 @@ public class MarioStateMachine : MonoBehaviour
         // Switch to star state
         ChangeState(MarioState.Star);
         yield return new WaitForSeconds(starDuration);
-        
+
         // Return to previous state
         ChangeState(previousState);
         _starPowerCoroutine = null;
@@ -220,7 +229,6 @@ public class MarioStateMachine : MonoBehaviour
         if (_currentState is SmallMarioState) return;
         if (_movementController.Grounded)
             Crouch();
-
     }
 
     private void Crouch()
@@ -233,7 +241,7 @@ public class MarioStateMachine : MonoBehaviour
 
     private void OnCrouchCanceled(InputAction.CallbackContext context)
     {
-        if (_currentState is SmallMarioState) return;
+        // if (_currentState is SmallMarioState) return;
         Debug.Log("Standing up!");
         SetColliderSize(new Vector2(0.75f, 2f), new Vector2(0f, 0.5f));
         _movementController.enabled = true;
@@ -249,7 +257,7 @@ public class MarioStateMachine : MonoBehaviour
             ShootFireball();
         }
     }
-    
+
 
     private void SubscribeGameEvents()
     {
@@ -271,7 +279,7 @@ public class MarioStateMachine : MonoBehaviour
         if (powerUpType == PowerUpType.Star)
             ActivateStarPower();
     }
-    
+
 
     private void EnablePhysics()
     {

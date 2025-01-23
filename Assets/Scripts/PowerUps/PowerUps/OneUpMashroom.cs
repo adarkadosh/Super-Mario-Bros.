@@ -11,8 +11,6 @@ public class OneUpMashroom : GenericPowerUp
             // GameEvents.OnGotExtraLife?.Invoke();
             MarioEvents.OnMarioGotPowerUp?.Invoke(PowerUpType.OneUpMashroom);
             PowerUpFactory.Instance.Return(this);
-
-
         }
     }
 }

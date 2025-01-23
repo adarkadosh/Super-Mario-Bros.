@@ -252,10 +252,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 10
-  movementDirection: {x: 1, y: 0}
+  movementDirection: {x: 0, y: 0}
   layerMask:
     serializedVersion: 2
-    m_Bits: 960
+    m_Bits: 896
   flipBehavior: 1
   obstacleDetectionDistance: 0.55
   groundDetectionDistance: 0.55

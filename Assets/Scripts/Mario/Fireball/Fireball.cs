@@ -20,14 +20,6 @@ public class Fireball : MonoBehaviour, IPoolable
         _entityMovement = GetComponent<EntityMovement>();
     }
 
-    void Start()
-    {
-        // Move the fireball in the direction it's facing
-        // _rigidbody.linearVelocity = direction * speed;
-        // Destroy the fireball after 'lifetime' seconds
-        // StartCoroutine(WaitAndDestroy(lifetime));
-    }
-
     private IEnumerator WaitAndDestroy(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
@@ -37,7 +29,11 @@ public class Fireball : MonoBehaviour, IPoolable
     private void OnEnable()
     {
         StartCoroutine(WaitAndDestroy(lifetime));
-
+    }
+    
+    private void OnDisable()
+    {
+        StopAllCoroutines();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -52,6 +48,10 @@ public class Fireball : MonoBehaviour, IPoolable
                 StartCoroutine(enemy.DeathSequence());
             }
             _animator.SetTrigger("Explode");
+            _entityMovement.enabled = false;
+            _collider.enabled = false;
+            _rigidbody.bodyType = RigidbodyType2D.Kinematic;
+
         }
     }
 
@@ -59,6 +59,7 @@ public class Fireball : MonoBehaviour, IPoolable
     {
         if (_rigidbody != null)
         {
+            _rigidbody.bodyType = RigidbodyType2D.Dynamic;
             // Reset velocity
             _rigidbody.linearVelocity = Vector2.zero;
             _rigidbody.angularVelocity = 0f;
@@ -74,6 +75,12 @@ public class Fireball : MonoBehaviour, IPoolable
             _animator.ResetTrigger("Explode");
             _animator.Play("Idle", -1, 0f); // Replace "IdleState" with your default state
         }
+        
+        if (_entityMovement != null)
+        {
+            _entityMovement.enabled = true;
+            _entityMovement.MovementDirection = Vector2.right;
+        }
 
         // Reset collider
         if (_collider != null)
@@ -81,8 +88,13 @@ public class Fireball : MonoBehaviour, IPoolable
             _collider.enabled = true;
         }
 
-        // Stop any ongoing coroutines
-        StopAllCoroutines();
+        // // Stop any ongoing coroutines
+        // StopAllCoroutines();
+    }
+    
+    public void SetDirection(Vector2 dir)
+    {
+        _entityMovement.MovementDirection = dir;
     }
 
     public void Kill()
