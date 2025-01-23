@@ -22,9 +22,9 @@ public abstract class EnemyBehavior : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             // Check if the player is above the Goomba
-            // Vector2 direction = transform.position - other.transform.position;
-            // if (Vector2.Dot(direction.normalized, Vector2.down) > 0.25f)
-            if (other.collider.GetComponent<Collider2D>() && other.contacts[0].normal.y < 0)
+            Vector2 direction = transform.position - other.transform.position;
+            if (Vector2.Dot(direction.normalized, Vector2.down) > 0.35f)
+            // if (other.collider.GetComponent<Collider2D>() && other.contacts[0].normal.y < 0)
             {
                 GotHit();
             }

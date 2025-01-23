@@ -16,6 +16,10 @@ public enum MarioState
 public class MarioStateMachine : MonoBehaviour
 {
     private static readonly int OnCrouch = Animator.StringToHash("OnCrouch");
+    private static readonly int Fire = Animator.StringToHash("Fire");
+
+    [Header("Pools")]
+    [SerializeField] private FiraballPool fireballPool;
 
     [Header("Durations")]
     [SerializeField] private float starDuration = 10f;
@@ -29,7 +33,7 @@ public class MarioStateMachine : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private CapsuleCollider2D _capsuleCollider;
     private MarioMoveController _movementController;
-    private PlayerInputActions _playerInputActions;
+    internal PlayerInputActions PlayerInputActions;
     private FreezeMachine _freezeMachine;
 
     private IMarioState _currentState;
@@ -57,7 +61,7 @@ public class MarioStateMachine : MonoBehaviour
         _freezeMachine = GetComponent<FreezeMachine>();
 
         // Set up input
-        _playerInputActions = new PlayerInputActions();
+        PlayerInputActions = _movementController.PlayerInputActions;
     }
 
     private void Start()
@@ -147,15 +151,34 @@ public class MarioStateMachine : MonoBehaviour
         _freezeMachine.Freeze(duration);
     }
 
-    // Example: Possibly called by FireMarioState
-    public void ShootFireball()
+    private void ShootFireball()
     {
+        Animator.SetTrigger(Fire);
         Debug.Log("Shooting fireball!");
-        // Fireball logic here
+
+        // Determine the direction Mario is facing
+        Vector2 shootDirection = transform.right * (_movementController.Flipped ? -1 : 1);
+
+        // Define the offset distance
+        const float offsetDistance = 0.5f; // Adjust this value as needed
+
+        // Calculate the spawn position with the offset
+        var spawnPosition = (Vector2)transform.position + shootDirection * offsetDistance;
+
+        // Get a fireball from the pool
+        var fireball = fireballPool.Get();
+        fireball.transform.position = spawnPosition;
+
+        // Set the fireball's velocity
+        var fireballRb = fireball.GetComponent<Rigidbody2D>();
+        fireballRb.linearVelocity = shootDirection * 10f; // Adjust the speed as needed
+
+        // Optional: Set the fireball's rotation to match the shooting direction
+        // fireball.transform.right = shootDirection;
     }
 
     // Example: star power from FireMarioState or BigMarioState
-    public void ActivateStarPower()
+    private void ActivateStarPower()
     {
         if (_starPowerCoroutine != null)
             StopCoroutine(_starPowerCoroutine);
@@ -177,19 +200,19 @@ public class MarioStateMachine : MonoBehaviour
 
     private void SubscribeInputActions()
     {
-        // _playerInputActions.Player.Enable();
-        _playerInputActions.Player.Crouch.started += OnCrouchStarted;
-        _playerInputActions.Player.Crouch.canceled += OnCrouchCanceled;
-        _playerInputActions.Player.Attack.performed += OnAttackPerformed;
+        // PlayerInputActions.Player.Enable();
+        PlayerInputActions.Player.Crouch.started += OnCrouchStarted;
+        PlayerInputActions.Player.Crouch.canceled += OnCrouchCanceled;
+        PlayerInputActions.Player.Attack.performed += OnAttackPerformed;
     }
 
     private void UnsubscribeInputActions()
     {
-        _playerInputActions.Player.Crouch.started -= OnCrouchStarted;
-        _playerInputActions.Player.Crouch.canceled -= OnCrouchCanceled;
-        _playerInputActions.Player.Attack.performed -= OnAttackPerformed;
+        PlayerInputActions.Player.Crouch.started -= OnCrouchStarted;
+        PlayerInputActions.Player.Crouch.canceled -= OnCrouchCanceled;
+        PlayerInputActions.Player.Attack.performed -= OnAttackPerformed;
 
-        _playerInputActions.Player.Disable();
+        // PlayerInputActions.Player.Disable();
     }
 
     private void OnCrouchStarted(InputAction.CallbackContext context)
@@ -220,7 +243,11 @@ public class MarioStateMachine : MonoBehaviour
     private void OnAttackPerformed(InputAction.CallbackContext context)
     {
         // Could tie into "fireball" or "power-up" logic
-        _currentState?.OnPickUpPowerUp(this, PowerUpType.FireFlower);
+        // _currentState?.OnPickUpPowerUp(this, PowerUpType.FireFlower);
+        if (_currentMarioState == MarioState.Fire)
+        {
+            ShootFireball();
+        }
     }
     
 
@@ -244,7 +271,6 @@ public class MarioStateMachine : MonoBehaviour
         if (powerUpType == PowerUpType.Star)
             ActivateStarPower();
     }
-    
     
 
     private void EnablePhysics()

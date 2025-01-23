@@ -25,6 +25,10 @@ public class FireMarioState : MarioBaseState
     public override void Update(MarioStateMachine context)
     {
         // Example: shooting fireball logic could go here, or be triggered by an input event
+        // if (context.PlayerInputActions.Player.Attack.triggered)
+        // {
+            // context.ShootFireball();
+        // }
         // context.ShootFireball();
     }
     

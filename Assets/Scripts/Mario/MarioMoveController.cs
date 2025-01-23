@@ -45,8 +45,10 @@ public class MarioMoveController : MonoBehaviour
 
     private Vector2 _velocity;
     private float _inputActionsAxis;
-    private bool isJumping;
-    private float jumpTimeCounter;
+    private bool _isJumping;
+    private float _jumpTimeCounter;
+    
+    
     // private float _multiplier;
 
     // public float VelocityX => _velocity.x;
@@ -63,6 +65,9 @@ public class MarioMoveController : MonoBehaviour
 
     // private float Gravity => (-2f * maxJumpHeight) / Mathf.Pow(maxJumpTime / 2f, 2f);
     private float Gravity => (-2f * maxJumpHeight) / Mathf.Pow(maxJumpTime / 2f, 2f);
+    public PlayerInputActions PlayerInputActions => _playerInputActions;
+    // mario is flipped?
+    public bool Flipped { get; private set; }
 
 
     private void Awake()
@@ -130,6 +135,31 @@ public class MarioMoveController : MonoBehaviour
     }
 
 
+    // private void HandleMovementInput()
+    // {
+    //     float input = _playerInputActions.Player.Move.ReadValue<Vector2>().x;
+    //     _inputActionsAxis = input;
+    //
+    //     if (Mathf.Abs(input) > 0.01f)
+    //     {
+    //         // Player is providing input: accelerate towards target speed
+    //         _velocity.x = Mathf.MoveTowards(_velocity.x, input * moveSpeed, acceleration * Time.deltaTime);
+    //     }
+    //     else
+    //     {
+    //         // No input: decelerate to zero quickly
+    //         _velocity.x = Mathf.MoveTowards(_velocity.x, 0f, deceleration * Time.deltaTime);
+    //     }
+    //
+    //     // Check if running into a wall
+    //     if (Physics2D.CircleCast(_rigidbody.position, groundRadius, Vector2.right * _velocity.x,
+    //             groundDistance, layerMask))
+    //     {
+    //         _velocity.x = 0f;
+    //     }
+    //
+    //     HorizontalAnimationHandler();
+    // }
     private void HandleMovementInput()
     {
         float input = _playerInputActions.Player.Move.ReadValue<Vector2>().x;
@@ -137,18 +167,17 @@ public class MarioMoveController : MonoBehaviour
 
         if (Mathf.Abs(input) > 0.01f)
         {
-            // Player is providing input: accelerate towards target speed
+            // Accelerate towards target speed
             _velocity.x = Mathf.MoveTowards(_velocity.x, input * moveSpeed, acceleration * Time.deltaTime);
         }
         else
         {
-            // No input: decelerate to zero quickly
+            // Decelerate to zero quickly
             _velocity.x = Mathf.MoveTowards(_velocity.x, 0f, deceleration * Time.deltaTime);
         }
 
-        // Check if running into a wall
-        if (Physics2D.CircleCast(_rigidbody.position, groundRadius, Vector2.right * _velocity.x,
-                groundDistance, layerMask))
+        // Prevent sliding
+        if (Grounded && Mathf.Abs(_velocity.x) < 0.1f)
         {
             _velocity.x = 0f;
         }
@@ -161,10 +190,12 @@ public class MarioMoveController : MonoBehaviour
         // Flip sprite to face direction
         if (_velocity.x > 0f)
         {
+            Flipped = false;
             transform.eulerAngles = Vector3.zero;
         }
         else if (_velocity.x < 0f)
         {
+            Flipped = true;
             transform.eulerAngles = new Vector3(0f, 180f, 0f);
         }
 
@@ -178,12 +209,45 @@ public class MarioMoveController : MonoBehaviour
             _animator.SetBool(WalkingAnimation, false);
         }
     }
+    
 
+    // private void HandleGroundDetection()
+    // {
+    //     Grounded = Physics2D.CircleCast(
+    //         _rigidbody.position, groundRadius, Vector2.down, groundDistance, layerMask);
+    //
+    //
+    //     if (Grounded)
+    //     {
+    //         _animator.SetBool(IsJumping, false);
+    //
+    //         // Prevent gravity from building up infinitely
+    //         _velocity.y = Mathf.Max(_velocity.y, 0f);
+    //         // Jumping = Mathf.Abs(_velocity.y) > 0f;
+    //         Jumping = _velocity.y > 0f;
+    //     }
+    // }
+    
+    private bool IsGrounded()
+    {
+        const float extraHeight = 0.1f;
+        var leftRayOrigin = new Vector2(_capsuleCollider.bounds.min.x, _capsuleCollider.bounds.min.y);
+        var rightRayOrigin = new Vector2(_capsuleCollider.bounds.max.x, _capsuleCollider.bounds.min.y);
+
+        var leftCheck = Physics2D.Raycast(leftRayOrigin, Vector2.down, extraHeight, layerMask);
+        var rightCheck = Physics2D.Raycast(rightRayOrigin, Vector2.down, extraHeight, layerMask);
+
+        var rayColor = (leftCheck.collider != null || rightCheck.collider != null) ? Color.green : Color.red;
+        Debug.DrawRay(leftRayOrigin, Vector2.down * extraHeight, rayColor);
+        Debug.DrawRay(rightRayOrigin, Vector2.down * extraHeight, rayColor);
+
+        return leftCheck.collider != null || rightCheck.collider != null;
+    }
+    
+    
     private void HandleGroundDetection()
     {
-        Grounded = Physics2D.CircleCast(
-            _rigidbody.position, groundRadius, Vector2.down, groundDistance, layerMask);
-
+        Grounded = IsGrounded();
 
         if (Grounded)
         {
@@ -191,7 +255,6 @@ public class MarioMoveController : MonoBehaviour
 
             // Prevent gravity from building up infinitely
             _velocity.y = Mathf.Max(_velocity.y, 0f);
-            // Jumping = Mathf.Abs(_velocity.y) > 0f;
             Jumping = _velocity.y > 0f;
         }
     }
@@ -200,8 +263,8 @@ public class MarioMoveController : MonoBehaviour
     {
         if (Grounded)
         {
-            isJumping = true;
-            jumpTimeCounter = maxJumpTime;
+            _isJumping = true;
+            _jumpTimeCounter = maxJumpTime;
             _velocity.y = JumpForce;
             _animator.SetBool(IsJumping, true);
         }
@@ -210,13 +273,13 @@ public class MarioMoveController : MonoBehaviour
     private void OnJumpStop(InputAction.CallbackContext context)
     {
         // _velocity.y -= JumpForce;
-        isJumping = false;
+        _isJumping = false;
     }
 
     private void ApplyGravity()
     {
         // Check if falling
-        bool falling = _velocity.y < 0f | !isJumping;
+        bool falling = _velocity.y < 0f | !_isJumping;
         float multiplier = falling ? gravityMultiplier : onAirMultiplier;
 
         // Apply gravity and terminal velocity
@@ -249,7 +312,9 @@ public class MarioMoveController : MonoBehaviour
             // Bounce off enemy head
             if (Vector2.Dot(direction.normalized, Vector2.down) > 0.25f)
             {
-                _velocity.y = JumpForce / 2f;
+                // _velocity.y = JumpForce / 2f;
+                _velocity.y = JumpForce;
+                _velocity.x = moveSpeed;
                 Jumping = true;
 
                 // Trigger jump animation
@@ -340,23 +405,5 @@ public class MarioMoveController : MonoBehaviour
 
         // Update sliding state
         // _animator.SetBool(IsSliding, Sliding);
-    }
-
-    // private void ResetAnimations()
-    // {
-    //     if (_animator == null) return;
-    //
-    //     _animator.SetFloat(Speed, 0f);
-    //     _animator.SetBool(IsJumping, false);
-    //     _animator.SetBool("Walking", false);
-    //     // _animator.SetBool(IsFalling, false);
-    //     _animator.SetBool(IsSliding, false);
-    // }
-
-    private void GetBigger()
-    {
-        _capsuleCollider.transform.localScale = new Vector2(0.75f, 2f);
-        _capsuleCollider.offset = new Vector2(0f, 0.5f);
-        // _animator.SetTrigger("GetBigger");
     }
 }

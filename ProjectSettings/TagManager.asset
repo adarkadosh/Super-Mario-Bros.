@@ -15,6 +15,7 @@ TagManager:
   - OneUp
   - DeathTriggerZone
   - FireFlower
+  - Fireball
   layers:
   - Default
   - TransparentFX
@@ -32,7 +33,7 @@ TagManager:
   - LethalEnemies
   - DeathTrigger
   - StarMario
-  - 
+  - Fireball
   - 
   - 
   - 

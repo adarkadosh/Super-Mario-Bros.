@@ -11,4 +11,4 @@ PhysicsMaterial2D:
   friction: 0
   bounciness: 1
   m_FrictionCombine: 1
-  m_BounceCombine: 4
+  m_BounceCombine: 2
