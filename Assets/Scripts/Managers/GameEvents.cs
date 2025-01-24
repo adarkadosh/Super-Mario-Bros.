@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class GameEvents : MonoSingleton<GameEvents>
 {
+    public static Action OnLevelCompleted;
     public static Action<ScoresSet, Vector3> OnEnemyHit;
     public static Action<ScoresSet, Vector3> OnEventTriggered;
     public static Action<float> OnResetLevel;

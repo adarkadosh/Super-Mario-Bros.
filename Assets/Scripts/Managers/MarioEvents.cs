@@ -1,7 +1,9 @@
 ﻿using System;
+using UnityEngine;
 
 public class MarioEvents : MonoSingleton<MarioEvents>
 {
+    public static Action OnMarioReachedFlagPole;
     public static Action OnMarioGotHit;
     public static Action<PowerUpType> OnMarioGotPowerUp;
     public static Action<MarioState> OnMarioStateChange;

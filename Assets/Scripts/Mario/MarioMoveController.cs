@@ -47,8 +47,8 @@ public class MarioMoveController : MonoBehaviour
     private float _inputActionsAxis;
     private bool _isJumping;
     private float _jumpTimeCounter;
-    
-    
+
+
     // private float _multiplier;
 
     // public float VelocityX => _velocity.x;
@@ -66,8 +66,16 @@ public class MarioMoveController : MonoBehaviour
     // private float Gravity => (-2f * maxJumpHeight) / Mathf.Pow(maxJumpTime / 2f, 2f);
     private float Gravity => (-2f * maxJumpHeight) / Mathf.Pow(maxJumpTime / 2f, 2f);
     public PlayerInputActions PlayerInputActions => _playerInputActions;
+
     // mario is flipped?
     public bool Flipped { get; private set; }
+    
+    private bool _inputEnabled = true;
+
+    // Variables for autonomous movement
+    private bool isMovingToTarget = false;
+    private Vector3 targetPosition;
+    private float autonomousSpeed = 2f;
 
 
     private void Awake()
@@ -94,6 +102,7 @@ public class MarioMoveController : MonoBehaviour
             Debug.LogError("Animator component not found on " + gameObject.name);
         }
     }
+
 
     private void OnEnable()
     {
@@ -122,6 +131,9 @@ public class MarioMoveController : MonoBehaviour
 
     private void Update()
     {
+        if (!_inputEnabled && !isMovingToTarget)
+            return;
+        
         HandleMovementInput();
         HandleGroundDetection();
         ApplyGravity();
@@ -132,6 +144,10 @@ public class MarioMoveController : MonoBehaviour
     private void FixedUpdate()
     {
         MoveMario();
+        if (isMovingToTarget)
+        {
+            HandleAutonomousMovement();
+        }
     }
 
 
@@ -162,6 +178,9 @@ public class MarioMoveController : MonoBehaviour
     // }
     private void HandleMovementInput()
     {
+        if (isMovingToTarget)
+            return;
+        
         float input = _playerInputActions.Player.Move.ReadValue<Vector2>().x;
         _inputActionsAxis = input;
 
@@ -209,7 +228,7 @@ public class MarioMoveController : MonoBehaviour
             _animator.SetBool(WalkingAnimation, false);
         }
     }
-    
+
 
     // private void HandleGroundDetection()
     // {
@@ -227,7 +246,7 @@ public class MarioMoveController : MonoBehaviour
     //         Jumping = _velocity.y > 0f;
     //     }
     // }
-    
+
     private bool IsGrounded()
     {
         const float extraHeight = 0.1f;
@@ -243,8 +262,8 @@ public class MarioMoveController : MonoBehaviour
 
         return leftCheck.collider != null || rightCheck.collider != null;
     }
-    
-    
+
+
     private void HandleGroundDetection()
     {
         Grounded = IsGrounded();
@@ -405,5 +424,65 @@ public class MarioMoveController : MonoBehaviour
 
         // Update sliding state
         // _animator.SetBool(IsSliding, Sliding);
+    }
+
+    public void DisableInput()
+    {
+        _playerInputActions.Disable();
+        
+        // _inputEnabled = false;
+    }
+
+    public void EnableInput()
+    {
+        _inputEnabled = true;
+    }
+    
+    public void MoveToPosition(Vector3 target, float speed = 2f)
+    {
+        targetPosition = new Vector3(target.x, transform.position.y, transform.position.z); // Assuming horizontal movement
+        autonomousSpeed = speed;
+        isMovingToTarget = true;
+        DisableInput(); // Ensure player input is disabled during autonomous movement
+    }
+    
+    private void HandleAutonomousMovement()
+    {
+        // Calculate direction towards the target
+        Vector3 direction = (targetPosition - transform.position).normalized;
+
+        // Determine desired input axis based on direction
+        float desiredInput = Mathf.Sign(direction.x);
+
+        // Update the input axis to simulate player input
+        _inputActionsAxis = desiredInput;
+
+        // Apply movement logic based on desired input
+        if (Mathf.Abs(desiredInput) > 0.01f)
+        {
+            // Accelerate towards target speed
+            _velocity.x = Mathf.MoveTowards(_velocity.x, desiredInput * moveSpeed, acceleration * Time.deltaTime);
+        }
+        else
+        {
+            // Decelerate to zero quickly
+            _velocity.x = Mathf.MoveTowards(_velocity.x, 0f, deceleration * Time.deltaTime);
+        }
+
+        // Prevent sliding
+        if (Grounded && Mathf.Abs(_velocity.x) < 0.1f)
+        {
+            _velocity.x = 0f;
+        }
+
+        // Update animations based on autonomous movement
+        HorizontalAnimationHandler();
+
+        // Check if Mario has reached the target
+        if (Mathf.Abs(transform.position.x - targetPosition.x) < 0.1f)
+        {
+            isMovingToTarget = false;
+            // EnableInput(); // Re-enable player input if needed
+        }
     }
 }
