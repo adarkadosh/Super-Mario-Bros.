@@ -22,7 +22,7 @@ public class GameManager : MonoSingleton<GameManager>
     public int Coins { get; private set; }
     public int Lives { get; private set; }
     
-    private float timer = 2f;  // Tracks time in seconds
+    private float timer = 0.5f;  // Tracks time in seconds
 
     private void Start()
     {
@@ -101,7 +101,7 @@ public class GameManager : MonoSingleton<GameManager>
         if (timer <= 0)
         {
             initTime--;  // Reduce by 1 second
-            timer = 1.0f;  // Reset timer to 1 second
+            timer = 0.5f;  // Reset timer to 1 second
         }
 
         if (initTime <= 0)
