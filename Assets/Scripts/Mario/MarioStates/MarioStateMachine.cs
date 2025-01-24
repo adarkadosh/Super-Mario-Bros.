@@ -17,6 +17,9 @@ public class MarioStateMachine : MonoBehaviour
 {
     private static readonly int OnCrouch = Animator.StringToHash("OnCrouch");
     private static readonly int Fire = Animator.StringToHash("Fire");
+    
+    [SerializeField] private MarioState initialMarioState = MarioState.Small;
+    [SerializeField] private ScoresSet scoreForPowerUp = ScoresSet.OneThousand;
 
     [Header("Pools")] [SerializeField] private FiraballPool fireballPool;
 
@@ -32,7 +35,7 @@ public class MarioStateMachine : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private CapsuleCollider2D _capsuleCollider;
     private MarioMoveController _movementController;
-    internal PlayerInputActions PlayerInputActions;
+    private PlayerInputActions _playerInputActions;
     private FreezeMachine _freezeMachine;
 
     private IMarioState _currentState;
@@ -60,7 +63,7 @@ public class MarioStateMachine : MonoBehaviour
         _freezeMachine = GetComponent<FreezeMachine>();
 
         // Set up input
-        PlayerInputActions = _movementController.PlayerInputActions;
+        _playerInputActions = _movementController.PlayerInputActions;
     }
 
     private void Start()
@@ -210,16 +213,16 @@ public class MarioStateMachine : MonoBehaviour
     private void SubscribeInputActions()
     {
         // PlayerInputActions.Player.Enable();
-        PlayerInputActions.Player.Crouch.started += OnCrouchStarted;
-        PlayerInputActions.Player.Crouch.canceled += OnCrouchCanceled;
-        PlayerInputActions.Player.Attack.performed += OnAttackPerformed;
+        _playerInputActions.Player.Crouch.started += OnCrouchStarted;
+        _playerInputActions.Player.Crouch.canceled += OnCrouchCanceled;
+        _playerInputActions.Player.Attack.performed += OnAttackPerformed;
     }
 
     private void UnsubscribeInputActions()
     {
-        PlayerInputActions.Player.Crouch.started -= OnCrouchStarted;
-        PlayerInputActions.Player.Crouch.canceled -= OnCrouchCanceled;
-        PlayerInputActions.Player.Attack.performed -= OnAttackPerformed;
+        _playerInputActions.Player.Crouch.started -= OnCrouchStarted;
+        _playerInputActions.Player.Crouch.canceled -= OnCrouchCanceled;
+        _playerInputActions.Player.Attack.performed -= OnAttackPerformed;
 
         // PlayerInputActions.Player.Disable();
     }
@@ -276,6 +279,7 @@ public class MarioStateMachine : MonoBehaviour
     private void HandlePowerUp(PowerUpType powerUpType)
     {
         _currentState?.OnPickUpPowerUp(this, powerUpType);
+        GameEvents.OnEventTriggered?.Invoke(ScoresSet.OneThousand, transform.position);
         if (powerUpType == PowerUpType.Star)
             ActivateStarPower();
     }

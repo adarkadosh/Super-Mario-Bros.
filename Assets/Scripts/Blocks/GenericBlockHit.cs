@@ -44,7 +44,7 @@ public class GenericBlockHit : MonoBehaviour
             // if (Vector2.Dot(direction.normalized, Vector2.up) > 0.35f)
             // if (other.collider.GetComponent<Collider2D>() && other.contacts[0].normal.y > 0)
             Vector2 direction = transform.position - other.transform.position;
-            if (Vector2.Dot(direction.normalized, Vector2.up) > 0.35f)
+            if (Vector2.Dot(direction.normalized, Vector2.up) > 0.45f)
             {
                 Hit();
                 Extensions.Log("Player hit the block");
@@ -109,6 +109,7 @@ public class GenericBlockHit : MonoBehaviour
     {
         Extensions.KillEnemiesOnBlock(gameObject);
         Instantiate(brokenBlock, transform.position, Quaternion.Euler(0, 0, 45));
+        StartCoroutine(Extensions.WaitForSeconds(0.4f));
         gameObject.SetActive(false);
         _isAnyBlockHit = false;
     }

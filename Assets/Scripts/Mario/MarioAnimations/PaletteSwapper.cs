@@ -20,7 +20,7 @@ public class PaletteSwapper : MonoBehaviour
     private bool _isStar;
     private Coroutine _starCoroutine;
 
-    private void Start()
+    private void Awake()
     {
         // Get the SpriteRenderer and initialize star palette colors
         _spriteRenderer = GetComponent<SpriteRenderer>();

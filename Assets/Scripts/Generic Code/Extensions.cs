@@ -1,5 +1,6 @@
 using System.Collections;
 using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public static class Extensions
@@ -78,6 +79,7 @@ public static class Extensions
             EnemyBehavior enemy = collider.GetComponent<EnemyBehavior>();
             if (enemy != null)
             {
+                GameEvents.OnEventTriggered?.Invoke(ScoresSet.OneHundred, enemy.transform.position);
                 enemy.StartCoroutine(enemy.DeathSequence());
             }
         }

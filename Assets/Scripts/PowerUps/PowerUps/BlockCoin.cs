@@ -8,6 +8,7 @@ public class BlockCoin : MonoBehaviour, IPoolable
     [SerializeField] private int coinsToGive = 1;
     [SerializeField] private float animationHeight = 3.5f;
     [SerializeField] private float animationDuration = 0.25f;
+    [SerializeField] private ScoresSet scoreSet = ScoresSet.TwoHundred;
 
     public void Trigger()
     {
@@ -19,7 +20,8 @@ public class BlockCoin : MonoBehaviour, IPoolable
     {
         yield return Extensions.AnimatedBlockGotHit(gameObject, animationHeight, animationDuration,
             animationHeight / 2);
-        MonoPool<BlockCoin>.Instance.Return(this);
+        GameEvents.OnEventTriggered?.Invoke(scoreSet, transform.position);
+        PowerUpFactory.Instance.ReturnBlockCoin(this);
     }
 
     public void Reset()

@@ -69,6 +69,7 @@ public class ShellState : IKoopaState
         {
             if (!_isPushed)
             {
+                GameEvents.OnEventTriggered?.Invoke(koopaState.ShellKoopaScore, koopaState.transform.position);
                 GotPush(koopaState, collider2D);
                 koopaState.GetComponent<CircleCollider2D>().enabled = true;
             }

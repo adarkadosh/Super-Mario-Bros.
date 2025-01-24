@@ -6,6 +6,7 @@ using UnityEngine;
 public class GoombaBehavior : EnemyBehavior, IPoolable
 {
     private static readonly int Squished = Animator.StringToHash("IsSquished");
+    [SerializeField] private ScoresSet goombaScore = ScoresSet.OneHundred;
 
     protected override void GotHit()
     {
@@ -20,6 +21,7 @@ public class GoombaBehavior : EnemyBehavior, IPoolable
         // rb.angularVelocity = 0f;    // Reset angular velocity if necessary
         // rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation; // Prevent vertical movement and rotation
 
+        // GameEvents.OnEnemyHit?.Invoke(goombaScore, transform.position);
         Animator.SetBool(Squished, true);
         GetComponent<Collider2D>().enabled = false;
         GetComponent<EntityMovement>().enabled = false;

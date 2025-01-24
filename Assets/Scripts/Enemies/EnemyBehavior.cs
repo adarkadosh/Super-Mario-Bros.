@@ -1,8 +1,11 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public abstract class EnemyBehavior : MonoBehaviour
 {
+    [SerializeField] private ScoresSet enemyScore = ScoresSet.OneHundred;
+    [SerializeField] private ScoresSet enemyHitScore = ScoresSet.FiveHundred;
     protected Animator Animator;
     private DeathAnimation _deathAnimation;
 
@@ -26,6 +29,7 @@ public abstract class EnemyBehavior : MonoBehaviour
             if (Vector2.Dot(direction.normalized, Vector2.down) > 0.35f)
             // if (other.collider.GetComponent<Collider2D>() && other.contacts[0].normal.y < 0)
             {
+                GameEvents.OnEnemyHit?.Invoke(enemyScore, transform.position);
                 GotHit();
             }
             else
@@ -45,6 +49,7 @@ public abstract class EnemyBehavior : MonoBehaviour
         {
             if (gameObject.layer != LayerMask.NameToLayer("LethalEnemies"))
             {
+                GameEvents.OnEventTriggered?.Invoke(enemyHitScore, transform.position);
                 StartCoroutine(DeathSequence());
             }
         }

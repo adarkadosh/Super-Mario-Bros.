@@ -7,7 +7,11 @@ public class KoopaStateMachine : EnemyBehavior, IPoolable
     [SerializeField] private float shellDuration = 3f;
     [SerializeField] private float backToLifeTime = 2f;
     [SerializeField] private float shellSpeed = 12f;
+
+    [Header("Score Settings")] [SerializeField]
+    private ScoresSet shellKoopaScore = ScoresSet.FourHundred;
     
+    public ScoresSet ShellKoopaScore => shellKoopaScore;
     public float ShellDuration => shellDuration;
     public float BackToLifeTime => backToLifeTime;
     public float ShellSpeed => shellSpeed;

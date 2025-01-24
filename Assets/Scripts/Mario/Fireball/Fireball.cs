@@ -5,7 +5,7 @@ using UnityEngine;
 public class Fireball : MonoBehaviour, IPoolable
 {
     public float speed = 10f;
-    public float lifetime = 3f;
+    public float lifetime = 2f;
     public Vector2 direction = new Vector2(-0.5f, -0.5f);
     private Animator _animator;
     private Rigidbody2D _rigidbody;
@@ -43,15 +43,16 @@ public class Fireball : MonoBehaviour, IPoolable
         {
             // Apply damage to the enemy
             EnemyBehavior enemy = collision.GetComponent<EnemyBehavior>();
+            GameEvents.OnEventTriggered?.Invoke(ScoresSet.OneHundred, transform.position);
+            _entityMovement.enabled = false;
+            _collider.enabled = false;
+            _rigidbody.linearVelocity = Vector2.zero;
+            _rigidbody.bodyType = RigidbodyType2D.Kinematic;
+            _animator.SetTrigger("Explode");
             if (enemy != null)
             {
                 StartCoroutine(enemy.DeathSequence());
             }
-            _animator.SetTrigger("Explode");
-            _entityMovement.enabled = false;
-            _collider.enabled = false;
-            _rigidbody.bodyType = RigidbodyType2D.Kinematic;
-
         }
     }
 
@@ -94,6 +95,11 @@ public class Fireball : MonoBehaviour, IPoolable
     
     public void SetDirection(Vector2 dir)
     {
+        if (_rigidbody != null)
+        {
+            _rigidbody.linearVelocity = dir * speed;
+        }
+
         _entityMovement.MovementDirection = dir;
     }
 

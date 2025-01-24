@@ -5,7 +5,8 @@ using UnityEngine;
 public enum EnemyType
 {
     Goomba,
-    Koopa
+    Koopa,
+    ShellKoopa
 }
 
 public class EnemyFactory : MonoSingleton<EnemyFactory>, IFactory<EnemyBehavior, EnemyType>
