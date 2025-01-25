@@ -1,0 +1,771 @@
+fileFormatVersion: 2
+guid: 0e41dc76723421c44a268bd6fbc0fc3c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8745835743480623299
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_0
+  - first:
+      213: -8434280208383636579
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_1
+  - first:
+      213: 70165313998032072
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_2
+  - first:
+      213: -708195268587088581
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_3
+  - first:
+      213: 4791560531363817557
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_4
+  - first:
+      213: -7695642053978187068
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_5
+  - first:
+      213: -8257393824610764686
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_6
+  - first:
+      213: 658875780894494800
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_7
+  - first:
+      213: 743098781744928613
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_8
+  - first:
+      213: 7375572575647394821
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_9
+  - first:
+      213: 616805344296555805
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_10
+  - first:
+      213: -6354763163494993830
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_11
+  - first:
+      213: 2973141417513630781
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_12
+  - first:
+      213: 6234087497316621464
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_13
+  - first:
+      213: 7050303970479083879
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_14
+  - first:
+      213: -3817192053376690553
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_15
+  - first:
+      213: 7929514261202086132
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_16
+  - first:
+      213: -5915656148639993434
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_17
+  - first:
+      213: -2489385588614320488
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_18
+  - first:
+      213: -4284241612547547679
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_19
+  - first:
+      213: -8204350443350570292
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_20
+  - first:
+      213: -693316631563358898
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_21
+  - first:
+      213: -465201663686366467
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_22
+  - first:
+      213: 8741187586461953764
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_23
+  - first:
+      213: 4972349496649310762
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_24
+  - first:
+      213: -4759091849197729262
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_25
+  - first:
+      213: -6252774773225215112
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_26
+  - first:
+      213: 319962776140250583
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_27
+  - first:
+      213: -7523431421364954806
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_28
+  - first:
+      213: 8495376316194433721
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_29
+  - first:
+      213: 2235049627293324123
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_30
+  - first:
+      213: -33172611600551862
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_31
+  - first:
+      213: 4462540292425486477
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_32
+  - first:
+      213: -2392825699693016238
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_33
+  - first:
+      213: -5657606352202189659
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_34
+  - first:
+      213: 3653868369865440271
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_35
+  - first:
+      213: 8129552788475517931
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_36
+  - first:
+      213: 1889696657197755029
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_37
+  - first:
+      213: 5804957036225058926
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_38
+  - first:
+      213: 7884804705684173572
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_39
+  - first:
+      213: 3210477551188368443
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_40
+  - first:
+      213: -2826707576318600005
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_41
+  - first:
+      213: -6917818552495647075
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_42
+  - first:
+      213: -3686281518550508517
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_43
+  - first:
+      213: -1593145188814016779
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_44
+  - first:
+      213: 3590258697663420174
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_45
+  - first:
+      213: -5186248185721551891
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_46
+  - first:
+      213: -3227102758450942597
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_47
+  - first:
+      213: -3207045751102619894
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_48
+  - first:
+      213: -6838142190494161008
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_49
+  - first:
+      213: -3628990423131190851
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_50
+  - first:
+      213: -1069438640164672424
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_51
+  - first:
+      213: 1700522757632280411
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_52
+  - first:
+      213: 2950611480644609485
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_53
+  - first:
+      213: 5864871417769126856
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_54
+  - first:
+      213: 8931162698101838088
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_55
+  - first:
+      213: 7391030377315892621
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_56
+  - first:
+      213: -7148752277220729030
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_57
+  - first:
+      213: 9020878326172213081
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_58
+  - first:
+      213: 6511614400584353929
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_59
+  - first:
+      213: 621811315696736045
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_60
+  - first:
+      213: -3379929058445994063
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_61
+  - first:
+      213: -8853606267987678868
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_62
+  - first:
+      213: -4269344155486888403
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_63
+  - first:
+      213: -574461745166899627
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_64
+  - first:
+      213: -2200028403814854827
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_65
+  - first:
+      213: -3086678254548667979
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_66
+  - first:
+      213: -2699244456867396294
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_67
+  - first:
+      213: -9053226687475791162
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_68
+  - first:
+      213: -166066524552819221
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_69
+  - first:
+      213: -8285391519053198498
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_70
+  - first:
+      213: 7907147806497430456
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_71
+  - first:
+      213: 7013598601035593114
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_72
+  - first:
+      213: 1394588664877961219
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_73
+  - first:
+      213: -2521160427876817155
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_74
+  - first:
+      213: 726070550134106009
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_75
+  - first:
+      213: 3675209205189593910
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_76
+  - first:
+      213: 7745918660130463054
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_77
+  - first:
+      213: -1848034615493210861
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_78
+  - first:
+      213: -7796006614975551745
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_79
+  - first:
+      213: -4513690930324576474
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_80
+  - first:
+      213: -1972426486968989504
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_81
+  - first:
+      213: 1387627946424730405
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_82
+  - first:
+      213: -780160578209714224
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_83
+  - first:
+      213: 6659048767863009732
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_84
+  - first:
+      213: -4579329196613644774
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_85
+  - first:
+      213: -8566628268386693
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_86
+  - first:
+      213: -246036996449587272
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_87
+  - first:
+      213: 7450133674950341366
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_88
+  - first:
+      213: -6822925241307280360
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_89
+  - first:
+      213: 2869326257133801524
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_90
+  - first:
+      213: 8423168213832486823
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_91
+  - first:
+      213: -7612709376216161887
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_92
+  - first:
+      213: 6102300699174435012
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_93
+  - first:
+      213: 4272864955368147482
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_94
+  - first:
+      213: -2010465515721920937
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_95
+  - first:
+      213: -1186997937174616034
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_96
+  - first:
+      213: 7212747997366735336
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_97
+  - first:
+      213: -7761583890501524149
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_98
+  - first:
+      213: -7356408914463391734
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_99
+  - first:
+      213: 2919499450910089069
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_100
+  - first:
+      213: -7967805688271514587
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_101
+  - first:
+      213: -3682711709486294962
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_102
+  - first:
+      213: 4089529589240552202
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_103
+  - first:
+      213: -5617741381776519314
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_104
+  - first:
+      213: -5836323670080746844
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_105
+  - first:
+      213: -5783365689390307687
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_106
+  - first:
+      213: -8462888312578483104
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_107
+  - first:
+      213: 6595419051408683490
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_108
+  - first:
+      213: 196821561984273268
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_109
+  - first:
+      213: -8062061035012055531
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_110
+  - first:
+      213: 3326964411908560401
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_111
+  - first:
+      213: 534501224384833432
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_112
+  - first:
+      213: -6875401437291479080
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_113
+  - first:
+      213: 6846300903246957986
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_114
+  - first:
+      213: -677380906326783127
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_115
+  - first:
+      213: -3096536610317959917
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_116
+  - first:
+      213: -8982356907834603872
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_117
+  - first:
+      213: -664016355998133946
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_118
+  - first:
+      213: -2818358977473501714
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_119
+  - first:
+      213: -3480452566210311839
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_120
+  - first:
+      213: -2949769023027914071
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_121
+  - first:
+      213: 458912999125634989
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_122
+  - first:
+      213: 6430071011661618183
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_123
+  - first:
+      213: -2247852202115065902
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_124
+  - first:
+      213: 8311304308560612621
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_125
+  - first:
+      213: 7648790785227741054
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_126
+  - first:
+      213: -3014931757092572937
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_127
+  - first:
+      213: 5436524399638538324
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_128
+  - first:
+      213: 5285491361571180668
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_129
+  - first:
+      213: -6611127334727349206
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_130
+  - first:
+      213: -2723857113599997760
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_131
+  - first:
+      213: 6738675396487256290
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_132
+  - first:
+      213: -1689423799600786450
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_133
+  - first:
+      213: 9207424805201729207
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_134
+  - first:
+      213: -9061246259652598778
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_135
+  - first:
+      213: -4446236894858315820
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_136
+  - first:
+      213: -7189179373945409435
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_137
+  - first:
+      213: -5298765068786983736
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_138
+  - first:
+      213: 9060053376899221641
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_139
+  - first:
+      213: -2762090880013728161
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_140
+  - first:
+      213: -166889480654893558
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_141
+  - first:
+      213: -4752302431554006470
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_142
+  - first:
+      213: 6480340964408971111
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_143
+  - first:
+      213: 3985643247357857601
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_144
+  - first:
+      213: -6762020222780495184
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_145
+  - first:
+      213: 7791241663571036915
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_146
+  - first:
+      213: 7641916074208002875
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_147
+  - first:
+      213: -8244797716880983823
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_148
+  - first:
+      213: -4240811631693582073
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_149
+  - first:
+      213: 6426664355967949171
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_150
+  - first:
+      213: -8196685733572202073
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_151
+  - first:
+      213: 8232146391843198258
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_152
+  - first:
+      213: -2115306597572416817
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_153
+  - first:
+      213: -3059280991574237707
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_154
+  - first:
+      213: 4100198924365363144
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_155
+  - first:
+      213: -1439961418343078132
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_156
+  - first:
+      213: -2720495158634653996
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_157
+  - first:
+      213: -8240330398452370549
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_158
+  - first:
+      213: -5874526452878138160
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_159
+  - first:
+      213: 1739632125686067082
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_160
+  - first:
+      213: -4089321811547936542
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_161
+  - first:
+      213: -3126181615325924490
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_162
+  - first:
+      213: -6076406712224089864
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_163
+  - first:
+      213: -254191693304149358
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_164
+  - first:
+      213: -3646024319825645977
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_165
+  - first:
+      213: -7487383460938046302
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_166
+  - first:
+      213: 6575272762614540758
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_167
+  - first:
+      213: 7444012073504562366
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_168
+  - first:
+      213: -312008168932297523
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_169
+  - first:
+      213: 5456444305862700983
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_170
+  - first:
+      213: 5942398560471150443
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_171
+  - first:
+      213: 2627392782515374514
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_172
+  - first:
+      213: 348441384504773874
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_173
+  - first:
+      213: 4022144258876628752
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_174
+  - first:
+      213: -8691336659032704625
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_175
+  - first:
+      213: 5555701378155572734
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_176
+  - first:
+      213: -5167170325417736951
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_177
+  - first:
+      213: -3985196712986265580
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_178
+  - first:
+      213: 1900888938399386180
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_179
+  - first:
+      213: -7523385101292430993
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_180
+  - first:
+      213: 8445680424412831912
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_181
+  - first:
+      213: -2789879668662398938
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_182
+  - first:
+      213: -3350695013595323431
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_183
+  - first:
+      213: 3762534503725074609
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_184
+  - first:
+      213: 1272924686630797918
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_185
+  - first:
+      213: 5282969046767534906
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_186
+  - first:
+      213: -9173619157303238092
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_187
+  - first:
+      213: 1231058839602532954
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_188
+  - first:
+      213: 8664761015349858194
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_189
+  - first:
+      213: 6731427931236480790
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_190
+  - first:
+      213: 3506877653099625609
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_191
+  - first:
+      213: -8976581040296179730
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_192
+  - first:
+      213: 2378386212271085206
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_193
+  - first:
+      213: 8232585252291630892
+    second: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_194
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_0
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 146
+        width: 29
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c0b31275437f5970800000000000000
+      internalID: 8745835743480623299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_1
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 147
+        width: 24
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd23f4fedc1bb71439821cf352edd92c
+      internalID: -1582462016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_2
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 116
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e92ccb1afaf0ba84a8dfeecec29c0663
+      internalID: -1938899777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 88d976b4b45d42b47b5e133de81683bf
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_0: 8745835743480623299
+      Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_1: -1582462016
+      Game Boy Advance - Castlevania Harmony of Dissonance - Ice Magic_2: -1938899777
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -214,6 +214,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf2304847462b4144b1ab7e8f0b9b685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyScore: 100
+  enemyHitScore: 500
+  goombaScore: 100
 --- !u!114 &7102869038037130513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,6 +256,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 640fc07b38084ce6b56a601789f7ec99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  freezeEffect: {fileID: 5093369500064351944, guid: f647de81ee1f7094ab7ee39b63dca7ed, type: 3}
+  frozenLayerName: Frozen
 --- !u!114 &-8385010339817825103
 MonoBehaviour:
   m_ObjectHideFlags: 0

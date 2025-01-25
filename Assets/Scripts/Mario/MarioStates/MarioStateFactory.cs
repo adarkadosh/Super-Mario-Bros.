@@ -6,6 +6,7 @@ public static class MarioStateFactory
     private static IMarioState _bigMarioState;
     private static IMarioState _fireMarioState;
     private static IMarioState _starMarioState;
+    private static IMarioState _iceMarioState;
 
     public static IMarioState GetState(MarioState stateType)
     {
@@ -17,6 +18,8 @@ public static class MarioStateFactory
                 return _bigMarioState ??= new BigMarioState();
             case MarioState.Fire:
                 return _fireMarioState ??= new FireMarioState();
+            case MarioState.Ice:
+                return _iceMarioState ??= new IceMarioState();
             case MarioState.Star:
                 return _starMarioState ??= new StarMarioState();
             default:

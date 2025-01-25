@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 386383798380044647}
   - component: {fileID: 1013268832108196138}
   - component: {fileID: 7449894142325846038}
-  - component: {fileID: 2700710108750894697}
   - component: {fileID: 8976690685065221271}
+  - component: {fileID: 8782356061351328577}
   m_Layer: 16
   m_Name: Fireball
   m_TagString: Fireball
@@ -224,21 +224,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
---- !u!114 &2700710108750894697
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4430265940153459800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3d54931503c4f0084dcf6334b9b0d61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  lifetime: 3
-  direction: {x: -0.5, y: -0.5}
 --- !u!114 &8976690685065221271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,3 +244,17 @@ MonoBehaviour:
   flipBehavior: 1
   obstacleDetectionDistance: 0.55
   groundDetectionDistance: 0.55
+--- !u!114 &8782356061351328577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4430265940153459800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13d56b3c0f6f4e9b89663b427bbd589a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  lifetime: 2

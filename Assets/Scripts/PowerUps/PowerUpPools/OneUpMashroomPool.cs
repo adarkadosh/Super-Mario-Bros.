@@ -1,6 +1,3 @@
-namespace PowerUps
+public class OneUpMashroomPool : MonoPool<OneUpMashroom>
 {
-    public class OneUpMashroomPool : MonoPool<OneUpMashroom>
-    {
-    }
 }

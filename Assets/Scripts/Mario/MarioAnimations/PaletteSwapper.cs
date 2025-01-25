@@ -14,6 +14,7 @@ public class PaletteSwapper : MonoBehaviour
     [SerializeField] private Color[] redMarioColor;
     [SerializeField] private Color[] regularMarioColor;
     [SerializeField] private Color[] fireMarioColor;
+    [SerializeField] private Color[] iceMarioColor;
 
     private Color[][] _starMarioColors; // Array of star effect colors
     private SpriteRenderer _spriteRenderer;
@@ -65,6 +66,10 @@ public class PaletteSwapper : MonoBehaviour
             case MarioState.Fire:
                 ApplyColors(fireMarioColor);
                 _starMarioColors[0] = fireMarioColor; // Use fire colors for the star effect
+                break;
+            case MarioState.Ice:
+                ApplyColors(iceMarioColor);
+                _starMarioColors[0] = iceMarioColor; // Use ice colors for the star effect
                 break;
         }
     }

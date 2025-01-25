@@ -9,7 +9,8 @@ public enum MarioState
     Fire,
     GrowShrink,
     Attack,
-    Star
+    Star,
+    Ice
 }
 
 
@@ -21,7 +22,8 @@ public class MarioStateMachine : MonoBehaviour
     [SerializeField] private MarioState initialMarioState = MarioState.Small;
     [SerializeField] private ScoresSet scoreForPowerUp = ScoresSet.OneThousand;
 
-    [Header("Pools")] [SerializeField] private FiraballPool fireballPool;
+    [SerializeField] private FireballPool fireballPool;
+    [SerializeField] private IceballPool iceballPool;
 
     [Header("Durations")] [SerializeField] private float starDuration = 10f;
     [SerializeField] private float starDurationDelay = 5f;
@@ -113,8 +115,21 @@ public class MarioStateMachine : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         _currentState?.OnCollisionEnter2D(this, collision);
+        // check if this is enemy by layer:
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        {
+            if (collision.collider.GetComponent<Collider2D>() && collision.contacts[0].normal.y > 0)
+            {
+                // GameEvents.OnEnemyHit?.Invoke(enemyScore, transform.position);
+                EnemyBehavior enemy = collision.collider.GetComponent<EnemyBehavior>();
+                GameEvents.OnEnemyHit?.Invoke(enemy.enemyScore, transform.position);
+                enemy.GotHit();
+                // }
 
-        // Example: enemy collision from above triggers a hit
+                // Example: enemy collision from above triggers a hit
+            }
+        }
+
     }
 
 
@@ -168,7 +183,7 @@ public class MarioStateMachine : MonoBehaviour
         var spawnPosition = (Vector2)transform.position + shootDirection * offsetDistance;
 
         // Get a fireball from the pool
-        var fireball = fireballPool.Get();
+        var fireball = (Fireball) fireballPool.Get();
         if (fireball == null)
         {
             Debug.LogWarning("No fireball available in the pool.");
@@ -176,17 +191,34 @@ public class MarioStateMachine : MonoBehaviour
         }
 
         fireball.transform.position = spawnPosition;
-
-        // Set the fireball's velocity
-        // var fireballRb = fireball.GetComponent<EntityMovement>();
-        // if (fireballRb != null)
-        // {
         fireball.SetDirection(new Vector2(shootDirection.x, -0.5f));
-        // }
-        // else
-        // {
-            // Debug.LogWarning("Fireball does not have a Rigidbody2D component.");
-        // }
+    }
+    
+    private void ShootIceBall()
+    {
+        Animator.SetTrigger(Fire);
+        Debug.Log("Shooting fireball!");
+
+        // Determine the direction Mario is facing
+        Vector2 shootDirection = transform.right;
+        Debug.Log("Shoot direction: " + shootDirection);
+
+        // Define the offset distance
+        const float offsetDistance = 0.5f; // Adjust this value as needed
+
+        // Calculate the spawn position with the offset
+        var spawnPosition = (Vector2)transform.position + shootDirection * offsetDistance;
+
+        // Get a fireball from the pool
+        var fireball = iceballPool.Get();
+        if (fireball == null)
+        {
+            Debug.LogWarning("No fireball available in the pool.");
+            return;
+        }
+
+        fireball.transform.position = spawnPosition;
+        fireball.SetDirection(new Vector2(shootDirection.x, -0.5f));
     }
 
     // Example: star power from FireMarioState or BigMarioState
@@ -258,6 +290,9 @@ public class MarioStateMachine : MonoBehaviour
         if (_currentMarioState == MarioState.Fire)
         {
             ShootFireball();
+        } else if (_currentMarioState == MarioState.Ice)
+        {
+            ShootIceBall();
         }
     }
 

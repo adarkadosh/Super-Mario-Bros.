@@ -32,6 +32,18 @@ public class FireMarioState : MarioBaseState
         // context.ShootFireball();
     }
     
+    public override void OnPickUpPowerUp(MarioStateMachine context, PowerUpType powerUpType)
+    {
+        if (powerUpType == PowerUpType.IceFlower)
+        {
+            context.PaletteSwapper.StartFlashing();
+            context.Invoke(nameof(context.PaletteSwapper.StopFlashing), 1.2f);
+            GameEvents.FreezeAllCharacters?.Invoke(1.2f);
+            
+            context.ChangeState(MarioState.Ice);
+        }
+    }
+    
     // public override void OnCollisionEnter2D(MarioStateMachine context, Collision2D collision)
     // {
     //     if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))

@@ -1,7 +1,6 @@
-using PowerUps;
 using PowerUps.PowerUps;
 using UnityEngine;
-using UnityEngine.Serialization;
+
 
 // Power-up Types for blocks (e.g. Super Mashroom, 1-Up Mashroom, Star, etc.)
 public enum PowerUpType
@@ -10,6 +9,7 @@ public enum PowerUpType
     OneUpMashroom,
     Star,
     FireFlower,
+    IceFlower,
     Nothing
 }
 
@@ -20,6 +20,7 @@ public class PowerUpFactory : MonoSingleton<PowerUpFactory>, IFactory<GenericPow
     [SerializeField] private StarPool starPool;
     [SerializeField] private SuperMashroomPool superMashroomPool;
     [SerializeField] private FireFlowerPool fireFlowerPool;
+    [SerializeField] private IceFlowerPool iceFlowerPool;
     [SerializeField] private BlockCoinPool blockCoinPool;
     
     private bool _marioIsBig;
@@ -40,6 +41,8 @@ public class PowerUpFactory : MonoSingleton<PowerUpFactory>, IFactory<GenericPow
                 };
             case PowerUpType.FireFlower:
                 return fireFlowerPool.Get();
+            case PowerUpType.IceFlower:
+                return iceFlowerPool.Get();
             default:
                 return null;
         }
@@ -63,6 +66,9 @@ public class PowerUpFactory : MonoSingleton<PowerUpFactory>, IFactory<GenericPow
                 break;
             case FireFlower fireFlower:
                 fireFlowerPool.Return(fireFlower);
+                break;
+            case IceFlower iceFlower:
+                iceFlowerPool.Return(iceFlower);
                 break;
             default:
                 Debug.LogWarning($"Attempted to return unsupported PowerUp type: {genericPowerUp.GetType()}");

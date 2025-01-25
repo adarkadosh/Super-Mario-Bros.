@@ -148,8 +148,8 @@ GameObject:
   - component: {fileID: 3861790457281406846}
   - component: {fileID: 2141721591898388202}
   - component: {fileID: 3030586120030896943}
-  - component: {fileID: 7998918402058475874}
   - component: {fileID: 8493080812844433070}
+  - component: {fileID: 7998918402058475874}
   - component: {fileID: 5342759309534055320}
   m_Layer: 3
   m_Name: Mario
@@ -330,23 +330,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &7998918402058475874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3213283332257613284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 988ae3fba37b419b89d65f8d4d1075a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  starDuration: 8
-  starDurationDelay: 5
-  untouchableDuration: 2
-  paletteSwapper: {fileID: 331723572837062282}
-  flashTransparency: {fileID: 4982499784482215209}
 --- !u!114 &8493080812844433070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -375,6 +358,26 @@ MonoBehaviour:
     m_Bits: 960
   groundRadius: 0.25
   groundDistance: 0.375
+--- !u!114 &7998918402058475874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3213283332257613284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 988ae3fba37b419b89d65f8d4d1075a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialMarioState: 0
+  scoreForPowerUp: 1000
+  fireballPool: {fileID: 0}
+  starDuration: 8
+  starDurationDelay: 5
+  untouchableDuration: 2
+  paletteSwapper: {fileID: 331723572837062282}
+  flashTransparency: {fileID: 4982499784482215209}
 --- !u!114 &5342759309534055320
 MonoBehaviour:
   m_ObjectHideFlags: 0

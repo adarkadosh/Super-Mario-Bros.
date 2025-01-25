@@ -1,11 +1,16 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class FreezeMachine : MonoBehaviour
 {
     // [Header("Freeze Settings")]
     // [Tooltip("Duration of the freeze in seconds.")]
     // [SerializeField] private float freezeDuration = 2f;
+    [SerializeField] private GameObject freezeEffect;
+    private int _originalLayer;
+    [SerializeField] private string frozenLayerName = "Frozen";
 
     private Animator _animator;
     private EntityMovement _entityMovement;
@@ -13,6 +18,7 @@ public class FreezeMachine : MonoBehaviour
     private MarioMoveController _marioMoveController;
 
     private bool _isFrozen;
+    private GameObject _freezeEffect;
 
     private void Awake()
     {
@@ -21,27 +27,29 @@ public class FreezeMachine : MonoBehaviour
         _entityMovement = GetComponent<EntityMovement>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _marioMoveController = GetComponent<MarioMoveController>();
-
-        // if (_animator == null)
-        //     Debug.LogWarning($"{gameObject.name} is missing an Animator component.");
-        //
-        // if (_entityMovement == null)
-        //     Debug.LogWarning($"{gameObject.name} is missing an EntityMovement component.");
-        //
-        // if (_rigidbody2D == null)
-        //     Debug.LogWarning($"{gameObject.name} is missing a Rigidbody2D component.");
+        
+        // Store the original layer at startup
+        _originalLayer = gameObject.layer;
     }
 
-    /// <summary>
-    /// Public method to trigger the freeze.
-    /// </summary>
-    /// <param name="duration">Optional duration to override the default.</param>
     public void Freeze(float duration)
     {
-        if (_isFrozen)
-            return; // Prevent multiple freeze coroutines
-
+        if (_isFrozen) return; // Prevent multiple freeze coroutines
         StartCoroutine(FreezeRoutine(duration));                
+    }
+    
+    public void FreezeAttack(float duration)
+    {
+        if (_isFrozen) return; // Prevent multiple freeze coroutines
+        StartCoroutine(AttackFreezeRoutine(duration));                
+    }
+
+    private void OnDisable()
+    {
+        // Ensure the object is restored to its original state if disabled mid-freeze
+        gameObject.layer = _originalLayer;
+        StopAllCoroutines();
+        EnablePhysics();
     }
 
     /// <summary>
@@ -50,38 +58,24 @@ public class FreezeMachine : MonoBehaviour
     /// <param name="duration">Duration of the freeze in seconds.</param>
     private IEnumerator FreezeRoutine(float duration)
     {
-        _isFrozen = true;
-
-        // Stop movement
-        if (_entityMovement != null)
-        {
-            _entityMovement.enabled = false;
-        }
-
-        // Stop animations only for the Enemy
-        if (_animator != null && _marioMoveController == null)
-        {
-            _animator.speed = 0f; // Pause animations
-            // Alternatively, you can disable the Animator
-            // _animator.enabled = false;
-        }
-        
-        if (_marioMoveController != null)
-        {
-            _marioMoveController.enabled = false;
-        }
-
-        // Optionally, stop physics movement
-        if (_rigidbody2D != null)
-        {
-            _rigidbody2D.linearVelocity = Vector2.zero;
-            // _rigidbody2D.bodyType = RigidbodyType2D.Kinematic; // Prevent physics from affecting the enemy
-        }
-
-        // Visual Feedback (Optional)
-        // You can add visual cues here, like changing the sprite color or playing a freeze effect
-
+        DisablePhysics();
         yield return new WaitForSeconds(duration);
+        EnablePhysics();
+    }
+
+    private IEnumerator AttackFreezeRoutine(float duration)
+    {
+        _freezeEffect = Instantiate(freezeEffect, transform.position, Quaternion.identity, transform);
+        DisablePhysics();
+        yield return new WaitForSeconds(duration);
+        EnablePhysics();
+        Destroy(_freezeEffect);
+    }
+
+    private void EnablePhysics()
+    {
+        // Restore original layer
+        gameObject.layer = _originalLayer;
 
         // Resume movement
         if (_entityMovement != null)
@@ -93,10 +87,8 @@ public class FreezeMachine : MonoBehaviour
         if (_animator != null && _marioMoveController == null)
         {
             _animator.speed = 1f; // Resume animations
-            // If you disabled the Animator, re-enable it here
-            // _animator.enabled = true;
         }
-        
+
         if (_marioMoveController != null)
         {
             _marioMoveController.enabled = true;
@@ -106,9 +98,43 @@ public class FreezeMachine : MonoBehaviour
         if (_rigidbody2D != null)
         {
             _rigidbody2D.bodyType = RigidbodyType2D.Dynamic; // Re-enable physics
-            // If needed, you can set velocity to a default value or keep it zero
         }
 
         _isFrozen = false;
+    }
+
+    private void DisablePhysics()
+    {
+        _isFrozen = true;
+        
+        // Store the original layer
+        _originalLayer = gameObject.layer;
+        
+        // Change the layer to prevent collision with Mario
+        gameObject.layer = LayerMask.NameToLayer(frozenLayerName);
+        
+        // Stop movement
+        if (_entityMovement != null)
+        {
+            _entityMovement.enabled = false;
+        }
+        
+        // Stop animations only for the Enemy
+        if (_animator != null && _marioMoveController == null)
+        {
+            _animator.speed = 0f; // Pause animations
+        }
+        
+        if (_marioMoveController != null)
+        {
+            _marioMoveController.enabled = false;
+        }
+        
+        // Stop physics movement
+        if (_rigidbody2D != null)
+        {
+            _rigidbody2D.linearVelocity = Vector2.zero;
+            _rigidbody2D.bodyType = RigidbodyType2D.Kinematic; // Freeze physics
+        }
     }
 }

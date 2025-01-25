@@ -4,8 +4,8 @@ using UnityEngine.Serialization;
 
 public abstract class EnemyBehavior : MonoBehaviour
 {
-    [SerializeField] private ScoresSet enemyScore = ScoresSet.OneHundred;
-    [SerializeField] private ScoresSet enemyHitScore = ScoresSet.FiveHundred;
+    [SerializeField] public ScoresSet enemyScore = ScoresSet.OneHundred;
+    [SerializeField] public ScoresSet enemyHitScore = ScoresSet.FiveHundred;
     protected Animator Animator;
     private DeathAnimation _deathAnimation;
 
@@ -22,18 +22,18 @@ public abstract class EnemyBehavior : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             // Check if the player is above the Goomba
             Vector2 direction = transform.position - other.transform.position;
-            if (Vector2.Dot(direction.normalized, Vector2.down) > 0.35f)
+            if (Vector2.Dot(direction.normalized, Vector2.down) < 0.35f)
+            // if (other.collider.GetComponent<Collider2D>() && other.contacts[0].normal.y < 0)
             // if (other.collider.GetComponent<Collider2D>() && other.contacts[0].normal.y < 0)
             {
-                GameEvents.OnEnemyHit?.Invoke(enemyScore, transform.position);
-                GotHit();
-            }
-            else
-            {
+                // GotHit();
+            // }
+            // else
+            // {
                 MarioEvents.OnMarioGotHit?.Invoke();
             }
         }
@@ -71,7 +71,7 @@ public abstract class EnemyBehavior : MonoBehaviour
     
     protected abstract void DeathSequenceAnimation();
 
-    protected abstract void GotHit();
+    public abstract void GotHit();
     public void Kill()
     {
         // Return the enemy to the factory

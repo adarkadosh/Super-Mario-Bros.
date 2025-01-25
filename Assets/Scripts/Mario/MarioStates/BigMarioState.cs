@@ -28,14 +28,20 @@ public class BigMarioState : MarioBaseState
 
     public override void OnPickUpPowerUp(MarioStateMachine context, PowerUpType powerUpType)
     {
-        if (powerUpType == PowerUpType.FireFlower)
+        if (powerUpType is PowerUpType.FireFlower or PowerUpType.SuperMashroom)
         {
             context.PaletteSwapper.StartFlashing();
             context.Invoke(nameof(context.PaletteSwapper.StopFlashing), 1.2f);
             GameEvents.FreezeAllCharacters?.Invoke(1.2f);
             
             context.ChangeState(MarioState.Fire);
+        } else if (powerUpType == PowerUpType.IceFlower)
+        {
+            context.PaletteSwapper.StartFlashing();
+            context.Invoke(nameof(context.PaletteSwapper.StopFlashing), 1.2f);
+            GameEvents.FreezeAllCharacters?.Invoke(1.2f);
             
+            context.ChangeState(MarioState.Ice);
         }
     }
     

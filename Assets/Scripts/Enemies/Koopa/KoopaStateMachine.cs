@@ -53,7 +53,7 @@ public class KoopaStateMachine : EnemyBehavior, IPoolable
         spriteRenderer.flipY = true;
     }
 
-    protected override void GotHit()
+    public override void GotHit()
     {
         _currentState.GotHit(this);
     }

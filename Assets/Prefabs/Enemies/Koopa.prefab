@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 3796365699248993155}
   - component: {fileID: 823834930707145730}
   - component: {fileID: 20145294776130161}
-  - component: {fileID: 7228785299985006528}
   - component: {fileID: 1941761648667482153}
   - component: {fileID: 1598202733328673894}
   - component: {fileID: -8369249529418066979}
@@ -260,21 +259,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b7fbc3cbc9b4dd89f81606c9f1cc7b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyScore: 100
+  enemyHitScore: 500
   shellDuration: 3
   backToLifeTime: 2
   shellSpeed: 12
---- !u!114 &7228785299985006528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5878824327351108095}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e7c4d9b5b969de44a17f6fe417dea84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  shellKoopaScore: 400
 --- !u!114 &1941761648667482153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,6 +292,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 640fc07b38084ce6b56a601789f7ec99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  freezeEffect: {fileID: 5093369500064351944, guid: f647de81ee1f7094ab7ee39b63dca7ed, type: 3}
+  frozenLayerName: Frozen
 --- !u!114 &-8369249529418066979
 MonoBehaviour:
   m_ObjectHideFlags: 0

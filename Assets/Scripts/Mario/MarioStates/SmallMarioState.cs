@@ -33,7 +33,7 @@ public class SmallMarioState : MarioBaseState
 
     public override void OnPickUpPowerUp(MarioStateMachine context, PowerUpType powerUpType)
     {
-        if (powerUpType == PowerUpType.SuperMashroom)
+        if (powerUpType is PowerUpType.SuperMashroom or PowerUpType.FireFlower or PowerUpType.IceFlower)
         {
             MarioEvents.OnMarioStateChange?.Invoke(MarioState.GrowShrink);
             context.StartCoroutine(DoPickUpSuperMushroom(context));

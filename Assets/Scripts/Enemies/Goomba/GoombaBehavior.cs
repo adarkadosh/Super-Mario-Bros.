@@ -8,7 +8,7 @@ public class GoombaBehavior : EnemyBehavior, IPoolable
     private static readonly int Squished = Animator.StringToHash("IsSquished");
     [SerializeField] private ScoresSet goombaScore = ScoresSet.OneHundred;
 
-    protected override void GotHit()
+    public override void GotHit()
     {
         // GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
         // Animator.SetBool(Squished, true);

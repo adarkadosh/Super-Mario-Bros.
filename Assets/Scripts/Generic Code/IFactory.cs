@@ -1,3 +1,4 @@
+using PowerUps.PowerUps;
 using UnityEngine;
 
 public interface IFactory<T, U>
