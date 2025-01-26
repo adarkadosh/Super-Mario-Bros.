@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
+using UnityEngine.Serialization;
 
 public enum MarioState
 {
@@ -8,7 +9,6 @@ public enum MarioState
     Big,
     Fire,
     GrowShrink,
-    Attack,
     Star,
     Ice
 }
@@ -28,6 +28,15 @@ public class MarioStateMachine : MonoBehaviour
     [Header("Durations")] [SerializeField] private float starDuration = 10f;
     [SerializeField] private float starDurationDelay = 5f;
     [SerializeField] private float untouchableDuration = 2.1f;
+    
+    [Header("Audio")] 
+    [SerializeField] private AudioClip starPowerAudioClip;
+    [SerializeField] private AudioClip powerUpAudioClip;
+    [SerializeField] private AudioClip hitAudioClip;
+    [SerializeField] private AudioClip dieAudioClip;
+    [SerializeField] private AudioClip onGotBigAudioClip;
+    [SerializeField] private AudioClip attackSound;
+    
 
     [Header("References")] [SerializeField]
     private PaletteSwapper paletteSwapper;
@@ -120,6 +129,7 @@ public class MarioStateMachine : MonoBehaviour
         {
             if (collision.collider.GetComponent<Collider2D>() && collision.contacts[0].normal.y > 0)
             {
+                SoundFXManager.Instance.PlaySpatialSound(hitAudioClip, transform);
                 // GameEvents.OnEnemyHit?.Invoke(enemyScore, transform.position);
                 EnemyBehavior enemy = collision.collider.GetComponent<EnemyBehavior>();
                 GameEvents.OnEnemyHit?.Invoke(enemy.enemyScore, transform.position);
@@ -170,6 +180,7 @@ public class MarioStateMachine : MonoBehaviour
     private void ShootFireball()
     {
         Animator.SetTrigger(Fire);
+        SoundFXManager.Instance.PlaySpatialSound(attackSound, transform);
         Debug.Log("Shooting fireball!");
 
         // Determine the direction Mario is facing
@@ -197,6 +208,7 @@ public class MarioStateMachine : MonoBehaviour
     private void ShootIceBall()
     {
         Animator.SetTrigger(Fire);
+        SoundFXManager.Instance.PlaySpatialSound(attackSound, transform);
         Debug.Log("Shooting fireball!");
 
         // Determine the direction Mario is facing
@@ -226,7 +238,9 @@ public class MarioStateMachine : MonoBehaviour
     {
         if (_starPowerCoroutine != null)
             StopCoroutine(_starPowerCoroutine);
-
+        
+        // Play audio
+        SoundFXManager.Instance.ChangeBackgroundMusic(starPowerAudioClip);
         _starPowerCoroutine = StartCoroutine(StarPowerRoutine());
     }
 
@@ -235,11 +249,12 @@ public class MarioStateMachine : MonoBehaviour
         var previousState = _currentMarioState;
         // Switch to star state
         ChangeState(MarioState.Star);
-        yield return new WaitForSeconds(starDuration);
+        yield return new WaitForSeconds(starDuration + starDurationDelay);
 
         // Return to previous state
         ChangeState(previousState);
         _starPowerCoroutine = null;
+        SoundFXManager.Instance.ResetBackgroundMusic();
     }
 
     private void SubscribeInputActions()
@@ -314,6 +329,7 @@ public class MarioStateMachine : MonoBehaviour
     private void HandlePowerUp(PowerUpType powerUpType)
     {
         _currentState?.OnPickUpPowerUp(this, powerUpType);
+        SoundFXManager.Instance.PlaySpatialSound(powerUpAudioClip, transform);
         GameEvents.OnEventTriggered?.Invoke(ScoresSet.OneThousand, transform.position);
         if (powerUpType == PowerUpType.Star)
             ActivateStarPower();

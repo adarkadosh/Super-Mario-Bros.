@@ -9,24 +9,39 @@ public class StarMarioState : MarioBaseState
     public override void EnterState(MarioStateMachine context)
     {
         MarioEvents.OnMarioStateChange?.Invoke(MarioState.Star);
-        context.PaletteSwapper.StartFlashing();
+        context.StartCoroutine(FlashingCoroutine(context));
+        // context.PaletteSwapper.StartFlashing();
         
         Debug.Log("Entered Star Mario State - Flashing Started");
+    }
+    
+    private IEnumerator FlashingCoroutine(MarioStateMachine context)
+    {
+        while (true)
+        {
+            context.PaletteSwapper.StartFlashing();
+            yield return new WaitForSeconds(context.StarDuration);
+            context.PaletteSwapper.StopFlashing();
+            // yield return new WaitForSeconds(context.StarDurationDelay);
+            yield return context.StartCoroutine(SwapStarWithDelay(context, context.StarDurationDelay));
+
+        }
     }
 
     public override void ExitState(MarioStateMachine context)
     {
         // Stop flashing effect
-        context.StopFlashing();
-
-        if (_fadeCoroutine != null)
-        {
-            context.StopCoroutine(_fadeCoroutine);
-            _fadeCoroutine = null;
-        }
-
-        // Start the fade effect
-        _fadeCoroutine = context.StartCoroutine(SwapStarWithDelay(context, context.StarDurationDelay));
+        // context.StopFlashing();
+        //
+        // if (_fadeCoroutine != null)
+        // {
+        //     context.StopCoroutine(_fadeCoroutine);
+        //     _fadeCoroutine = null;
+        // }
+        //
+        // // Start the fade effect
+        // _fadeCoroutine = context.StartCoroutine(SwapStarWithDelay(context, context.StarDurationDelay));
+        
 
         Debug.Log("Exited Star Mario State");
     }

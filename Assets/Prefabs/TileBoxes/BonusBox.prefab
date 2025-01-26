@@ -77,7 +77,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1683029025
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 4874062069342464040, guid: 726817cca35ffff439da8972c2bf82b3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -170,7 +170,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb6b7af8bac4c404c8fe4f732d58b103, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockHitSound: {fileID: 8300000, guid: 44d9a9155fc474bd685af0cc550a47dc, type: 3}
+  blockBreakSound: {fileID: 8300000, guid: 9d335d7eebc2a494c990c1376efaaedd, type: 3}
+  blockCoinSound: {fileID: 8300000, guid: 369a2a45e7145401fb860d56554a1f03, type: 3}
+  blockPowerUpSound: {fileID: 8300000, guid: acda9379070e245f38f40453d5e16151, type: 3}
   emptyBlockSprite: {fileID: 0}
   maxHitsToBlock: 1
   powerUpType: 0
   isBlockCoin: 0
+  brokenBlock: {fileID: 0}

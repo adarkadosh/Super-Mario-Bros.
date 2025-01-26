@@ -9,6 +9,12 @@ public class MarioMoveController : MonoBehaviour
     private static readonly int IsSliding = Animator.StringToHash("IsSliding");
     private static readonly int IsJumping = Animator.StringToHash("IsJumping");
     private static readonly int WalkingAnimation = Animator.StringToHash("Walking");
+    
+    [Header("Audio Settings")] [SerializeField]
+    private AudioClip smallJumpSound;
+    [SerializeField] private AudioClip bigJumpSound;
+    [SerializeField] private AudioClip stompSound;
+    [SerializeField] private AudioClip bumpSound;
 
     [Header("Camera Settings")] [SerializeField]
     private CinemachineCamera cinemachineCamera;

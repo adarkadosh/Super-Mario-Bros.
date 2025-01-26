@@ -147,6 +147,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb6b7af8bac4c404c8fe4f732d58b103, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockHitSound: {fileID: 8300000, guid: 44d9a9155fc474bd685af0cc550a47dc, type: 3}
+  blockBreakSound: {fileID: 8300000, guid: 9d335d7eebc2a494c990c1376efaaedd, type: 3}
+  blockCoinSound: {fileID: 8300000, guid: 369a2a45e7145401fb860d56554a1f03, type: 3}
+  blockPowerUpSound: {fileID: 8300000, guid: acda9379070e245f38f40453d5e16151, type: 3}
   emptyBlockSprite: {fileID: 403171989, guid: 52ad7c85c1985be4ca0e4c97a8d76c50, type: 3}
   maxHitsToBlock: -1
   powerUpType: 4

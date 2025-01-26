@@ -7,6 +7,12 @@ public class GenericBlockHit : MonoBehaviour
 {
     private static readonly int GotHit = Animator.StringToHash("GotHit");
     
+    [Header("Sound Settings")]
+    [SerializeField] private AudioClip blockHitSound;
+    [SerializeField] private AudioClip blockBreakSound;
+    [SerializeField] private AudioClip blockCoinSound;
+    [SerializeField] private AudioClip blockPowerUpSound;
+    
     [Header("Block Settings")]
     // Change SpriteRenderer to Renderer
     [SerializeField] private Sprite emptyBlockSprite;
@@ -97,10 +103,12 @@ public class GenericBlockHit : MonoBehaviour
 
         if (_isMarioBig && maxHitsToBlock < 0)
         {
+            SoundFXManager.Instance.PlaySpatialSound(blockBreakSound, transform);
             DestroyBlock();
             return;
         }
 
+        SoundFXManager.Instance.PlaySpatialSound(blockHitSound, transform);
         ProcessHit();
         StartCoroutine(AnimatedBlockGotHitCoroutine());
     }
@@ -141,6 +149,7 @@ public class GenericBlockHit : MonoBehaviour
         // Default behavior: No special effect
         if (_powerUpFactory != null && powerUpType != PowerUpType.Nothing)
         {
+            SoundFXManager.Instance.PlaySpatialSound(blockPowerUpSound, transform);
             var powerUp = _powerUpFactory.Spawn(powerUpType);
             powerUp.transform.position = transform.position;
             powerUp.Trigger();
@@ -153,6 +162,7 @@ public class GenericBlockHit : MonoBehaviour
     {
         if (!isBlockCoin) return;
         // Spawn a coin
+        SoundFXManager.Instance.PlaySpatialSound(blockCoinSound, transform);
         var coin = _powerUpFactory.GetBlockCoin(transform.position + Vector3.up);
         coin.Trigger();
         Extensions.Log("Coin spawned from block hit.");
