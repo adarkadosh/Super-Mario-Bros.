@@ -1,10 +1,85 @@
 fileFormatVersion: 2
-guid: 62b65736830c40048b97dde1bb8b4174
+guid: 01764ae8f17f74f6ca94a735225dad56
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6869325624984279803
-    second: HUD_0
+      213: 4113095013109361613
+    second: Start Screen_0
+  - first:
+      213: 3043630404809402132
+    second: Start Screen_1
+  - first:
+      213: -6678981218022589351
+    second: Start Screen_2
+  - first:
+      213: -9009343998536362100
+    second: Start Screen_3
+  - first:
+      213: 5010745804450734547
+    second: Start Screen_4
+  - first:
+      213: 8630058583221124133
+    second: Start Screen_5
+  - first:
+      213: 2763851932627750570
+    second: Start Screen_6
+  - first:
+      213: -4524470435756308968
+    second: Start Screen_7
+  - first:
+      213: 6531687862265863041
+    second: Start Screen_8
+  - first:
+      213: -321687970102438365
+    second: Start Screen_9
+  - first:
+      213: 4963274310520327847
+    second: Start Screen_10
+  - first:
+      213: -5000830464459819999
+    second: Start Screen_11
+  - first:
+      213: 2774763874803090151
+    second: Start Screen_12
+  - first:
+      213: -3615173570361578427
+    second: Start Screen_13
+  - first:
+      213: -4204090394484618834
+    second: Start Screen_14
+  - first:
+      213: 3493359662180470970
+    second: Start Screen_15
+  - first:
+      213: -7618523596027136494
+    second: Start Screen_16
+  - first:
+      213: 4191330477597693078
+    second: Start Screen_17
+  - first:
+      213: 8688220351760103063
+    second: Start Screen_18
+  - first:
+      213: -3059877767664462008
+    second: Start Screen_19
+  - first:
+      213: -9140751151941203171
+    second: Start Screen_20
+  - first:
+      213: 7485742054110980407
+    second: Start Screen_21
+  - first:
+      213: 3120591663861427598
+    second: Start Screen_22
+  - first:
+      213: 2534030007972746639
+    second: Start Screen_23
+  - first:
+      213: -6253024446330305233
+    second: Start Screen_24
+  - first:
+      213: -3405533079741130351
+    second: Start Screen_25
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,67 +175,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HUD_0
+      name: Start Screen_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 828
-        width: 256
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 505e2544db04ba0a0800000000000000
-      internalID: -6869325624984279803
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HUD_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 517
-        width: 255
-        height: 238
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 25e7dc3df81fd3a46b8461764f761c62
-      internalID: -165498337
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HUD_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 500
-        width: 8
-        height: 8
+        y: 0
+        width: 176
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 745317b305b914671a86a292d2b875eb
-      internalID: 853457467
+      spriteID: dcb60df4f16a41930800000000000000
+      internalID: 4113095013109361613
       vertices: []
       indices: 
       edges: []
@@ -169,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 17b21f6bce9de37469abfe02a4188231
+    spriteID: 047ad476c8bd84f3a8b37a934d27ab23
     internalID: 0
     vertices: []
     indices: 
@@ -179,9 +210,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      HUD_0: -6869325624984279803
-      HUD_1: -165498337
-      HUD_2: 853457467
+      Start Screen_0: 4113095013109361613
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
