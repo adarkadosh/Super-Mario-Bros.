@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 62b65736830c40048b97dde1bb8b4174
+guid: 06fb6c25ce75b404f9380114291caa81
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6869325624984279803
-    second: HUD_0
+      213: 1092425747037572148
+    second: End Game Screens_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,73 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HUD_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 828
-        width: 256
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 505e2544db04ba0a0800000000000000
-      internalID: -6869325624984279803
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HUD_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 517
-        width: 255
-        height: 238
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 25e7dc3df81fd3a46b8461764f761c62
-      internalID: -165498337
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HUD_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 500
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 745317b305b914671a86a292d2b875eb
-      internalID: 853457467
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HUD_3
+      name: End Game Screens_0
       rect:
         serializedVersion: 2
         x: 0
@@ -179,16 +113,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 52791b65c5b614d9da38e49909697588
-      internalID: -1026319308
+      spriteID: 43c4aa3dd63192f00800000000000000
+      internalID: 1092425747037572148
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HUD_4
+      name: End Game Screens_1
       rect:
         serializedVersion: 2
         x: 264
@@ -203,17 +137,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a126353086bae4eb186a189ef6dccf7d
-      internalID: 1190999864
+      spriteID: 77d5cc3a31832419aaf1884ca6f8a1f6
+      internalID: -2031304320
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HUD_5
+      name: End Game Screens_2
       rect:
         serializedVersion: 2
-        x: 528
+        x: 526
         y: 248
         width: 256
         height: 240
@@ -225,14 +159,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f52494ce1859e4d279c4218a1c245233
-      internalID: 1183185240
+      spriteID: 87811c5f6836a4d1c8732832ce462bb2
+      internalID: -598699026
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HUD_6
+      name: End Game Screens_3
       rect:
         serializedVersion: 2
         x: 0
@@ -247,8 +181,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d46353db02d9c4141b9a5b0c5512123c
-      internalID: 641334753
+      spriteID: d7d0438d10ed64c6aa1b5451ac019613
+      internalID: 828077792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: End Game Screens_4
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 0
+        width: 256
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc05f1d78c466492992b59f899682e6e
+      internalID: -1136341059
       vertices: []
       indices: 
       edges: []
@@ -257,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 17b21f6bce9de37469abfe02a4188231
+    spriteID: 21a9e505b75e04d799693a8127265f1e
     internalID: 0
     vertices: []
     indices: 
@@ -267,13 +223,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      HUD_0: -6869325624984279803
-      HUD_1: -165498337
-      HUD_2: 853457467
-      HUD_3: -1026319308
-      HUD_4: 1190999864
-      HUD_5: 1183185240
-      HUD_6: 641334753
+      End Game Screens_0: 1092425747037572148
+      End Game Screens_1: -2031304320
+      End Game Screens_2: -598699026
+      End Game Screens_3: 828077792
+      End Game Screens_4: -1136341059
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
