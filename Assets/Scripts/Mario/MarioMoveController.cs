@@ -9,9 +9,10 @@ public class MarioMoveController : MonoBehaviour
     private static readonly int IsSliding = Animator.StringToHash("IsSliding");
     private static readonly int IsJumping = Animator.StringToHash("IsJumping");
     private static readonly int WalkingAnimation = Animator.StringToHash("Walking");
-    
+
     [Header("Audio Settings")] [SerializeField]
     private AudioClip smallJumpSound;
+
     [SerializeField] private AudioClip bigJumpSound;
     [SerializeField] private AudioClip stompSound;
     [SerializeField] private AudioClip bumpSound;
@@ -71,7 +72,7 @@ public class MarioMoveController : MonoBehaviour
 
     // private float Gravity => (-2f * maxJumpHeight) / Mathf.Pow(maxJumpTime / 2f, 2f);
     private float Gravity => (-2f * maxJumpHeight) / Mathf.Pow(maxJumpTime / 2f, 2f);
-    
+
     public PlayerInputActions PlayerInputActions
     {
         get
@@ -81,6 +82,7 @@ public class MarioMoveController : MonoBehaviour
                 _playerInputActions = new PlayerInputActions();
                 // Debug.LogWarning("PlayerInputActions was null, initializing now.");
             }
+
             return _playerInputActions;
         }
     }
@@ -88,7 +90,7 @@ public class MarioMoveController : MonoBehaviour
 
     // mario is flipped?
     public bool Flipped { get; private set; }
-    
+
     private bool _inputEnabled = true;
 
     // Variables for autonomous movement
@@ -152,7 +154,7 @@ public class MarioMoveController : MonoBehaviour
     {
         if (!_inputEnabled && !_isMovingToTarget)
             return;
-        
+
         HandleMovementInput();
         HandleGroundDetection();
         ApplyGravity();
@@ -169,37 +171,11 @@ public class MarioMoveController : MonoBehaviour
         }
     }
 
-
-    // private void HandleMovementInput()
-    // {
-    //     float input = _playerInputActions.Player.Move.ReadValue<Vector2>().x;
-    //     _inputActionsAxis = input;
-    //
-    //     if (Mathf.Abs(input) > 0.01f)
-    //     {
-    //         // Player is providing input: accelerate towards target speed
-    //         _velocity.x = Mathf.MoveTowards(_velocity.x, input * moveSpeed, acceleration * Time.deltaTime);
-    //     }
-    //     else
-    //     {
-    //         // No input: decelerate to zero quickly
-    //         _velocity.x = Mathf.MoveTowards(_velocity.x, 0f, deceleration * Time.deltaTime);
-    //     }
-    //
-    //     // Check if running into a wall
-    //     if (Physics2D.CircleCast(_rigidbody.position, groundRadius, Vector2.right * _velocity.x,
-    //             groundDistance, layerMask))
-    //     {
-    //         _velocity.x = 0f;
-    //     }
-    //
-    //     HorizontalAnimationHandler();
-    // }
     private void HandleMovementInput()
     {
         if (_isMovingToTarget)
             return;
-        
+
         float input = _playerInputActions.Player.Move.ReadValue<Vector2>().x;
         _inputActionsAxis = input;
 
@@ -238,14 +214,7 @@ public class MarioMoveController : MonoBehaviour
         }
 
         // Walk animation
-        if (Walking)
-        {
-            _animator.SetBool(WalkingAnimation, true);
-        }
-        else
-        {
-            _animator.SetBool(WalkingAnimation, false);
-        }
+        _animator.SetBool(WalkingAnimation, Walking);
     }
 
 
@@ -289,6 +258,7 @@ public class MarioMoveController : MonoBehaviour
 
         if (Grounded)
         {
+            // prevent mario from falling of the edge
             _animator.SetBool(IsJumping, false);
 
             // Prevent gravity from building up infinitely
@@ -448,7 +418,7 @@ public class MarioMoveController : MonoBehaviour
     public void DisableInput()
     {
         _playerInputActions.Disable();
-        
+
         // _inputEnabled = false;
     }
 
@@ -456,15 +426,16 @@ public class MarioMoveController : MonoBehaviour
     {
         _inputEnabled = true;
     }
-    
+
     public void MoveToPosition(Vector3 target, float speed = 2f)
     {
-        _targetPosition = new Vector3(target.x, transform.position.y, transform.position.z); // Assuming horizontal movement
+        _targetPosition =
+            new Vector3(target.x, transform.position.y, transform.position.z); // Assuming horizontal movement
         _autonomousSpeed = speed;
         _isMovingToTarget = true;
         DisableInput(); // Ensure player input is disabled during autonomous movement
     }
-    
+
     private void HandleAutonomousMovement()
     {
         // Calculate direction towards the target
@@ -480,7 +451,8 @@ public class MarioMoveController : MonoBehaviour
         if (Mathf.Abs(desiredInput) > 0.01f)
         {
             // Accelerate towards target speed
-            _velocity.x = Mathf.MoveTowards(_velocity.x, desiredInput * moveSpeed, acceleration * Time.deltaTime);
+            _velocity.x = Mathf.MoveTowards(_velocity.x, desiredInput * moveSpeed,
+                acceleration * Time.deltaTime);
         }
         else
         {

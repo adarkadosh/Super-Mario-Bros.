@@ -6,6 +6,14 @@ using UnityEngine.Serialization;
 
 public class GameManager : MonoSingleton<GameManager>
 {
+    [Header("Sound Settings")] [SerializeField]
+    private AudioClip backgroundMusic;
+    [SerializeField] private AudioClip gameOverMusic;
+    [SerializeField] private AudioClip levelCompleteMusic;
+    [SerializeField] private AudioClip timeRunningOutMusic;
+    [SerializeField] private AudioClip marioDeathMusic;
+    
+    
     [Header("UI Settings")] [SerializeField]
     private TextMeshProUGUI coinText;
 
@@ -17,6 +25,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     [SerializeField] private int maxLives = 3;
     [SerializeField] private int initTime = 400;
+    [SerializeField] private bool _shouldGameEnd;
     public int World { get; private set; }
     public int Level { get; private set; }
     public int Coins { get; private set; }
@@ -40,7 +49,17 @@ public class GameManager : MonoSingleton<GameManager>
         GameEvents.OnResetLevel += ResetLevel;
         GameEvents.OnCoinCollected += AddCoin;
         GameEvents.OnGotExtraLife += AddLife;
+        GameEvents.OnTimeUp += TimeUp;
         MarioEvents.OnMarioDeath += OnMarioDeath;
+    }
+
+    private void TimeUp()
+    {
+        // Freeze all characters for 3 seconds
+        GameEvents.FreezeAllCharacters?.Invoke(3f);
+
+        // Reset the level after 3 seconds
+        ResetLevel(3f);
     }
 
     private void OnDisable()
@@ -48,6 +67,7 @@ public class GameManager : MonoSingleton<GameManager>
         GameEvents.OnResetLevel -= ResetLevel;
         GameEvents.OnCoinCollected -= AddCoin;
         GameEvents.OnGotExtraLife -= AddLife;
+        GameEvents.OnTimeUp -= TimeUp;
         MarioEvents.OnMarioDeath -= OnMarioDeath;
     }
 
@@ -97,6 +117,11 @@ public class GameManager : MonoSingleton<GameManager>
     void Update()
     {
         timer -= Time.deltaTime;  // Decrement by real-time seconds
+        
+        if (initTime <= 100)
+        {
+            SoundFXManager.Instance.ChangeBackgroundMusic(timeRunningOutMusic);
+        }
 
         if (timer <= 0)
         {
@@ -106,6 +131,8 @@ public class GameManager : MonoSingleton<GameManager>
 
         if (initTime <= 0)
         {
+            if(!_shouldGameEnd) return;
+            GameEvents.OnTimeUp?.Invoke();
             SceneManager.LoadScene("GameOver");
         }
         
@@ -114,7 +141,7 @@ public class GameManager : MonoSingleton<GameManager>
         timeText.text = $"{initTime:D3}";
     }
 
-    public void AddLife()
+    private void AddLife()
     {
         Lives++;
     }

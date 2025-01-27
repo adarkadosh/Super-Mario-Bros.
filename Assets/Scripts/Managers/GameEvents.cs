@@ -6,6 +6,7 @@ public class GameEvents : MonoSingleton<GameEvents>
     public static Action OnLevelCompleted;
     public static Action<ScoresSet, Vector3> OnEnemyHit;
     public static Action<ScoresSet, Vector3> OnEventTriggered;
+    public static Action OnTimeUp;
     public static Action<float> OnResetLevel;
     public static Action OnPlayerDeath;
     public static Action OnPlayerRespawn;

@@ -31,7 +31,6 @@ public class PoolableAudio : MonoBehaviour, IPoolable
         _audioSource.clip = clip;
         _audioSource.volume = volume;
         _audioSource.spatialBlend = 1f; // Fully spatial
-        // _audioSource.pitch = Random.Range(0.8f, 1.2f);
         _audioSource.Play();
     }
 }

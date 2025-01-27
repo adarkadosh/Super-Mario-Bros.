@@ -277,8 +277,8 @@ public class MarioStateMachine : MonoBehaviour
     private void OnCrouchStarted(InputAction.CallbackContext context)
     {
         if (_currentState is SmallMarioState) return;
-        if (_movementController.Grounded)
-            Crouch();
+        // if (_movementController.Grounded)
+            // Crouch();
     }
 
     private void Crouch()
