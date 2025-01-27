@@ -12670,7 +12670,6 @@ GameObject:
   m_Component:
   - component: {fileID: 972008249}
   - component: {fileID: 972008252}
-  - component: {fileID: 972008251}
   - component: {fileID: 972008250}
   m_Layer: 0
   m_Name: Camera
@@ -12739,14 +12738,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!81 &972008251
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 972008248}
-  m_Enabled: 1
 --- !u!20 &972008252
 Camera:
   m_ObjectHideFlags: 0
@@ -12885,7 +12876,7 @@ Transform:
   m_GameObject: {fileID: 1000764095}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.277339, y: 0.35386944, z: -9.847133}
+  m_LocalPosition: {x: -4.23186, y: 0.35386944, z: -9.847133}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15475,7 +15466,7 @@ MonoBehaviour:
   poleBottom: {fileID: 139598095}
   castleDoor: {fileID: 1887775748}
   castleFlag: {fileID: 2083221951}
-  marioController: {fileID: 1884697834}
+  marioController: {fileID: 1884697837}
   mario: {fileID: 1453110315}
   flagSpeed: 4
   marioMoveSpeed: 4
@@ -16274,7 +16265,6 @@ GameObject:
   - component: {fileID: 1671680754}
   - component: {fileID: 1671680756}
   - component: {fileID: 1671680755}
-  - component: {fileID: 1671680758}
   m_Layer: 0
   m_Name: UICameraFollow
   m_TagString: Untagged
@@ -16400,19 +16390,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1739950500}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1671680758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1671680753}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61676b23cee9a6e44b945094757269f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainCameraTransform: {fileID: 1675543752}
 --- !u!1 &1675543749
 GameObject:
   m_ObjectHideFlags: 0
@@ -16469,10 +16446,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.18581907
-    y: 0.33695653
-    width: 0.6259169
-    height: 0.32608697
+    x: 0.1211226
+    y: 0.040229883
+    width: 0.7562777
+    height: 0.9195402
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 40
@@ -18028,60 +18005,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02fe47ea3c1d46419fc4011caa40e5ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1884697834
+--- !u!114 &1884697837 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 8493080812844433070, guid: 85114338411af416b9b47f92bc6018bb, type: 3}
+  m_PrefabInstance: {fileID: 4055760926578945137}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1453110315}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7789721287644cdaf3f533c99b3eb89, type: 3}
+  m_Script: {fileID: 11500000, guid: 298914b166cf5f54bb300b7bc0cfe4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smallJumpSound: {fileID: 0}
-  bigJumpSound: {fileID: 0}
-  stompSound: {fileID: 0}
-  bumpSound: {fileID: 0}
-  cinemachineCamera: {fileID: 1679960234}
-  cameraOffset: {x: 2.5, y: 0, z: 0}
-  offsetTransitionSpeed: 2
-  movementThreshold: 0.1
-  moveSpeed: 7
-  maxJumpHeight: 5
-  maxJumpTime: 1.15
-  gravityMultiplier: 5
-  onAirMultiplier: 1
-  acceleration: 17
-  deceleration: 25
-  layerMask:
-    m_Bits: 960
-  groundRadius: 0.25
-  groundDistance: 0.375
-  _mainCamera: {fileID: 0}
-  _rigidbody: {fileID: 0}
-  _capsuleCollider: {fileID: 0}
-  _cinemachinePositionComposer: {fileID: 0}
-  _animator: {fileID: 0}
-  _movementData:
-    velocity: {x: 0, y: 0}
-    inputActionsAxis: 0
-    grounded: 0
-    isJumping: 0
-    jumpTimeCounter: 0
-    inputEnabled: 1
-    isMovingToTarget: 0
-    moveSpeed: 7
-    maxJumpHeight: 4.8
-    maxJumpTime: 1.15
-    gravityMultiplier: 5
-    onAirMultiplier: 1
-    acceleration: 17
-    deceleration: 25
-    targetPosition: {x: 0, y: 0, z: 0}
-    autonomousSpeed: 0
-    flipped: 0
 --- !u!1 &1887775747
 GameObject:
   m_ObjectHideFlags: 0
@@ -22386,9 +22320,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3213283332257613284, guid: 85114338411af416b9b47f92bc6018bb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1884697833}
-    - targetCorrespondingSourceObject: {fileID: 3213283332257613284, guid: 85114338411af416b9b47f92bc6018bb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1884697834}
   m_SourcePrefab: {fileID: 100100000, guid: 85114338411af416b9b47f92bc6018bb, type: 3}
 --- !u!1001 &5206237172707774178
 PrefabInstance:
