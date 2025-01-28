@@ -42,9 +42,9 @@ Material:
     m_Ints: []
     m_Floats: []
     m_Colors:
-    - _BodyColour: {r: 1, g: 1, b: 1, a: 0}
-    - _ClothColour: {r: 0.9176471, g: 0.61960787, b: 0.13333334, a: 0}
-    - _HatColour: {r: 0.04705883, g: 0.5764706, b: 0, a: 0}
+    - _BodyColour: {r: 0.9176471, g: 0.61960787, b: 0.13333334, a: 0}
+    - _ClothColour: {r: 0.41960788, g: 0.427451, b: 0, a: 0}
+    - _HatColour: {r: 0.70980394, g: 0.19215688, b: 0.1254902, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &5353495153489360582

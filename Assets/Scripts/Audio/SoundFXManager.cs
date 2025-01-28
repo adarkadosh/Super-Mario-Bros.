@@ -12,7 +12,9 @@ public class SoundFXManager : MonoSingleton<SoundFXManager>
     
     private void Awake()
     {
-        Initialize();
+        _musicSource = gameObject.AddComponent<AudioSource>();
+
+        // Initialize();
     }
 
     private void Update()
@@ -42,6 +44,10 @@ public class SoundFXManager : MonoSingleton<SoundFXManager>
     public void ChangeBackgroundMusic(AudioClip newClip)
     {
         _musicSource.clip = newClip;
+        // _musicSource.Play();
+        _musicSource.loop = false;
+        _musicSource.spatialBlend = 0f; // Non-spatial
+        _musicSource.volume = backgroundMusicVolume;
         _musicSource.Play();
     }
     
@@ -49,6 +55,11 @@ public class SoundFXManager : MonoSingleton<SoundFXManager>
     {
         _musicSource.clip = backgroundMusic;
         _musicSource.Play();
+    }
+    
+    public void StopBackgroundMusic()
+    {
+        _musicSource.Stop();
     }
 
     private IEnumerator ReturnToPoolAfterPlaying(PoolableAudio source, float delay)

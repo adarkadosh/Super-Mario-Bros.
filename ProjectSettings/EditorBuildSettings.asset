@@ -9,11 +9,20 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/Scenes/Super Mario Bros..unity
+    path: Assets/Scenes/Start Scene.unity
+    guid: ac66ba2909e93da4fac9581f9dfc1507
+  - enabled: 1
+    path: Assets/Scenes/Lives Indicator Scene.unity
+    guid: 85f0549b7b5b14237a6cb2dfb09b161c
+  - enabled: 1
+    path: Assets/Scenes/Super Mario Bros. (Main) Scene.unity
     guid: 88c71ca966285d149ad9d22df85015f3
   - enabled: 1
-    path: Assets/Scenes/Loading Screen.unity
-    guid: 85f0549b7b5b14237a6cb2dfb09b161c
+    path: Assets/Scenes/EndGame Scene.unity
+    guid: 55f6a5d92168c466ebdcd523baaa63e0
+  - enabled: 1
+    path: Assets/Scenes/Won Game Scene.unity
+    guid: c46240e05bf5c45dfb570dd2da4281fd
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: d03b5de80e8ce40c78f688fe259b13c1, type: 3}
   m_UseUCBPForAssetBundles: 0

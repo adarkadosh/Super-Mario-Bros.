@@ -8,7 +8,6 @@ public class EndLevel : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             other.gameObject.SetActive(false);
-            // GameEvents.OnEventTriggered?.Invoke(ScoresSet.OneThousand, transform.position)
             GameEvents.OnLevelCompleted?.Invoke();
         }
     }

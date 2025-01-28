@@ -9,7 +9,7 @@ public class Coin : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("Player collected a coin");
-            MarioEvents.OnGotCoin?.Invoke(coinValue);
+            GameEvents.OnCoinCollected?.Invoke(coinValue);
             Destroy(gameObject);
         }
     }

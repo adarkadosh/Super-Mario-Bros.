@@ -24,11 +24,6 @@ public class SmallMarioState : MarioBaseState
         // If small Mario is hit, typically Mario dies
         context.Animator.SetTrigger(DieHash);
         MarioEvents.OnMarioDeath?.Invoke();
-
-        // Example: call a death animation
-        DeathAnimation deathAnim = context.GetComponent<DeathAnimation>();
-        if (deathAnim != null)
-            deathAnim.TriggerDeathAnimation(1);
     }
 
     public override void OnPickUpPowerUp(MarioStateMachine context, PowerUpType powerUpType)

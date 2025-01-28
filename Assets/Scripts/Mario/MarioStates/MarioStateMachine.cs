@@ -310,19 +310,30 @@ public class MarioStateMachine : MonoBehaviour
             ShootIceBall();
         }
     }
-
-
+    
     private void SubscribeGameEvents()
     {
         MarioEvents.OnMarioGotPowerUp += HandlePowerUp;
         MarioEvents.OnMarioGotHit += GotHit;
+        MarioEvents.OnMarioDeath += MarioDie;
+        GameEvents.OnTimeUp += MarioDie;
         GameEvents.FreezeAllCharacters += FreezeMario;
+    }
+
+    private void MarioDie()
+    {
+        // SoundFXManager.Instance.PlaySpatialSound(dieAudioClip, transform);
+        DeathAnimation deathAnim = GetComponent<DeathAnimation>();
+        if (deathAnim != null)
+            deathAnim.TriggerDeathAnimation(1);
     }
 
     private void UnsubscribeGameEvents()
     {
         MarioEvents.OnMarioGotPowerUp -= HandlePowerUp;
         MarioEvents.OnMarioGotHit -= GotHit;
+        MarioEvents.OnMarioDeath -= MarioDie;
+        GameEvents.OnTimeUp -= MarioDie;
         GameEvents.FreezeAllCharacters -= FreezeMario;
     }
 
