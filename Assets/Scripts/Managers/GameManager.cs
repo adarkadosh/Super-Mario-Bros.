@@ -2,8 +2,11 @@ using System.Collections;
 using UnityEngine;
 
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoSuperSingleton<GameManager>
 {
+    [Header("Score Data")]
+    [SerializeField] private ScoreData scoreData;
+    
     [Header("Sound Settings")] 
     [SerializeField] private AudioClip backgroundMusic;
     [SerializeField] private AudioClip gameOverMusic;
@@ -29,36 +32,66 @@ public class GameManager : MonoBehaviour
     private int _lives;
     
     private GameOverType _gameOverType;
+    private bool _gameActive;
+
+    // public static GameManager Instance { get; private set; }
+    //
+    // private void Awake()
+    // {
+    //     if (Instance != null && Instance != this)
+    //     {
+    //         Destroy(gameObject);
+    //         return;
+    //     }
+    //     Instance = this;
+    //     DontDestroyOnLoad(gameObject);
+    // }
     
-    public static GameManager Instance { get; private set; }
     
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-        // Additional initialization...
-    }
-    
+    // private void Start()
+    // {
+    //     initTime = initTimeForRound;
+    //     Application.targetFrameRate = 60;
+    //     _world = 1;
+    //     _level = 1;
+    //     _coins = 0;
+    //     _lives = initLives;
+    //     
+    //     GameEvents.OnWorldChanged?.Invoke(_world, _level);
+    //     GameEvents.OnCoinsChanged?.Invoke(_coins);
+    //     GameEvents.OnLivesChanged?.Invoke(_lives);
+    //     GameEvents.OnTimeChanged?.Invoke(initTime);
+    //     SoundFXManager.Instance.ChangeBackgroundMusic(backgroundMusic);
+    // }
     
     private void Start()
     {
-        initTime = initTimeForRound;
-        Application.targetFrameRate = 60;
-        _world = 1;
-        _level = 1;
-        _coins = 0;
-        _lives = initLives;
-        
+        if (scoreData == null)
+        {
+            Debug.LogError("ScoreData is not assigned in GameManager.");
+            return;
+        }
+
+        scoreData.ResetScoreData();
+        InitializeGameState();
+    }
+
+    private void InitializeGameState()
+    {
+        _world = scoreData.initialWorld;
+        _level = scoreData.initialLevel;
+        _coins = scoreData.CoinsCollected;
+        _lives = scoreData.LivesRemaining;
+        initTime = scoreData.levelTime;
+
+        // Trigger events to update UI
         GameEvents.OnWorldChanged?.Invoke(_world, _level);
         GameEvents.OnCoinsChanged?.Invoke(_coins);
         GameEvents.OnLivesChanged?.Invoke(_lives);
         GameEvents.OnTimeChanged?.Invoke(initTime);
-        SoundFXManager.Instance.ChangeBackgroundMusic(backgroundMusic);
+
+        // Start background music
+        // SoundFXManager.Instance.ChangeBackgroundMusic(backgroundMusic);
     }
     
     private void OnEnable()
@@ -66,7 +99,10 @@ public class GameManager : MonoBehaviour
         GameEvents.OnResetLevel += ResetLevel;
         GameEvents.OnCoinCollected += AddCoin;
         GameEvents.OnGotExtraLife += AddLife;
+        GameEvents.OnGameStarted += OnGameStart;
         GameEvents.OnTimeUp += TimeUp;
+        GameEvents.OnGameRestart += OnGameRestart;
+        GameEvents.OnGameWon += OnGameWon;
         MarioEvents.OnMarioDeath += OnMarioDeath;
     }
 
@@ -76,6 +112,9 @@ public class GameManager : MonoBehaviour
         GameEvents.OnCoinCollected -= AddCoin;
         GameEvents.OnGotExtraLife -= AddLife;
         GameEvents.OnTimeUp -= TimeUp;
+        GameEvents.OnGameStarted -= OnGameStart;
+        GameEvents.OnGameRestart -= OnGameRestart;
+        GameEvents.OnGameWon -= OnGameWon;
         MarioEvents.OnMarioDeath -= OnMarioDeath;
     }
 
@@ -104,8 +143,11 @@ public class GameManager : MonoBehaviour
     private IEnumerator ResetLevelCoroutine(float delay)
     {
         yield return new WaitForSeconds(delay);
+        _gameActive = false;
         
         _lives--;
+        scoreData.UpdateLives(_lives);
+        GameEvents.OnLivesChanged?.Invoke(_lives);
         
         if (_lives <= 0)
         {
@@ -113,6 +155,8 @@ public class GameManager : MonoBehaviour
             GameEvents.OnGameLost?.Invoke(_gameOverType);
             SoundFXManager.Instance.ChangeBackgroundMusic(gameOverMusic);
             SceneTransitionManager.Instance.TransitionToScene(SceneName.EndGameScene);
+            // scoreData.ResetScoreData();
+            // InitializeGameState();
         }
         else
         {
@@ -120,34 +164,23 @@ public class GameManager : MonoBehaviour
         }
         GameEvents.OnLivesChanged?.Invoke(_lives);
     }
-
-    // public void HandleBackFromGameOver()
-    // {
-    //     switch (_gameOverType)
-    //     {
-    //         case GameOverType.GameOver:
-    //             SceneTransitionManager.Instance.TransitionToScene(SceneName.StartScene);
-    //             break;
-    //         case GameOverType.TimeUp:
-    //             SceneTransitionManager.Instance.TransitionToScene(SceneName.LivesIndicatorScene);
-    //             break;
-    //     }
-    // }
+    
 
     private void AddCoin(int coins)
     {
-        _coins++;
-        GameEvents.OnCoinsChanged?.Invoke(_coins);
-        if (_coins >= maxCoinsToGetLife)
+        scoreData.UpdateCoins(coins);
+        GameEvents.OnCoinsChanged?.Invoke(scoreData.CoinsCollected);
+
+        if (scoreData.CoinsCollected >= scoreData.coinsToExtraLife)
         {
             AddLife();
-            _coins = 0;
+            scoreData.UpdateCoins(-scoreData.coinsToExtraLife); // Reset coins
         }
     }
     
     void Update()
     {
-        TimeHandler();
+        if (_gameActive) TimeHandler();
     }
 
     private void TimeHandler()
@@ -176,11 +209,28 @@ public class GameManager : MonoBehaviour
 
     private void AddLife()
     {
-        _lives++;
+        scoreData.UpdateLives(scoreData.LivesRemaining + 1);
+        GameEvents.OnLivesChanged?.Invoke(scoreData.LivesRemaining);
+        GameEvents.OnGotExtraLife?.Invoke();
     }
     
-    public void SetBestScore(int score)
+    private void OnGameRestart()
     {
-        BestScore = score;
+        scoreData.ResetScoreData();
+        InitializeGameState();
+    }
+    
+    private void OnGameStart()
+    {
+        _gameActive = true;
+        initTime = initTimeForRound;
+        SoundFXManager.Instance.ChangeBackgroundMusic(backgroundMusic);
+    }
+
+    private void OnGameWon()
+    {
+        _gameActive = false;
+        SoundFXManager.Instance.ChangeBackgroundMusic(levelCompleteMusic);
+        SceneTransitionManager.Instance.TransitionToScene(SceneName.WonGameScene);
     }
 }

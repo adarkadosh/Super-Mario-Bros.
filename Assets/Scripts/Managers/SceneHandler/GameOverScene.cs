@@ -26,7 +26,8 @@ public class GameOverScene : MonoBehaviour
         switch (_gameOverType)
         {
             case GameOverType.GameOver:
-                SceneTransitionManager.Instance.TransitionToScene(SceneName.StartScene);
+                SceneTransitionManager.Instance.TransitionToScene(SceneName.MainMenu);
+                // GameEvents.OnGameRestart?.Invoke();
                 break;
             case GameOverType.TimeUp:
                 SceneTransitionManager.Instance.TransitionToScene(SceneName.LivesIndicatorScene);

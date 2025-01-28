@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro; // Assuming you use TextMeshPro for your UI text
 
-public class ScoreManager : MonoSingleton<ScoreManager>
+public class ScoreManager : MonoBehaviour
 {
+    [SerializeField] private ScoreData scoreData;
     [Header("Combo Timing")] [SerializeField]
     private float doubleKillTime = 2f;
 
@@ -14,7 +15,7 @@ public class ScoreManager : MonoSingleton<ScoreManager>
     [Header("Popup Settings")] [SerializeField]
     private ScoreFactory scoreFactory;
 
-    private int _currentScore = 0;
+    private int _currentScore;
     private int _bestScore;
 
     private const string BestScoreKey = "BestScore"; // Key for PlayerPrefs
@@ -22,8 +23,10 @@ public class ScoreManager : MonoSingleton<ScoreManager>
     private void Start()
     {
         // Load Best Score from PlayerPrefs
-        _bestScore = PlayerPrefs.GetInt(BestScoreKey, 0);
-
+        // _bestScore = PlayerPrefs.GetInt(BestScoreKey, 0);
+        _currentScore = scoreData.CurrentScore;
+        _bestScore = scoreData.BestScore;
+        
         // Initialize UI
         GameEvents.OnScoreChanged?.Invoke(_currentScore);
         GameEvents.OnBestScoreChanged?.Invoke(_bestScore);

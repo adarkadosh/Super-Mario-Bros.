@@ -13,9 +13,12 @@ public class GameEvents : MonoSingleton<GameEvents>
     public static Action OnGameStarted;
     public static Action OnGamePaused;
     public static Action OnGameResumed;
+    public static Action OnGameRestart;
     public static Action<float> OnResetLevel;
-    
+
+
     // public static Action OnPlayerDeath;
+
     // public static Action OnPlayerRespawn;
     public static Action OnGotExtraLife;
     public static Action<int> OnCoinCollected;

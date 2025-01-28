@@ -2,7 +2,8 @@ using UnityEngine;
 
 public enum SceneName
 {
-    StartScene,
+    StartGame,
+    MainMenu,
     LivesIndicatorScene,
     SuperMarioBrosMain,
     EndGameScene,
@@ -15,8 +16,10 @@ public static class SceneHelper
     {
         switch (scene)
         {
-            case SceneName.StartScene:
-                return "Start Scene";
+            case SceneName.StartGame:
+                return "Start Game";
+            case SceneName.MainMenu:
+                return "Main Menu";
             case SceneName.LivesIndicatorScene:
                 return "Lives Indicator Scene";
             case SceneName.SuperMarioBrosMain:

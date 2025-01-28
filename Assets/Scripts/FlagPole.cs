@@ -9,16 +9,19 @@ using Vector3 = UnityEngine.Vector3;
 
 public class FlagPole : MonoBehaviour
 {
-    [Header("References")]
-    [SerializeField] private Transform flag;
+    [Header("Sound")] [SerializeField] private AudioClip flagPoleSound;
+    [SerializeField] private AudioClip winLevelSound;
+
+    [Header("References")] [SerializeField]
+    private Transform flag;
+
     [SerializeField] private Transform poleBottom;
     [SerializeField] private Transform castleDoor;
     [SerializeField] private GameObject castleFlag;
-    [SerializeField] private MarioMoveController marioController; // Reference to Mario's controller
     [SerializeField] private GameObject mario; // Reference to Mario's GameObject
+    [SerializeField] private MarioMoveController marioController; // Reference to Mario's controller
 
-    [Header("Settings")]
-    [SerializeField] private float flagSpeed = 6f;
+    [Header("Settings")] [SerializeField] private float flagSpeed = 6f;
     [SerializeField] private float marioMoveSpeed = 2f;
     [SerializeField] private float delayBeforeCastle = 1f;
 
@@ -35,8 +38,8 @@ public class FlagPole : MonoBehaviour
             StartCoroutine(HandleFlagPoleSequence());
         }
     }
-    
-    
+
+
     private IEnumerator HandleFlagPoleSequence()
     {
         // 1. Stop Player Input
@@ -44,11 +47,11 @@ public class FlagPole : MonoBehaviour
         {
             marioController.DisableInput();
         }
-        
+
         // 2. Get Mario's Rigidbody and Animator
         Rigidbody2D marioRigidbody = mario.GetComponent<Rigidbody2D>();
         Animator marioAnimator = mario.GetComponent<Animator>();
-        
+
         // 2. Disable Mario's Gravity and Set to Kinematic
         if (marioRigidbody != null)
         {
@@ -69,9 +72,11 @@ public class FlagPole : MonoBehaviour
 
         // 3. Animate the Flag Lowering
         yield return StartCoroutine(LowerFlag());
+        SoundFXManager.Instance.ChangeBackgroundMusic(winLevelSound);
+
         mario.gameObject.transform.position += new Vector3(1f, 0, 0);
         mario.gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
-        
+
         // 4. Move Mario to the Castle
         yield return new WaitForSeconds(delayBeforeCastle);
         if (marioAnimator != null)
@@ -86,11 +91,12 @@ public class FlagPole : MonoBehaviour
             marioController.MoveToPosition(castleEntrance, marioMoveSpeed);
         }
     }
-    
+
     private IEnumerator MoveMarioToPoleBottom()
     {
         Vector3 startPos = marioController.transform.position;
-        Vector3 endPos = new Vector3(poleBottom.position.x, poleBottom.position.y, marioController.transform.position.z);
+        Vector3 endPos = new Vector3(poleBottom.position.x, poleBottom.position.y,
+            marioController.transform.position.z);
 
         float elapsed = 0f;
         float duration = Vector3.Distance(startPos, endPos) / marioMoveSpeed;
@@ -104,10 +110,11 @@ public class FlagPole : MonoBehaviour
 
         marioController.transform.position = endPos;
     }
-    
+
 
     private IEnumerator LowerFlag()
     {
+        SoundFXManager.Instance.ChangeBackgroundMusic(flagPoleSound);
         Vector3 startFlagPos = flag.position;
         Vector3 endFlagPos = new Vector3(poleBottom.position.x, poleBottom.position.y, flag.position.z);
 
@@ -128,19 +135,29 @@ public class FlagPole : MonoBehaviour
     {
         GameEvents.OnLevelCompleted += MoveCastleFlag;
     }
-    
+
     private void OnDisable()
     {
         GameEvents.OnLevelCompleted -= MoveCastleFlag;
     }
-    
+
     private void MoveCastleFlag()
     {
-        castleFlag.gameObject.transform.DOMoveY(castleFlag.gameObject.transform.position.y + 1.5f, 0.25f)
-            .SetEase(Ease.Linear);
+        StartCoroutine(MoveCastleFlagRoutine());
     }
-    
-    
+
+    private IEnumerator MoveCastleFlagRoutine()
+    {
+        var tween = castleFlag.gameObject.transform
+            .DOMoveY(castleFlag.gameObject.transform.position.y + 1.5f, 0.25f)
+            .SetEase(Ease.Linear);
+        yield return tween.WaitForCompletion();
+        yield return new WaitForSeconds(4f);
+        // yield return WaitForSeconds(1f);
+        // yield return Extensions.WaitForSeconds(2f);
+        GameEvents.OnGameWon?.Invoke();
+    }
+
 
     // private IEnumerator MoveFlag()
     // {
@@ -149,6 +166,4 @@ public class FlagPole : MonoBehaviour
     //         .SetEase(Ease.Linear);
     //     // yield return moveUp.WaitForCompletion();
     // }
-    
 }
-

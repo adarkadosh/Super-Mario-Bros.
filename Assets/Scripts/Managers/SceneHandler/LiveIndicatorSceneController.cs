@@ -5,42 +5,23 @@ using TMPro;
 
 public class LiveIndicatorSceneController : MonoBehaviour
 {
+    [SerializeField] private ScoreData scoreData;
     [Header("UI Settings")] 
     [SerializeField] private TextMeshProUGUI livesText;
     [SerializeField] private TextMeshProUGUI stageText;
     [SerializeField] private float delayBeforeLoadingMainGame = 3f;
     private void Start()
     {
+        livesText.text = $"{scoreData.LivesRemaining:D1}";
+        stageText.text = $"{scoreData.World:D1}-{scoreData.Level:D1}";
         StartCoroutine(LoadMainGameAfterDelay());
-    }
-    
-    private void OnEnable()
-    {
-        GameEvents.OnLivesChanged += UpdateLivesUI;
-        GameEvents.OnWorldChanged += UpdateWorldUI;
-    }
-    
-    private void OnDisable()
-    {
-        GameEvents.OnLivesChanged -= UpdateLivesUI;
-        GameEvents.OnWorldChanged -= UpdateWorldUI;
-    }
-    
-    private void UpdateLivesUI(int lives)
-    {
-        if (livesText != null)
-            livesText.text = $"{lives:D1}";
-    }
-    
-    private void UpdateWorldUI(int world, int level)
-    {
-        if (stageText != null)
-            stageText.text = $"{world:D1}-{level:D1}";
     }
 
     IEnumerator LoadMainGameAfterDelay()
     {
         yield return new WaitForSeconds(delayBeforeLoadingMainGame);  // Wait for 3 seconds
         SceneTransitionManager.Instance.TransitionToScene(SceneName.SuperMarioBrosMain);
+        GameEvents.OnGameStarted?.Invoke();
+        // SoundFXManager.Instance.ChangeBackgroundMusic(GameManager.Instance.BackgroundMusic);
     }
 }

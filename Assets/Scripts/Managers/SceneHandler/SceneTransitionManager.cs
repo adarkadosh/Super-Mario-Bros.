@@ -7,8 +7,8 @@ public class SceneTransitionManager : MonoSingleton<SceneTransitionManager>
 {
 
     public Image fadeImage; // Assign a full-screen UI Image in the Inspector
-    public float fadeDuration = 1f;
-    
+    private const float FadeDuration = 0.1f;
+
 
     public void TransitionToScene(SceneName scene)
     {
@@ -26,9 +26,9 @@ public class SceneTransitionManager : MonoSingleton<SceneTransitionManager>
     private IEnumerator FadeAndLoad(string sceneName)
     {
         // Fade to black
-        for (float t = 0; t < fadeDuration; t += Time.deltaTime)
+        for (float t = 0; t < FadeDuration; t += Time.deltaTime)
         {
-            float alpha = Mathf.Lerp(0, 1, t / fadeDuration);
+            float alpha = Mathf.Lerp(0, 1, t / FadeDuration);
             fadeImage.color = new Color(0, 0, 0, alpha);
             yield return null;
         }
@@ -37,9 +37,9 @@ public class SceneTransitionManager : MonoSingleton<SceneTransitionManager>
         SceneManager.LoadScene(sceneName);
 
         // Fade from black
-        for (float t = 0; t < fadeDuration; t += Time.deltaTime)
+        for (float t = 0; t < FadeDuration; t += Time.deltaTime)
         {
-            float alpha = Mathf.Lerp(1, 0, t / fadeDuration);
+            float alpha = Mathf.Lerp(1, 0, t / FadeDuration);
             fadeImage.color = new Color(0, 0, 0, alpha);
             yield return null;
         }

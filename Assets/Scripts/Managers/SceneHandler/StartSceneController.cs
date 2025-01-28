@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class StartSceneController : MonoBehaviour
 {
+    [SerializeField] private ScoreData scoreData;
     [SerializeField] private TextMeshProUGUI bestScoreText;
     [SerializeField] private Button onePlayerButton;
     [SerializeField] private Button twoPlayerButton;
@@ -21,22 +22,24 @@ public class StartSceneController : MonoBehaviour
         // Assign button listeners
         onePlayerButton.onClick.AddListener(() => StartGame(1));
         twoPlayerButton.onClick.AddListener(() => StartGame(2));
+        
+        bestScoreText.text = $"{scoreData.BestScore:D6}";
     }
     
-    private void OnEnable()
-    {
-        GameEvents.OnBestScoreChanged += UpdateBestScoreText;
-    }
-
-    private void OnDisable()
-    {
-        GameEvents.OnBestScoreChanged -= UpdateBestScoreText;
-    }
-
-    private void UpdateBestScoreText(int bestScore)
-    {
-        bestScoreText.text = $"{bestScore:D6}";
-    }
+    // private void OnEnable()
+    // {
+    //     GameEvents.OnBestScoreChanged += UpdateBestScoreText;
+    // }
+    //
+    // private void OnDisable()
+    // {
+    //     GameEvents.OnBestScoreChanged -= UpdateBestScoreText;
+    // }
+    //
+    // private void UpdateBestScoreText(int bestScore)
+    // {
+    //     bestScoreText.text = $"{bestScore:D6}";
+    // }
     
 
     private void Update()
@@ -67,5 +70,6 @@ public class StartSceneController : MonoBehaviour
 
         // Load the Game Start screen first
         SceneTransitionManager.Instance.TransitionToScene(SceneName.LivesIndicatorScene);
+        GameEvents.OnGameRestart?.Invoke();
     }
 }
