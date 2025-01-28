@@ -1129,7 +1129,7 @@ GameObject:
   - component: {fileID: 236637883}
   - component: {fileID: 236637882}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: UI Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2942,6 +2942,14 @@ PrefabInstance:
     - target: {fileID: 6293727071794664193, guid: 786b6641c153041f9844d442729a01bd, type: 3}
       propertyPath: m_LocalPosition.y
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6866571222037309148, guid: 786b6641c153041f9844d442729a01bd, type: 3}
+      propertyPath: m_Size.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6866571222037309148, guid: 786b6641c153041f9844d442729a01bd, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6963076726074429583, guid: 786b6641c153041f9844d442729a01bd, type: 3}
       propertyPath: m_Name
@@ -14047,6 +14055,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 6866571222037309148, guid: 786b6641c153041f9844d442729a01bd, type: 3}
+      propertyPath: m_Size.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6866571222037309148, guid: 786b6641c153041f9844d442729a01bd, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6963076726074429583, guid: 786b6641c153041f9844d442729a01bd, type: 3}
       propertyPath: m_Name
       value: Pipe D
@@ -16042,10 +16058,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.13636364
-    y: 0.0061601643
-    width: 0.72727275
-    height: 0.98562634
+    x: 0.1992966
+    y: 0.08888889
+    width: 0.60023445
+    height: 0.82051283
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 40
@@ -16075,7 +16091,7 @@ Transform:
   m_GameObject: {fileID: 1675543749}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.7972193, y: -0.4781294, z: -9.847133}
+  m_LocalPosition: {x: -3.7972088, y: -0.4781294, z: -9.847133}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20739,6 +20755,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4311663395747306437, guid: 786b6641c153041f9844d442729a01bd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6866571222037309148, guid: 786b6641c153041f9844d442729a01bd, type: 3}
+      propertyPath: m_Size.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6866571222037309148, guid: 786b6641c153041f9844d442729a01bd, type: 3}
+      propertyPath: m_Offset.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6963076726074429583, guid: 786b6641c153041f9844d442729a01bd, type: 3}
