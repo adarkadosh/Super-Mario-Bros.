@@ -1,6 +1,8 @@
 using PowerUps.PowerUps;
 
-
-public class FireFlowerPool : MonoPool<FireFlower>
+namespace PowerUps.PowerUpPools
 {
+    public class FireFlowerPool : MonoPool<FireFlower>
+    {
+    }
 }

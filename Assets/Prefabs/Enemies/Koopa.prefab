@@ -292,8 +292,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 640fc07b38084ce6b56a601789f7ec99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  freezeEffect: {fileID: 5093369500064351944, guid: f647de81ee1f7094ab7ee39b63dca7ed, type: 3}
   frozenLayerName: Frozen
+  freezeEffect: {fileID: 5093369500064351944, guid: f647de81ee1f7094ab7ee39b63dca7ed, type: 3}
 --- !u!114 &-8369249529418066979
 MonoBehaviour:
   m_ObjectHideFlags: 0

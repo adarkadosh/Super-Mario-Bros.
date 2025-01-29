@@ -1,21 +1,17 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
+using Mario;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class FreezeMachine : MonoBehaviour
 {
-    // [Header("Freeze Settings")]
-    // [Tooltip("Duration of the freeze in seconds.")]
-    // [SerializeField] private float freezeDuration = 2f;
+    [SerializeField] private string frozenLayerName = "Frozen";
     [SerializeField] private GameObject freezeEffect;
     private int _originalLayer;
-    [SerializeField] private string frozenLayerName = "Frozen";
 
     private Animator _animator;
     private EntityMovement _entityMovement;
     private Rigidbody2D _rigidbody2D;
-    private MarioMoveController _marioMoveController;
+    private MarioMovementControl _marioMovementControl;
 
     private bool _isFrozen;
     private GameObject _freezeEffect;
@@ -26,7 +22,7 @@ public class FreezeMachine : MonoBehaviour
         _animator = GetComponent<Animator>();
         _entityMovement = GetComponent<EntityMovement>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
-        _marioMoveController = GetComponent<MarioMoveController>();
+        _marioMovementControl = GetComponent<MarioMovementControl>();
         
         // Store the original layer at startup
         _originalLayer = gameObject.layer;
@@ -52,10 +48,6 @@ public class FreezeMachine : MonoBehaviour
         EnablePhysics();
     }
 
-    /// <summary>
-    /// Coroutine that handles freezing and unfreezing.
-    /// </summary>
-    /// <param name="duration">Duration of the freeze in seconds.</param>
     private IEnumerator FreezeRoutine(float duration)
     {
         DisablePhysics();
@@ -84,14 +76,14 @@ public class FreezeMachine : MonoBehaviour
         }
 
         // Resume animations
-        if (_animator != null && _marioMoveController == null)
+        if (_animator != null && _marioMovementControl == null)
         {
             _animator.speed = 1f; // Resume animations
         }
 
-        if (_marioMoveController != null)
+        if (_marioMovementControl != null)
         {
-            _marioMoveController.enabled = true;
+            _marioMovementControl.enabled = true;
         }
 
         // Resume physics movement
@@ -120,14 +112,14 @@ public class FreezeMachine : MonoBehaviour
         }
         
         // Stop animations only for the Enemy
-        if (_animator != null && _marioMoveController == null)
+        if (_animator != null && _marioMovementControl == null)
         {
             _animator.speed = 0f; // Pause animations
         }
         
-        if (_marioMoveController != null)
+        if (_marioMovementControl != null)
         {
-            _marioMoveController.enabled = false;
+            _marioMovementControl.enabled = false;
         }
         
         // Stop physics movement

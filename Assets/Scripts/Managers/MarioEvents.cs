@@ -1,4 +1,6 @@
 ﻿using System;
+using Mario;
+using PowerUps;
 using UnityEngine;
 
 public class MarioEvents : MonoSingleton<MarioEvents>

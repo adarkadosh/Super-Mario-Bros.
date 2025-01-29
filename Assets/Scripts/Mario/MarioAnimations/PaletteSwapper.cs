@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Mario;
 using UnityEngine;
 
 public class PaletteSwapper : MonoBehaviour

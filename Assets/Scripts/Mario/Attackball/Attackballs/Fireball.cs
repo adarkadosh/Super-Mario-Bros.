@@ -1,23 +1,27 @@
-﻿using UnityEngine;
+﻿using Enemies;
+using UnityEngine;
 
-public class Fireball : AttackBall
+namespace Mario.Attackball.Attackballs
 {
-    protected void OnTriggerEnter2D(Collider2D collision)
+    public class Fireball : AttackBall
     {
-        // Check if the fireball collides with an enemy layer
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        protected void OnTriggerEnter2D(Collider2D collision)
         {
-            // Apply damage to the enemy
-            EnemyBehavior enemy = collision.GetComponent<EnemyBehavior>();
-            GameEvents.OnEventTriggered?.Invoke(ScoresSet.OneHundred, transform.position);
-            EntityMovement.enabled = false;
-            Collider.enabled = false;
-            Rigidbody.linearVelocity = Vector2.zero;
-            Rigidbody.bodyType = RigidbodyType2D.Kinematic;
-            Animator.SetTrigger("Explode");
-            if (enemy != null)
+            // Check if the fireball collides with an enemy layer
+            if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
             {
-                StartCoroutine(enemy.DeathSequence());
+                // Apply damage to the enemy
+                EnemyBehavior enemy = collision.GetComponent<EnemyBehavior>();
+                GameEvents.OnEventTriggered?.Invoke(ScoresSet.OneHundred, transform.position);
+                EntityMovement.enabled = false;
+                Collider.enabled = false;
+                Rigidbody.linearVelocity = Vector2.zero;
+                Rigidbody.bodyType = RigidbodyType2D.Kinematic;
+                Animator.SetTrigger("Explode");
+                if (enemy != null)
+                {
+                    StartCoroutine(enemy.DeathSequence());
+                }
             }
         }
     }

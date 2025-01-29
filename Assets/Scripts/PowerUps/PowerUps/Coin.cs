@@ -1,16 +1,18 @@
 using UnityEngine;
 
-
-public class Coin : MonoBehaviour
+namespace PowerUps.PowerUps
 {
-    [SerializeField] private int coinValue = 1;
-    void OnTriggerEnter2D(Collider2D other)
+    public class Coin : MonoBehaviour
     {
-        if (other.gameObject.CompareTag("Player"))
+        [SerializeField] private int coinValue = 1;
+        void OnTriggerEnter2D(Collider2D other)
         {
-            Debug.Log("Player collected a coin");
-            GameEvents.OnCoinCollected?.Invoke(coinValue);
-            Destroy(gameObject);
+            if (other.gameObject.CompareTag("Player"))
+            {
+                Debug.Log("Player collected a coin");
+                GameEvents.OnCoinCollected?.Invoke(coinValue);
+                Destroy(gameObject);
+            }
         }
     }
 }

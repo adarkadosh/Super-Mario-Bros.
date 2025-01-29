@@ -17,9 +17,10 @@ GameObject:
   - component: {fileID: 5734715214523308750}
   - component: {fileID: 8038984035255870789}
   - component: {fileID: 6013838944943967663}
+  - component: {fileID: 8083908641829629237}
   m_Layer: 18
   m_Name: Star
-  m_TagString: Untagged
+  m_TagString: Star
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80,9 +81,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1683029025
-  m_SortingLayer: 7
-  m_SortingOrder: 3
+  m_SortingLayerID: 1283042283
+  m_SortingLayer: 3
+  m_SortingOrder: 0
   m_Sprite: {fileID: -236527033, guid: f7fe5554a8587d54e977b251ff22e08b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -219,7 +220,7 @@ MonoBehaviour:
   movementDirection: {x: 1, y: 0}
   layerMask:
     serializedVersion: 2
-    m_Bits: 17344
+    m_Bits: 832
   flipBehavior: 1
   obstacleDetectionDistance: 0.55
   groundDetectionDistance: 0.55
@@ -247,8 +248,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 640fc07b38084ce6b56a601789f7ec99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  freezeEffect: {fileID: 0}
   frozenLayerName: Frozen
+  freezeEffect: {fileID: 0}
 --- !u!114 &6013838944943967663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,3 +263,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyDistance: 15
+--- !u!95 &8083908641829629237
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8626929918991628849}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 851641c4463374b938c1cc97d4433212, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

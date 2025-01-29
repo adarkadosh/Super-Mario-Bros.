@@ -225,7 +225,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeImage: {fileID: 131587627}
-  fadeDuration: 1
 --- !u!114 &1159099285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,7 +341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundMusic: {fileID: 8300000, guid: b3b8b9ae81b68954db81ba3a77a92db1, type: 3}
-  backgroundMusicVolume: 0.394
+  backgroundMusicVolume: 1
 --- !u!114 &1620034517
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,4 +1,9 @@
-﻿public class IceballPool : MonoPool<IceBall>
+﻿using Mario.Attackball.Attackballs;
+
+namespace Mario.Attackball.Pools
 {
-    // Similarly, can leave empty or customize for ice balls.
+    public class IceballPool : MonoPool<IceBall>
+    {
+        // Similarly, can leave empty or customize for ice balls.
+    }
 }

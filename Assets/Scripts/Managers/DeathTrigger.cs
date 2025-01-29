@@ -1,3 +1,5 @@
+using Enemies;
+using PowerUps;
 using UnityEngine;
 
 public class DeathTrigger : MonoBehaviour

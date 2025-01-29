@@ -1,3 +1,5 @@
+using Mario;
+using PowerUps;
 using UnityEngine;
 
 public interface IMarioState

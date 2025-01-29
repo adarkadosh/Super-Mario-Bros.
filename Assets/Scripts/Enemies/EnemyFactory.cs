@@ -1,44 +1,47 @@
-using Enemies;
+using Enemies.Goomba;
 using Enemies.Koopa;
 using UnityEngine;
 
-public enum EnemyType
+namespace Enemies
 {
-    Goomba,
-    Koopa,
-    ShellKoopa
-}
+    public enum EnemyType
+    {
+        Goomba,
+        Koopa,
+        ShellKoopa
+    }
 
-public class EnemyFactory : MonoSingleton<EnemyFactory>, IFactory<EnemyBehavior, EnemyType>
-{
-    [Header("Enemy Pools")]
-    [SerializeField] private GoombaPool goombaPool;
-    [SerializeField] private KoopaPool koopaPool;
+    public class EnemyFactory : MonoSingleton<EnemyFactory>, IFactory<EnemyBehavior, EnemyType>
+    {
+        [Header("Enemy Pools")]
+        [SerializeField] private GoombaPool goombaPool;
+        [SerializeField] private KoopaPool koopaPool;
     
-    public EnemyBehavior Spawn(EnemyType enemyType)
-    {
-        switch (enemyType)
+        public EnemyBehavior Spawn(EnemyType enemyType)
         {
-            case EnemyType.Goomba:
-                return goombaPool.Get();
-            case EnemyType.Koopa:
-                return koopaPool.Get();
-            default:
-                return null;
+            switch (enemyType)
+            {
+                case EnemyType.Goomba:
+                    return goombaPool.Get();
+                case EnemyType.Koopa:
+                    return koopaPool.Get();
+                default:
+                    return null;
+            }
         }
-    }
 
-    public void Return(EnemyBehavior enemy)
-    {
-        switch (enemy)
+        public void Return(EnemyBehavior enemy)
         {
-            case GoombaBehavior goomba:
-                goombaPool.Return(goomba);
-                break;
-            case KoopaStateMachine koopa:
-                koopaPool.Return(koopa);
-                break;
+            switch (enemy)
+            {
+                case GoombaBehavior goomba:
+                    goombaPool.Return(goomba);
+                    break;
+                case KoopaStateMachine koopa:
+                    koopaPool.Return(koopa);
+                    break;
+            }
         }
-    }
 
+    }
 }

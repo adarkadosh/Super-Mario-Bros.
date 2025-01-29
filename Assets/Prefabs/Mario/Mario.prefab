@@ -349,10 +349,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smallJumpSound: {fileID: 8300000, guid: 5e3e4352d8e9944b9910760e114b07f6, type: 3}
   bigJumpSound: {fileID: 8300000, guid: 879622c06a6f3461dae1d4bee8831de9, type: 3}
-  cinemachineCamera: {fileID: 0}
-  cameraOffset: {x: 2.5, y: 0, z: 0}
-  offsetTransitionSpeed: 2
-  movementThreshold: 0.1
   moveSpeed: 6
   maxJumpHeight: 4.8
   maxJumpTime: 1.15
@@ -360,11 +356,9 @@ MonoBehaviour:
   onAirMultiplier: 1
   acceleration: 17
   deceleration: 25
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 960
-  groundRadius: 0.25
-  groundDistance: 0.375
+  jumpBufferTime: 0.1
+  jumpCoyoteTime: 0.1
+  gravityScaleOnAir: 5
   groundCheckSize: {x: 0.72, y: 0.01}
   groundCheckDistance: 0.01
   groundLayer:
@@ -386,7 +380,7 @@ MonoBehaviour:
   scoreForPowerUp: 1000
   fireballPool: {fileID: 0}
   iceballPool: {fileID: 0}
-  starDuration: 10
+  starDuration: 7
   starDurationDelay: 4
   untouchableDuration: 2
   starPowerAudioClip: {fileID: 8300000, guid: 605d5e8096ba0d546826fdbecbad07c3, type: 3}
@@ -394,6 +388,7 @@ MonoBehaviour:
   hitAudioClip: {fileID: 8300000, guid: 354037c85256b48e28339953193ede6d, type: 3}
   dieAudioClip: {fileID: 8300000, guid: 7d09b7f4d820b42419744fc3aca70a2d, type: 3}
   onGotBigAudioClip: {fileID: 8300000, guid: 38f3bc8b86a364d16acc71261d6da433, type: 3}
+  onGotSmallAudioClip: {fileID: 8300000, guid: c126a4d8fc9e345a28a3045eec6ee61b, type: 3}
   attackSound: {fileID: 8300000, guid: c99480501a94747d5805ded0674f8f6e, type: 3}
   paletteSwapper: {fileID: 331723572837062282}
   flashTransparency: {fileID: 4982499784482215209}
@@ -409,8 +404,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 640fc07b38084ce6b56a601789f7ec99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  freezeEffect: {fileID: 0}
   frozenLayerName: Frozen
+  freezeEffect: {fileID: 0}
 --- !u!1 &5958201648609421603
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,14 +1,17 @@
 ﻿using UnityEngine;
 
-public class EndLevel : MonoBehaviour
+namespace Flag_Pole
 {
-    private void OnTriggerEnter2D(Collider2D other)
+    public class EndLevel : MonoBehaviour
     {
-        Debug.Log("Trigger Entered by: " + other.gameObject.name);
-        if (other.CompareTag("Player"))
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            other.gameObject.SetActive(false);
-            GameEvents.OnLevelCompleted?.Invoke();
+            Debug.Log("Trigger Entered by: " + other.gameObject.name);
+            if (other.CompareTag("Player"))
+            {
+                other.gameObject.SetActive(false);
+                GameEvents.OnLevelCompleted?.Invoke();
+            }
         }
     }
 }

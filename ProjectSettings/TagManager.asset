@@ -11,11 +11,14 @@ TagManager:
   - CameraBoundaries
   - Goomba
   - Koopa
+  - ShellKoopa
+  - LethalShell
   - BlockCoin
   - OneUp
   - DeathTriggerZone
   - FireFlower
   - Fireball
+  - Star
   layers:
   - Default
   - TransparentFX

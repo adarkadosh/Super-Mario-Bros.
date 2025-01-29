@@ -1,37 +1,39 @@
 // BlockCoin.cs
-
 using System.Collections;
 using UnityEngine;
 
-public class BlockCoin : MonoBehaviour, IPoolable
+namespace PowerUps.PowerUps
 {
-    [SerializeField] private int coinsToGive = 1;
-    [SerializeField] private float animationHeight = 3.5f;
-    [SerializeField] private float animationDuration = 0.25f;
-    [SerializeField] private ScoresSet scoreSet = ScoresSet.TwoHundred;
-
-    public void Trigger()
+    public class BlockCoin : MonoBehaviour, IPoolable
     {
-        GameEvents.OnCoinCollected?.Invoke(coinsToGive);
-        StartCoroutine(Animate());
-    }
+        [SerializeField] private int coinsToGive = 1;
+        [SerializeField] private float animationHeight = 3.5f;
+        [SerializeField] private float animationDuration = 0.25f;
+        [SerializeField] private ScoresSet scoreSet = ScoresSet.TwoHundred;
 
-    private IEnumerator Animate()
-    {
-        yield return Extensions.AnimatedBlockGotHit(gameObject, animationHeight, animationDuration,
-            animationHeight / 2);
-        GameEvents.OnEventTriggered?.Invoke(scoreSet, transform.position);
-        PowerUpFactory.Instance.ReturnBlockCoin(this);
-    }
+        public void Trigger()
+        {
+            GameEvents.OnCoinCollected?.Invoke(coinsToGive);
+            StartCoroutine(Animate());
+        }
 
-    public void Reset()
-    {
-        transform.position = Vector3.zero;
-        gameObject.SetActive(false);
-    }
+        private IEnumerator Animate()
+        {
+            yield return Extensions.AnimatedBlockGotHit(gameObject, animationHeight, animationDuration,
+                animationHeight / 2);
+            GameEvents.OnEventTriggered?.Invoke(scoreSet, transform.position);
+            PowerUpFactory.Instance.ReturnBlockCoin(this);
+        }
+
+        public void Reset()
+        {
+            transform.position = Vector3.zero;
+            gameObject.SetActive(false);
+        }
     
-    public void Kill()
-    {
-        PowerUpFactory.Instance.ReturnBlockCoin(this);
+        public void Kill()
+        {
+            PowerUpFactory.Instance.ReturnBlockCoin(this);
+        }
     }
 }

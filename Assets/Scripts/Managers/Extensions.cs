@@ -1,5 +1,6 @@
 using System.Collections;
 using DG.Tweening;
+using Enemies;
 using Unity.VisualScripting;
 using UnityEngine;
 

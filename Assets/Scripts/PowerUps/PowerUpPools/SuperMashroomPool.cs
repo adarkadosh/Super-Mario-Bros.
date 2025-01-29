@@ -1,4 +1,8 @@
+using PowerUps.PowerUps;
 
-    public class SuperMashroomPool :MonoPool<SuperMashroom>
+namespace PowerUps.PowerUpPools
+{
+    public class SuperMashroomPool : MonoPool<SuperMashroom>
     {
     }
+}

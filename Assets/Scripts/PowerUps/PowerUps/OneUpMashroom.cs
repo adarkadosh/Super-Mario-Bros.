@@ -1,16 +1,18 @@
-using PowerUps;
 using UnityEngine;
 
-public class OneUpMashroom : GenericPowerUp
+namespace PowerUps.PowerUps
 {
-    void OnTriggerEnter2D(Collider2D other)
+    public class OneUpMashroom : GenericPowerUp
     {
-        if (other.gameObject.CompareTag("Player"))
+        void OnTriggerEnter2D(Collider2D other)
         {
-            Debug.Log("Player collected a OneUp");
-            // GameEvents.OnGotExtraLife?.Invoke();
-            MarioEvents.OnMarioGotPowerUp?.Invoke(PowerUpType.OneUpMashroom);
-            PowerUpFactory.Instance.Return(this);
+            if (other.gameObject.CompareTag("Player"))
+            {
+                Debug.Log("Player collected a OneUp");
+                // GameEvents.OnGotExtraLife?.Invoke();
+                MarioEvents.OnMarioGotPowerUp?.Invoke(PowerUpType.OneUpMashroom);
+                PowerUpFactory.Instance.Return(this);
+            }
         }
     }
 }

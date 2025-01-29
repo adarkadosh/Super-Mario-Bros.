@@ -1,19 +1,18 @@
-using System.Collections;
-using DG.Tweening;
-using PowerUps;
 using UnityEngine;
 
-
-public class SuperMashroom : GenericPowerUp
+namespace PowerUps.PowerUps
 {
-    void OnTriggerEnter2D(Collider2D other)
+    public class SuperMashroom : GenericPowerUp
     {
-        if (other.gameObject.CompareTag("Player"))
+        void OnTriggerEnter2D(Collider2D other)
         {
-            Debug.Log("Player collected a powerup");
-            MarioEvents.OnMarioGotPowerUp?.Invoke(PowerUpType.SuperMashroom);
-            PowerUpFactory.Instance.Return(this);
+            if (other.gameObject.CompareTag("Player"))
+            {
+                Debug.Log("Player collected a powerup");
+                MarioEvents.OnMarioGotPowerUp?.Invoke(PowerUpType.SuperMashroom);
+                PowerUpFactory.Instance.Return(this);
+            }
         }
-    }
     
+    }
 }

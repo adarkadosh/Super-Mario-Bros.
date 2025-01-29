@@ -1,14 +1,17 @@
 ﻿using UnityEngine;
 
-public class IceFlower : GenericPowerUp
+namespace PowerUps.PowerUps
 {
-    private void OnTriggerEnter2D(Collider2D other)
+    public class IceFlower : GenericPowerUp
     {
-        if (other.gameObject.CompareTag("Player"))
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            Debug.Log("Player collected a powerup");
-            MarioEvents.OnMarioGotPowerUp?.Invoke(PowerUpType.IceFlower);
-            PowerUpFactory.Instance.Return(this);
+            if (other.gameObject.CompareTag("Player"))
+            {
+                Debug.Log("Player collected a powerup");
+                MarioEvents.OnMarioGotPowerUp?.Invoke(PowerUpType.IceFlower);
+                PowerUpFactory.Instance.Return(this);
+            }
         }
     }
 }

@@ -1,15 +1,31 @@
-using PowerUps;
+using System.Collections;
 using UnityEngine;
 
-public class Star : GenericPowerUp
+namespace PowerUps.PowerUps
 {
-    void OnTriggerEnter2D(Collider2D other)
+    public class Star : GenericPowerUp
     {
-        if (other.gameObject.CompareTag("Player"))
+        private void Start()
         {
-            Debug.Log("Player collected a powerup");
-            MarioEvents.OnMarioGotPowerUp?.Invoke(PowerUpType.Star);
-            PowerUpFactory.Instance.Return(this);
+            StartCoroutine(ChangeRenderer());
+        }
+
+        private IEnumerator ChangeRenderer()
+        {
+            SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+            yield return new WaitForSeconds(1f);
+            spriteRenderer.sortingLayerName = "Blocks";
+            spriteRenderer.sortingOrder = 1;
+        }
+
+        void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.gameObject.CompareTag("Player"))
+            {
+                Debug.Log("Player collected a powerup");
+                MarioEvents.OnMarioGotPowerUp?.Invoke(PowerUpType.Star);
+                PowerUpFactory.Instance.Return(this);
+            }
         }
     }
 }
