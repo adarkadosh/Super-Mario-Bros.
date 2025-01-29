@@ -1,6 +1,6 @@
 using System;
 
-public class ResetEvents : MonoSingleton<ResetEvents>
+public class CheatCodeEvents : MonoSingleton<CheatCodeEvents>
 {
     public static Action ResetSpawnRate;
     public static Action DestroyAllChickens;

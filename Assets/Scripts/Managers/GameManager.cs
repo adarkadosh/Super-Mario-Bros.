@@ -21,10 +21,8 @@ public class GameManager : MonoSuperSingleton<GameManager>
     [SerializeField] private float delayBeforeTransition = 3f;
     [SerializeField] private float timer = 0.5f;  // Tracks time in seconds
     [SerializeField] private int initTimeForRound = 400; 
-    private int initTime;
+    private int _initTime;
     [SerializeField] private bool shouldGameEnd;
-    
-    public int BestScore { get; private set; }
     
     private int _world;
     private int _level;
@@ -33,36 +31,6 @@ public class GameManager : MonoSuperSingleton<GameManager>
     
     private GameOverType _gameOverType;
     private bool _gameActive;
-
-    // public static GameManager Instance { get; private set; }
-    //
-    // private void Awake()
-    // {
-    //     if (Instance != null && Instance != this)
-    //     {
-    //         Destroy(gameObject);
-    //         return;
-    //     }
-    //     Instance = this;
-    //     DontDestroyOnLoad(gameObject);
-    // }
-    
-    
-    // private void Start()
-    // {
-    //     initTime = initTimeForRound;
-    //     Application.targetFrameRate = 60;
-    //     _world = 1;
-    //     _level = 1;
-    //     _coins = 0;
-    //     _lives = initLives;
-    //     
-    //     GameEvents.OnWorldChanged?.Invoke(_world, _level);
-    //     GameEvents.OnCoinsChanged?.Invoke(_coins);
-    //     GameEvents.OnLivesChanged?.Invoke(_lives);
-    //     GameEvents.OnTimeChanged?.Invoke(initTime);
-    //     SoundFXManager.Instance.ChangeBackgroundMusic(backgroundMusic);
-    // }
     
     private void Start()
     {
@@ -82,16 +50,13 @@ public class GameManager : MonoSuperSingleton<GameManager>
         _level = scoreData.initialLevel;
         _coins = scoreData.CoinsCollected;
         _lives = scoreData.LivesRemaining;
-        initTime = scoreData.levelTime;
+        _initTime = scoreData.levelTime;
 
         // Trigger events to update UI
         GameEvents.OnWorldChanged?.Invoke(_world, _level);
         GameEvents.OnCoinsChanged?.Invoke(_coins);
         GameEvents.OnLivesChanged?.Invoke(_lives);
-        GameEvents.OnTimeChanged?.Invoke(initTime);
-
-        // Start background music
-        // SoundFXManager.Instance.ChangeBackgroundMusic(backgroundMusic);
+        GameEvents.OnTimeChanged?.Invoke(_initTime);
     }
     
     private void OnEnable()
@@ -155,8 +120,6 @@ public class GameManager : MonoSuperSingleton<GameManager>
             GameEvents.OnGameLost?.Invoke(_gameOverType);
             SoundFXManager.Instance.ChangeBackgroundMusic(gameOverMusic);
             SceneTransitionManager.Instance.TransitionToScene(SceneName.EndGameScene);
-            // scoreData.ResetScoreData();
-            // InitializeGameState();
         }
         else
         {
@@ -187,31 +150,31 @@ public class GameManager : MonoSuperSingleton<GameManager>
     {
         timer -= Time.deltaTime;  // Decrement by real-time seconds
         
-        if (initTime <= 100)
+        if (_initTime <= 100)
         {
             SoundFXManager.Instance.ChangeBackgroundMusic(timeRunningOutMusic);
         }
 
         if (timer <= 0)
         {
-            initTime--;  // Reduce by 1 second
+            _initTime--;  // Reduce by 1 second
             timer = 0.5f;  // Reset timer to 1 second
         }
 
-        if (initTime <= 0)
+        if (_initTime <= 0)
         {
             if(!shouldGameEnd) return;
             GameEvents.OnTimeUp?.Invoke();
         }
         
-        GameEvents.OnTimeChanged?.Invoke(initTime);
+        GameEvents.OnTimeChanged?.Invoke(_initTime);
     }
 
     private void AddLife()
     {
         scoreData.UpdateLives(scoreData.LivesRemaining + 1);
         GameEvents.OnLivesChanged?.Invoke(scoreData.LivesRemaining);
-        GameEvents.OnGotExtraLife?.Invoke();
+        // GameEvents.OnGotExtraLife?.Invoke();
     }
     
     private void OnGameRestart()
@@ -223,7 +186,7 @@ public class GameManager : MonoSuperSingleton<GameManager>
     private void OnGameStart()
     {
         _gameActive = true;
-        initTime = initTimeForRound;
+        _initTime = initTimeForRound;
         SoundFXManager.Instance.ChangeBackgroundMusic(backgroundMusic);
     }
 

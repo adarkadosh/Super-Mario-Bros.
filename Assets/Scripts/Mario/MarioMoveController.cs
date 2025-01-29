@@ -10,12 +10,9 @@ public class MarioMoveController : MonoBehaviour
     private static readonly int IsJumping = Animator.StringToHash("IsJumping");
     private static readonly int WalkingAnimation = Animator.StringToHash("Walking");
 
-    [Header("Audio Settings")] [SerializeField]
-    private AudioClip smallJumpSound;
-
+    [Header("Audio Settings")] 
+    [SerializeField] private AudioClip smallJumpSound;
     [SerializeField] private AudioClip bigJumpSound;
-    [SerializeField] private AudioClip stompSound;
-    [SerializeField] private AudioClip bumpSound;
 
     [Header("Camera Settings")] [SerializeField]
     private CinemachineCamera cinemachineCamera;
@@ -39,6 +36,12 @@ public class MarioMoveController : MonoBehaviour
 
     [SerializeField] private float groundRadius = 0.25f;
     [SerializeField] private float groundDistance = 0.375f;
+    
+    [Header("Ground Detection Settings")]
+    [SerializeField] private Vector2 groundCheckSize = new Vector2(0.75f, 0.1f);
+    [SerializeField] private float groundCheckDistance = 0.1f;
+    [SerializeField] private LayerMask groundLayer;
+
 
 
     private Camera _mainCamera;
@@ -154,10 +157,18 @@ public class MarioMoveController : MonoBehaviour
     {
         if (!_inputEnabled && !_isMovingToTarget)
             return;
+        Grounded = IsGrounded();
+
+        if (Grounded)
+        {
+            HandleGroundDetection();
+        }
+        else
+        {
+            ApplyGravity();
+        }
 
         HandleMovementInput();
-        HandleGroundDetection();
-        ApplyGravity();
         // HandleCameraOffset();
         UpdateAnimations();
     }
@@ -165,6 +176,14 @@ public class MarioMoveController : MonoBehaviour
     private void FixedUpdate()
     {
         MoveMario();
+        if (IsGrounded())
+        {
+            _rigidbody.gravityScale = 0f;
+        }
+        else
+        {
+            _rigidbody.gravityScale = 5f;
+        }
         if (_isMovingToTarget)
         {
             HandleAutonomousMovement();
@@ -191,7 +210,7 @@ public class MarioMoveController : MonoBehaviour
         }
 
         // Prevent sliding
-        if (Grounded && Mathf.Abs(_velocity.x) < 0.1f)
+        if (Grounded && Mathf.Abs(_velocity.x) < 0.01f)
         {
             _velocity.x = 0f;
         }
@@ -234,27 +253,62 @@ public class MarioMoveController : MonoBehaviour
     //         Jumping = _velocity.y > 0f;
     //     }
     // }
-
+    
     private bool IsGrounded()
     {
-        const float extraHeight = 0.1f;
-        var leftRayOrigin = new Vector2(_capsuleCollider.bounds.min.x, _capsuleCollider.bounds.min.y);
-        var rightRayOrigin = new Vector2(_capsuleCollider.bounds.max.x, _capsuleCollider.bounds.min.y);
+        // Vector2 origin = (Vector2)transform.position + _capsuleCollider.offset - new Vector2(0, _capsuleCollider.s / 2);
+        Vector2 origin = (Vector2)transform.position + _capsuleCollider.offset - new Vector2(0, _capsuleCollider.bounds.extents.y);
+        RaycastHit2D hit = Physics2D.BoxCast(origin, groundCheckSize, 0f, Vector2.down, groundCheckDistance, groundLayer);
 
-        var leftCheck = Physics2D.Raycast(leftRayOrigin, Vector2.down, extraHeight, layerMask);
-        var rightCheck = Physics2D.Raycast(rightRayOrigin, Vector2.down, extraHeight, layerMask);
+        // Debug visualization
+        Color rayColor = hit.collider != null ? Color.green : Color.red;
+        Debug.DrawRay(origin + new Vector2(-groundCheckSize.x / 2, 0), Vector2.down * (groundCheckDistance), rayColor);
+        Debug.DrawRay(origin + new Vector2(groundCheckSize.x / 2, 0), Vector2.down * (groundCheckDistance), rayColor);
+        Debug.DrawRay(origin + new Vector2(-groundCheckSize.x / 2, -groundCheckDistance), Vector2.right * groundCheckSize.x, rayColor);
 
-        var rayColor = (leftCheck.collider != null || rightCheck.collider != null) ? Color.green : Color.red;
-        Debug.DrawRay(leftRayOrigin, Vector2.down * extraHeight, rayColor);
-        Debug.DrawRay(rightRayOrigin, Vector2.down * extraHeight, rayColor);
-
-        return leftCheck.collider != null || rightCheck.collider != null;
+        return hit.collider != null;
     }
+
+
+    // private bool IsGrounded()
+    // {
+    //     const float extraHeight = 0.2f;
+    //     var leftRayOrigin = new Vector2(_capsuleCollider.bounds.min.x, _capsuleCollider.bounds.min.y);
+    //     var rightRayOrigin = new Vector2(_capsuleCollider.bounds.max.x, _capsuleCollider.bounds.min.y);
+    //
+    //     var leftCheck = Physics2D.Raycast(leftRayOrigin, Vector2.down, extraHeight, layerMask);
+    //     var rightCheck = Physics2D.Raycast(rightRayOrigin, Vector2.down, extraHeight, layerMask);
+    //
+    //     var rayColor = (leftCheck.collider != null || rightCheck.collider != null) ? Color.green : Color.red;
+    //     Debug.DrawRay(leftRayOrigin, Vector2.down * extraHeight, rayColor);
+    //     Debug.DrawRay(rightRayOrigin, Vector2.down * extraHeight, rayColor);
+    //
+    //     return leftCheck.collider != null || rightCheck.collider != null;
+    // }
+    
+    // private bool IsGrounded()
+    // {
+    //     const float extraHeight = 0.1f;
+    //     Vector2 colliderBoundsCenter = _capsuleCollider.bounds.center;
+    //     Vector2 colliderBoundsExtents = _capsuleCollider.bounds.extents;
+    //     Vector2 leftRayOrigin = new Vector2(colliderBoundsCenter.x - colliderBoundsExtents.x, colliderBoundsCenter.y);
+    //     Vector2 rightRayOrigin = new Vector2(colliderBoundsCenter.x + colliderBoundsExtents.x, colliderBoundsCenter.y);
+    //
+    //     RaycastHit2D leftCheck = Physics2D.Raycast(leftRayOrigin, Vector2.down, colliderBoundsExtents.y + extraHeight, layerMask);
+    //     RaycastHit2D rightCheck = Physics2D.Raycast(rightRayOrigin, Vector2.down, colliderBoundsExtents.y + extraHeight, layerMask);
+    //
+    //     Color rayColor = (leftCheck.collider != null || rightCheck.collider != null) ? Color.green : Color.red;
+    //     Debug.DrawRay(leftRayOrigin, Vector2.down * (colliderBoundsExtents.y + extraHeight), rayColor);
+    //     Debug.DrawRay(rightRayOrigin, Vector2.down * (colliderBoundsExtents.y + extraHeight), rayColor);
+    //
+    //     return leftCheck.collider != null || rightCheck.collider != null;
+    // }
+
 
 
     private void HandleGroundDetection()
     {
-        Grounded = IsGrounded();
+        // Grounded = IsGrounded();
 
         if (Grounded)
         {
