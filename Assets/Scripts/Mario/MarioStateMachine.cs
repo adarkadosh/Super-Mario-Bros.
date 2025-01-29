@@ -1,5 +1,6 @@
 using System.Collections;
 using Enemies;
+using Managers;
 using Mario.Attackball.Pools;
 using Mario.MarioAnimations;
 using Mario.MarioStates;
@@ -133,7 +134,7 @@ namespace Mario
             {
                 if (collision.collider.GetComponent<Collider2D>() && collision.contacts[0].normal.y > 0)
                 {
-                    SoundFXManager.Instance.PlaySpatialSound(hitAudioClip, transform);
+                    SoundFXManager.Instance.PlaySound(hitAudioClip, transform);
                     EnemyBehavior enemy = collision.collider.GetComponent<EnemyBehavior>();
                     GameEvents.OnEnemyHit?.Invoke(enemy.enemyScore, transform.position);
                     enemy.GotHit();
@@ -178,7 +179,7 @@ namespace Mario
         private void ShootFireball()
         {
             Animator.SetTrigger(Fire);
-            SoundFXManager.Instance.PlaySpatialSound(attackSound, transform);
+            SoundFXManager.Instance.PlaySound(attackSound, transform);
             Debug.Log("Shooting fireball!");
 
             // Determine the direction Mario is facing
@@ -206,7 +207,7 @@ namespace Mario
         private void ShootIceBall()
         {
             Animator.SetTrigger(Fire);
-            SoundFXManager.Instance.PlaySpatialSound(attackSound, transform);
+            SoundFXManager.Instance.PlaySound(attackSound, transform);
             Debug.Log("Shooting fireball!");
 
             // Determine the direction Mario is facing
@@ -272,24 +273,26 @@ namespace Mario
         private void OnCrouchStarted(InputAction.CallbackContext context)
         {
             if (_currentState is SmallMarioState) return;
-            // if (_movementController.Grounded)
-            // Crouch();
+            if (_movementController.Grounded)
+            {
+                Crouch();
+            }
         }
 
         private void Crouch()
         {
             Debug.Log("Crouching!");
             SetColliderSize(new Vector2(0.75f, 1f), Vector2.zero);
-            _movementController.enabled = false;
+            _movementController.DisableMovement();
             Animator.SetBool(OnCrouch, true);
         }
 
         private void OnCrouchCanceled(InputAction.CallbackContext context)
         {
-            // if (_currentState is SmallMarioState) return;
+            if (_currentState is SmallMarioState) return;
             Debug.Log("Standing up!");
             SetColliderSize(new Vector2(0.75f, 2f), new Vector2(0f, 0.5f));
-            _movementController.enabled = true;
+            _movementController.EnableMovement();
             Animator.SetBool(OnCrouch, false);
         }
 
@@ -335,7 +338,7 @@ namespace Mario
         private void HandlePowerUp(PowerUpType powerUpType)
         {
             _currentState?.OnPickUpPowerUp(this, powerUpType);
-            SoundFXManager.Instance.PlaySpatialSound(powerUpAudioClip, transform);
+            SoundFXManager.Instance.PlaySound(powerUpAudioClip, transform);
             GameEvents.OnEventTriggered?.Invoke(ScoresSet.OneThousand, transform.position);
             if (powerUpType == PowerUpType.Star)
                 ActivateStarPower();

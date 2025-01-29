@@ -15,14 +15,14 @@ namespace PowerUps.PowerUps
             SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
             yield return new WaitForSeconds(1f);
             spriteRenderer.sortingLayerName = "Blocks";
-            spriteRenderer.sortingOrder = 1;
+            spriteRenderer.sortingOrder = 5;
         }
 
         void OnTriggerEnter2D(Collider2D other)
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                Debug.Log("Player collected a powerup");
+                Debug.Log("Player collected a power up");
                 MarioEvents.OnMarioGotPowerUp?.Invoke(PowerUpType.Star);
                 PowerUpFactory.Instance.Return(this);
             }

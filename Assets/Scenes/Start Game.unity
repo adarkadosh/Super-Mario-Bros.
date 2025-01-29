@@ -238,11 +238,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreData: {fileID: 11400000, guid: f485ab028cfe5014e9479ec60aff3b7e, type: 2}
+  playerInput: {fileID: 0}
   backgroundMusic: {fileID: 8300000, guid: b3b8b9ae81b68954db81ba3a77a92db1, type: 3}
   gameOverMusic: {fileID: 8300000, guid: 729e6e34c3829fe4bbb58d6f34204d40, type: 3}
   levelCompleteMusic: {fileID: 8300000, guid: a7228a051ec33c943b3a5d35dd010ede, type: 3}
   timeRunningOutMusic: {fileID: 8300000, guid: 0511effff59688746bbe7e188f5777d1, type: 3}
   marioDeathMusic: {fileID: 8300000, guid: 7d09b7f4d820b42419744fc3aca70a2d, type: 3}
+  pauseSound: {fileID: 8300000, guid: fef1c41b974224818a01f37e381544c4, type: 3}
   maxCoinsToGetLife: 100
   initLives: 3
   delayBeforeTransition: 3

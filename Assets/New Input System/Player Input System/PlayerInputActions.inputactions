@@ -963,6 +963,54 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "GamePlay",
+            "id": "82bb9ad0-0868-48b6-89c9-21636c6c275a",
+            "actions": [
+                {
+                    "name": "Restart",
+                    "type": "Button",
+                    "id": "55f4ca4e-59da-4164-860c-78f2299a7638",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "5efa4203-4916-4115-9981-3afcb06d74b6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "f2480a64-dab9-4c04-bac2-c4ff64a4a840",
+                    "path": "<Keyboard>/R [with Control modifier]",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Restart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9c8fc819-aac0-48a4-a3df-6120c0024e12",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

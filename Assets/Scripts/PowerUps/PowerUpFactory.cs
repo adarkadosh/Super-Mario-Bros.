@@ -43,9 +43,11 @@ namespace PowerUps
                         false => superMashroomPool.Get()
                     };
                 case PowerUpType.FireFlower:
-                    return fireFlowerPool.Get();
+                    return !_marioIsBig ? superMashroomPool.Get() : fireFlowerPool.Get();
+                    // return fireFlowerPool.Get();
                 case PowerUpType.IceFlower:
-                    return iceFlowerPool.Get();
+                    return !_marioIsBig ? superMashroomPool.Get() : iceFlowerPool.Get();
+                    // return iceFlowerPool.Get();
                 default:
                     return null;
             }

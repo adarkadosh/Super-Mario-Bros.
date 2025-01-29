@@ -31,7 +31,7 @@ namespace Mario
         [SerializeField] private float groundCheckDistance = 0.1f;
         [SerializeField] private LayerMask groundLayer;
 
-        private Camera _mainCamera;
+        [SerializeField] private Camera _mainCamera;
         private Rigidbody2D _rigidbody;
         private Collider2D _capsuleCollider;
         private PlayerInputActions _playerInputActions;
@@ -39,19 +39,17 @@ namespace Mario
         private Vector2 _velocity;
         private float _inputActionsAxis;
         private bool _isJumping;
-        private bool _grounded;
         private bool _jumping;
         private bool _inputEnabled = true;
         private bool _isMovingToTarget;
         private bool _isMarioBig;
         private Vector3 _targetPosition;
 
+        public bool Grounded { get; private set; }
         private bool Walking => Mathf.Abs(_velocity.x) > 0.1f || Mathf.Abs(_inputActionsAxis) > 0.1f;
         private bool Running => Mathf.Abs(_velocity.x) > 4f;
-
         private bool Sliding => (_inputActionsAxis > 0f && _velocity.x < 0f) ||
                                 (_inputActionsAxis < 0f && _velocity.x > 0f);
-
         private float JumpForce => (2f * maxJumpHeight) / (maxJumpTime / 2f);
         private float Gravity => (-2f * maxJumpHeight) / Mathf.Pow(maxJumpTime / 2f, 2f);
 
@@ -70,7 +68,7 @@ namespace Mario
 
         private void Awake()
         {
-            _mainCamera = Camera.main;
+            // _mainCamera = Camera.main;
             _rigidbody = GetComponent<Rigidbody2D>();
             _capsuleCollider = GetComponent<Collider2D>();
         }
@@ -98,6 +96,7 @@ namespace Mario
             _playerInputActions.Player.Jump.canceled += OnJumpStop;
             MarioEvents.OnMarioStateChange += OnMarioStateChange;
         }
+
         private void OnDisable()
         {
             _rigidbody.bodyType = RigidbodyType2D.Kinematic;
@@ -114,11 +113,19 @@ namespace Mario
 
         private void Update()
         {
-            if (!_inputEnabled && !_isMovingToTarget)
+            if (_isMovingToTarget)
                 return;
 
-            _grounded = IsGrounded();
-            if (_grounded)
+            if (!_inputEnabled)
+            {
+                _velocity.x = Mathf.MoveTowards(_velocity.x, 0f, deceleration * Time.deltaTime);
+                _animator.SetBool(WalkingAnimation, false);
+                return;
+            }
+
+
+            Grounded = IsGrounded();
+            if (Grounded)
             {
                 HandleGroundDetection();
             }
@@ -134,7 +141,7 @@ namespace Mario
         private void FixedUpdate()
         {
             MoveMario();
-            _rigidbody.gravityScale = _grounded ? 0f : gravityScaleOnAir;
+            _rigidbody.gravityScale = Grounded ? 0f : gravityScaleOnAir;
             if (_isMovingToTarget)
             {
                 HandleAutonomousMovement();
@@ -148,7 +155,7 @@ namespace Mario
 
             var input = _playerInputActions.Player.Move.ReadValue<Vector2>().x;
             _inputActionsAxis = input;
-        
+
             _velocity.x = Mathf.Abs(input) > 0.01f
                 // Accelerate towards target speed
                 ? Mathf.MoveTowards(_velocity.x, input * moveSpeed, acceleration * Time.deltaTime)
@@ -157,7 +164,7 @@ namespace Mario
                 Mathf.MoveTowards(_velocity.x, 0f, deceleration * Time.deltaTime);
 
             // Prevent sliding
-            if (_grounded && Mathf.Abs(_velocity.x) < 0.01f)
+            if (Grounded && Mathf.Abs(_velocity.x) < 0.01f)
             {
                 _velocity.x = 0f;
             }
@@ -189,9 +196,11 @@ namespace Mario
 
             // Debug visualization
             var rayColor = hit.collider != null ? Color.green : Color.red;
-            Debug.DrawRay(origin + new Vector2(-groundCheckSize.x / 2, 0), Vector2.down * (groundCheckDistance),
+            Debug.DrawRay(origin + new Vector2(-groundCheckSize.x / 2, 0),
+                Vector2.down * (groundCheckDistance),
                 rayColor);
-            Debug.DrawRay(origin + new Vector2(groundCheckSize.x / 2, 0), Vector2.down * (groundCheckDistance),
+            Debug.DrawRay(origin + new Vector2(groundCheckSize.x / 2, 0),
+                Vector2.down * (groundCheckDistance),
                 rayColor);
             Debug.DrawRay(origin + new Vector2(-groundCheckSize.x / 2, -groundCheckDistance),
                 Vector2.right * groundCheckSize.x, rayColor);
@@ -204,7 +213,7 @@ namespace Mario
         {
             // Grounded = IsGrounded();
 
-            if (!_grounded) return;
+            if (!Grounded) return;
             // prevent mario from falling of the edge
             _animator.SetBool(IsJumping, false);
 
@@ -215,9 +224,9 @@ namespace Mario
 
         private void OnJump(InputAction.CallbackContext context)
         {
-            if (!_grounded) return;
+            if (!Grounded) return;
             var jumpSound = _isMarioBig ? bigJumpSound : smallJumpSound;
-            SoundFXManager.Instance.PlaySpatialSound(jumpSound, transform);
+            SoundFXManager.Instance.PlaySound(jumpSound, transform);
             _isJumping = true;
             _velocity.y = JumpForce;
             _animator.SetBool(IsJumping, true);
@@ -317,18 +326,35 @@ namespace Mario
             _animator.SetBool(IsJumping, _jumping);
         }
 
-        public void DisableInput()
+        public void DisableInputSystem()
         {
             _playerInputActions.Disable();
             // _inputEnabled = false;
         }
 
+        public void EnableInputSystem()
+        {
+            _playerInputActions.Enable();
+            // _inputEnabled = true;
+        }
+
+        public void DisableMovement()
+        {
+            _inputEnabled = false;
+        }
+
+        public void EnableMovement()
+        {
+            _inputEnabled = true;
+        }
+
         public void MoveToPosition(Vector3 target, float speed = 2f)
         {
             _targetPosition =
-                new Vector3(target.x, transform.position.y, transform.position.z); // Assuming horizontal movement
+                new Vector3(target.x, transform.position.y,
+                    transform.position.z); // Assuming horizontal movement
             _isMovingToTarget = true;
-            DisableInput(); // Ensure player input is disabled during autonomous movement
+            DisableInputSystem(); // Ensure player input is disabled during autonomous movement
         }
 
         private void HandleAutonomousMovement()
@@ -356,7 +382,7 @@ namespace Mario
             }
 
             // Prevent sliding
-            if (_grounded && Mathf.Abs(_velocity.x) < 0.1f)
+            if (Grounded && Mathf.Abs(_velocity.x) < 0.1f)
             {
                 _velocity.x = 0f;
             }
@@ -370,7 +396,7 @@ namespace Mario
                 _isMovingToTarget = false;
             }
         }
-    
+
         private void OnMarioStateChange(MarioState marioState)
         {
             if (marioState == MarioState.Star)

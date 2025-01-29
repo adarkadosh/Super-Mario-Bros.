@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using Managers;
 
 [RequireComponent(typeof(Collider2D))]
 public class DeathAnimation : MonoBehaviour

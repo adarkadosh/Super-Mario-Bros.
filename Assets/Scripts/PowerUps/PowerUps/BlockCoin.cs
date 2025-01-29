@@ -1,5 +1,6 @@
 // BlockCoin.cs
 using System.Collections;
+using Managers;
 using UnityEngine;
 
 namespace PowerUps.PowerUps

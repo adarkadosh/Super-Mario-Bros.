@@ -22,18 +22,18 @@ public class SoundFXManager : MonoSuperSingleton<SoundFXManager>
         _musicSource.volume = backgroundMusicVolume;
     }
 
-    private void Initialize()
-    {
-        // Initialize the music AudioSource
-        _musicSource = gameObject.AddComponent<AudioSource>();
-        _musicSource.clip = backgroundMusic;
-        _musicSource.loop = true;
-        _musicSource.spatialBlend = 0f; // Non-spatial
-        _musicSource.volume = backgroundMusicVolume;
-        _musicSource.Play();
-    }
+    // private void Initialize()
+    // {
+    //     // Initialize the music AudioSource
+    //     _musicSource = gameObject.AddComponent<AudioSource>();
+    //     _musicSource.clip = backgroundMusic;
+    //     _musicSource.loop = true;
+    //     _musicSource.spatialBlend = 0f; // Non-spatial
+    //     _musicSource.volume = backgroundMusicVolume;
+    //     _musicSource.Play();
+    // }
 
-    public void PlaySpatialSound(AudioClip clip, Transform spawnTransform, float volume = 1.0f)
+    public void PlaySound(AudioClip clip, Transform spawnTransform, float volume = 1.0f)
     {
         var pooledAudio = AudioPool.Instance.Get();
         pooledAudio.transform.position = spawnTransform.position;
@@ -58,7 +58,12 @@ public class SoundFXManager : MonoSuperSingleton<SoundFXManager>
     
     public void StopBackgroundMusic()
     {
-        _musicSource.Stop();
+        _musicSource.Pause();
+    }
+
+    public void PlayBackgroundMusic()
+    {
+        _musicSource.Play();
     }
 
     private IEnumerator ReturnToPoolAfterPlaying(PoolableAudio source, float delay)

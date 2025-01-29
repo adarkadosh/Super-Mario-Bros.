@@ -1,3 +1,4 @@
+using Managers;
 using PowerUps;
 using UnityEngine;
 
@@ -17,7 +18,7 @@ namespace Mario.MarioStates
         public override void GotHit(MarioStateMachine context)
         {
             // Revert to Big Mario
-            SoundFXManager.Instance.PlaySpatialSound(context.PowerDownClip, context.transform);
+            SoundFXManager.Instance.PlaySound(context.PowerDownClip, context.transform);
             context.FlashTransparency?.StartFlashing();
             context.Animator.SetTrigger(HitHash);
             context.Invoke(nameof(context.StopFlashing), context.UntouchableDurationValue);

@@ -1,5 +1,6 @@
 using System.Collections;
 using DG.Tweening;
+using Managers;
 using Mario;
 using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
@@ -47,7 +48,7 @@ namespace Flag_Pole
             // 1. Stop Player Input
             if (marioController != null)
             {
-                marioController.DisableInput();
+                marioController.DisableInputSystem();
             }
 
             // 2. Get Mario's Rigidbody and Animator

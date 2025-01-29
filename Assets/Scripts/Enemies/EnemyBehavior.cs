@@ -1,11 +1,11 @@
 ﻿using System.Collections;
+using Managers;
 using UnityEngine;
 
 namespace Enemies
 {
     public abstract class EnemyBehavior : MonoBehaviour
     {
-    
         [SerializeField] public ScoresSet enemyScore = ScoresSet.OneHundred;
         [SerializeField] public ScoresSet enemyHitScore = ScoresSet.FiveHundred;
         protected Animator Animator;
@@ -24,7 +24,8 @@ namespace Enemies
 
         private void OnCollisionEnter2D(Collision2D other)
         {
-            if (other.gameObject.CompareTag("Player") && !gameObject.CompareTag($"ShellKoopa"))
+            if (other.gameObject.CompareTag("Player") && !gameObject.CompareTag($"ShellKoopa") &&
+                gameObject.layer == LayerMask.NameToLayer("Enemy"))
             {
                 Vector2 direction = transform.position - other.transform.position;
                 if (Vector2.Dot(direction.normalized, Vector2.down) < 0.35f)
@@ -59,10 +60,11 @@ namespace Enemies
             // Execute the Kill method
             Kill();
         }
-    
+
         protected abstract void DeathSequenceAnimation();
 
         public abstract void GotHit();
+
         public void Kill()
         {
             // Return the enemy to the factory

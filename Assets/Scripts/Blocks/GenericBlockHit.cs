@@ -1,9 +1,9 @@
 using System.Collections;
+using Managers;
 using Mario;
 using PowerUps;
 using UnityEngine;
 
-// TODO: Check if collision is good (sometimes its weird)
 namespace Blocks
 {
     public sealed class GenericBlockHit : MonoBehaviour
@@ -49,9 +49,6 @@ namespace Blocks
 
             if (other.gameObject.CompareTag("Player"))
             {
-                // Vector2 direction = transform.position - other.transform.position;
-                // if (Vector2.Dot(direction.normalized, Vector2.up) > 0.35f)
-                // if (other.collider.GetComponent<Collider2D>() && other.contacts[0].normal.y > 0)
                 Vector2 direction = transform.position - other.transform.position;
                 if (Vector2.Dot(direction.normalized, Vector2.up) > 0.45f)
                 {
@@ -64,40 +61,7 @@ namespace Blocks
                 }
             }
         }
-
-        // private void Hit()
-        // {
-        //     _isAnyBlockHit = true;
-        //     _isHit = true;
-        //     GetComponent<SpriteRenderer>().enabled = true;
-        //     if (maxHitsToBlock < 0)
-        //     {
-        //         GameObject a = Instantiate(brokenBlock, transform.position, Quaternion.Euler(0, 0, 45));
-        //         gameObject.SetActive(false);
-        //         _isAnyBlockHit = false;
-        //         // Destroy(gameObject);
-        //         return;
-        //     }
-        //     if (maxHitsToBlock > 0)
-        //     {
-        //         BlockCoin();
-        //     }
-        //
-        //     maxHitsToBlock--;
-        //     if (maxHitsToBlock == 0)
-        //     {
-        //         if (_animator == null && emptyBlockSprite != null)
-        //         {
-        //             _spriteRenderer.sprite = emptyBlockSprite;
-        //         }
-        //         else
-        //         {
-        //             _animator.SetBool(GotHit, true);
-        //         }
-        //     }
-        //
-        //     StartCoroutine(AnimatedBlockGotHitCoroutine());
-        // }
+        
         private void Hit()
         {
             _isAnyBlockHit = true;
@@ -106,12 +70,12 @@ namespace Blocks
 
             if (_isMarioBig && maxHitsToBlock < 0)
             {
-                SoundFXManager.Instance.PlaySpatialSound(blockBreakSound, transform);
+                SoundFXManager.Instance.PlaySound(blockBreakSound, transform);
                 DestroyBlock();
                 return;
             }
 
-            SoundFXManager.Instance.PlaySpatialSound(blockHitSound, transform);
+            SoundFXManager.Instance.PlaySound(blockHitSound, transform);
             ProcessHit();
             StartCoroutine(AnimatedBlockGotHitCoroutine());
         }
@@ -152,7 +116,7 @@ namespace Blocks
             // Default behavior: No special effect
             if (_powerUpFactory != null && powerUpType != PowerUpType.Nothing)
             {
-                SoundFXManager.Instance.PlaySpatialSound(blockPowerUpSound, transform);
+                SoundFXManager.Instance.PlaySound(blockPowerUpSound, transform);
                 var powerUp = _powerUpFactory.Spawn(powerUpType);
                 powerUp.transform.position = transform.position;
                 powerUp.Trigger();
@@ -165,7 +129,7 @@ namespace Blocks
         {
             if (!isBlockCoin) return;
             // Spawn a coin
-            SoundFXManager.Instance.PlaySpatialSound(blockCoinSound, transform);
+            SoundFXManager.Instance.PlaySound(blockCoinSound, transform);
             var coin = _powerUpFactory.GetBlockCoin(transform.position + Vector3.up);
             coin.Trigger();
             Extensions.Log("Coin spawned from block hit.");

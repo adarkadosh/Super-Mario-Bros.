@@ -1,4 +1,5 @@
 ﻿using Enemies;
+using Managers;
 using UnityEngine;
 
 namespace Mario.Attackball.Attackballs
@@ -11,7 +12,7 @@ namespace Mario.Attackball.Attackballs
             if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
             {
                 // Apply damage to the enemy
-                EnemyBehavior enemy = collision.GetComponent<EnemyBehavior>();
+                // EnemyBehavior enemy = collision.GetComponent<EnemyBehavior>();
                 FreezeMachine freezeMachine = collision.GetComponent<FreezeMachine>();
                 GameEvents.OnEventTriggered?.Invoke(ScoresSet.OneHundred, transform.position);
                 if (freezeMachine != null)
