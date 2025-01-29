@@ -19,9 +19,9 @@ namespace Managers
         [SerializeField] private AudioClip pauseSound;
 
         [Header("Game Settings")] 
-        [SerializeField] private int maxCoinsToGetLife = 100;
-        [SerializeField] private int initLives = 3;
-        [SerializeField] private float delayBeforeTransition = 3f;
+        // [SerializeField] private int maxCoinsToGetLife = 100;
+        // [SerializeField] private int initLives = 3;
+        // [SerializeField] private float delayBeforeTransition = 3f;
         [SerializeField] private float timer = 0.5f;  // Tracks time in seconds
         [SerializeField] private int initTimeForRound = 400; 
         private int _initTime;

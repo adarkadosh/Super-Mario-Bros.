@@ -27,7 +27,7 @@ namespace Mario
         private static readonly int Fire = Animator.StringToHash("Fire");
     
         [SerializeField] private MarioState initialMarioState = MarioState.Small;
-        [SerializeField] private ScoresSet scoreForPowerUp = ScoresSet.OneThousand;
+        // [SerializeField] private ScoresSet scoreForPowerUp = ScoresSet.OneThousand;
 
         [SerializeField] private FireballPool fireballPool;
         [SerializeField] private IceballPool iceballPool;
@@ -87,7 +87,7 @@ namespace Mario
         private void Start()
         {
             // Start in SmallMarioState (using the factory).
-            ChangeState(MarioState.Small);
+            ChangeState(initialMarioState);
         }
 
         private void OnEnable()

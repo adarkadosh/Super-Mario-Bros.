@@ -5,7 +5,7 @@ namespace Enemies.Goomba
     public class GoombaBehavior : EnemyBehavior, IPoolable
     {
         private static readonly int Squished = Animator.StringToHash("IsSquished");
-        [SerializeField] private ScoresSet goombaScore = ScoresSet.OneHundred;
+        // [SerializeField] private ScoresSet goombaScore = ScoresSet.OneHundred;
 
         public override void GotHit()
         {

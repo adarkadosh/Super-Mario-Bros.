@@ -23,7 +23,7 @@ public class EntityMovement : MonoBehaviour
 
     [Header("Detection Settings")]
     [SerializeField] private float obstacleDetectionDistance = 0.55f;
-    [SerializeField] private float groundDetectionDistance = 0.55f;
+    // [SerializeField] private float groundDetectionDistance = 0.55f;
 
 
     private Rigidbody2D _rigidbody2D;

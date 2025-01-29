@@ -22,8 +22,8 @@ namespace Mario
         [SerializeField] private float onAirMultiplier = 1f;
         [SerializeField] private float acceleration = 17f; // Acceleration rate
         [SerializeField] private float deceleration = 25f; // Deceleration rate
-        [SerializeField] private float jumpBufferTime = 0.1f; // Buffer time for jump input
-        [SerializeField] private float jumpCoyoteTime = 0.1f; // Coyote time for jump input
+        // [SerializeField] private float jumpBufferTime = 0.1f; // Buffer time for jump input
+        // [SerializeField] private float jumpCoyoteTime = 0.1f; // Coyote time for jump input
         [SerializeField] private float gravityScaleOnAir = 5f; // Gravity scale when on air
 
         [Header("Ground Detection Settings")] 
