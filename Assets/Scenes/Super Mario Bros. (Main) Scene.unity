@@ -14694,13 +14694,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5336753646254252200, guid: 95a4ed136b7e6420ebfe4988992e6dcf, type: 3}
+      propertyPath: m_SortingLayer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5336753646254252200, guid: 95a4ed136b7e6420ebfe4988992e6dcf, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5336753646254252200, guid: 95a4ed136b7e6420ebfe4988992e6dcf, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1193009407
+      objectReference: {fileID: 0}
     - target: {fileID: 5468873510267990510, guid: 95a4ed136b7e6420ebfe4988992e6dcf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17.498493
+      value: 10.891423
       objectReference: {fileID: 0}
     - target: {fileID: 5468873510267990510, guid: 95a4ed136b7e6420ebfe4988992e6dcf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.4977646
+      value: 7.837503
       objectReference: {fileID: 0}
     - target: {fileID: 5468873510267990510, guid: 95a4ed136b7e6420ebfe4988992e6dcf, type: 3}
       propertyPath: m_LocalPosition.z
@@ -15692,9 +15704,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.08695652
+    x: 0.04121864
     y: 0.19748427
-    width: 0.82447666
+    width: 0.9175627
     height: 0.6037736
   near clip plane: 0.3
   far clip plane: 1000
