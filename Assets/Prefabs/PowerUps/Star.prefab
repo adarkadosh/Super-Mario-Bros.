@@ -16,7 +16,8 @@ GameObject:
   - component: {fileID: 6926273023100696311}
   - component: {fileID: 5734715214523308750}
   - component: {fileID: 8038984035255870789}
-  m_Layer: 10
+  - component: {fileID: 6013838944943967663}
+  m_Layer: 18
   m_Name: Star
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,9 +80,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1283042283
-  m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingLayerID: -1683029025
+  m_SortingLayer: 7
+  m_SortingOrder: 3
   m_Sprite: {fileID: -236527033, guid: f7fe5554a8587d54e977b251ff22e08b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -108,7 +109,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0
-  m_GravityScale: 6
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -246,3 +247,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 640fc07b38084ce6b56a601789f7ec99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  freezeEffect: {fileID: 0}
+  frozenLayerName: Frozen
+--- !u!114 &6013838944943967663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8626929918991628849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 831f322ddad24122a368a3bbbaf5911e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyDistance: 15

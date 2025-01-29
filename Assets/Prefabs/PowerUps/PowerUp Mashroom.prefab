@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 2807554852219353331}
   - component: {fileID: -2421212697615374790}
   - component: {fileID: 8031821316513072514}
+  - component: {fileID: -3323337146667539259}
   m_Layer: 10
   m_Name: PowerUp Mashroom
   m_TagString: Untagged
@@ -247,7 +248,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 640fc07b38084ce6b56a601789f7ec99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  freezeEffect: {fileID: 0}
+  frozenLayerName: Frozen
 --- !u!114 &8031821316513072514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179967459183939017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 831f322ddad24122a368a3bbbaf5911e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyDistance: 15
+--- !u!114 &-3323337146667539259
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

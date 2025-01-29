@@ -17,6 +17,7 @@ public class BigMarioState : MarioBaseState
     public override void GotHit(MarioStateMachine context)
     {
         // Become small
+        SoundFXManager.Instance.PlaySpatialSound(context.PowerDownClip, context.transform);
         context.FlashTransparency?.StartFlashing();
         context.Animator.SetTrigger(GetSmallerHash);
         context.Invoke(nameof(context.StopFlashing), context.UntouchableDurationValue);

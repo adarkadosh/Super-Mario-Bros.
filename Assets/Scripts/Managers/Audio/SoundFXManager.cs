@@ -44,7 +44,6 @@ public class SoundFXManager : MonoSuperSingleton<SoundFXManager>
     public void ChangeBackgroundMusic(AudioClip newClip)
     {
         _musicSource.clip = newClip;
-        // _musicSource.Play();
         _musicSource.loop = false;
         _musicSource.spatialBlend = 0f; // Non-spatial
         _musicSource.volume = backgroundMusicVolume;

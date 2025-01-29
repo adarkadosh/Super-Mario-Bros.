@@ -30,7 +30,7 @@ public class PoolableAudio : MonoBehaviour, IPoolable
     {
         _audioSource.clip = clip;
         _audioSource.volume = volume;
-        _audioSource.spatialBlend = 1f; // Fully spatial
+        _audioSource.spatialBlend = 0f; // Fully spatial
         _audioSource.Play();
     }
 }

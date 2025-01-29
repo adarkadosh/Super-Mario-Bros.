@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 9090526328799350982}
   - component: {fileID: 1680364592385052456}
   - component: {fileID: 4133398173191235960}
+  - component: {fileID: 8556255001501205987}
   m_Layer: 10
   m_Name: IceFlower
   m_TagString: FireFlower
@@ -184,3 +185,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0d1f1433f5645f988a229497582635e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8556255001501205987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6793058748757103753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 831f322ddad24122a368a3bbbaf5911e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyDistance: 15

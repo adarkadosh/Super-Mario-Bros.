@@ -14,6 +14,7 @@ public class FireMarioState : MarioBaseState
     public override void GotHit(MarioStateMachine context)
     {
         // Revert to Big Mario
+        SoundFXManager.Instance.PlaySpatialSound(context.PowerDownClip, context.transform);
         context.FlashTransparency?.StartFlashing();
         context.Animator.SetTrigger(HitHash);
         context.Invoke(nameof(context.StopFlashing), context.UntouchableDurationValue);

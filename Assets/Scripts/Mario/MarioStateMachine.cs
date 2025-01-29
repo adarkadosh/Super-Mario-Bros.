@@ -35,8 +35,8 @@ public class MarioStateMachine : MonoBehaviour
     [SerializeField] private AudioClip hitAudioClip;
     [SerializeField] private AudioClip dieAudioClip;
     [SerializeField] private AudioClip onGotBigAudioClip;
+    [SerializeField] private AudioClip onGotSmallAudioClip;
     [SerializeField] private AudioClip attackSound;
-    
 
     [Header("References")] [SerializeField]
     private PaletteSwapper paletteSwapper;
@@ -60,6 +60,7 @@ public class MarioStateMachine : MonoBehaviour
     public float StarDuration => starDuration;
     public float StarDurationDelay => starDurationDelay;
     public float UntouchableDurationValue => untouchableDuration;
+    public AudioClip PowerDownClip => onGotSmallAudioClip;
     public bool IsUntouchable { get; private set; }
 
     private const string MarioLayer = "Mario";

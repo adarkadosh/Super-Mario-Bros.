@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 1191911500924049759}
   - component: {fileID: -7804101432102481866}
   - component: {fileID: -5895181095319772580}
+  - component: {fileID: 2787962167780901732}
   m_Layer: 10
   m_Name: OneUpMashroom
   m_TagString: OneUp
@@ -247,7 +248,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 640fc07b38084ce6b56a601789f7ec99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  freezeEffect: {fileID: 0}
+  frozenLayerName: Frozen
 --- !u!114 &-5895181095319772580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4079561149398039008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 831f322ddad24122a368a3bbbaf5911e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyDistance: 15
+--- !u!114 &2787962167780901732
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
